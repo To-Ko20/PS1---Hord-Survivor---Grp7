@@ -1,17 +1,41 @@
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ClickerManager : MonoBehaviour
 {
-    [SerializeField] private float money = 0f;
+    [SerializeField] private float money;
     [SerializeField] private float clickPrice = 1f;
     
     [SerializeField] GameObject autoClicker;
     [SerializeField] List<GameObject> autoClickers;
+    
+    [SerializeField] private TMP_Text moneyText;
+
+    public static ClickerManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void Click()
     {
         money += clickPrice;
+        MoneyDisplayUpdate();
+    }
+
+    void MoneyDisplayUpdate()
+    {
+        moneyText.text = money + " $";
     }
 
     public void BuyAutoClicker()
@@ -22,9 +46,9 @@ public class ClickerManager : MonoBehaviour
 
     public void BuyClickerSpeed()
     {
-        foreach (GameObject autoClicker in autoClickers)
+        foreach (GameObject clicker in autoClickers)
         {
-            autoClicker.GetComponent<AutoClickerManager>().DecrementSpeed();
+            clicker.GetComponent<AutoClickerManager>().DecrementSpeed();
         }
     }
 

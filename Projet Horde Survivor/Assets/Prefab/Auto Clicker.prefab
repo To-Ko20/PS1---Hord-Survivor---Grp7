@@ -45,4 +45,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  clickerManager: {fileID: 2241740217438800157, guid: 19ef4f0d7acdb0941b2a58ed7cd0cbfe, type: 3}

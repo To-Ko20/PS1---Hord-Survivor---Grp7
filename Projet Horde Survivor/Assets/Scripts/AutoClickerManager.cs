@@ -1,29 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AutoClickerManager : MonoBehaviour
 {
-    public float speed = 2f;
-    private float timer = 0f;
-    
-    [SerializeField] ClickerManager clickerManager;
+    [SerializeField] private float speed = 2f;
+    private float _timer;
 
-    void Update()
+    void FixedUpdate()
     {
         Timer();
     }
 
     private void Timer()
     {
-        if (timer <= speed)
+        if (_timer <= speed)
         {
-            timer += Time.fixedDeltaTime; 
+            _timer += Time.fixedDeltaTime;
         }
         else
         {
-            timer = 0f;
-            clickerManager.Click();
+            _timer = 0f;
+            ClickerManager.instance.Click();
         }
     }
 
