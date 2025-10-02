@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class ClickerManager : MonoBehaviour
 {
-    [SerializeField] private float money;
-    [SerializeField] private float clickPrice = 1f;
+    [SerializeField] private int clicks;
+    [SerializeField] private int bits;
+    [SerializeField] private int clickPrice = 1;
     
     [SerializeField] GameObject autoClicker;
     [SerializeField] List<GameObject> autoClickers;
     
-    [SerializeField] private TMP_Text moneyText;
+    [SerializeField] private TMP_Text bitsText;
+    [SerializeField] private TMP_Text clicksText;
 
     public static ClickerManager instance;
 
@@ -29,13 +31,23 @@ public class ClickerManager : MonoBehaviour
 
     public void Click()
     {
-        money += clickPrice;
-        MoneyDisplayUpdate();
+        if (clicks > 0)
+        {
+            bits += clickPrice;
+            clicks--;
+            BitsDisplayUpdate();
+            ClicksDisplayUpdate();
+        }
     }
 
-    void MoneyDisplayUpdate()
+    void BitsDisplayUpdate()
     {
-        moneyText.text = money + " $";
+        bitsText.text = bits + " bits";
+    }
+    
+    void ClicksDisplayUpdate()
+    {
+        clicksText.text = clicks + " clicks";
     }
 
     public void BuyAutoClicker()
@@ -54,6 +66,6 @@ public class ClickerManager : MonoBehaviour
 
     public void BuyClickerPrice()
     {
-        clickPrice += 0.5f;
+        clickPrice *= 2;
     }
 }
