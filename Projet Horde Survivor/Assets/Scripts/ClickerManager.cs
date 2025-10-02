@@ -56,38 +56,23 @@ public class ClickerManager : MonoBehaviour
         {
             bits += clickPrice;
             clicks--;
-            ConvertBites();
+            ConvertBits();
             BitsDisplayUpdate();
             ClicksDisplayUpdate();
         }
     }
 
-    private void ConvertBites()
+    private void ConvertBits()
     {
-        if (bits < 8)
+        bitsMetricIndex = bits switch
         {
-            bitsMetricIndex = 0;
-        }
-        else if (bits < 1000)
-        {
-            bitsMetricIndex = 1;
-        }
-        else if (bits < 1000000)
-        {
-            bitsMetricIndex = 2;
-        }
-        else if (bits < 1000000000)
-        {
-            bitsMetricIndex = 3;
-        }
-        else if (bits < 1000000000000)
-        {
-            bitsMetricIndex = 4;
-        }
-        else
-        {
-            bitsMetricIndex = 5;
-        }
+            < 8 => 0,
+            < 1000 => 1,
+            < 1000000 => 2,
+            < 1000000000 => 3,
+            < 1000000000000 => 4,
+            _ => 5
+        };
     }
 
     void BitsDisplayUpdate()
