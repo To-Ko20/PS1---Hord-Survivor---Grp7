@@ -1,16 +1,17 @@
-using System;
 using System.Collections.Generic;
-using System.Numerics;
 using TMPro;
 using UnityEngine;
 
 public class ClickerManager : MonoBehaviour
 {
-    [SerializeField] private int clicks;
-    [SerializeField] private long bits;
-    [SerializeField] private long clickPrice = 1;
+    public long bits;
+    public long clickPrice = 1;
     
-    private string[]bitsMetric = new string[6]
+    [SerializeField] private int clicks;
+    [SerializeField] private TMP_Text bitsText;
+    [SerializeField] private TMP_Text clicksText;
+    
+    [SerializeField] private string[]bitsMetric = new string[6]
     {
         "bits",
         "octet",
@@ -19,7 +20,7 @@ public class ClickerManager : MonoBehaviour
         "Go",
         "To"
     };
-    private BigInteger[]bitsMetricExposant = new BigInteger[6]
+    [SerializeField] private long[]bitsMetricExponent = new long[6]
     {
         1,
         8,
@@ -28,22 +29,15 @@ public class ClickerManager : MonoBehaviour
         1_000_000_000,
         1_000_000_000_000
     };
-    private int bitsMetricIndex = 0;
-    
-    
-    [SerializeField] GameObject autoClicker;
-    [SerializeField] List<GameObject> autoClickers;
-    
-    [SerializeField] private TMP_Text bitsText;
-    [SerializeField] private TMP_Text clicksText;
+    private int _bitsMetricIndex;
 
-    public static ClickerManager instance;
+    public static ClickerManager Instance;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
@@ -57,54 +51,40 @@ public class ClickerManager : MonoBehaviour
         {
             bits += clickPrice;
             clicks--;
-            ConvertBits();
-            BitsDisplayUpdate();
-            ClicksDisplayUpdate();
+            DisplayUpdate();
         }
+    }
+
+    public void DisplayUpdate()
+    {
+        ConvertBits();
+        BitsDisplayUpdate();
+        ClicksDisplayUpdate();
     }
 
     private void ConvertBits()
     {
         if (bits < 8)
-            bitsMetricIndex = 0;
+            _bitsMetricIndex = 0;
         else if (bits < 1000)
-            bitsMetricIndex = 1;
+            _bitsMetricIndex = 1;
         else if (bits < 1_000_000)
-            bitsMetricIndex = 2;
+            _bitsMetricIndex = 2;
         else if (bits < 1_000_000_000)
-            bitsMetricIndex = 3;
+            _bitsMetricIndex = 3;
         else if (bits < 1_000_000_000_000)
-            bitsMetricIndex = 4;
+            _bitsMetricIndex = 4;
         else
-            bitsMetricIndex = 5;
+            _bitsMetricIndex = 5;
     }
 
     void BitsDisplayUpdate()
     {
-        bitsText.text = bits / bitsMetricExposant[bitsMetricIndex] + " " + bitsMetric[bitsMetricIndex];
+        bitsText.text = bits / bitsMetricExponent[_bitsMetricIndex] + " " + bitsMetric[_bitsMetricIndex];
     }
     
     void ClicksDisplayUpdate()
     {
         clicksText.text = clicks + " clicks";
-    }
-
-    public void BuyAutoClicker()
-    {
-        GameObject newAutoClicker = Instantiate(autoClicker);
-        autoClickers.Add(newAutoClicker);
-    }
-
-    public void BuyClickerSpeed()
-    {
-        foreach (GameObject clicker in autoClickers)
-        {
-            clicker.GetComponent<AutoClickerManager>().DecrementSpeed();
-        }
-    }
-
-    public void BuyClickerPrice()
-    {
-        clickPrice *= 2;
     }
 }

@@ -202,14 +202,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3550514224792538971}
-        m_TargetAssemblyTypeName: ClickerManager, Assembly-CSharp
-        m_MethodName: BuyClickerPrice
-        m_Mode: 1
+      - m_Target: {fileID: 1137942855}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: Buy
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -472,10 +472,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3550514224792538971}
-        m_TargetAssemblyTypeName: ClickerManager, Assembly-CSharp
-        m_MethodName: BuyAutoClicker
-        m_Mode: 1
+      - m_Target: {fileID: 1137942855}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: Buy
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1306,14 +1306,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3550514224792538971}
-        m_TargetAssemblyTypeName: ClickerManager, Assembly-CSharp
-        m_MethodName: BuyClickerSpeed
-        m_Mode: 1
+      - m_Target: {fileID: 1137942855}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: Buy
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1636,6 +1636,7 @@ GameObject:
   - component: {fileID: 1137942851}
   - component: {fileID: 1137942854}
   - component: {fileID: 1137942853}
+  - component: {fileID: 1137942855}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -1704,6 +1705,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137942850}
   m_CullTransparentMesh: 1
+--- !u!114 &1137942855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137942850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc37ad9a9b39e842982b2e8f0964166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoClicker: {fileID: 3206479786559225858, guid: 5dbdad217bcd82d40b6c6f1a7adbe5f4, type: 3}
+  autoClickers: []
+  price: 10
+  autoClickerLevel: 0
 --- !u!1 &1478068886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2533,13 +2550,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502db467fa631254585b772fce17f99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicks: 10
   bits: 0
   clickPrice: 1
-  autoClicker: {fileID: 3206479786559225858, guid: 5dbdad217bcd82d40b6c6f1a7adbe5f4, type: 3}
-  autoClickers: []
+  clicks: 1000000
   bitsText: {fileID: 1623136692}
   clicksText: {fileID: 1710238516}
+  bitsMetric:
+  - bits
+  - octet
+  - ko
+  - Mo
+  - Go
+  - To
+  bitsMetricExponent: 01000000000000000800000000000000e80300000000000040420f000000000000ca9a3b000000000010a5d4e8000000
 --- !u!1 &4216307805913371556
 GameObject:
   m_ObjectHideFlags: 0

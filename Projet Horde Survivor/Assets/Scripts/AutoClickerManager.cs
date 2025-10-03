@@ -22,12 +22,12 @@ public class AutoClickerManager : MonoBehaviour
         else
         {
             _timer = 0f;
-            ClickerManager.instance.Click();
+            ClickerManager.Instance.Click();
         }
     }
 
-    public void DecrementSpeed()
+    public void DecrementSpeed(int level)
     {
-        speed /= 2;
+        speed /= 2*level;
     }
 }
