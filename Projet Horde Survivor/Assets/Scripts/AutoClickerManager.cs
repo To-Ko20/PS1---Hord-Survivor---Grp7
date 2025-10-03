@@ -28,6 +28,6 @@ public class AutoClickerManager : MonoBehaviour
 
     public void DecrementSpeed()
     {
-        speed -= 0.5f;
+        speed /= 2;
     }
 }

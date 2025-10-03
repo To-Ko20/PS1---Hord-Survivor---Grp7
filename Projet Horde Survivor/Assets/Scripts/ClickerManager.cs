@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Numerics;
 using TMPro;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ public class ClickerManager : MonoBehaviour
 {
     [SerializeField] private int clicks;
     [SerializeField] private long bits;
-    [SerializeField] private int clickPrice = 1;
+    [SerializeField] private long clickPrice = 1;
     
     private string[]bitsMetric = new string[6]
     {
@@ -18,14 +19,14 @@ public class ClickerManager : MonoBehaviour
         "Go",
         "To"
     };
-    private long[]bitsMetricModulo = new long[6]
+    private BigInteger[]bitsMetricExposant = new BigInteger[6]
     {
         1,
         8,
         1000,
-        1000000,
-        1000000000,
-        1000000000000
+        1_000_000,
+        1_000_000_000,
+        1_000_000_000_000
     };
     private int bitsMetricIndex = 0;
     
@@ -64,20 +65,23 @@ public class ClickerManager : MonoBehaviour
 
     private void ConvertBits()
     {
-        bitsMetricIndex = bits switch
-        {
-            < 8 => 0,
-            < 1000 => 1,
-            < 1000000 => 2,
-            < 1000000000 => 3,
-            < 1000000000000 => 4,
-            _ => 5
-        };
+        if (bits < 8)
+            bitsMetricIndex = 0;
+        else if (bits < 1000)
+            bitsMetricIndex = 1;
+        else if (bits < 1_000_000)
+            bitsMetricIndex = 2;
+        else if (bits < 1_000_000_000)
+            bitsMetricIndex = 3;
+        else if (bits < 1_000_000_000_000)
+            bitsMetricIndex = 4;
+        else
+            bitsMetricIndex = 5;
     }
 
     void BitsDisplayUpdate()
     {
-        bitsText.text = bits / bitsMetricModulo[bitsMetricIndex] + " " + bitsMetric[bitsMetricIndex];
+        bitsText.text = bits / bitsMetricExposant[bitsMetricIndex] + " " + bitsMetric[bitsMetricIndex];
     }
     
     void ClicksDisplayUpdate()
