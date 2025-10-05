@@ -8,11 +8,11 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform; //détecte le joueur
     }
     
     void Update()
     {
-        rb.linearVelocity = (target.position - transform.position).normalized * speed;
+        rb.linearVelocity = (target.position - transform.position).normalized * speed; //déplace l'ennemi vers le joueur
     }
 }
