@@ -5,6 +5,7 @@ public class CountdownManager : MonoBehaviour
 {
     [SerializeField] private int remainingMinutes; //in minutes
     [SerializeField] private float remainingSeconds;
+    [SerializeField] private int pressureTime; //in minutes
     [SerializeField] private TMP_Text timerText;
     
     void FixedUpdate()
@@ -19,14 +20,10 @@ public class CountdownManager : MonoBehaviour
         if (remainingSeconds <= 0)
         {
             remainingMinutes--;
-            remainingSeconds= 60;
+            remainingSeconds= 59.99f;
         }
         
-        if (remainingMinutes == 0)
-        {
-            DisplayCountdownInMilliseconds();
-        }
-        else if (remainingMinutes <= 0)
+        if (remainingMinutes < 0)
         {
             Debug.Log("Game Over");
         }
@@ -34,17 +31,10 @@ public class CountdownManager : MonoBehaviour
         {
             DisplayCountdownInSeconds();
         }
-        
-        
     }
 
     private void DisplayCountdownInSeconds()
     {
-        timerText.text = remainingMinutes.ToString("00") + ":" + remainingSeconds.ToString("00");
-    }
-    
-    private void DisplayCountdownInMilliseconds()
-    {
-        timerText.text = remainingSeconds.ToString("00") + ":" + remainingSeconds.ToString("#.00");
+        timerText.text = remainingMinutes.ToString("00") + ":" + remainingSeconds.ToString("00.00");
     }
 }
