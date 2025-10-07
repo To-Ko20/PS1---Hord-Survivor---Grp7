@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3436247505802739925}
   - component: {fileID: 6944853693561743594}
   - component: {fileID: 2474233789122409842}
-  - component: {fileID: 4898816503845842634}
   - component: {fileID: 2899417832952692280}
+  - component: {fileID: 2142788377714101733}
   m_Layer: 6
   m_Name: EnemyTest01
   m_TagString: Untagged
@@ -117,8 +117,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &4898816503845842634
-CircleCollider2D:
+--- !u!114 &2899417832952692280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6994324366664885536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea24478c829c11a438e64252098d308b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 2474233789122409842}
+  speed: 3
+  attackDamage: 1
+--- !u!68 &2142788377714101733
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -151,20 +166,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.21133333}
-  m_Radius: 0.5
---- !u!114 &2899417832952692280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6994324366664885536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea24478c829c11a438e64252098d308b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 2474233789122409842}
-  speed: 2.5
-  target: {fileID: 0}
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.000080228914, y: 0.5784876}
+  - {x: -0.49802387, y: -0.2881518}
+  - {x: 0.49991173, y: -0.2886204}
+  - {x: 0.008426707, y: 0.56433445}
+  - {x: 0.00003054642, y: 0.5785229}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
