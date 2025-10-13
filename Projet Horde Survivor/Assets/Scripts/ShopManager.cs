@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] private GameObject autoClicker;
     [SerializeField] private List<GameObject> autoClickers;
-    [SerializeField] private int price;
+    [SerializeField] private ulong price;
     [SerializeField] private int autoClickerLevel;
     
     public void Buy(int upgradeID)
