@@ -27,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
         if (collision.transform == target)
         {
             playerManager.TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
 }

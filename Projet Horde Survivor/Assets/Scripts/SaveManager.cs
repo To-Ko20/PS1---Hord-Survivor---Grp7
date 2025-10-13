@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using UnityEditor.Overlays;
 using UnityEngine;
 
 public class SaveManager : MonoBehaviour
