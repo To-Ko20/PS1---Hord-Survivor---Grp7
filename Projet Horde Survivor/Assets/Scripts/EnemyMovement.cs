@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.transform == target)
         {
             playerManager.TakeDamage(damage);
         }
