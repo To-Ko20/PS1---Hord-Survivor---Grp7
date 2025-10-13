@@ -1,34 +1,27 @@
+using System;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public static PlayerManager instance;
-    
-    [SerializeField] private float currentHealth;
-    [SerializeField] private float maxHealth = 100f;
+    public int currentHealth;
+    public int maxHealth = 10;
 
-    private void Awake()
-    {
-        instance = this;
-    }
-
-    void Start()
+    private void Start()
     {
         currentHealth = maxHealth;
     }
 
     void Update()
     {
-        Debug.Log(currentHealth);
+        Debug.Log("Current Health: " + currentHealth);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int amount)
     {
-        currentHealth -= damage;
-
+        currentHealth -= amount;
         if (currentHealth <= 0)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

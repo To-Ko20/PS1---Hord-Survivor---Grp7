@@ -7,6 +7,11 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float smoothTime = 0.25f;
     
     private Vector3 _velocity = Vector3.zero;
+
+    void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     
     void LateUpdate()
     {

@@ -3,15 +3,18 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public PlayerManager playerManager;
+    
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed = 1f;
-    [SerializeField] private float attackDamage = 1f;
+    [SerializeField] private int damage = 1;
     
     private Transform target;
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform; //détecte le joueur
+        playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
     }
     
     void Update()
@@ -21,9 +24,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (PlayerManager.instance.CompareTag("Player"))
+        if (collision.transform == target)
         {
-            PlayerManager.instance.TakeDamage(attackDamage);
+            playerManager.TakeDamage(damage);
         }
     }
 }
