@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ClickerManager : MonoBehaviour
 {
-    public long bits;
-    public long clickPrice = 1;
+    public ulong bits;
+    public ulong clickPrice = 1;
     
-    [SerializeField] private int clicks;
+    public int clicks;
     [SerializeField] private TMP_Text bitsText;
     [SerializeField] private TMP_Text clicksText;
     
@@ -20,7 +20,7 @@ public class ClickerManager : MonoBehaviour
         "Go",
         "To"
     };
-    [SerializeField] private long[]bitsMetricExponent = new long[6]
+    [SerializeField] private ulong[]bitsMetricExponent = new ulong[6]
     {
         1,
         8,
