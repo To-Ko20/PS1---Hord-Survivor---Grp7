@@ -11,10 +11,10 @@ public class PlayerManager : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    void Update()
+    /*void Update()
     {
         Debug.Log("Current Health: " + currentHealth);
-    }
+    }*/
 
     public void TakeDamage(int amount)
     {

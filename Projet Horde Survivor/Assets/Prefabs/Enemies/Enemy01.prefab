@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3353534154452593365}
   - component: {fileID: 2899417832952692280}
   m_Layer: 6
-  m_Name: EnemyTest01
-  m_TagString: Untagged
+  m_Name: Enemy01
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,5 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea24478c829c11a438e64252098d308b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
   rb: {fileID: 2474233789122409842}
   speed: 3
+  damage: 1
