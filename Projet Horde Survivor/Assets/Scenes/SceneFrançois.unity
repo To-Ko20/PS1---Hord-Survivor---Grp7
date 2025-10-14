@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 553472750}
   - component: {fileID: 553472749}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: Enemy Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -416,8 +416,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4be6cd259c811845b47d2cb87ac25c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyToSpawn: {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
-  timeToSpawn: 2
+  currentWave: 0
+  countdown: 6
+  waves:
+  - enemies: []
+    timeToNextEnemy: 0.5
+    timeToNextWave: 6
+  - enemies:
+    - {fileID: 2899417832952692280, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
+    - {fileID: 2899417832952692280, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
+    timeToNextEnemy: 0.5
+    timeToNextWave: 12
+  - enemies:
+    - {fileID: 2899417832952692280, guid: eecbd4044fd9a994184ec1aeab201a1b, type: 3}
+    - {fileID: 2899417832952692280, guid: eecbd4044fd9a994184ec1aeab201a1b, type: 3}
+    timeToNextEnemy: 0.5
+    timeToNextWave: 12
   minSpawnPoint: {fileID: 937660316}
   maxSpawnPoint: {fileID: 1042118702}
 --- !u!4 &553472750
