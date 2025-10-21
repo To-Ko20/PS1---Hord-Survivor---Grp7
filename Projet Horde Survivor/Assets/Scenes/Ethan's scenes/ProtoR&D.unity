@@ -1854,8 +1854,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4be6cd259c811845b47d2cb87ac25c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyToSpawn: {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
-  timeToSpawn: 2
+  currentWave: 0
+  countdown: 0
+  waves: []
   minSpawnPoint: {fileID: 640648702}
   maxSpawnPoint: {fileID: 430340579}
 --- !u!4 &950791704
@@ -2277,7 +2278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -719.99994, y: 0}
+  m_AnchoredPosition: {x: -719.9999, y: 0}
   m_SizeDelta: {x: -1440, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516430964
@@ -3105,7 +3106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoClicker: {fileID: 3206479786559225858, guid: 5dbdad217bcd82d40b6c6f1a7adbe5f4, type: 3}
   autoClickers: []
-  price: 10
+  price: 8
   autoClickerLevel: 0
 --- !u!114 &2076953722
 MonoBehaviour:
