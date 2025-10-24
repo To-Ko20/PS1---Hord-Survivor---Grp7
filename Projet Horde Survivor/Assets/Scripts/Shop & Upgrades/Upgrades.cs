@@ -12,8 +12,6 @@ public class Upgrades : MonoBehaviour
         
         [SerializeField] private int level = 0;
         
-        [SerializeField] private UpgradesEffects upgradesEffects;
-        
         private void OnValidate()
         {
                 if (upgradesSO == null)
@@ -23,6 +21,14 @@ public class Upgrades : MonoBehaviour
                 levelTxt.text = "LV " + level;
         }
 
+        private void Start()
+        {
+                foreach (GameObject effect in upgradesSO.effects)
+                {
+                        Instantiate(effect, transform);
+                } 
+        }
+        
         public void BuyUpgrade()
         {
                 if (ClickerManager.Instance.bits >= upgradesSO.cost[level] && level <= upgradesSO.cost.Count-1)
@@ -34,7 +40,11 @@ public class Upgrades : MonoBehaviour
                         level++;
                         priceTxt.text = upgradesSO.cost[level] + " bits";
                         levelTxt.text = "LV " + level;
-                        upgradesEffects.StartEffect(upgradesSO.effect);
+                        
+                        foreach (GameObject effect in upgradesSO.effects)
+                        {
+                                effect.GetComponent<MonoBehaviour>().enabled = false;
+                        } 
                 }       
         }
 }

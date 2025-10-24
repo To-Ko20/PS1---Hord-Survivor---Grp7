@@ -491,7 +491,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2736907354128090909}
   - component: {fileID: 2665495428564024732}
-  - component: {fileID: 83727383993134683}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -539,21 +538,6 @@ MonoBehaviour:
   priceTxt: {fileID: 3116644999547084198}
   levelTxt: {fileID: 2573652962215399845}
   level: 0
-  upgradesEffects: {fileID: 83727383993134683}
---- !u!114 &83727383993134683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4760563950446846147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3f12d1b644733340b2f19d1d3e3526a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoClicker: {fileID: 3206479786559225858, guid: 5dbdad217bcd82d40b6c6f1a7adbe5f4, type: 3}
-  autoClickers: []
 --- !u!1 &5841562840296590442
 GameObject:
   m_ObjectHideFlags: 0

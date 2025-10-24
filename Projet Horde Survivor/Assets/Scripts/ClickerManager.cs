@@ -30,6 +30,8 @@ public class ClickerManager : MonoBehaviour
         1_000_000_000_000
     };
     private int _bitsMetricIndex;
+    
+    public List<GameObject> autoClickers;
 
     public static ClickerManager Instance;
 

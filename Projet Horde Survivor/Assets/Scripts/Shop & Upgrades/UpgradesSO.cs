@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New upgrade", menuName = "Scriptable Objects/UpgradesSO")]
@@ -12,5 +11,5 @@ public class UpgradesSO : ScriptableObject
     public List<ulong> cost;
     
     [Header("Effects")]
-    public string effect;
+    public List<GameObject> effects;
 }
