@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3211026859158366221}
-  - component: {fileID: 6512809180699743063}
+  - component: {fileID: 4287232986038015928}
   m_Layer: 0
-  m_Name: Make Autoclicker
+  m_Name: Click Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6512809180699743063
+--- !u!114 &4287232986038015928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 625779636405134264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c285e5ea49cef254c8beafd35cc1575e, type: 3}
+  m_Script: {fileID: 11500000, guid: ff1d42976d8f1c244be3995641ec31ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoClicker: {fileID: 3206479786559225858, guid: 5dbdad217bcd82d40b6c6f1a7adbe5f4, type: 3}

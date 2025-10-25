@@ -4,9 +4,8 @@ public class MakeAutoclicker : MonoBehaviour
 {
     [SerializeField] private GameObject autoClicker;
     
-    void OnDisable()
+    public void OnUpgradeBought()
     {
-        enabled = true;
         GameObject newAutoClicker = Instantiate(autoClicker);
         ClickerManager.Instance.autoClickers.Add(newAutoClicker);
     }

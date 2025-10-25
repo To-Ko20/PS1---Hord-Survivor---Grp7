@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -12,6 +13,8 @@ public class Upgrades : MonoBehaviour
         
         [SerializeField] private int level = 0;
         
+        private readonly List<GameObject> _effectsGo =  new List<GameObject>();
+        
         private void OnValidate()
         {
                 if (upgradesSO == null)
@@ -25,26 +28,32 @@ public class Upgrades : MonoBehaviour
         {
                 foreach (GameObject effect in upgradesSO.effects)
                 {
-                        Instantiate(effect, transform);
+                        _effectsGo.Add(Instantiate(effect, transform));
                 } 
         }
         
         public void BuyUpgrade()
         {
-                if (ClickerManager.Instance.bits >= upgradesSO.cost[level] && level <= upgradesSO.cost.Count-1)
+                if (ClickerManager.Instance.bits >= upgradesSO.cost[level])
                 {
-                        
                         ClickerManager.Instance.bits -= upgradesSO.cost[level];
                         ClickerManager.Instance.DisplayUpdate();
-                        
                         level++;
-                        priceTxt.text = upgradesSO.cost[level] + " bits";
-                        levelTxt.text = "LV " + level;
                         
-                        foreach (GameObject effect in upgradesSO.effects)
+                        if (level <= upgradesSO.cost.Count - 1)
                         {
-                                effect.GetComponent<MonoBehaviour>().enabled = false;
-                        } 
+                                priceTxt.text = upgradesSO.cost[level] + " bits";
+                                levelTxt.text = "LV " + level;
+                                foreach (GameObject effect in _effectsGo)
+                                {
+                                        effect.SendMessage("OnUpgradeBought");
+                                } 
+                        }
+                        else
+                        {
+                                priceTxt.text = "SOLD OUT";
+                                levelTxt.text = "LV " + "MAX";     
+                        }
                 }       
         }
 }

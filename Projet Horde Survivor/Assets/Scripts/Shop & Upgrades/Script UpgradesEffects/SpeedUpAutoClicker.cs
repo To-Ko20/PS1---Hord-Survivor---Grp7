@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class SpeedUpAutoClicker : MonoBehaviour
 {
-    private int autoClickerLevel = 1;
-    void OnDisable()
+    private int autoClickerLevel = 0;
+    
+    public void OnUpgradeBought()
     {
-        enabled = true;
+        autoClickerLevel++;
         foreach (GameObject autoClicker in ClickerManager.Instance.autoClickers)
         {
             autoClicker.GetComponent<AutoClickerManager>().DecrementSpeed(autoClickerLevel);

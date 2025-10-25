@@ -13,6 +13,10 @@ public class AutoClickerManager : MonoBehaviour
     private void Start()
     {
         _baseSpeed = speed;
+        if (ClickerManager.Instance.autoClickers.Count > 1)
+        {
+            speed = ClickerManager.Instance.autoClickers[0].GetComponent<AutoClickerManager>().speed;
+        }
     }
 
     void FixedUpdate()
@@ -35,6 +39,6 @@ public class AutoClickerManager : MonoBehaviour
 
     public void DecrementSpeed(int level)
     {
-        speed = _baseSpeed/(2*level);
+        speed = _baseSpeed/(Mathf.Pow(2, level));
     }
 }

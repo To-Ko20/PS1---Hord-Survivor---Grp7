@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class IncreaseClickPrice : MonoBehaviour
 {
-    void OnDisable()
+    public void OnUpgradeBought()
     {
-        enabled = true;
         ClickerManager.Instance.clickPrice *= 2;
-        Destroy(gameObject);
     }
 
 }
