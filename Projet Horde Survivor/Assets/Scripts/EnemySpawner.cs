@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     private Transform target;
     
-    [SerializeField] int currentWave = 0;
+    [SerializeField] int currentWave;
     [SerializeField] private float countdown;
     
     public Wave[] waves;
@@ -42,11 +42,11 @@ public class EnemySpawner : MonoBehaviour
     {
         if (currentWave < waves.Length)
         {
-            for (int i = 0; i < waves[currentWave].enemies.Length; i++)
+            for (int i = 0; i < waves[currentWave-1].enemies.Length; i++)
             {
-                Instantiate(waves[currentWave].enemies[i], SpawnPoint(), transform.rotation);
+                Instantiate(waves[currentWave-1].enemies[i], SpawnPoint(), transform.rotation);
                 
-                yield return new WaitForSeconds(waves[currentWave].timeToNextEnemy);
+                yield return new WaitForSeconds(waves[currentWave-1].timeToNextEnemy);
             }
         }
         
