@@ -6,5 +6,4 @@ public class IncreaseClickPrice : MonoBehaviour
     {
         ClickerManager.Instance.clickPrice *= 2;
     }
-
 }

@@ -9,5 +9,4 @@ public class MakeAutoclicker : MonoBehaviour
         GameObject newAutoClicker = Instantiate(autoClicker);
         ClickerManager.Instance.autoClickers.Add(newAutoClicker);
     }
-
 }
