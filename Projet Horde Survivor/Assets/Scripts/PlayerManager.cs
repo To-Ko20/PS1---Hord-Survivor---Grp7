@@ -1,10 +1,13 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public int currentHealth;
+    public float currentHealth;
     public int maxHealth;
+    
+    [SerializeField] private PlayerUI pUI;
 
     public static PlayerManager Instance;
 
@@ -25,9 +28,10 @@ public class PlayerManager : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         currentHealth -= amount;
+        
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
