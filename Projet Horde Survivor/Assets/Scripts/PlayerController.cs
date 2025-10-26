@@ -4,10 +4,24 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float speed = 1f;
+    public float playerSpeed = 1f;
 
     private Vector2 movement;
+    
+    public static PlayerController Instance;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    
     void Update()
     {
         movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
@@ -15,6 +29,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * (speed * Time.fixedDeltaTime));
+        rb.MovePosition(rb.position + movement * (playerSpeed * Time.fixedDeltaTime));
     }
 }
