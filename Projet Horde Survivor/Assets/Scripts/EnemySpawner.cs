@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] EnemyManager enemyManager;
+    
     private Transform target;
     
     [SerializeField] int currentWave = 0;
@@ -44,7 +46,9 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < waves[currentWave].enemies.Length; i++)
             {
-                Instantiate(waves[currentWave].enemies[i], SpawnPoint(), transform.rotation);
+                EnemyMovement newEnemy = Instantiate(waves[currentWave].enemies[i], SpawnPoint(), transform.rotation);
+                
+                enemyManager.RegisterEnemy(newEnemy.transform);
                 
                 yield return new WaitForSeconds(waves[currentWave].timeToNextEnemy);
             }

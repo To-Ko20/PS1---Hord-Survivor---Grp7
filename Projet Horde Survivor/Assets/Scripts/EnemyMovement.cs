@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public PlayerManager playerManager;
+    [SerializeField] private PlayerManager playerManager;
+    [SerializeField] private EnemyManager enemyManager;
     
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed = 1f;
@@ -29,5 +30,11 @@ public class EnemyMovement : MonoBehaviour
             playerManager.TakeDamage(damage);
             Destroy(gameObject);
         }
+    }
+
+    public void OnDestroy()
+    {
+        if (enemyManager != null)
+            enemyManager.UnregisterEnemy(transform);
     }
 }
