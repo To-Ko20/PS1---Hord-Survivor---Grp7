@@ -7,13 +7,11 @@ public class EnemyManager : MonoBehaviour
 
 	public void RegisterEnemy(Transform enemy)
 	{
-		if (!activeEnemies.Contains(enemy))
-			activeEnemies.Add(enemy);
+		activeEnemies.Add(enemy);
 	}
 
 	public void UnregisterEnemy(Transform enemy)
 	{
-		if (activeEnemies.Contains(enemy))
-			activeEnemies.Remove(enemy);
+		activeEnemies.Remove(enemy);
 	}
 }
