@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ethan's scenes/ProtoR&D.unity
     guid: 8ae038b3600246b4d90dd96875aee0ed
+  - enabled: 1
+    path: Assets/Scenes/CoreProto.unity
+    guid: 6811eae92484f234aaf513f08a8bf45e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
