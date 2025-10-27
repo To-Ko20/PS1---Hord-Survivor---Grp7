@@ -25,8 +25,12 @@ public class PlayerUI : MonoBehaviour
         if (slowHealth != health)
         {
             slowHealth = Mathf.Lerp(slowHealth, health, t);
-            t += 0.05f * Time.deltaTime;
+            t += 0.01f * Time.deltaTime;
             UpdateHealthDisplay();
+        }
+        else
+        {
+            t = 0;
         }
     }
     
