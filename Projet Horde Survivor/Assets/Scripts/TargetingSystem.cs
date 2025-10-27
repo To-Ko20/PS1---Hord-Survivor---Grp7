@@ -19,7 +19,7 @@ public class TargetingSystem : MonoBehaviour
 		nearestEnemy = null;
 		float nearestDistance = float.MaxValue;
 
-		foreach (var enemy in enemySpawner.activeEnemies)
+		foreach (var enemy in EnemyManager.Instance.activeEnemies)
 		{
 			float distanceToTarget = Vector3.Distance(enemy.transform.position, target.position);
 

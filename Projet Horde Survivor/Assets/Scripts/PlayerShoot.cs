@@ -33,5 +33,6 @@ public class PlayerShoot : MonoBehaviour
     {
         GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
         newBullet.GetComponent<BulletMovement>().bulletVector = targetingSystem.nearestEnemy.position -  transform.position;
+        BulletManager.Instance.bulletList.Add(newBullet);
     }
 }

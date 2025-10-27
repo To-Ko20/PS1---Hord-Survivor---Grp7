@@ -183,6 +183,5 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   rb: {fileID: 2474233789122409842}
   speed: 3
-  damage: 1
-  currentHealth: 0
-  maxHealth: 1
+  damageToPlayer: 1
+  enemyHealth: 1

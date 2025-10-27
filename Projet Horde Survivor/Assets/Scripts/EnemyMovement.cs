@@ -31,12 +31,10 @@ public class EnemyMovement : MonoBehaviour
         if (collision.transform == target)
         {
             playerManager.TakeDamage(damageToPlayer);
-            
-            enemySpawner.activeEnemies.Remove(gameObject);
         }
     }
 
-    private void EnemyTakeDamage(float ammount)
+    public void EnemyTakeDamage(float ammount)
     {
         enemyHealth -= ammount;
 
@@ -48,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void EnemyDeath()
     {
-        enemySpawner.activeEnemies.Remove(gameObject);   
+        EnemyManager.Instance.UnregisterEnemy(gameObject);   
         
         Destroy(gameObject);
     }
