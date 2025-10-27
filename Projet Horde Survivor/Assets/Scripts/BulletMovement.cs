@@ -5,16 +5,10 @@ public class BulletMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     
     [SerializeField] private float speed;
-    [SerializeField] private Vector2 direction;
-    
-    // Update is called once per frame
-    void Update()
-    {
-        direction = new Vector2(0, 1).normalized;
-    }
+    public Vector2 bulletVector;
     
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + direction * (speed * Time.fixedDeltaTime));
+        rb.MovePosition(rb.position + bulletVector * (speed * Time.fixedDeltaTime));
     }
 }

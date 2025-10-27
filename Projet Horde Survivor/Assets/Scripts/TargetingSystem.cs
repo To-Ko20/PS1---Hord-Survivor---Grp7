@@ -4,6 +4,7 @@ using static UnityEngine.Vector3;
 public class TargetingSystem : MonoBehaviour
 {
 	[SerializeField] private EnemySpawner enemySpawner;
+	public Transform nearestEnemy;
 	
 	private Transform target;
 	
@@ -15,7 +16,7 @@ public class TargetingSystem : MonoBehaviour
 
 	void Update()
 	{
-		Transform nearestEnemy = null;
+		nearestEnemy = null;
 		float nearestDistance = float.MaxValue;
 
 		foreach (var enemy in enemySpawner.activeEnemies)

@@ -1977,6 +1977,7 @@ GameObject:
   - component: {fileID: 745429272}
   - component: {fileID: 745429273}
   - component: {fileID: 745429274}
+  - component: {fileID: 745429275}
   m_Layer: 3
   m_Name: Player Character
   m_TagString: Player
@@ -2175,6 +2176,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawner: {fileID: 950791703}
+  nearestEnemy: {fileID: 0}
+--- !u!114 &745429275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745429266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e969a32bcc65c49bbc4c6900aadd0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 4851967122792192479, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
+  targetingSystem: {fileID: 745429274}
+  countdownToShoot: 3
 --- !u!1 &753162471
 GameObject:
   m_ObjectHideFlags: 0
@@ -5372,63 +5389,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
---- !u!1001 &7339318259643900646
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1834040225240751044, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1834040225240751044, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1834040225240751044, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1834040225240751044, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1834040225240751044, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1834040225240751044, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1834040225240751044, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1834040225240751044, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1834040225240751044, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1834040225240751044, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851967122792192479, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
-      propertyPath: m_Name
-      value: Player Bullet
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5440,4 +5400,3 @@ SceneRoots:
   - {fileID: 745429271}
   - {fileID: 950791704}
   - {fileID: 657912090}
-  - {fileID: 7339318259643900646}
