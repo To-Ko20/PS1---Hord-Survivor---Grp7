@@ -10,10 +10,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float damageToPlayer;
     [SerializeField] private float enemyHealth;
-    private float _enemyMaxHealth;
     
     [SerializeField] private Transform lifeDisplay;
-    private float _lifeDisplayInitSize;
 
     [SerializeField] private int clicksToGain;
     
@@ -24,9 +22,6 @@ public class EnemyMovement : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform; //détecte le joueur
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
-
-        _enemyMaxHealth = enemyHealth;
-        _lifeDisplayInitSize =  lifeDisplay.localScale.x;
     }
     
     void Update()
@@ -46,7 +41,6 @@ public class EnemyMovement : MonoBehaviour
     public void EnemyTakeDamage(float ammount)
     {
         enemyHealth -= ammount;
-        LifeDisplayUpdate();
 
         if (enemyHealth <= 0)
         {
@@ -60,11 +54,5 @@ public class EnemyMovement : MonoBehaviour
         ClickerManager.Instance.clicks += clicksToGain;
         ClickerManager.Instance.DisplayUpdate();
         Destroy(gameObject);
-    }
-
-    private void LifeDisplayUpdate()
-    {
-        float lifeDisplayNewSize = (_lifeDisplayInitSize * enemyHealth)/_enemyMaxHealth;
-        lifeDisplay.localScale = new Vector3(lifeDisplayNewSize, lifeDisplayNewSize, 1);
     }
 }
