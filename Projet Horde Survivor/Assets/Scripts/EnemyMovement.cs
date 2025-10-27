@@ -9,15 +9,12 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed;
     [SerializeField] private float damageToPlayer;
-    [SerializeField] private float currentHealth;
-    [SerializeField] private int maxHealth;
+    [SerializeField] private float enemyHealth;
     
     private Transform target;
 
     void Start()
     {
-        currentHealth = maxHealth;
-        
         target = GameObject.FindGameObjectWithTag("Player").transform; //détecte le joueur
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
@@ -28,26 +25,31 @@ public class EnemyMovement : MonoBehaviour
         rb.linearVelocity = (target.position - transform.position).normalized * speed; //déplace l'ennemi vers le joueur
     }
 
+    //Enemy - Player Collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform == target)
         {
             playerManager.TakeDamage(damageToPlayer);
-
-            TakeDamage(playerManager.damage);
             
             enemySpawner.activeEnemies.Remove(gameObject);
-            //Debug.Log("Active enemies : " + enemySpawner.activeEnemies.Count);
         }
     }
 
-    private void TakeDamage(float ammount)
+    private void EnemyTakeDamage(float ammount)
     {
-        currentHealth -= ammount;
+        enemyHealth -= ammount;
 
-        if (currentHealth <= 0)
+        if (enemyHealth <= 0)
         {
-            Destroy(gameObject);
+            EnemyDeath();
         }
+    }
+
+    private void EnemyDeath()
+    {
+        enemySpawner.activeEnemies.Remove(gameObject);   
+        
+        Destroy(gameObject);
     }
 }
