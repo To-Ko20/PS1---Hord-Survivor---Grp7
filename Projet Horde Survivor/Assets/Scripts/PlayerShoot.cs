@@ -25,7 +25,10 @@ public class PlayerShoot : MonoBehaviour
         if (remainingSeconds <= 0)
         {
             remainingSeconds = countdownToShoot;
-            Shoot();
+            if (EnemyManager.Instance.activeEnemies.Count != 0)
+            {
+                Shoot();
+            }
         }
     }
 
