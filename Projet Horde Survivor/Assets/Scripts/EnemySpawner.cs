@@ -50,7 +50,7 @@ public class EnemySpawner : MonoBehaviour
                 GameObject newEnemy = Instantiate(waves[currentWave].enemies[i], SpawnPoint(), transform.rotation);
                 
                 activeEnemies.Add(newEnemy);
-                Debug.Log("active enemies : " + activeEnemies.Count);
+                //Debug.Log("active enemies : " + activeEnemies.Count);
                 
                 yield return new WaitForSeconds(waves[currentWave].timeToNextEnemy);
             }
