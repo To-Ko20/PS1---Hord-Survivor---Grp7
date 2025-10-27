@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -36,6 +38,11 @@ public class EnemyMovement : MonoBehaviour
         {
             playerManager.TakeDamage(damageToPlayer);
         }
+    }
+
+    private void StopBounce()
+    {
+        PlayerController.Instance.canMove = true;
     }
 
     public void EnemyTakeDamage(float ammount)

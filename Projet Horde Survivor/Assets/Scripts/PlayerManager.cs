@@ -34,7 +34,7 @@ public class PlayerManager : MonoBehaviour
         
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            GameManager.Instance.GameOver();
         }
     }
 }

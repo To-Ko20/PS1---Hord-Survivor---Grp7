@@ -5,8 +5,22 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] TargetingSystem targetingSystem;
     
-    [SerializeField] private float countdownToShoot;
+    public float countdownToShoot;
     private float remainingSeconds;
+    
+    public static PlayerShoot Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {

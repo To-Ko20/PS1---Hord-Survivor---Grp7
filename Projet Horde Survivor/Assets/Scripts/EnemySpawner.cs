@@ -23,7 +23,10 @@ public class EnemySpawner : MonoBehaviour
     {
         if (currentWave >= waves.Length)
         {
-            Debug.Log("No Waves Left");
+            if (EnemyManager.Instance.activeEnemies.Count == 0)
+            {
+                GameManager.Instance.Win();
+            }
             return;
         }
         
