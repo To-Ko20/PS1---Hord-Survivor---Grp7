@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections;
+using System.Net.Sockets;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -12,6 +13,8 @@ public class EnemySpawner : MonoBehaviour
     public Wave[] waves;
     
     [SerializeField] private Transform minSpawnPoint, maxSpawnPoint;
+    
+    public List<GameObject> activeEnemies = new List<GameObject>();
 
     void Start()
     {
@@ -44,12 +47,14 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < waves[currentWave].enemies.Length; i++)
             {
-                Instantiate(waves[currentWave].enemies[i], SpawnPoint(), transform.rotation);
+                GameObject newEnemy = Instantiate(waves[currentWave].enemies[i], SpawnPoint(), transform.rotation);
+                
+                activeEnemies.Add(newEnemy);
+                Debug.Log("active enemies : " + activeEnemies.Count);
                 
                 yield return new WaitForSeconds(waves[currentWave].timeToNextEnemy);
             }
         }
-        
     }
 
     public Vector2 SpawnPoint()
@@ -90,7 +95,7 @@ public class EnemySpawner : MonoBehaviour
 [System.Serializable]
 public class Wave
 {
-    public EnemyMovement[] enemies;
+    public GameObject[] enemies;
 
     public float timeToNextEnemy;
     public float timeToNextWave;

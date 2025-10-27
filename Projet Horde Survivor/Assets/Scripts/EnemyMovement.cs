@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public PlayerManager playerManager;
+    [SerializeField] private EnemySpawner enemySpawner;
+    [SerializeField] private PlayerManager playerManager;
     
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float speed = 1f;
-    [SerializeField] private int damage = 1;
+    [SerializeField] private float speed;
+    [SerializeField] private float damage;
     
     private Transform target;
 
@@ -15,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
     {
         target = GameObject.FindGameObjectWithTag("Player").transform; //détecte le joueur
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
     }
     
     void Update()
@@ -28,6 +30,9 @@ public class EnemyMovement : MonoBehaviour
         {
             playerManager.TakeDamage(damage);
             Destroy(gameObject);
+            
+            enemySpawner.activeEnemies.Remove(gameObject);
+            Debug.Log("Active enemies : " + enemySpawner.activeEnemies.Count);
         }
     }
 }

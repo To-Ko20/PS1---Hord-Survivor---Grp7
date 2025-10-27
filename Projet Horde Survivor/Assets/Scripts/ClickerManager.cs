@@ -30,6 +30,8 @@ public class ClickerManager : MonoBehaviour
         1_000_000_000_000
     };
     private int _bitsMetricIndex;
+    
+    public List<GameObject> autoClickers;
 
     public static ClickerManager Instance;
 
@@ -64,18 +66,27 @@ public class ClickerManager : MonoBehaviour
 
     private void ConvertBits()
     {
-        if (bits < 8)
-            _bitsMetricIndex = 0;
-        else if (bits < 1000)
-            _bitsMetricIndex = 1;
-        else if (bits < 1_000_000)
-            _bitsMetricIndex = 2;
-        else if (bits < 1_000_000_000)
-            _bitsMetricIndex = 3;
-        else if (bits < 1_000_000_000_000)
-            _bitsMetricIndex = 4;
-        else
-            _bitsMetricIndex = 5;
+        switch (bits)
+        {
+            case < 8:
+                _bitsMetricIndex = 0;
+                break;
+            case < 1000:
+                _bitsMetricIndex = 1;
+                break;
+            case < 1_000_000:
+                _bitsMetricIndex = 2;
+                break;
+            case < 1_000_000_000:
+                _bitsMetricIndex = 3;
+                break;
+            case < 1_000_000_000_000:
+                _bitsMetricIndex = 4;
+                break;
+            default:
+                _bitsMetricIndex = 5;
+                break;
+        }
     }
 
     void BitsDisplayUpdate()

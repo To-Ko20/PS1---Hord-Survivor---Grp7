@@ -397,9 +397,10 @@ GameObject:
   m_Component:
   - component: {fileID: 553472750}
   - component: {fileID: 553472749}
+  - component: {fileID: 553472751}
   m_Layer: 0
-  m_Name: Enemy Spawner
-  m_TagString: Untagged
+  m_Name: EnemySpawner
+  m_TagString: EnemySpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -417,23 +418,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWave: 0
-  countdown: 6
+  countdown: 2
   waves:
   - enemies: []
     timeToNextEnemy: 0.5
-    timeToNextWave: 6
+    timeToNextWave: 10
   - enemies:
-    - {fileID: 2899417832952692280, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
-    - {fileID: 2899417832952692280, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
+    - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
+    - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
+    - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
+    - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
+    - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
+    - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
     timeToNextEnemy: 0.5
-    timeToNextWave: 12
+    timeToNextWave: 10
   - enemies:
-    - {fileID: 2899417832952692280, guid: eecbd4044fd9a994184ec1aeab201a1b, type: 3}
-    - {fileID: 2899417832952692280, guid: eecbd4044fd9a994184ec1aeab201a1b, type: 3}
+    - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
+    - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
+    - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
+    - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
+    - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
+    - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
     timeToNextEnemy: 0.5
-    timeToNextWave: 12
+    timeToNextWave: 10
   minSpawnPoint: {fileID: 937660316}
   maxSpawnPoint: {fileID: 1042118702}
+  activeEnemies: []
 --- !u!4 &553472750
 Transform:
   m_ObjectHideFlags: 0
@@ -451,6 +461,19 @@ Transform:
   - {fileID: 1042118702}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &553472751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553472748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ad473d38dfdda41bc84487516b3a38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeEnemies: []
 --- !u!1 &677843487
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,6 +663,7 @@ GameObject:
   - component: {fileID: 827014516}
   - component: {fileID: 827014519}
   - component: {fileID: 827014520}
+  - component: {fileID: 827014521}
   m_Layer: 3
   m_Name: Player Character
   m_TagString: Player
@@ -687,7 +711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 827014515}
-  speed: 5
+  playerSpeed: 6
 --- !u!212 &827014517
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -807,7 +831,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 4
+  maxHealth: 100
+  pUI: {fileID: 0}
+--- !u!114 &827014521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827014514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 942c9de8fee8519479990985fd78e412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawner: {fileID: 0}
 --- !u!1 &880567072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,7 +1225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 827014518}
   offset: {x: 0, y: 0, z: -10}
-  smoothTime: 0.25
+  cameraSmoothTime: 0.25
 --- !u!1 &1261011281
 GameObject:
   m_ObjectHideFlags: 0
