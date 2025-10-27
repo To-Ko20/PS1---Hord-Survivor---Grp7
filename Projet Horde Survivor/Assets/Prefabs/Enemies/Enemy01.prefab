@@ -184,6 +184,6 @@ MonoBehaviour:
   rb: {fileID: 2474233789122409842}
   speed: 3
   damageToPlayer: 1
-  enemyHealth: 3
+  enemyHealth: 1
   lifeDisplay: {fileID: 0}
   clicksToGain: 8
