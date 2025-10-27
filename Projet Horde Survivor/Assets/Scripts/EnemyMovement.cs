@@ -8,12 +8,16 @@ public class EnemyMovement : MonoBehaviour
     
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed;
-    [SerializeField] private float damage;
+    [SerializeField] private float damageToPlayer;
+    [SerializeField] private float currentHealth;
+    [SerializeField] private int maxHealth;
     
     private Transform target;
 
     void Start()
     {
+        currentHealth = maxHealth;
+        
         target = GameObject.FindGameObjectWithTag("Player").transform; //détecte le joueur
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
@@ -28,11 +32,22 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.transform == target)
         {
-            playerManager.TakeDamage(damage);
-            Destroy(gameObject);
+            playerManager.TakeDamage(damageToPlayer);
+
+            TakeDamage(playerManager.damage);
             
             enemySpawner.activeEnemies.Remove(gameObject);
-            Debug.Log("Active enemies : " + enemySpawner.activeEnemies.Count);
+            //Debug.Log("Active enemies : " + enemySpawner.activeEnemies.Count);
+        }
+    }
+
+    private void TakeDamage(float ammount)
+    {
+        currentHealth -= ammount;
+
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

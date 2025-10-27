@@ -179,7 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea24478c829c11a438e64252098d308b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpawner: {fileID: 0}
   playerManager: {fileID: 0}
   rb: {fileID: 2474233789122409842}
   speed: 3
   damage: 1
+  currentHealth: 0
+  maxHealth: 1
