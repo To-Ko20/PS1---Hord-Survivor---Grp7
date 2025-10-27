@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed;
-    [SerializeField] private float damage;
+    [SerializeField] private float damageToPlayer;
     [SerializeField] private float currentHealth;
     [SerializeField] private int maxHealth;
     
@@ -32,9 +32,9 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.transform == target)
         {
-            playerManager.TakeDamage(damage);
+            playerManager.TakeDamage(damageToPlayer);
 
-            TakeDamage(damage);
+            TakeDamage(playerManager.damage);
             
             enemySpawner.activeEnemies.Remove(gameObject);
             //Debug.Log("Active enemies : " + enemySpawner.activeEnemies.Count);
