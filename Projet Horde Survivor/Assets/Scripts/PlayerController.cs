@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public float playerSpeed = 1f;
+    
+    public bool canMove = true;
 
     private Vector2 movement;
     
@@ -29,6 +31,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * (playerSpeed * Time.fixedDeltaTime));
+        if (canMove)
+        {
+            rb.MovePosition(rb.position + movement * (playerSpeed * Time.fixedDeltaTime));
+        }
     }
 }

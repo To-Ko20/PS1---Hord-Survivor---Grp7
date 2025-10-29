@@ -13,8 +13,6 @@ public class EnemySpawner : MonoBehaviour
     public Wave[] waves;
     
     [SerializeField] private Transform minSpawnPoint, maxSpawnPoint;
-    
-    public List<GameObject> activeEnemies = new List<GameObject>();
 
     void Start()
     {
@@ -25,7 +23,10 @@ public class EnemySpawner : MonoBehaviour
     {
         if (currentWave >= waves.Length)
         {
-            Debug.Log("No Waves Left");
+            if (EnemyManager.Instance.activeEnemies.Count == 0)
+            {
+                GameManager.Instance.Win();
+            }
             return;
         }
         
@@ -49,7 +50,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 GameObject newEnemy = Instantiate(waves[currentWave].enemies[i], SpawnPoint(), transform.rotation);
                 
-                activeEnemies.Add(newEnemy);
+                EnemyManager.Instance.RegisterEnemy(newEnemy);
                 
                 yield return new WaitForSeconds(waves[currentWave].timeToNextEnemy);
             }

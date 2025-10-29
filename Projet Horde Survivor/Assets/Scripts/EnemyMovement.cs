@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,6 +12,10 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float damageToPlayer;
     [SerializeField] private float enemyHealth;
+    
+    [SerializeField] private Transform lifeDisplay;
+
+    [SerializeField] private int clicksToGain;
     
     private Transform target;
 
@@ -31,12 +37,15 @@ public class EnemyMovement : MonoBehaviour
         if (collision.transform == target)
         {
             playerManager.TakeDamage(damageToPlayer);
-            
-            enemySpawner.activeEnemies.Remove(gameObject);
         }
     }
 
-    private void EnemyTakeDamage(float ammount)
+    private void StopBounce()
+    {
+        PlayerController.Instance.canMove = true;
+    }
+
+    public void EnemyTakeDamage(float ammount)
     {
         enemyHealth -= ammount;
 
@@ -48,8 +57,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void EnemyDeath()
     {
-        enemySpawner.activeEnemies.Remove(gameObject);   
-        
+        EnemyManager.Instance.UnregisterEnemy(gameObject);
+        ClickerManager.Instance.clicks += clicksToGain;
+        ClickerManager.Instance.DisplayUpdate();
         Destroy(gameObject);
     }
 }

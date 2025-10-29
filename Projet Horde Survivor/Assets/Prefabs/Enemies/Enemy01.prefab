@@ -82,7 +82,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -163,9 +163,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
+    - - {x: 0.0002970174, y: -0.5807317}
+      - {x: -0.4958911, y: 0.2906909}
+      - {x: 0.49794558, y: 0.29069084}
   m_UseDelaunayMesh: 0
 --- !u!114 &2899417832952692280
 MonoBehaviour:
@@ -183,5 +183,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   rb: {fileID: 2474233789122409842}
   speed: 3
-  damageToPlayer: 1
+  damageToPlayer: 5
   enemyHealth: 1
+  lifeDisplay: {fileID: 0}
+  clicksToGain: 8

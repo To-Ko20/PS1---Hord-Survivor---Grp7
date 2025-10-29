@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e5d1c1ac1ae0b34f8abbafaf09d266f, type: 3}
-  m_Name: Player Speed
+  m_Name: Increase Bullet size
   m_EditorClassIdentifier: 
-  upgradeName: Player speed
-  upgradeDescription: Increase the movement speed of the player
+  upgradeName: Bullet size
+  upgradeDescription: Increase the bullet size
   cost: 08000000000000001000000000000000400000000000000000010000000000000004000000000000
   effects:
-  - {fileID: 625779636405134264, guid: e7979979149bf074fbf51e0f5c86ae2e, type: 3}
+  - {fileID: 625779636405134264, guid: 7e5a02c35df3ff2478aaa0c591f83859, type: 3}
