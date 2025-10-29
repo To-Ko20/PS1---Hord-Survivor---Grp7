@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - EnemySpawner
+  - KnockbackZone
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3353534154452593365}
   - component: {fileID: 2899417832952692280}
   m_Layer: 6
-  m_Name: Enemy01
+  m_Name: Sentinelle
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,3 +187,4 @@ MonoBehaviour:
   enemyHealth: 1
   lifeDisplay: {fileID: 0}
   clicksToGain: 8
+  knockBackDuration: 1

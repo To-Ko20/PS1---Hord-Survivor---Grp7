@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
     public float currentHealth;
     public int maxHealth;
+    public int knockbackStrenght; 
+    public GameObject knockbackZone;
     
     [SerializeField] private PlayerUI pUI;
 
@@ -26,15 +29,41 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        
+        knockbackZone = GameObject.FindGameObjectWithTag("KnockbackZone");
     }
 
     public void TakeDamage(float amount)
     {
+        IsHit();
+        
         currentHealth -= amount;
         
         if (currentHealth <= 0)
         {
             GameManager.Instance.GameOver();
+        }
+    }
+
+    public void IsHit()
+    {
+        float radius = knockbackZone.GetComponent<CircleCollider2D>().radius * knockbackZone.transform.localScale.x;
+
+        foreach (var enemy in EnemyManager.Instance.activeEnemies)
+        {
+            float distance = Vector2.Distance(knockbackZone.transform.position, enemy.transform.position);
+
+            if (distance <= radius)
+            {
+                Debug.Log("Un Ennemi est dans la zone");
+                
+                Rigidbody2D rb = enemy.gameObject.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    Vector2 direction = (enemy.transform.position - knockbackZone.transform.position).normalized;
+                    enemy.GetComponent<EnemyMovement>()?.ApplyKnockBack(direction, knockbackStrenght);
+                }
+            }
         }
     }
 }

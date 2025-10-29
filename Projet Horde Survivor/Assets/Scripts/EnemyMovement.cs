@@ -18,6 +18,11 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private int clicksToGain;
     
     private Transform target;
+    
+    /// Gestion du knockback
+    private bool isKnockedBack = false;
+    private float knockBackTimer = 0f;
+    [SerializeField] private float knockBackDuration = 1f;
 
     void Start()
     {
@@ -28,7 +33,29 @@ public class EnemyMovement : MonoBehaviour
     
     void Update()
     {
+        if (isKnockedBack)
+        {
+            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, 5f * Time.deltaTime);
+            
+            knockBackTimer -= Time.deltaTime;
+            if (knockBackTimer <= 0f)
+            {
+                isKnockedBack = false;
+            }
+
+            return;
+        }
+        
         rb.linearVelocity = (target.position - transform.position).normalized * speed; //déplace l'ennemi vers le joueur
+    }
+
+    public void ApplyKnockBack(Vector2 direction, float force)
+    {
+        isKnockedBack = true;
+        knockBackTimer = knockBackDuration;
+
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(direction * force, ForceMode2D.Impulse);
     }
 
     //Enemy - Player Collision
