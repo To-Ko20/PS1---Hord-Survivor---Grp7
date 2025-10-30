@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ClickerManager : MonoBehaviour
 {
-    public long bits;
-    public long clickPrice = 1;
+    public ulong bits;
+    public ulong clickPrice = 1;
     
-    [SerializeField] private int clicks;
+    public int clicks;
     [SerializeField] private TMP_Text bitsText;
     [SerializeField] private TMP_Text clicksText;
     
-    [SerializeField] private string[]bitsMetric = new string[6]
+    public string[]bitsMetric = new string[6]
     {
         "bits",
         "octet",
@@ -20,7 +20,7 @@ public class ClickerManager : MonoBehaviour
         "Go",
         "To"
     };
-    [SerializeField] private long[]bitsMetricExponent = new long[6]
+    public ulong[]bitsMetricExponent = new ulong[6]
     {
         1,
         8,
@@ -29,7 +29,9 @@ public class ClickerManager : MonoBehaviour
         1_000_000_000,
         1_000_000_000_000
     };
-    private int _bitsMetricIndex;
+    public int bitsMetricIndex;
+    
+    public List<GameObject> autoClickers;
 
     public static ClickerManager Instance;
 
@@ -57,30 +59,39 @@ public class ClickerManager : MonoBehaviour
 
     public void DisplayUpdate()
     {
-        ConvertBits();
         BitsDisplayUpdate();
         ClicksDisplayUpdate();
     }
 
-    private void ConvertBits()
+    public string ConvertBits(ulong bit)
     {
-        if (bits < 8)
-            _bitsMetricIndex = 0;
-        else if (bits < 1000)
-            _bitsMetricIndex = 1;
-        else if (bits < 1_000_000)
-            _bitsMetricIndex = 2;
-        else if (bits < 1_000_000_000)
-            _bitsMetricIndex = 3;
-        else if (bits < 1_000_000_000_000)
-            _bitsMetricIndex = 4;
-        else
-            _bitsMetricIndex = 5;
+        switch (bit)
+        {
+            case < 8:
+                bitsMetricIndex = 0;
+                break;
+            case < 1000:
+                bitsMetricIndex = 1;
+                break;
+            case < 1_000_000:
+                bitsMetricIndex = 2;
+                break;
+            case < 1_000_000_000:
+                bitsMetricIndex = 3;
+                break;
+            case < 1_000_000_000_000:
+                bitsMetricIndex = 4;
+                break;
+            default:
+                bitsMetricIndex = 5;
+                break;
+        }
+        return bit / bitsMetricExponent[bitsMetricIndex] + " " + bitsMetric[bitsMetricIndex];
     }
 
     void BitsDisplayUpdate()
     {
-        bitsText.text = bits / bitsMetricExponent[_bitsMetricIndex] + " " + bitsMetric[_bitsMetricIndex];
+        bitsText.text = ConvertBits(bits);
     }
     
     void ClicksDisplayUpdate()

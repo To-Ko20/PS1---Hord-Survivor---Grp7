@@ -1,42 +1,68 @@
+using System.Collections.Generic;
+using System.Collections;
+using System.Net.Sockets;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyToSpawn; //Ennemi à faire spawner
+    private Transform target;
     
-    public float timeToSpawn; //Délai attendu entre deux spawn
-    private float spawnTimer; //Délai avant le prochain spawn
+    [SerializeField] int currentWave = 0;
+    [SerializeField] private float countdown;
+    
+    public Wave[] waves;
     
     [SerializeField] private Transform minSpawnPoint, maxSpawnPoint;
 
-    private Transform target;
-    
     void Start()
     {
-        spawnTimer = timeToSpawn; //Initialisation du délai avant le prochain spawn
-        
-        target = GameObject.FindGameObjectWithTag("Player").transform; //détecte le joueur
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    void Update()
+    private void Update()
     {
-        spawnTimer -= Time.deltaTime;
-        if (spawnTimer <= 0)
+        if (currentWave >= waves.Length)
         {
-            spawnTimer = timeToSpawn; //Réinitialise le délai avant le prochain spawn
-            
-            Instantiate(enemyToSpawn, SpawnPoint(), transform.rotation); //fait spawner un ennemi
+            if (EnemyManager.Instance.activeEnemies.Count == 0)
+            {
+                GameManager.Instance.Win();
+            }
+            return;
         }
         
+        countdown -= Time.deltaTime;
+
+        if (countdown <= 0)
+        {
+            countdown = waves[currentWave].timeToNextWave;
+            currentWave++;
+            StartCoroutine(SpawnWave());
+        }
+
         transform.position = target.position;
     }
+    
+    private IEnumerator SpawnWave()
+    {
+        if (currentWave < waves.Length)
+        {
+            for (int i = 0; i < waves[currentWave].enemies.Length; i++)
+            {
+                GameObject newEnemy = Instantiate(waves[currentWave].enemies[i], SpawnPoint(), transform.rotation);
+                
+                EnemyManager.Instance.RegisterEnemy(newEnemy);
+                
+                yield return new WaitForSeconds(waves[currentWave].timeToNextEnemy);
+            }
+        }
+    }
 
-    private Vector2 SpawnPoint() //Détermine la position du spawn d'un ennemi
+    public Vector2 SpawnPoint()
     {
         float x = 0f;
         float y = 0f;
 
-        int spawnSide = Random.Range(0, 4); //Choisit aléatoirement l'un des côté du rectangle de spawn
+        int spawnSide = Random.Range(0, 4);
 
         switch (spawnSide)
         {
@@ -64,4 +90,13 @@ public class EnemySpawner : MonoBehaviour
 
         return new Vector2(x, y);
     }
+}
+
+[System.Serializable]
+public class Wave
+{
+    public GameObject[] enemies;
+
+    public float timeToNextEnemy;
+    public float timeToNextWave;
 }

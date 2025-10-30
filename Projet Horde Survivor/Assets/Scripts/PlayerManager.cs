@@ -1,34 +1,40 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public static PlayerManager instance;
+    public float currentHealth;
+    public int maxHealth;
     
-    [SerializeField] private float currentHealth;
-    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private PlayerUI pUI;
+
+    public static PlayerManager Instance;
 
     private void Awake()
     {
-        instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-
-    void Start()
+    
+    private void Start()
     {
         currentHealth = maxHealth;
     }
 
-    void Update()
+    public void TakeDamage(float amount)
     {
-        Debug.Log(currentHealth);
-    }
-
-    public void TakeDamage(float damage)
-    {
-        currentHealth -= damage;
-
+        currentHealth -= amount;
+        
         if (currentHealth <= 0)
         {
-            gameObject.SetActive(false);
+            GameManager.Instance.GameOver();
         }
     }
 }

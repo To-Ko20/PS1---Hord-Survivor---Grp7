@@ -25,7 +25,7 @@ public class CountdownManager : MonoBehaviour
         
         if (remainingMinutes < 0)
         {
-            Debug.Log("Game Over");
+            GameManager.Instance.GameOver();
         }
         else
         {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,18 @@ using UnityEngine.Events;
 
 public class AutoClickerManager : MonoBehaviour
 {
-    [SerializeField] private float speed = 2f;
+    public float speed = 2f;
+    private float _baseSpeed;
     private float _timer;
+
+    private void Start()
+    {
+        _baseSpeed = speed;
+        if (ClickerManager.Instance.autoClickers.Count > 1)
+        {
+            speed = ClickerManager.Instance.autoClickers[0].GetComponent<AutoClickerManager>().speed;
+        }
+    }
 
     void FixedUpdate()
     {
@@ -28,6 +39,6 @@ public class AutoClickerManager : MonoBehaviour
 
     public void DecrementSpeed(int level)
     {
-        speed /= 2*level;
+        speed = _baseSpeed/(Mathf.Pow(2, level));
     }
 }
