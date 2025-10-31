@@ -23,7 +23,6 @@ public class EnemyMovement : MonoBehaviour
     /// Gestion du knockback
     private bool isKnockedBack = false;
     private float knockBackTimer = 0f;
-    [SerializeField] private float knockBackDuration = 1f;
 
     void Start()
     {
@@ -34,19 +33,11 @@ public class EnemyMovement : MonoBehaviour
     
     void Update()
     {
-        if (isKnockedBack)
-        {
-            rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, Vector2.zero, 18f * Time.deltaTime);
-            
-            knockBackTimer -= Time.deltaTime;
-            if (knockBackTimer <= 0f)
-            {
-                isKnockedBack = false;
-            }
+        Debug.Log(Time.timeScale);
+    }
 
-            return;
-        }
-        
+    void FixedUpdate()
+    {
         Vector2 direction = (target.position - transform.position).normalized;
         rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * speed, 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
 
@@ -56,16 +47,43 @@ public class EnemyMovement : MonoBehaviour
             var        rotation       = Quaternion.AngleAxis(180, new Vector3(0,0,1)) * targetRotation;
             transform.rotation = rotation;
         }
+    }
+
+    Coroutine lerpingTimeCoroutine = null;
         
+    IEnumerator LerpingTime(float durationFirst,float secondDuration, float targetTimeFirst, float targetTimeSecond)
+    {
+        float time = 0;
+        while (time < durationFirst)
+        {
+            yield return new WaitForFixedUpdate();
+            time += Time.deltaTime;
+            float newTimeScale = Mathf.Lerp(Time.timeScale, targetTimeFirst, time);
+            Time.timeScale = newTimeScale;
+        }
+        Time.timeScale = targetTimeFirst;
+            
+        time = 0;
+            
+        while (time < secondDuration)
+        {
+            yield return new WaitForFixedUpdate();
+            time += Time.deltaTime;
+            float newTimeScale = Mathf.Lerp(Time.timeScale, targetTimeSecond, time);
+            Time.timeScale = newTimeScale;
+        }
+        Time.timeScale = targetTimeSecond;
     }
 
     public void ApplyKnockBack(Vector2 direction, float force)
     {
         isKnockedBack = true;
-        knockBackTimer = knockBackDuration;
+        knockBackTimer = playerManager.knockBackDuration;
 
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(direction * force, ForceMode2D.Impulse);
+
+        lerpingTimeCoroutine = StartCoroutine(LerpingTime(0.1f, 0.4f, playerManager.knockBackSlowTime, 1f));
     }
 
     //Enemy - Player Collision

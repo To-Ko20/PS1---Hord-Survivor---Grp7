@@ -718,9 +718,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 100
-  knockbackStrenght: 10
-  knockbackZone: {fileID: 0}
   pUI: {fileID: 118307648}
+  knockbackZone: {fileID: 0}
+  knockbackStrenght: 10
+  knockBackDuration: 0.4
+  knockBackSlowTime: 0.6
 --- !u!114 &118307650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,8 +785,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 0.44178647
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
