@@ -38,13 +38,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Grid_Thickness: 0.05
+    - _Grid_Thickness: 0.015
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _Background_Color: {r: 0.18717691, g: 0.2568783, b: 0.4792453, a: 0}
+    - _Bloom: {r: 1, g: 1, b: 1, a: 0}
     - _Cell_Size: {r: 1, g: 1, b: 0, a: 0}
-    - _Grid_Color: {r: 0.5113207, g: 1, b: 0.64759314, a: 0}
+    - _Grid_Color: {r: 0.4355337, g: 1.7411011, b: 0.33672237, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &8355163257892593452

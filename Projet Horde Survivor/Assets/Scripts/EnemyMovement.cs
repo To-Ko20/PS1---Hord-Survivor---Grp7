@@ -67,11 +67,6 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void StopBounce()
-    {
-        PlayerController.Instance.canMove = true;
-    }
-
     public void EnemyTakeDamage(float ammount)
     {
         enemyHealth -= ammount;
