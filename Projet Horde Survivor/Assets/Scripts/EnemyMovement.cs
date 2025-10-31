@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -48,9 +49,13 @@ public class EnemyMovement : MonoBehaviour
         
         Vector2 direction = (target.position - transform.position).normalized;
         rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * speed, 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
+
+        if (direction != Vector2.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 180f * Time.deltaTime);
+        }
         
-        /*Quaternion facing = gameObject.transform.rotation;
-        gameObject.transform.rotation = Quaternion.LookRotation(direction);*/
     }
 
     public void ApplyKnockBack(Vector2 direction, float force)
