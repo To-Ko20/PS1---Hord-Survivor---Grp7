@@ -666,7 +666,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118307644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8e969a32bcc65c49bbc4c6900aadd0a, type: 3}
   m_Name: 
@@ -6571,7 +6571,7 @@ MonoBehaviour:
   waves:
   - enemies: []
     timeToNextEnemy: 0.5
-    timeToNextWave: 10
+    timeToNextWave: 6
   - enemies:
     - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
     - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}

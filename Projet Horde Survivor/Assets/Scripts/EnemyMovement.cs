@@ -53,7 +53,8 @@ public class EnemyMovement : MonoBehaviour
         if (direction != Vector2.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 180f * Time.deltaTime);
+            var        rotation       = Quaternion.AngleAxis(180, new Vector3(0,0,1)) * targetRotation;
+            transform.rotation = rotation;
         }
         
     }
