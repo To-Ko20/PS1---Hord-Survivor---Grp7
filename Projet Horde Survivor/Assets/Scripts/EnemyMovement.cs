@@ -35,7 +35,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (isKnockedBack)
         {
-            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, 5f * Time.deltaTime);
+            rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, Vector2.zero, 18f * Time.deltaTime);
             
             knockBackTimer -= Time.deltaTime;
             if (knockBackTimer <= 0f)
@@ -46,7 +46,11 @@ public class EnemyMovement : MonoBehaviour
             return;
         }
         
-        rb.linearVelocity = (target.position - transform.position).normalized * speed; //déplace l'ennemi vers le joueur
+        Vector2 direction = (target.position - transform.position).normalized;
+        rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * speed, 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
+        
+        /*Quaternion facing = gameObject.transform.rotation;
+        gameObject.transform.rotation = Quaternion.LookRotation(direction);*/
     }
 
     public void ApplyKnockBack(Vector2 direction, float force)

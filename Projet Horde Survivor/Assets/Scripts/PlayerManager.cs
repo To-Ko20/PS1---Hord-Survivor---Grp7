@@ -55,8 +55,6 @@ public class PlayerManager : MonoBehaviour
 
             if (distance <= radius)
             {
-                Debug.Log("Un Ennemi est dans la zone");
-                
                 Rigidbody2D rb = enemy.gameObject.GetComponent<Rigidbody2D>();
                 if (rb != null)
                 {

@@ -187,4 +187,4 @@ MonoBehaviour:
   enemyHealth: 1
   lifeDisplay: {fileID: 0}
   clicksToGain: 8
-  knockBackDuration: 1
+  knockBackDuration: 0.5
