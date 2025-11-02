@@ -27,6 +27,11 @@ public class UpgradeMenuManager : MonoBehaviour
         upgradeMenu.SetActive(true);
         Time.timeScale = 0;
 
+        foreach(Transform child in proposedUpgradeMenu.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        
         for (int i = 0; i < 3; i++)
         {
             var choosenTree =  upgradesTree[Random.Range(0, upgradesTree.Count)];
@@ -36,6 +41,12 @@ public class UpgradeMenuManager : MonoBehaviour
             newUpgrade.transform.SetParent(proposedUpgradeMenu.transform);
             newUpgrade.transform.localScale = new Vector3(1,1,1);
         }
+    }
+
+    public void HideUpgradeMenu()
+    {
+        upgradeMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 }
 

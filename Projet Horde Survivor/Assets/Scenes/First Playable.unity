@@ -5742,19 +5742,19 @@ MonoBehaviour:
   upgradesTree:
   - upgradesList:
     - {fileID: 8983561845769348576, guid: 79c03dd2f9a339f419b60ee473b92085, type: 3}
-    - {fileID: 8983561845769348576, guid: 197e471dca0fd2a4994e85253bddada9, type: 3}
-    - {fileID: 8983561845769348576, guid: 6ec5fd4486ca36c4382899aa77df4543, type: 3}
-    - {fileID: 8983561845769348576, guid: f6bf79ee65222ad49ad88444c15ac568, type: 3}
+    - {fileID: 8983561845769348576, guid: 0996d86a05285374f969271ca6eba87c, type: 3}
+    - {fileID: 8983561845769348576, guid: c38de25f0c9b3c546b6ae9d426d903c7, type: 3}
+    - {fileID: 8983561845769348576, guid: a48b4687d109f1e4ab884c9168a3ad70, type: 3}
   - upgradesList:
-    - {fileID: 8983561845769348576, guid: dd7559de1c30ff048858dcdd7308fe90, type: 3}
-    - {fileID: 8983561845769348576, guid: e83b0cc28fb4e3b4d9e7adb70f6ef302, type: 3}
-    - {fileID: 8983561845769348576, guid: bfd68f9984e556d4ab64a73e56d4b2cc, type: 3}
-    - {fileID: 8983561845769348576, guid: e930772337e40a34184874cb2f52a4b9, type: 3}
+    - {fileID: 8983561845769348576, guid: 7038a8fb4f6bbfc4f8747e2887d12952, type: 3}
+    - {fileID: 8983561845769348576, guid: 48d0000934813924d887126903699336, type: 3}
+    - {fileID: 8983561845769348576, guid: 915ee128311302b49ba0cd828aa5057e, type: 3}
+    - {fileID: 8983561845769348576, guid: 4606359a0eeadd54a88aa54c4b871697, type: 3}
   - upgradesList:
-    - {fileID: 8983561845769348576, guid: 4a548e6fa7ec2db49964fbe99a3c388a, type: 3}
-    - {fileID: 8983561845769348576, guid: 83e9a4e547014164bb9dfa928540e82d, type: 3}
-    - {fileID: 8983561845769348576, guid: 5df0befd92e4c074cbf269e584178bdb, type: 3}
-    - {fileID: 8983561845769348576, guid: 989f9c3f2f2a04647a366362ff53c666, type: 3}
+    - {fileID: 8983561845769348576, guid: 119d5ca95532c7545b9c36a208e68518, type: 3}
+    - {fileID: 8983561845769348576, guid: 1f98b0315a10b18439dabd6735720d2f, type: 3}
+    - {fileID: 8983561845769348576, guid: eec792a5afbe9394eb7e3f0ae8dbaed6, type: 3}
+    - {fileID: 8983561845769348576, guid: 7b38a9c0257ed7b4d94fbff4deece9c4, type: 3}
   proposedUpgradeMenu: {fileID: 1189582092}
 --- !u!1 &1042440899
 GameObject:

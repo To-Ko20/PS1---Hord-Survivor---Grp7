@@ -20,6 +20,8 @@ public class DownloadUpdateManager : MonoBehaviour
     private ulong _downloaded;
     private float _t = 1f;
 
+    private GameObject chosenUpgradePrefab;
+
     public bool isDownloading;
     
 
@@ -39,6 +41,7 @@ public class DownloadUpdateManager : MonoBehaviour
 
     void Start()
     {
+        ChooseUpdate();
         DisplayDownloadInfo();
     }
 
@@ -129,7 +132,6 @@ public class DownloadUpdateManager : MonoBehaviour
         }
         
         ClickerManager.Instance.DisplayUpdate();
-        dlText.text = "Update" + (currentUpdate + 1);
         dlSlider.value = _downloaded * 100 /  updatesSizes[currentUpdate];
         dlProgression.text = (_downloaded * 100 / updatesSizes[currentUpdate]).ToString("000.00") + "%";
         dlRatio.text = ClickerManager.Instance.ConvertBits(_downloaded) + " /\n" + ClickerManager.Instance.ConvertBits(updatesSizes[currentUpdate]);
@@ -143,10 +145,22 @@ public class DownloadUpdateManager : MonoBehaviour
         }
     }
 
+    private void ChooseUpdate()
+    {
+        UpgradeMenuManager.Instance.DisplayUpgradeMenu();
+    }
+
+    public void SetChosenUpdate(TMP_Text name, GameObject chosenUpdate)
+    {
+        dlText.text = name.text;
+        chosenUpgradePrefab = chosenUpdate;
+    }
+
     private void InstallUpdate()
     {
         _downloaded = 0;
         currentUpdate++;
+        Instantiate(chosenUpgradePrefab, transform);
         UpgradeMenuManager.Instance.DisplayUpgradeMenu();
     }
 }
