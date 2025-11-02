@@ -15,7 +15,6 @@ public class EnemyMovement : MonoBehaviour
     
     [SerializeField] private Transform lifeDisplay;
 
-    [SerializeField] private int clicksToGain;
     [SerializeField] private GameObject dataPrefab; // click prefab
     
     private Transform target;
@@ -90,6 +89,5 @@ public class EnemyMovement : MonoBehaviour
     {
         GameObject dataBubble = Instantiate(dataPrefab, transform.position, Quaternion.identity);
         dataBubble.transform.SetParent(ClickerManager.Instance.transform);
-        dataBubble.GetComponent<DataBubble>().clicksToGain = clicksToGain;
     }
 }

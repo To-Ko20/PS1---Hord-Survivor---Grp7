@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DownloadUpdateManager : MonoBehaviour
 {
     [SerializeField] private List<ulong> updatesSizes = new List<ulong>();
-    [SerializeField] private ulong downloadMaxSpeed;
+    public ulong downloadMaxSpeed;
     [SerializeField] private ulong downloadSpeed;
     [SerializeField] private int currentUpdate = 0;
     
@@ -147,6 +147,6 @@ public class DownloadUpdateManager : MonoBehaviour
     {
         _downloaded = 0;
         currentUpdate++;
-        Debug.Log("Update downloaded and installed");
+        UpgradeMenuManager.Instance.DisplayUpgradeMenu();
     }
 }
