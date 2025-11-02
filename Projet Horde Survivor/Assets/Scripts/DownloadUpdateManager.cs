@@ -11,12 +11,16 @@ public class DownloadUpdateManager : MonoBehaviour
     [SerializeField] private int currentUpdate = 0;
     
     [SerializeField] private Slider dlSlider;
+    [SerializeField] private Image dlSliderColor;
+    [SerializeField] private TMP_Text dlText;
     [SerializeField] private TMP_Text dlRatio;
     [SerializeField] private TMP_Text dlProgression;
     [SerializeField] private TMP_Text dlRemainingTime;
     
     private ulong _downloaded;
     private float _t = 1f;
+
+    public bool isDownloading;
     
 
     public static DownloadUpdateManager Instance;
@@ -37,10 +41,28 @@ public class DownloadUpdateManager : MonoBehaviour
     {
         DisplayDownloadInfo();
     }
+
+    public void SwitchDownloading(Button btn)
+    {
+        isDownloading = !isDownloading;
+        if (isDownloading)
+        {
+            btn.image.color = new Color(0.25f, 1f, 0.25f);
+        }
+        else
+        {
+            btn.image.color = new Color(1f, 0.25f, 0.25f);
+        }
+
+        DisplayDownloadInfo();
+    }
     
     void FixedUpdate()
     {
-        Countdown();
+        if (isDownloading)
+        {
+            Countdown();
+        }
     }
 
     private void Countdown()
@@ -89,13 +111,31 @@ public class DownloadUpdateManager : MonoBehaviour
 
     private void DisplayDownloadInfo()
     {
+        if (isDownloading)
+        {
+            dlSliderColor.color = Color.green;
+            dlProgression.color = Color.green;
+            dlRatio.color = Color.green;
+            dlRemainingTime.color = Color.green;
+            dlText.color = Color.green;
+        }
+        else
+        {
+            dlSliderColor.color = Color.red;
+            dlProgression.color = Color.red;
+            dlRatio.color = Color.red;
+            dlRemainingTime.color = Color.red;
+            dlText.color = Color.red;
+        }
+        
         ClickerManager.Instance.DisplayUpdate();
+        dlText.text = "Update" + (currentUpdate + 1);
         dlSlider.value = _downloaded * 100 /  updatesSizes[currentUpdate];
         dlProgression.text = (_downloaded * 100 / updatesSizes[currentUpdate]).ToString("000.00") + "%";
         dlRatio.text = ClickerManager.Instance.ConvertBits(_downloaded) + " /\n" + ClickerManager.Instance.ConvertBits(updatesSizes[currentUpdate]);
-        if (downloadSpeed != 0)
+        if (downloadSpeed != 0 && isDownloading)
         {
-            dlRemainingTime.text = ((updatesSizes[currentUpdate] - _downloaded) * downloadSpeed).ToString("00:00") + "s";
+            dlRemainingTime.text = ((updatesSizes[currentUpdate] - _downloaded) / downloadSpeed).ToString("00:00") + "s";
         }
         else
         {
