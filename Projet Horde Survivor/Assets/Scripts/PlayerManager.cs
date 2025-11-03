@@ -7,12 +7,16 @@ public class PlayerManager : MonoBehaviour
 {
     public float currentHealth;
     public int maxHealth;
-    public int knockbackStrenght; 
-    public GameObject knockbackZone;
     
     [SerializeField] private PlayerUI pUI;
 
     public static PlayerManager Instance;
+    
+    //Knockback parameters
+    public GameObject knockbackZone;
+    public int knockbackStrenght; 
+    public float knockBackDuration = 1f;
+    public float knockBackSlowTime = 1f;
 
     private void Awake()
     {
@@ -35,18 +39,14 @@ public class PlayerManager : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        IsHit();
-        
         currentHealth -= amount;
         
         if (currentHealth <= 0)
         {
             GameManager.Instance.GameOver();
         }
-    }
-
-    public void IsHit()
-    {
+        
+        //knockback
         float radius = knockbackZone.GetComponent<CircleCollider2D>().radius * knockbackZone.transform.localScale.x;
 
         foreach (var enemy in EnemyManager.Instance.activeEnemies)
@@ -55,8 +55,6 @@ public class PlayerManager : MonoBehaviour
 
             if (distance <= radius)
             {
-                Debug.Log("Un Ennemi est dans la zone");
-                
                 Rigidbody2D rb = enemy.gameObject.GetComponent<Rigidbody2D>();
                 if (rb != null)
                 {
