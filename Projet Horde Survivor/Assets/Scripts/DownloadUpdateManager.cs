@@ -16,6 +16,11 @@ public class DownloadUpdateManager : MonoBehaviour
     [SerializeField] private TMP_Text dlRatio;
     [SerializeField] private TMP_Text dlProgression;
     [SerializeField] private TMP_Text dlRemainingTime;
+
+    [SerializeField] private GameObject upgradesBtnMenu;
+    [SerializeField] private GameObject downloadDisplay;
+    [SerializeField] private GameObject unlockDownloadGo;
+    [SerializeField] private GameObject maxSpeedGo;
     
     private ulong _downloaded;
     private float _t = 1f;
@@ -41,7 +46,6 @@ public class DownloadUpdateManager : MonoBehaviour
 
     void Start()
     {
-        ChooseUpdate();
         DisplayDownloadInfo();
     }
 
@@ -162,5 +166,14 @@ public class DownloadUpdateManager : MonoBehaviour
         currentUpdate++;
         Instantiate(chosenUpgradePrefab, transform);
         UpgradeMenuManager.Instance.DisplayUpgradeMenu();
+    }
+
+    public void UnlockDownload()
+    {
+        unlockDownloadGo.SetActive(false);
+        maxSpeedGo.SetActive(true);
+        upgradesBtnMenu.SetActive(true);
+        downloadDisplay.SetActive(true);
+        ChooseUpdate();
     }
 }
