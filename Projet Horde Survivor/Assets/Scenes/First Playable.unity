@@ -3017,7 +3017,7 @@ MonoBehaviour:
   autoclickerSpeed: {fileID: 56092476}
   clickValue: {fileID: 1310773140}
   shootSpeed: {fileID: 1134276307}
-  maxDlSpeed: {fileID: 0}
+  maxDlSpeed: {fileID: 1042440901}
 --- !u!224 &498108870 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2736907354128090909, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
