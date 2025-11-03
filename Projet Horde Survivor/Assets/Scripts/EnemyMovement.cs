@@ -21,7 +21,6 @@ public class EnemyMovement : MonoBehaviour
     private Transform target;
     
     /// Gestion du knockback
-    private bool isKnockedBack = false;
     private float knockBackTimer = 0f;
 
     void Start()
@@ -29,11 +28,6 @@ public class EnemyMovement : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform; //détecte le joueur
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
-    }
-    
-    void Update()
-    {
-        Debug.Log(Time.timeScale);
     }
 
     void FixedUpdate()
@@ -77,7 +71,6 @@ public class EnemyMovement : MonoBehaviour
 
     public void ApplyKnockBack(Vector2 direction, float force)
     {
-        isKnockedBack = true;
         knockBackTimer = playerManager.knockBackDuration;
 
         rb.linearVelocity = Vector2.zero;
