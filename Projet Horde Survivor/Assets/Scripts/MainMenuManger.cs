@@ -50,7 +50,8 @@ public class MainMenuManger : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("CoreProto");
+        DOTween.Clear(true);
+        SceneManager.LoadScene("First Playable");
     }
     
     

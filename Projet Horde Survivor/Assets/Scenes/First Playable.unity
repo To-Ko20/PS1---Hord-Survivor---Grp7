@@ -3189,8 +3189,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2113313661}
-  - {fileID: 160024983}
   - {fileID: 1824521139}
+  - {fileID: 160024983}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &585547449 stripped
@@ -9629,7 +9629,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 1106feaf07cfff8458185ef5e18e34c5, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 3e7c416fdb558b74eb8efa5edd269d9c, type: 2}
 --- !u!1 &1834362944
 GameObject:
   m_ObjectHideFlags: 0
