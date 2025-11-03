@@ -43,9 +43,9 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    Coroutine lerpingTimeCoroutine = null;
+    // Coroutine lerpingTimeCoroutine = null;
         
-    IEnumerator LerpingTime(float durationFirst,float secondDuration, float targetTimeFirst, float targetTimeSecond)
+    /*IEnumerator LerpingTime(float durationFirst,float secondDuration, float targetTimeFirst, float targetTimeSecond)
     {
         float time = 0;
         while (time < durationFirst)
@@ -67,22 +67,21 @@ public class EnemyMovement : MonoBehaviour
             Time.timeScale = newTimeScale;
         }
         Time.timeScale = targetTimeSecond;
-    }
+    }*/
 
     public void ApplyKnockBack(Vector2 direction, float force)
     {
         knockBackTimer = playerManager.knockBackDuration;
 
         rb.linearVelocity = Vector2.zero;
-        rb.AddForce(direction * force, ForceMode2D.Impulse);
-
-        lerpingTimeCoroutine = StartCoroutine(LerpingTime(0.1f, 0.4f, playerManager.knockBackSlowTime, 1f));
+        rb.AddForce(direction * force, ForceMode2D.Impulse); 
+        //lerpingTimeCoroutine = StartCoroutine(LerpingTime(0.1f, 0.4f, playerManager.knockBackSlowTime, 1f));
     }
 
     //Enemy - Player Collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform == target)
+        if (collision.transform)
         {
             playerManager.TakeDamage(damageToPlayer);
         }

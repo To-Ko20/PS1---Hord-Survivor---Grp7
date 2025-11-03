@@ -3232,6 +3232,7 @@ MonoBehaviour:
   winUI: {fileID: 338893678}
   menuKey: 27
   isMenuOpen: 0
+  isPlaying: 1
 --- !u!4 &599147302
 Transform:
   m_ObjectHideFlags: 0
@@ -4396,9 +4397,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 100
-  knockbackStrenght: 15
-  knockbackZone: {fileID: 952028723}
   pUI: {fileID: 745429273}
+  knockbackZone: {fileID: 952028723}
+  knockbackStrenght: 15
+  knockBackDuration: 1
 --- !u!114 &745429273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4554,8 +4556,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 102.5, y: 175}
-  m_SizeDelta: {x: 495, y: 125}
+  m_AnchoredPosition: {x: 115, y: 175}
+  m_SizeDelta: {x: 550, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &808632454
 MonoBehaviour:
@@ -11077,7 +11079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 745429271}
-  offset: {x: -2, y: 0, z: -10}
+  offset: {x: -2.2543213, y: -0.1580918, z: -10}
   cameraSmoothTime: 0.25
 --- !u!224 &2123884699 stripped
 RectTransform:

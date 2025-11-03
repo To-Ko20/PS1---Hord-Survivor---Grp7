@@ -8,8 +8,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject winUI;
     [SerializeField] private KeyCode menuKey = KeyCode.Escape;
     [SerializeField] private bool isMenuOpen = false;
-    
-    
+    public bool isPlaying = true;
+
+
     public static GameManager Instance;
 
     void Awake()
@@ -22,6 +23,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void Start()
+    {
+        isPlaying = true;
     }
     
     private void Update()
@@ -49,22 +55,24 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Time.timeScale = 0;
+        isPlaying = false;
         menuUI.SetActive(false);
         gameOverUI.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void Win()
     {
-        Time.timeScale = 0;
+        isPlaying = false;
         menuUI.SetActive(false);
-        winUI.SetActive(true);  
+        winUI.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void ResetGame()
     {
-        SceneManager.LoadScene("First Playable");
         Time.timeScale = 1;
+        SceneManager.LoadScene("First Playable");
     }
 
     public void Quit()

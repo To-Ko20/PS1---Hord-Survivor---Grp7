@@ -16,7 +16,6 @@ public class PlayerManager : MonoBehaviour
     public GameObject knockbackZone;
     public int knockbackStrenght; 
     public float knockBackDuration = 1f;
-    public float knockBackSlowTime = 1f;
 
     private void Awake()
     {
