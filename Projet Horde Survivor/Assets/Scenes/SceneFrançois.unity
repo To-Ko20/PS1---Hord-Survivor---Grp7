@@ -720,9 +720,9 @@ MonoBehaviour:
   maxHealth: 100
   pUI: {fileID: 118307648}
   knockbackZone: {fileID: 0}
-  knockbackStrenght: 10
-  knockBackDuration: 0.4
-  knockBackSlowTime: 0.6
+  knockbackStrenght: 8
+  knockBackDuration: 0.2
+  knockBackSlowTime: 0.4
 --- !u!114 &118307650
 MonoBehaviour:
   m_ObjectHideFlags: 0
