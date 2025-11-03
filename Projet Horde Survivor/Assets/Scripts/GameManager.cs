@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        SceneManager.LoadScene("CoreProto");
+        SceneManager.LoadScene("First Playable");
         Time.timeScale = 1;
     }
 
