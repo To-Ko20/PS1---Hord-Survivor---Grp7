@@ -16,12 +16,11 @@ public class EnemyMovement : MonoBehaviour
     
     [SerializeField] private Transform lifeDisplay;
 
-    [SerializeField] private int clicksToGain;
+    [SerializeField] private GameObject dataPrefab; // click prefab
     
     private Transform target;
     
     /// Gestion du knockback
-    private bool isKnockedBack = false;
     private float knockBackTimer = 0f;
 
     void Start()
@@ -29,11 +28,6 @@ public class EnemyMovement : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform; //détecte le joueur
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
-    }
-    
-    void Update()
-    {
-        Debug.Log(Time.timeScale);
     }
 
     void FixedUpdate()
@@ -49,9 +43,9 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    Coroutine lerpingTimeCoroutine = null;
+    // Coroutine lerpingTimeCoroutine = null;
         
-    IEnumerator LerpingTime(float durationFirst,float secondDuration, float targetTimeFirst, float targetTimeSecond)
+    /*IEnumerator LerpingTime(float durationFirst,float secondDuration, float targetTimeFirst, float targetTimeSecond)
     {
         float time = 0;
         while (time < durationFirst)
@@ -73,23 +67,21 @@ public class EnemyMovement : MonoBehaviour
             Time.timeScale = newTimeScale;
         }
         Time.timeScale = targetTimeSecond;
-    }
+    }*/
 
     public void ApplyKnockBack(Vector2 direction, float force)
     {
-        isKnockedBack = true;
         knockBackTimer = playerManager.knockBackDuration;
 
         rb.linearVelocity = Vector2.zero;
-        rb.AddForce(direction * force, ForceMode2D.Impulse);
-
-        lerpingTimeCoroutine = StartCoroutine(LerpingTime(0.1f, 0.4f, playerManager.knockBackSlowTime, 1f));
+        rb.AddForce(direction * force, ForceMode2D.Impulse); 
+        //lerpingTimeCoroutine = StartCoroutine(LerpingTime(0.1f, 0.4f, playerManager.knockBackSlowTime, 1f));
     }
 
     //Enemy - Player Collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform == target)
+        if (collision.transform)
         {
             playerManager.TakeDamage(damageToPlayer);
         }
@@ -108,8 +100,14 @@ public class EnemyMovement : MonoBehaviour
     private void EnemyDeath()
     {
         EnemyManager.Instance.UnregisterEnemy(gameObject);
-        ClickerManager.Instance.clicks += clicksToGain;
+        DropData();
         ClickerManager.Instance.DisplayUpdate();
         Destroy(gameObject);
+    }
+
+    private void DropData()
+    {
+        GameObject dataBubble = Instantiate(dataPrefab, transform.position, Quaternion.identity);
+        dataBubble.transform.SetParent(ClickerManager.Instance.transform);
     }
 }

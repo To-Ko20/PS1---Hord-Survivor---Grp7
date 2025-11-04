@@ -12,7 +12,6 @@ public class MainMenuManger : MonoBehaviour
     
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject gameSelectorMenu;
-    [SerializeField] private GameObject leaderboardMenu;
     [SerializeField] private GameObject settingsMenu;
 
     private void Update()
@@ -36,7 +35,6 @@ public class MainMenuManger : MonoBehaviour
     {
         mainMenu.SetActive(true);
         gameSelectorMenu.SetActive(false);
-        leaderboardMenu.SetActive(false);
         settingsMenu.SetActive(false);
         if (hasToShowButtons)
         {
@@ -50,9 +48,10 @@ public class MainMenuManger : MonoBehaviour
         gameSelectorMenu.SetActive(true);
     }
 
-    public void PlayBumpersGame()
+    public void PlayGame()
     {
-        SceneManager.LoadScene("CoreProto");
+        DOTween.Clear(true);
+        SceneManager.LoadScene("First Playable");
     }
     
     

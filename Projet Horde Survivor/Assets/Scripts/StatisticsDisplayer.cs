@@ -7,6 +7,7 @@ public class StatisticsDisplayer : MonoBehaviour
     [SerializeField] private TMP_Text autoclickerSpeed;
     [SerializeField] private TMP_Text clickValue;
     [SerializeField] private TMP_Text shootSpeed;
+    [SerializeField] private TMP_Text maxDlSpeed;
 
     // Update is called once per frame
     void Update()
@@ -22,5 +23,6 @@ public class StatisticsDisplayer : MonoBehaviour
        }
        clickValue.text = ClickerManager.Instance.ConvertBits((ulong) ClickerManager.Instance.clickPrice);
        shootSpeed.text = PlayerShoot.Instance.countdownToShoot + "s";
+       maxDlSpeed.text = ClickerManager.Instance.ConvertBits((ulong) DownloadUpdateManager.Instance.downloadMaxSpeed);
     }
 }
