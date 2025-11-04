@@ -56,7 +56,7 @@ public class SkillTreeViewerWindow : EditorWindow
         }
 
         // Pan
-        if (e.type == EventType.MouseDrag && e.button == 1)
+        if (e.type == EventType.MouseDrag && (e.button == 0 || e.button == 1))
         {
             pan += e.delta;
             needsRecalc = true;
@@ -89,7 +89,9 @@ public class SkillTreeViewerWindow : EditorWindow
         Handles.color = Color.white;
         foreach (var line in cachedLines)
         {
-            Handles.DrawLine(line.start, line.end);
+            Vector2 start = (line.start - pan) * zoom + pan;
+            Vector2 end = (line.end - pan) * zoom + pan;
+            Handles.DrawLine(start, end);
         }
         Handles.EndGUI();
 
@@ -97,7 +99,9 @@ public class SkillTreeViewerWindow : EditorWindow
         foreach (var kv in cachedPositions)
         {
             NodePos np = kv.Value;
-            Rect rect = new Rect(np.position - new Vector2(nodeWidth, nodeHeight) * 0.5f, new Vector2(nodeWidth, nodeHeight));
+            Vector2 pos = (np.position - pan) * zoom + pan;
+            Vector2 size = new Vector2(nodeWidth, nodeHeight) * zoom;
+            Rect rect = new Rect(pos - size * 0.5f, size);
 
             // Determine color
             Color color = Color.red;
@@ -122,7 +126,8 @@ public class SkillTreeViewerWindow : EditorWindow
             GUIStyle style = new GUIStyle(EditorStyles.boldLabel)
             {
                 alignment = TextAnchor.MiddleCenter,
-                normal = { textColor = Color.white }
+                normal = { textColor = Color.white },
+                fontSize = Mathf.RoundToInt(12 * zoom) // optional: scale font
             };
             GUI.Label(rect, $"{kv.Key}: {np.node.Name}", style);
         }
