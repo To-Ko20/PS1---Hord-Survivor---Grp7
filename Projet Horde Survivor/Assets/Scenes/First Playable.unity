@@ -3828,6 +3828,52 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.018125266}
   m_EdgeRadius: 0
+--- !u!1 &667073942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 667073943}
+  - component: {fileID: 667073944}
+  m_Layer: 0
+  m_Name: SkillTreeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &667073943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667073942}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1676044832}
+  m_Father: {fileID: 2081458859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &667073944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667073942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6576b53a36e050f4b8add4109159fd8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillsTree: {fileID: 1676044833}
 --- !u!1 &689722128
 GameObject:
   m_ObjectHideFlags: 0
@@ -9303,6 +9349,76 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1676044831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1676044832}
+  - component: {fileID: 1676044833}
+  m_Layer: 0
+  m_Name: Skill Tree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1676044832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676044831}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 667073943}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1676044833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676044831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6061eb6ba8561fb478f2e03701bf3cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root:
+  - Name: Root
+    Effect: {fileID: 0}
+    IsSelected: 0
+    IsActive: 1
+    Children: 01000000020000000300000004000000
+  - Name: DPS
+    Effect: {fileID: 0}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Ingenior
+    Effect: {fileID: 0}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Ingenior
+    Effect: {fileID: 0}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Ingenior
+    Effect: {fileID: 0}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
 --- !u!1 &1678010024
 GameObject:
   m_ObjectHideFlags: 0
@@ -10926,6 +11042,7 @@ Transform:
   - {fileID: 1528024357}
   - {fileID: 284138852}
   - {fileID: 1041527662}
+  - {fileID: 667073943}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2113313658
