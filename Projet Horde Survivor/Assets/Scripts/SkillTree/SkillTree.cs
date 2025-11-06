@@ -5,5 +5,5 @@ using UnityEngine;
 [Serializable]
 public class SkillTree : MonoBehaviour
 {
-    public Node[] root;
+    public Node[] nodeList;
 }

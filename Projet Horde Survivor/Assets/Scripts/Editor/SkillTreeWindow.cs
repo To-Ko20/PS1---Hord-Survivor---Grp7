@@ -39,7 +39,7 @@ public class SkillTreeViewerWindow : EditorWindow
         }
         GUILayout.EndHorizontal();
 
-        if (targetTree == null || targetTree.root == null || targetTree.root.Length == 0)
+        if (targetTree == null || targetTree.nodeList == null || targetTree.nodeList.Length == 0)
             return;
 
         Event e = Event.current;
@@ -110,11 +110,11 @@ public class SkillTreeViewerWindow : EditorWindow
             else
             {
                 bool parentActive = false;
-                for (int i = 0; i < targetTree.root.Length; i++)
+                for (int i = 0; i < targetTree.nodeList.Length; i++)
                 {
-                    if (targetTree.root[i].Children.Contains(kv.Key))
+                    if (targetTree.nodeList[i].Children.Contains(kv.Key))
                     {
-                        if (targetTree.root[i].IsActive) parentActive = true;
+                        if (targetTree.nodeList[i].IsActive) parentActive = true;
                     }
                 }
                 if (parentActive) color = Color.blue;
@@ -139,7 +139,7 @@ public class SkillTreeViewerWindow : EditorWindow
 
         void PlaceNode(int index, Vector2 pos, float angleStart, float angleEnd)
         {
-            Node n = tree.root[index];
+            Node n = tree.nodeList[index];
             positions[index] = new NodePos { node = n, position = pos };
 
             int childCount = n.Children.Count;

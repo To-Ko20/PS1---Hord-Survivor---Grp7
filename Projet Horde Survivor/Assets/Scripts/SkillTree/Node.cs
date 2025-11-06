@@ -6,8 +6,8 @@ using UnityEngine;
 public class Node
 {
     public string Name;
-    
-    public MonoBehaviour Effect;
+
+    public GameObject SkillDisplay;
     
     public bool IsSelected;
     public bool IsActive;

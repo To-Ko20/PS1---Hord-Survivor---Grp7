@@ -25,8 +25,6 @@ public class DownloadUpdateManager : MonoBehaviour
     private ulong _downloaded;
     private float _t = 1f;
 
-    private GameObject chosenUpgradePrefab;
-
     public bool isDownloading;
     
 
@@ -154,18 +152,16 @@ public class DownloadUpdateManager : MonoBehaviour
         UpgradeMenuManager.Instance.DisplayUpgradeMenu();
     }
 
-    public void SetChosenUpdate(TMP_Text name, GameObject chosenUpdate)
+    public void SetChosenUpdate(TMP_Text name)
     {
         dlText.text = name.text;
-        chosenUpgradePrefab = chosenUpdate;
     }
 
     private void InstallUpdate()
     {
         _downloaded = 0;
         currentUpdate++;
-        Instantiate(chosenUpgradePrefab, transform);
-        UpgradeMenuManager.Instance.DisplayUpgradeMenu();
+        UpgradeMenuManager.Instance.ActivateSkill();
     }
 
     public void UnlockDownload()
