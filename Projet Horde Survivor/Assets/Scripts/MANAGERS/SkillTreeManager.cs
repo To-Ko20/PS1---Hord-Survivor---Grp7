@@ -36,5 +36,6 @@ public class SkillTreeManager : MonoBehaviour
             availableNode.Add(skillsTree.nodeList[node]);
         }
         availableNode.Remove(parent);
+        Debug.Log(availableNode.Count);
     }
 }

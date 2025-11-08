@@ -35,6 +35,7 @@ public class Upgrades : MonoBehaviour
         
         public void BuyUpgrade()
         {
+                if (level >= upgradesSO.cost.Count) return;
                 if (ClickerManager.Instance.bits >= upgradesSO.cost[level])
                 {
                         ClickerManager.Instance.bits -= upgradesSO.cost[level];

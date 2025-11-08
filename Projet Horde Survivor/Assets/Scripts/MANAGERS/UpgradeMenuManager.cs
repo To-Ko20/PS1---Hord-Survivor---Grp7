@@ -77,6 +77,8 @@ public class UpgradeMenuManager : MonoBehaviour
         _storedIndex =  index;
         SkillTreeManager.Instance.availableNode[_storedIndex].IsSelected = true;
         storedSkill = effect;
+        storedSkill.transform.SetParent(transform);
+        storedSkill.SetActive(true);
     }
     
     public void ActivateSkill()
@@ -90,6 +92,6 @@ public class UpgradeMenuManager : MonoBehaviour
             children.Add(child);
         }
         storedSkill.GetComponent<SkillActivator>().ActivateSkill(node, children);
-        //DisplayUpgradeMenu();
+        DisplayUpgradeMenu();
     }
 }
