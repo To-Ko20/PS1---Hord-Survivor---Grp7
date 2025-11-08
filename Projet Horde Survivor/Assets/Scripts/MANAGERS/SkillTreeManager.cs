@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkillTreeManager : MonoBehaviour
 {
     [SerializeField] SkillTree skillsTree;
-    public List<Node> availableNode = new List<Node>();
+    public List<SkillNode> availableNode = new List<SkillNode>();
     
     public static SkillTreeManager Instance;
 
@@ -29,7 +29,7 @@ public class SkillTreeManager : MonoBehaviour
         }
     }
 
-    public void UpdateAvailableList(Node parent, List<int> children)
+    public void UpdateAvailableList(SkillNode parent, List<int> children)
     {
         foreach (int node in children)
         {

@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class SkillActivator : MonoBehaviour
 {
-    public Node node;
+    public SkillNode node;
     public List<int> children = new List<int>();
 
     // ReSharper disable Unity.PerformanceAnalysis
-    public void ActivateSkill(Node Node, List<int> Children)
+    public void ActivateSkill(SkillNode Node, List<int> Children)
     {
         node = Node;
         children = Children;

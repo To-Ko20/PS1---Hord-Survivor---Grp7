@@ -9345,6 +9345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1676044832}
   - component: {fileID: 1676044833}
+  - component: {fileID: 1676044834}
   m_Layer: 0
   m_Name: Skill Tree
   m_TagString: Untagged
@@ -9389,22 +9390,99 @@ MonoBehaviour:
     SkillDisplay: {fileID: 8983561845769348576, guid: 4ce8a44aef4564d47996081e3ca2bf09, type: 3}
     IsSelected: 0
     IsActive: 0
-    Children: 
+    Children: 0500000006000000
   - Name: Golem
     SkillDisplay: {fileID: 8983561845769348576, guid: 9e2caa659382e9647bfaf21a989265b1, type: 3}
     IsSelected: 0
     IsActive: 0
-    Children: 
+    Children: 08000000090000000a000000
   - Name: Soutien
     SkillDisplay: {fileID: 8983561845769348576, guid: 79c03dd2f9a339f419b60ee473b92085, type: 3}
     IsSelected: 0
     IsActive: 0
-    Children: 
+    Children: 0b0000000c000000
   - Name: Voleur
     SkillDisplay: {fileID: 8983561845769348576, guid: 8f2041a65cacd48429f89ac89a00857b, type: 3}
     IsSelected: 0
     IsActive: 0
+    Children: 0e0000000f00000010000000
+  - Name: DPS V2
+    SkillDisplay: {fileID: 8983561845769348576, guid: 7df1fa370dd3e2f4b99bdd3f402694f6, type: 3}
+    IsSelected: 0
+    IsActive: 0
     Children: 
+  - Name: DPS V3
+    SkillDisplay: {fileID: 8983561845769348576, guid: c7396cb6a8619304eb877c83d0249cbc, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 07000000
+  - Name: DPS V4
+    SkillDisplay: {fileID: 8983561845769348576, guid: 1e74deb29d385b64dadf2691b04a1993, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Golem V2
+    SkillDisplay: {fileID: 8983561845769348576, guid: f6286ef640c1e234d892d95448d792ee, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Golem V3
+    SkillDisplay: {fileID: 8983561845769348576, guid: fb2ee410f17f64149b0d0eba3184d215, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Golem V4
+    SkillDisplay: {fileID: 8983561845769348576, guid: 8ef5b19e9c99bb840be38ba06b5b7a6b, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Soutien V2
+    SkillDisplay: {fileID: 8983561845769348576, guid: bec202f386c039b45875a1e92c126887, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Soutien V3
+    SkillDisplay: {fileID: 8983561845769348576, guid: b2e5f3360c8738a4a899df8b83a4f23d, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 0d000000
+  - Name: Soutien V4
+    SkillDisplay: {fileID: 8983561845769348576, guid: bcfabe6bd759ef4438cd089cde08c7e4, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Voleur V2
+    SkillDisplay: {fileID: 8983561845769348576, guid: b8dff81667d74c0408fa46cf44a55aa8, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Voleur V3
+    SkillDisplay: {fileID: 8983561845769348576, guid: c5a1fc76b2acc3148a88a49fb9195c38, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Voleur V4
+    SkillDisplay: {fileID: 8983561845769348576, guid: b37f49f840bb4be4bbb520fb590f60ea, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+--- !u!114 &1676044834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676044831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697dbe8472e87424883c976d641303d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTree: {fileID: 1676044833}
+  showOverlay: 0
+  nodeWidth: 12
+  nodeHeight: 5
+  levelDistance: 15
 --- !u!1 &1678010024
 GameObject:
   m_ObjectHideFlags: 0

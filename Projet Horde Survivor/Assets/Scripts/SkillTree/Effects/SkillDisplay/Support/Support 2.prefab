@@ -201,9 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Thief 1
-
-'
+  m_text: Support V2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 68d38d8d16a89804dbd4a9daaf8a6743, type: 2}
   m_sharedMaterial: {fileID: 1293839633252218898, guid: 68d38d8d16a89804dbd4a9daaf8a6743, type: 2}
@@ -416,7 +414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6709028629843446998}
-  - component: {fileID: 5641435307750823981}
+  - component: {fileID: 3705706042551931543}
   - component: {fileID: 4400945659644715233}
   m_Layer: 5
   m_Name: Effect
@@ -444,7 +442,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5641435307750823981
+--- !u!114 &3705706042551931543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -475,7 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f158afda236f143a6f259e4092d22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sk: {fileID: 5641435307750823981}
+  sk: {fileID: 3705706042551931543}
 --- !u!1 &8983561845769348576
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +488,7 @@ GameObject:
   - component: {fileID: 8239658725629641459}
   - component: {fileID: 5832223595192374274}
   m_Layer: 5
-  m_Name: Thief 1
+  m_Name: Support 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,7 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 1, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -1,146 +1,53 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
-public class SkillTreeViewerWindow : EditorWindow
+public class SkillTreeDebugOverlay : MonoBehaviour
 {
-    SkillTree targetTree;
+    public SkillTree targetTree;
+    public bool showOverlay = true;
 
-    Vector2 pan = Vector2.zero;
-    float zoom = 1f;
-
-    private const float nodeWidth = 120f;
-    private const float nodeHeight = 50f;
-    private const float levelDistance = 150f;
-
-    private Dictionary<int, NodePos> cachedPositions = new Dictionary<int, NodePos>();
-    private List<Line> cachedLines = new List<Line>();
-    private bool needsRecalc = true;
-
-    [MenuItem("Window/Skill Tree Viewer")]
-    public static void OpenWindow()
-    {
-        GetWindow<SkillTreeViewerWindow>("Skill Tree Viewer");
-    }
+    private Dictionary<int, Vector2> cachedPositions = new Dictionary<int, Vector2>();
+    private List<(Vector2 start, Vector2 end)> cachedLines = new List<(Vector2, Vector2)>();
+    private float levelDistance = 150f;
 
     private void OnGUI()
     {
-        // Toolbar
-        GUILayout.BeginHorizontal(EditorStyles.toolbar);
-        SkillTree newTarget = EditorGUILayout.ObjectField("SkillTree:", targetTree, typeof(SkillTree), true) as SkillTree;
-        if (newTarget != targetTree)
-        {
-            targetTree = newTarget;
-            needsRecalc = true;
-        }
-        if (GUILayout.Button("Refresh", EditorStyles.toolbarButton))
-        {
-            needsRecalc = true;
-        }
-        GUILayout.EndHorizontal();
+        if (!showOverlay || targetTree == null || targetTree.nodeList == null) return;
 
-        if (targetTree == null || targetTree.nodeList == null || targetTree.nodeList.Length == 0)
-            return;
+        Vector2 center = new Vector2(Screen.width, Screen.height) / 2f;
 
-        Event e = Event.current;
+        // Recalculate positions every frame (or cache if tree is huge)
+        cachedPositions.Clear();
+        cachedLines.Clear();
+        CalculatePositions(targetTree, center);
 
-        // Zoom
-        if (e.type == EventType.ScrollWheel)
-        {
-            float oldZoom = zoom;
-            zoom = Mathf.Clamp(zoom * (1f - e.delta.y * 0.01f), 0.2f, 3f);
-            Vector2 mouse = e.mousePosition;
-            pan += (mouse - pan) - (mouse - pan) * (zoom / oldZoom);
-            needsRecalc = true;
-            e.Use();
-        }
-
-        // Pan
-        if (e.type == EventType.MouseDrag && (e.button == 0 || e.button == 1))
-        {
-            pan += e.delta;
-            needsRecalc = true;
-            e.Use();
-        }
-
-        // Recalculate positions if needed
-        if (needsRecalc)
-        {
-            cachedPositions.Clear();
-            cachedLines.Clear();
-            cachedPositions = CalculatePositions(targetTree, position.size / 2f + pan);
-            foreach (var kv in cachedPositions)
-            {
-                Node n = kv.Value.node;
-                Vector2 parentPos = kv.Value.position;
-                foreach (int childIndex in n.Children)
-                {
-                    if (cachedPositions.ContainsKey(childIndex))
-                    {
-                        cachedLines.Add(new Line { start = parentPos, end = cachedPositions[childIndex].position });
-                    }
-                }
-            }
-            needsRecalc = false;
-        }
-
-        // Draw edges
-        Handles.BeginGUI();
-        Handles.color = Color.white;
+        // Draw lines
         foreach (var line in cachedLines)
         {
-            Vector2 start = (line.start - pan) * zoom + pan;
-            Vector2 end = (line.end - pan) * zoom + pan;
-            Handles.DrawLine(start, end);
+            Drawing.DrawLine(line.start, line.end, Color.white, 2f);
         }
-        Handles.EndGUI();
 
         // Draw nodes
         foreach (var kv in cachedPositions)
         {
-            NodePos np = kv.Value;
-            Vector2 pos = (np.position - pan) * zoom + pan;
-            Vector2 size = new Vector2(nodeWidth, nodeHeight) * zoom;
-            Rect rect = new Rect(pos - size * 0.5f, size);
-
-            // Determine color
-            Color color = Color.red;
-            if (np.node.IsActive)
-                color = Color.green;
-            else
-            {
-                bool parentActive = false;
-                for (int i = 0; i < targetTree.nodeList.Length; i++)
-                {
-                    if (targetTree.nodeList[i].Children.Contains(kv.Key))
-                    {
-                        if (targetTree.nodeList[i].IsActive) parentActive = true;
-                    }
-                }
-                if (parentActive) color = Color.blue;
-                if (np.node.IsSelected)
-                    color = new Color(1f, 0.49f, 0f);
-            }
-
-            EditorGUI.DrawRect(rect, color);
-            GUIStyle style = new GUIStyle(EditorStyles.boldLabel)
+            Node n = targetTree.nodeList[kv.Key];
+            Rect rect = new Rect(kv.Value - new Vector2(60, 25), new Vector2(120, 50));
+            Color color = n.IsActive ? Color.green : Color.red;
+            Drawing.DrawRect(rect, color);
+            GUI.Label(rect, $"{kv.Key}: {n.Name}", new GUIStyle()
             {
                 alignment = TextAnchor.MiddleCenter,
-                normal = { textColor = Color.white },
-                fontSize = Mathf.RoundToInt(12 * zoom) // optional: scale font
-            };
-            GUI.Label(rect, $"{kv.Key}: {np.node.Name}", style);
+                normal = new GUIStyleState() { textColor = Color.white }
+            });
         }
     }
 
-    private Dictionary<int, NodePos> CalculatePositions(SkillTree tree, Vector2 center)
+    private void CalculatePositions(SkillTree tree, Vector2 center)
     {
-        Dictionary<int, NodePos> positions = new Dictionary<int, NodePos>();
-
         void PlaceNode(int index, Vector2 pos, float angleStart, float angleEnd)
         {
             Node n = tree.nodeList[index];
-            positions[index] = new NodePos { node = n, position = pos };
+            cachedPositions[index] = pos;
 
             int childCount = n.Children.Count;
             if (childCount == 0) return;
@@ -152,24 +59,13 @@ public class SkillTreeViewerWindow : EditorWindow
                 int childIndex = n.Children[i];
                 float childAngle = angle + angleStep / 2f;
                 Vector2 childPos = pos + new Vector2(Mathf.Cos(childAngle), Mathf.Sin(childAngle)) * levelDistance;
+                cachedLines.Add((pos, childPos));
                 PlaceNode(childIndex, childPos, angle, angle + angleStep);
                 angle += angleStep;
             }
         }
 
         PlaceNode(0, center, -Mathf.PI / 2f, Mathf.PI * 3f / 2f);
-        return positions;
-    }
-
-    private class NodePos
-    {
-        public Vector2 position;
-        public Node node;
-    }
-
-    private class Line
-    {
-        public Vector2 start;
-        public Vector2 end;
     }
 }
+*/
