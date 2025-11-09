@@ -42,7 +42,9 @@ public class EnemyMovement : MonoBehaviour
             transform.rotation = rotation;
         }
     }
-
+    
+    /// Ralentissement du temps on hit ///
+    
     // Coroutine lerpingTimeCoroutine = null;
         
     /*IEnumerator LerpingTime(float durationFirst,float secondDuration, float targetTimeFirst, float targetTimeSecond)
