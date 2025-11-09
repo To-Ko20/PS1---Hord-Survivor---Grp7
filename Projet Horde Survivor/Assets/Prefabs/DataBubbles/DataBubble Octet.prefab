@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 450150680305771482}
   - component: {fileID: 905016541841785261}
   - component: {fileID: 8161943254436702435}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DataBubble Octet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1561,7 +1561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9fc8eecb333c2439f6d02904850743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updatesSizes: 8000000000000000000100000000000000020000000000000404000000000000
+  updatesSizes: 0800000000000000000100000000000000020000000000000404000000000000
   downloadMaxSpeed: 2
   downloadSpeed: 0
   currentUpdate: 0
@@ -3828,6 +3828,53 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.018125266}
   m_EdgeRadius: 0
+--- !u!1 &667073942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 667073943}
+  - component: {fileID: 667073944}
+  m_Layer: 0
+  m_Name: SkillTreeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &667073943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667073942}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1676044832}
+  m_Father: {fileID: 2081458859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &667073944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667073942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6576b53a36e050f4b8add4109159fd8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillsTree: {fileID: 1676044833}
+  availableNode: []
 --- !u!1 &689722128
 GameObject:
   m_ObjectHideFlags: 0
@@ -5748,23 +5795,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeMenu: {fileID: 1564674543}
-  upgradesTree:
-  - upgradesList:
-    - {fileID: 8983561845769348576, guid: 79c03dd2f9a339f419b60ee473b92085, type: 3}
-    - {fileID: 8983561845769348576, guid: 0996d86a05285374f969271ca6eba87c, type: 3}
-    - {fileID: 8983561845769348576, guid: c38de25f0c9b3c546b6ae9d426d903c7, type: 3}
-    - {fileID: 8983561845769348576, guid: a48b4687d109f1e4ab884c9168a3ad70, type: 3}
-  - upgradesList:
-    - {fileID: 8983561845769348576, guid: 7038a8fb4f6bbfc4f8747e2887d12952, type: 3}
-    - {fileID: 8983561845769348576, guid: 48d0000934813924d887126903699336, type: 3}
-    - {fileID: 8983561845769348576, guid: 915ee128311302b49ba0cd828aa5057e, type: 3}
-    - {fileID: 8983561845769348576, guid: 4606359a0eeadd54a88aa54c4b871697, type: 3}
-  - upgradesList:
-    - {fileID: 8983561845769348576, guid: 119d5ca95532c7545b9c36a208e68518, type: 3}
-    - {fileID: 8983561845769348576, guid: 1f98b0315a10b18439dabd6735720d2f, type: 3}
-    - {fileID: 8983561845769348576, guid: eec792a5afbe9394eb7e3f0ae8dbaed6, type: 3}
-    - {fileID: 8983561845769348576, guid: 7b38a9c0257ed7b4d94fbff4deece9c4, type: 3}
   proposedUpgradeMenu: {fileID: 1189582092}
+  storedSkill: {fileID: 0}
 --- !u!1 &1042440899
 GameObject:
   m_ObjectHideFlags: 0
@@ -9303,6 +9335,154 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1676044831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1676044832}
+  - component: {fileID: 1676044833}
+  - component: {fileID: 1676044834}
+  m_Layer: 0
+  m_Name: Skill Tree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1676044832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676044831}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 667073943}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1676044833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676044831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6061eb6ba8561fb478f2e03701bf3cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeList:
+  - Name: Root
+    SkillDisplay: {fileID: 0}
+    IsSelected: 0
+    IsActive: 1
+    Children: 01000000020000000300000004000000
+  - Name: DPS
+    SkillDisplay: {fileID: 8983561845769348576, guid: 4ce8a44aef4564d47996081e3ca2bf09, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 0500000006000000
+  - Name: Golem
+    SkillDisplay: {fileID: 8983561845769348576, guid: 9e2caa659382e9647bfaf21a989265b1, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 08000000090000000a000000
+  - Name: Soutien
+    SkillDisplay: {fileID: 8983561845769348576, guid: 79c03dd2f9a339f419b60ee473b92085, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 0b0000000c000000
+  - Name: Voleur
+    SkillDisplay: {fileID: 8983561845769348576, guid: 8f2041a65cacd48429f89ac89a00857b, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 0e0000000f00000010000000
+  - Name: DPS V2
+    SkillDisplay: {fileID: 8983561845769348576, guid: 7df1fa370dd3e2f4b99bdd3f402694f6, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: DPS V3
+    SkillDisplay: {fileID: 8983561845769348576, guid: c7396cb6a8619304eb877c83d0249cbc, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 07000000
+  - Name: DPS V4
+    SkillDisplay: {fileID: 8983561845769348576, guid: 1e74deb29d385b64dadf2691b04a1993, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Golem V2
+    SkillDisplay: {fileID: 8983561845769348576, guid: f6286ef640c1e234d892d95448d792ee, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Golem V3
+    SkillDisplay: {fileID: 8983561845769348576, guid: fb2ee410f17f64149b0d0eba3184d215, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Golem V4
+    SkillDisplay: {fileID: 8983561845769348576, guid: 8ef5b19e9c99bb840be38ba06b5b7a6b, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Soutien V2
+    SkillDisplay: {fileID: 8983561845769348576, guid: bec202f386c039b45875a1e92c126887, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Soutien V3
+    SkillDisplay: {fileID: 8983561845769348576, guid: b2e5f3360c8738a4a899df8b83a4f23d, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 0d000000
+  - Name: Soutien V4
+    SkillDisplay: {fileID: 8983561845769348576, guid: bcfabe6bd759ef4438cd089cde08c7e4, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Voleur V2
+    SkillDisplay: {fileID: 8983561845769348576, guid: b8dff81667d74c0408fa46cf44a55aa8, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Voleur V3
+    SkillDisplay: {fileID: 8983561845769348576, guid: c5a1fc76b2acc3148a88a49fb9195c38, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Voleur V4
+    SkillDisplay: {fileID: 8983561845769348576, guid: b37f49f840bb4be4bbb520fb590f60ea, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+--- !u!114 &1676044834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676044831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697dbe8472e87424883c976d641303d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTree: {fileID: 1676044833}
+  showOverlay: 0
+  nodeWidth: 12
+  nodeHeight: 5
+  levelDistance: 15
 --- !u!1 &1678010024
 GameObject:
   m_ObjectHideFlags: 0
@@ -10926,6 +11106,7 @@ Transform:
   - {fileID: 1528024357}
   - {fileID: 284138852}
   - {fileID: 1041527662}
+  - {fileID: 667073943}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2113313658

@@ -83,7 +83,7 @@ public class EnemyMovement : MonoBehaviour
     //Enemy - Player Collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform)
+        if (collision.transform == target.transform)
         {
             playerManager.TakeDamage(damageToPlayer);
         }
