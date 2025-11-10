@@ -45,7 +45,11 @@ public class PlayerManager : MonoBehaviour
             GameManager.Instance.GameOver();
         }
         
-        //knockback
+        Knockback();
+    }
+
+    public void Knockback()
+    {
         float radius = knockbackZone.GetComponent<CircleCollider2D>().radius * knockbackZone.transform.localScale.x;
 
         foreach (var enemy in EnemyManager.Instance.activeEnemies)

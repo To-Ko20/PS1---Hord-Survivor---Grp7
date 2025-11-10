@@ -337,7 +337,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "G\xE9n\xE8re u"
+  m_text: "G\xE9n\xE8re un petit pare feu rotatif qui \xE9carte les unit\xE9s de
+    l'antivirus."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 68d38d8d16a89804dbd4a9daaf8a6743, type: 2}
   m_sharedMaterial: {fileID: 1293839633252218898, guid: 68d38d8d16a89804dbd4a9daaf8a6743, type: 2}
@@ -552,7 +553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6709028629843446998}
   - component: {fileID: 3705706042551931543}
-  - component: {fileID: 4400945659644715233}
+  - component: {fileID: 6778394838448821109}
   m_Layer: 5
   m_Name: Effect
   m_TagString: Untagged
@@ -598,7 +599,7 @@ MonoBehaviour:
     IsActive: 0
     Children: 
   children: 
---- !u!114 &4400945659644715233
+--- !u!114 &6778394838448821109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -607,7 +608,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7256212934060369404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2f158afda236f143a6f259e4092d22e, type: 3}
+  m_Script: {fileID: 11500000, guid: e07e0d9668f41554b83e0b128d472084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sk: {fileID: 3705706042551931543}
