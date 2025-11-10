@@ -6,14 +6,15 @@ public class BulletMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     
     [SerializeField] private float speed;
-    [SerializeField] private int bulletDamage;
+    [SerializeField] private float bulletDamage;
     public Vector2 bulletVector;
 
     public void Start()
     {
         speed = BulletManager.Instance.bulletSpeed;
         transform.localScale = new Vector3(BulletManager.Instance.bulletSize, BulletManager.Instance.bulletSize, 1f);
-        bulletDamage = BulletManager.Instance.bulletDamage;
+        bulletDamage = BulletManager.Instance.bulletActualDamage;
+        BulletManager.Instance.RecalculateDamage();
     }
 
     void FixedUpdate()
