@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public float currentHealth;
-    public int maxHealth;
+    public float maxHealth = 100f;
+    public float maxHealthBonus = 1f;
     
     [SerializeField] private PlayerUI pUI;
 
@@ -34,6 +35,12 @@ public class PlayerManager : MonoBehaviour
         currentHealth = maxHealth;
         
         knockbackZone = GameObject.FindGameObjectWithTag("KnockbackZone");
+        RecalculateMaxHealth();
+    }
+
+    public void RecalculateMaxHealth()
+    {
+        maxHealth *= maxHealthBonus;
     }
 
     public void TakeDamage(float amount)

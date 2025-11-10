@@ -4,10 +4,11 @@ using UnityEngine;
 public class BulletManager : MonoBehaviour
 {
     public float bulletSpeed;
-    public float bulletDamage; //dégâts de base
+    public float bulletDamage;           //dégâts de base
     public float bulletDamageBonus = 0f; //stocke les modificateurs de bonus de dégâts
-    public float bulletActualDamage; // dégâts appliqués
+    public float bulletActualDamage;     // dégâts appliqués
     public float bulletSize;
+    public bool bulletDoubleDamage = false;
     
     public List<GameObject> bulletList;
     
@@ -27,6 +28,13 @@ public class BulletManager : MonoBehaviour
 
     public void RecalculateDamage()
     {
-        bulletActualDamage = bulletDamage * (1f + bulletDamageBonus);
+        if (bulletDoubleDamage == true)
+        {
+            bulletActualDamage = (bulletDamage * (1f + bulletDamageBonus)) * 2f;
+        }
+        else
+        {
+            bulletActualDamage = bulletDamage * (1f + bulletDamageBonus);
+        }
     }
 }
