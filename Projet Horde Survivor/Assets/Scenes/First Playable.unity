@@ -1106,7 +1106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 100.0025, y: 0}
+  m_AnchoredPosition: {x: 100.00244, y: 0}
   m_SizeDelta: {x: -600.005, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &175284879
@@ -1438,7 +1438,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrades
+  m_text: Skills
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1610,7 +1610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9fc8eecb333c2439f6d02904850743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updatesSizes: 0800000000000000000100000000000000020000000000000404000000000000
+  updatesSizes: 0800000000000000100000000000000040000000000000008000000000000000
   downloadMaxSpeed: 2
   downloadSpeed: 0
   currentUpdate: 0
@@ -4493,6 +4493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 100
+  maxHealthBonus: 1
   pUI: {fileID: 745429273}
   knockbackZone: {fileID: 952028723}
   knockbackStrenght: 15
@@ -5389,7 +5390,7 @@ MonoBehaviour:
     - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
     - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
     - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
-    timeToNextEnemy: 0.1
+    timeToNextEnemy: 2
     timeToNextWave: 10
   - enemies:
     - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
@@ -7833,7 +7834,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 3
   bulletDamage: 1
+  bulletDamageBonus: 0
+  bulletActualDamage: 0
   bulletSize: 0.25
+  bulletDoubleDamage: 0
   bulletList: []
 --- !u!1 &1433942428
 GameObject:
@@ -9499,11 +9503,11 @@ MonoBehaviour:
     IsSelected: 0
     IsActive: 1
     Children: 01000000020000000300000004000000
-  - Name: Berserk
-    SkillDisplay: {fileID: 8983561845769348576, guid: 4ce8a44aef4564d47996081e3ca2bf09, type: 3}
+  - Name: More Damages
+    SkillDisplay: {fileID: 8983561845769348576, guid: f2d80588c4b93c048b5bb2e5d6c1d088, type: 3}
     IsSelected: 0
     IsActive: 0
-    Children: 
+    Children: 0600000007000000
   - Name: Tank
     SkillDisplay: {fileID: 8983561845769348576, guid: 9e2caa659382e9647bfaf21a989265b1, type: 3}
     IsSelected: 0
@@ -9524,6 +9528,21 @@ MonoBehaviour:
     IsSelected: 0
     IsActive: 0
     Children: 
+  - Name: +DMG / -Life
+    SkillDisplay: {fileID: 8983561845769348576, guid: d61601d46169d7142aa7a3fd22548b87, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 08000000
+  - Name: Berserk MK1
+    SkillDisplay: {fileID: 8983561845769348576, guid: 54b196336c17525488225eb3b2b6f050, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
+  - Name: Berserk MK2
+    SkillDisplay: {fileID: 8983561845769348576, guid: 24e22fab0e1e8524a849ca0439699ae8, type: 3}
+    IsSelected: 0
+    IsActive: 0
+    Children: 
 --- !u!114 &1676044834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9531,7 +9550,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676044831}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 697dbe8472e87424883c976d641303d1, type: 3}
   m_Name: 
@@ -9541,6 +9560,7 @@ MonoBehaviour:
   nodeWidth: 12
   nodeHeight: 5
   levelDistance: 15
+  needsRecalc: 1
 --- !u!1 &1678010024
 GameObject:
   m_ObjectHideFlags: 0
