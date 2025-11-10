@@ -1,14 +1,19 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseEffect : MonoBehaviour
 {
-    [SerializeField] private SkillActivator sk; 
+    [SerializeField] private SkillActivator sk;
+    
     public void Activate()
     {
-        Debug.Log("Base Effect Start");
+        Effect();
         SkillTreeManager.Instance.UpdateAvailableList(sk.node, sk.children);
         Destroy(gameObject);
+    }
+
+    private void Effect()
+    {
+        throw new NotImplementedException();
     }
 }

@@ -1,0 +1,33 @@
+using UnityEngine;
+
+public class PlayerSkillHolderManager : MonoBehaviour
+{
+    [Header("Data Magnet")]
+    public bool hasMagnet = false;
+    public float magnetRadius = 2f;
+    public float magnetForce = 2f;
+    [Space(10f)]
+
+    [Header("Data Magnet")]
+    public bool hasRotativeShield;
+    public GameObject rotativeShield;
+    
+    public static PlayerSkillHolderManager Instance;
+    
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void ActivateRotativeShield()
+    {
+        rotativeShield.SetActive(true);
+    }
+}

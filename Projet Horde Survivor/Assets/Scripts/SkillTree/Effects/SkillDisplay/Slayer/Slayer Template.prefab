@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Thief V2
+  m_text: 'Thief 1
 
 '
   m_isRightToLeft: 0
@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 8239658725629641459}
   - component: {fileID: 5832223595192374274}
   m_Layer: 5
-  m_Name: Thief 2
+  m_Name: Slayer Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

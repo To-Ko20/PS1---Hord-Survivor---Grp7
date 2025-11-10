@@ -9479,7 +9479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTree: {fileID: 1676044833}
-  showOverlay: 0
+  showOverlay: 1
   nodeWidth: 12
   nodeHeight: 5
   levelDistance: 15
