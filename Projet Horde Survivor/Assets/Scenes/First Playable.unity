@@ -9592,7 +9592,7 @@ MonoBehaviour:
   - Name: Zone+
     SkillDisplay: {fileID: 8983561845769348576, guid: ba48fe613be9a0d4ba307bd5e8eb829f, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 0
     IsActive: 0
     Children: 
