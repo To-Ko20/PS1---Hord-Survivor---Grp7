@@ -9550,7 +9550,7 @@ MonoBehaviour:
   - Name: Active Rotative Shield
     SkillDisplay: {fileID: 8983561845769348576, guid: b6bf668f8c411f4499fd54bc4ba60fdf, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 0
     IsActive: 0
     Children: 080000000a000000
@@ -9585,7 +9585,7 @@ MonoBehaviour:
   - Name: Data Magnet
     SkillDisplay: {fileID: 8983561845769348576, guid: 846b160ff5da21947aaaaa765aede132, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 0
     IsActive: 0
     Children: 0d0000000e000000
