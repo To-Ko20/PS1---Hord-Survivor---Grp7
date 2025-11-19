@@ -48,6 +48,5 @@ public class SkillTreeManager : MonoBehaviour
             }
         }
         availableNode.Remove(parent);
-        Debug.Log(availableNode.Count);
     }
 }

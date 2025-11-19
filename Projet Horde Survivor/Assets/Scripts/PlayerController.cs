@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,7 +10,7 @@ public class PlayerController : MonoBehaviour
     
     public bool canMove = true;
     private float t = 1f;
-    private bool canApplyPoison = true;
+    private bool canApplyPoison = false;
     
     [SerializeField] private CircleCollider2D circleCollider2D;
 
@@ -43,18 +45,26 @@ public class PlayerController : MonoBehaviour
         Countdown();
     }
     
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (PlayerSkillHolderManager.Instance.hasPoisonZone && canApplyPoison)
+        List<GameObject> enemies = new List<GameObject>();
+        if (!PlayerSkillHolderManager.Instance.hasPoisonZone) return;
+        if (!EnemyManager.Instance.enemyColliderInstanceIDs.Contains(other.GetInstanceID())) return;
+        enemies.Add(other.gameObject);
+        
+        if (canApplyPoison)
         {
-            foreach (GameObject nmi in EnemyManager.Instance.activeEnemies)
-            {
-                if (collision.transform == nmi.transform)
-                {
-                    nmi.GetComponent<EnemyMovement>().EnemyTakeDamage(PlayerSkillHolderManager.Instance.poisonDamage);
-                    canApplyPoison = false;
-                }   
-            }
+            ApplyPoison(enemies);
+            enemies.Clear();
+        }
+    }
+
+    private void ApplyPoison(List<GameObject> enemies)
+    {
+        foreach (GameObject nmi in enemies)
+        {
+            nmi.GetComponent<EnemyMovement>().EnemyTakeDamage(PlayerSkillHolderManager.Instance.poisonDamage); 
+            Debug.Log("poison damage");
         }
     }
 
@@ -65,7 +75,7 @@ public class PlayerController : MonoBehaviour
         if (t <= 0)
         {
             t = 1;
-            canApplyPoison = true;
+            canApplyPoison = !canApplyPoison;
         }
     }
 }
