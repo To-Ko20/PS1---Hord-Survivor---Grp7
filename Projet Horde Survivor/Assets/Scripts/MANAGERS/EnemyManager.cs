@@ -22,12 +22,12 @@ public class EnemyManager : MonoBehaviour
 	public void RegisterEnemy(GameObject enemy)
 	{
 		activeEnemies.Add(enemy);
-		enemyColliderInstanceIDs.Add(GetComponent<Collider2D>().GetInstanceID());
+		enemyColliderInstanceIDs.Add(enemy.GetComponent<Collider2D>().GetInstanceID());
 	}
 
 	public void UnregisterEnemy(GameObject enemy)
 	{
 		activeEnemies.Remove(enemy);
-		enemyColliderInstanceIDs.Remove(GetComponent<Collider2D>().GetInstanceID());
+		enemyColliderInstanceIDs.Remove(enemy.GetComponent<Collider2D>().GetInstanceID());
 	}
 }

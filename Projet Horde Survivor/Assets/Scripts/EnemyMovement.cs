@@ -18,6 +18,7 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] private GameObject dataPrefab; // click prefab
     
+    
     private Transform target;
     
     /// Gestion du knockback
@@ -43,6 +44,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
     
+
     /// Ralentissement du temps on hit ///
     
     // Coroutine lerpingTimeCoroutine = null;
@@ -96,7 +98,8 @@ public class EnemyMovement : MonoBehaviour
     public void EnemyTakeDamage(float ammount)
     {
         enemyHealth -= ammount;
-
+        Debug.Log("DMG taken");
+        
         if (enemyHealth <= 0)
         {
             EnemyDeath();
