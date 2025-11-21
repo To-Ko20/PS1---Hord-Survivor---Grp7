@@ -7,24 +7,21 @@ public class EnemyBulletMovement : MonoBehaviour
     
     [SerializeField] private float   speed;
     [SerializeField] private float   bulletDamage;
-    public Vector2 bulletVector;
     private float timeToDespawn = 10f;
-    private Transform target;
+    private Vector2 target;
+    public GameObject player;
 
     void Start()
     {
-        target       = GameObject.FindGameObjectWithTag("Player").transform; //détecte le joueur
-        bulletVector = new Vector2(target.position.x, target.position.y);
+        target = (player.transform.position -  transform.position).normalized;
+        Debug.DrawRay(rb.position, target, Color.red);
     }
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + bulletVector * (speed * Time.fixedDeltaTime));
-    }
-
-    void Update()
-    {
-        timeToDespawn -= Time.deltaTime;
+        rb.MovePosition(rb.position + target * (speed * Time.fixedDeltaTime));
+        
+        timeToDespawn -= Time.fixedDeltaTime;
         if (timeToDespawn <= 0f)
         {
             Destroy(this.gameObject);
@@ -33,7 +30,8 @@ public class EnemyBulletMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        Vector2 otherPos =  other.transform.position;
+        if (otherPos == target)
         {
             PlayerManager.Instance.TakeDamage(bulletDamage);
             Destroy(this.gameObject);

@@ -8,6 +8,7 @@ public class RangedEnemyMovement : MonoBehaviour
 {
     [SerializeField] private EnemySpawner enemySpawner;
     [SerializeField] private PlayerManager playerManager;
+    [SerializeField] private GameObject player;
     
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float       speed;
@@ -30,6 +31,7 @@ public class RangedEnemyMovement : MonoBehaviour
 
     void Start()
     {
+        player = PlayerController.Instance.gameObject;
         target = GameObject.FindGameObjectWithTag("Player").transform; //détecte le joueur
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
@@ -69,8 +71,9 @@ public class RangedEnemyMovement : MonoBehaviour
     {
         if (timeToFire <= 0f)
         {
-            Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
-            timeToFire = fireRate;
+            GameObject newBall = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+            newBall.GetComponent<EnemyBulletMovement>().player = player;
+            timeToFire     = fireRate;
         }
         else
         {
