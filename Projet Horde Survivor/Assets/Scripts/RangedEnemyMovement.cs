@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class RangedEnemyMovement : MonoBehaviour
 {
     [SerializeField] private EnemySpawner enemySpawner;
     [SerializeField] private PlayerManager playerManager;
     
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float speed;
-    [SerializeField] private float damageToPlayer;
-    [SerializeField] private float enemyHealth;
+    [SerializeField] private float       speed;
+    [SerializeField] private float       damageToPlayer;
+    [SerializeField] private float       enemyHealth;
+    [SerializeField] private float       distanceToShoot;
+    [SerializeField] private float       distanceToStop;
+    [SerializeField] private float       fireRate;
+    private float                        timeToFire;
     
     [SerializeField] private Transform lifeDisplay;
 
@@ -27,18 +31,48 @@ public class EnemyMovement : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform; //détecte le joueur
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
+        timeToFire = fireRate;
     }
 
     void FixedUpdate()
     {
         Vector2 direction = (target.position - transform.position).normalized;
-        rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * speed, 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
+        
+        if (Vector2.Distance(transform.position, target.position) > distanceToStop)
+        {
+            rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * speed, 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
 
         if (direction != Vector2.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
             var        rotation       = Quaternion.AngleAxis(180, new Vector3(0,0,1)) * targetRotation;
             transform.rotation = rotation;
+        }
+    }
+
+    void Update()
+    {
+        if (Vector2.Distance(target.position, transform.position) <= distanceToStop)
+        {
+            Shoot();
+        }
+    }
+
+    private void Shoot()
+    {
+        if (timeToFire <= 0f)
+        {
+            Debug.Log("Shoot");
+            timeToFire = fireRate;
+        }
+        else
+        {
+            timeToFire -= Time.deltaTime;
         }
     }
 

@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
@@ -28,7 +29,7 @@ public class BulletMovement : MonoBehaviour
         {
             if (collision.transform == enemy.transform)
             {
-                enemy.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage);
+                enemy.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage); 
                 BulletManager.Instance.bulletList.Remove(gameObject);
                 Destroy(gameObject);
                 return;

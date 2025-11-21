@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
         currentHealth = maxHealth;
         
         knockbackZone = GameObject.FindGameObjectWithTag("KnockbackZone");
-        RecalculateMaxHealth();
+        RecalculateMaxHealth(); 
     }
 
     public void RecalculateMaxHealth()
