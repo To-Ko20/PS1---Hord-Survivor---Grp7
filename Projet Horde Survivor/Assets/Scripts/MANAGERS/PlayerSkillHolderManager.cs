@@ -13,6 +13,8 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public bool hasRotativeShield;
     public GameObject rotativeShield;
     public float poisonDamage;
+    public bool hasSlowZone;
+    public float slowForce;
 
     public static PlayerSkillHolderManager Instance;
     

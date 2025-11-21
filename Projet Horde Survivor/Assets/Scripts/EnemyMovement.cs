@@ -17,6 +17,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Transform lifeDisplay;
 
     [SerializeField] private GameObject dataPrefab; // click prefab
+
+    public bool hasToSlow;
     
     
     private Transform target;
@@ -34,7 +36,15 @@ public class EnemyMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 direction = (target.position - transform.position).normalized;
-        rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * speed, 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
+        if (hasToSlow)
+        {
+            Debug.Log("slow ennemi");
+            rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * (speed*PlayerSkillHolderManager.Instance.slowForce), 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * speed, 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
+        }
 
         if (direction != Vector2.zero)
         {

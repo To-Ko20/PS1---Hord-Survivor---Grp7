@@ -21,14 +21,24 @@ public class PoisonZone : MonoBehaviour
     {
         if (!PlayerSkillHolderManager.Instance.hasPoisonZone) return;
         if (!EnemyManager.Instance.enemyColliderInstanceIDs.Contains(other.GetInstanceID())) return;
-        inZoneEnemies.Add(other.gameObject.GetComponent<EnemyMovement>());
+        EnemyMovement nmi = other.gameObject.GetComponent<EnemyMovement>();
+        inZoneEnemies.Add(nmi);
+        if (PlayerSkillHolderManager.Instance.hasSlowZone)
+        {
+            nmi.hasToSlow = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!PlayerSkillHolderManager.Instance.hasPoisonZone) return;
         if (!EnemyManager.Instance.enemyColliderInstanceIDs.Contains(other.GetInstanceID())) return;
-        inZoneEnemies.Remove(other.GetComponent<EnemyMovement>());
+        EnemyMovement nmi = other.gameObject.GetComponent<EnemyMovement>();
+        inZoneEnemies.Remove(nmi);
+        if (PlayerSkillHolderManager.Instance.hasSlowZone)
+        {
+            nmi.hasToSlow = false;
+        }
     }
 
     private void ApplyPoison()
