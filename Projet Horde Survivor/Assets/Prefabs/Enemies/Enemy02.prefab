@@ -182,7 +182,7 @@ MonoBehaviour:
   enemySpawner: {fileID: 0}
   playerManager: {fileID: 0}
   rb: {fileID: 2474233789122409842}
-  speed: 3
+  speed: 2.5
   damageToPlayer: 10
   enemyHealth: 5
   lifeDisplay: {fileID: 0}
