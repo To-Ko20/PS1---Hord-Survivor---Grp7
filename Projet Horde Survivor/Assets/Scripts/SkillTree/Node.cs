@@ -10,6 +10,8 @@ public class SkillNode
     public GameObject SkillDisplay;
     
     public bool IsSelected;
+    public bool IsImplemented;
+    public bool HasTwoParents;
     public bool IsActive;
 
     public List<int> Children = new List<int>();

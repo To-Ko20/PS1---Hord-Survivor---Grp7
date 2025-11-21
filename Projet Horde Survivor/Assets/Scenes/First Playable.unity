@@ -1106,7 +1106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 100.0025, y: 0}
+  m_AnchoredPosition: {x: 100.00244, y: 0}
   m_SizeDelta: {x: -600.005, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &175284879
@@ -1438,7 +1438,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrades
+  m_text: Skills
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1562,10 +1562,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasMagnet: 0
+  hasPoisonZone: 0
   magnetRadius: 2
   magnetForce: 2
   hasRotativeShield: 0
   rotativeShield: {fileID: 1339515521}
+  poisonDamage: 0
+  hasSlowZone: 0
+  slowForce: 0
 --- !u!1 &284138851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,7 +1614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9fc8eecb333c2439f6d02904850743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updatesSizes: 0800000000000000000100000000000000020000000000000404000000000000
+  updatesSizes: 08000000000000000800000000000000400000000000000080000000000000008000000000000000800000000000000080000000000000008000000000000000
   downloadMaxSpeed: 2
   downloadSpeed: 0
   currentUpdate: 0
@@ -4196,6 +4200,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692836254}
   m_CullTransparentMesh: 1
+--- !u!1 &718233547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 718233548}
+  - component: {fileID: 718233550}
+  - component: {fileID: 718233549}
+  m_Layer: 3
+  m_Name: Poison Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &718233548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718233547}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 745429271}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &718233549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718233547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900ba2dd531e17b4683b57f36aa2f990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  t: 1
+  inZoneEnemies: []
+  circleCollider2D: {fileID: 718233550}
+--- !u!58 &718233550
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718233547}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 2
 --- !u!224 &727424145 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2736907354128090909, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
@@ -4318,6 +4406,7 @@ GameObject:
   - component: {fileID: 745429270}
   - component: {fileID: 745429269}
   - component: {fileID: 745429267}
+  - component: {fileID: 745429276}
   - component: {fileID: 745429268}
   - component: {fileID: 745429272}
   - component: {fileID: 745429273}
@@ -4477,6 +4566,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 952028724}
+  - {fileID: 718233548}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &745429272
@@ -4493,6 +4583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 100
+  maxHealthBonus: 1
   pUI: {fileID: 745429273}
   knockbackZone: {fileID: 952028723}
   knockbackStrenght: 15
@@ -4526,7 +4617,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawner: {fileID: 950791703}
+  shootRadius: 5
+  drawShootRadius: 1
   nearestEnemy: {fileID: 952028724}
+  target: {fileID: 745429271}
 --- !u!114 &745429275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4542,6 +4636,42 @@ MonoBehaviour:
   bullet: {fileID: 4851967122792192479, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
   targetingSystem: {fileID: 745429274}
   countdownToShoot: 3
+--- !u!58 &745429276
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745429266}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.49
 --- !u!1 &770585738
 GameObject:
   m_ObjectHideFlags: 0
@@ -5389,7 +5519,7 @@ MonoBehaviour:
     - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
     - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
     - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
-    timeToNextEnemy: 0.1
+    timeToNextEnemy: 2
     timeToNextWave: 10
   - enemies:
     - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
@@ -7831,10 +7961,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707141df28a32a54d874d6dd8735e2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 3
+  bulletSpeed: 8
   bulletDamage: 1
+  bulletDamageBonus: 0
+  bulletActualDamage: 0
   bulletSize: 0.25
+  bulletDoubleDamage: 0
   bulletList: []
+  lifeTime: 3
 --- !u!1 &1433942428
 GameObject:
   m_ObjectHideFlags: 0
@@ -8608,6 +8742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeEnemies: []
+  enemyColliderInstanceIDs: 
 --- !u!224 &1552531415 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2736907354128090909, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
@@ -9329,7 +9464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502db467fa631254585b772fce17f99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bits: 0
+  bits: 1000
   clickPrice: 1
   clicks: 0
   bitsText: {fileID: 140769671}
@@ -9497,31 +9632,260 @@ MonoBehaviour:
   - Name: Root
     SkillDisplay: {fileID: 0}
     IsSelected: 0
+    IsImplemented: 1
+    HasTwoParents: 0
     IsActive: 1
-    Children: 01000000020000000300000004000000
-  - Name: Berserk
-    SkillDisplay: {fileID: 8983561845769348576, guid: 4ce8a44aef4564d47996081e3ca2bf09, type: 3}
+    Children: 010000000200000003000000040000000500000006000000
+  - Name: Rotative Shield
+    SkillDisplay: {fileID: 0}
     IsSelected: 0
+    IsImplemented: 1
+    HasTwoParents: 0
+    IsActive: 1
+    Children: 07000000
+  - Name: Tools
+    SkillDisplay: {fileID: 0}
+    IsSelected: 0
+    IsImplemented: 1
+    HasTwoParents: 0
+    IsActive: 1
+    Children: 0c000000
+  - Name: Shoot
+    SkillDisplay: {fileID: 0}
+    IsSelected: 0
+    IsImplemented: 1
+    HasTwoParents: 0
+    IsActive: 1
+    Children: 11000000
+  - Name: Berserk
+    SkillDisplay: {fileID: 0}
+    IsSelected: 0
+    IsImplemented: 1
+    HasTwoParents: 0
+    IsActive: 1
+    Children: 16000000
+  - Name: Tank
+    SkillDisplay: {fileID: 0}
+    IsSelected: 0
+    IsImplemented: 1
+    HasTwoParents: 0
+    IsActive: 1
+    Children: 1b000000
+  - Name: Lens
+    SkillDisplay: {fileID: 0}
+    IsSelected: 0
+    IsImplemented: 1
+    HasTwoParents: 0
+    IsActive: 1
+    Children: 20000000
+  - Name: Active Rotative Shield
+    SkillDisplay: {fileID: 8983561845769348576, guid: b6bf668f8c411f4499fd54bc4ba60fdf, type: 3}
+    IsSelected: 0
+    IsImplemented: 1
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 080000000a000000
+  - Name: RS speed+
+    SkillDisplay: {fileID: 8983561845769348576, guid: 43af0a475b2096944a363a16aee10d4c, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 09000000
+  - Name: RS size+
+    SkillDisplay: {fileID: 8983561845769348576, guid: f5f2c3d892d5457469bbbc9a25c496ac, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
     IsActive: 0
     Children: 
-  - Name: Tank
-    SkillDisplay: {fileID: 8983561845769348576, guid: 9e2caa659382e9647bfaf21a989265b1, type: 3}
+  - Name: RS knockback
+    SkillDisplay: {fileID: 8983561845769348576, guid: a523090a0c8dcb94fb2bb7017c292c05, type: 3}
     IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 0b000000
+  - Name: RS DMG
+    SkillDisplay: {fileID: 8983561845769348576, guid: dbfd9f804c5ea104bbcc6fa2a41bb203, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
     IsActive: 0
     Children: 
   - Name: Data Magnet
-    SkillDisplay: {fileID: 8983561845769348576, guid: 79c03dd2f9a339f419b60ee473b92085, type: 3}
+    SkillDisplay: {fileID: 8983561845769348576, guid: 846b160ff5da21947aaaaa765aede132, type: 3}
     IsSelected: 0
+    IsImplemented: 1
+    HasTwoParents: 0
     IsActive: 0
-    Children: 05000000
-  - Name: Assassin
-    SkillDisplay: {fileID: 8983561845769348576, guid: 8f2041a65cacd48429f89ac89a00857b, type: 3}
+    Children: 0d0000000e000000
+  - Name: Zone+
+    SkillDisplay: {fileID: 8983561845769348576, guid: ba48fe613be9a0d4ba307bd5e8eb829f, type: 3}
     IsSelected: 0
+    IsImplemented: 1
+    HasTwoParents: 0
     IsActive: 0
     Children: 
-  - Name: Rotative Shield
-    SkillDisplay: {fileID: 8983561845769348576, guid: 614ca46e5dace0c4c922d48f97e2971f, type: 3}
+  - Name: Poison
+    SkillDisplay: {fileID: 8983561845769348576, guid: ef0edd2e1a0bc1a47ac3b40ae4528cad, type: 3}
     IsSelected: 0
+    IsImplemented: 1
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 0f00000010000000
+  - Name: DMG poison
+    SkillDisplay: {fileID: 8983561845769348576, guid: 341f0a58653b39544ba9be18b5bc6ff3, type: 3}
+    IsSelected: 0
+    IsImplemented: 1
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 
+  - Name: Poison slow
+    SkillDisplay: {fileID: 8983561845769348576, guid: 3efdf621b7bcd8948be8940cf7779d03, type: 3}
+    IsSelected: 0
+    IsImplemented: 1
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 
+  - Name: Triple Shoot
+    SkillDisplay: {fileID: 8983561845769348576, guid: dd9a981665e6d8f41b962d30a5b371d2, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 12000000
+  - Name: Star Shoot
+    SkillDisplay: {fileID: 8983561845769348576, guid: 8f1fbe3404353b94b96d77fe10a8d9b3, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 13000000
+  - Name: Circle Shoot
+    SkillDisplay: {fileID: 8983561845769348576, guid: cf648e5ea99b2594f9c0b1f8d9d3f020, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 1400000015000000
+  - Name: Explosive Shoot
+    SkillDisplay: {fileID: 8983561845769348576, guid: c0db78cb91ffe4d45a06367fa11487df, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 
+  - Name: Mine
+    SkillDisplay: {fileID: 8983561845769348576, guid: a71f87e2fec34ce48b454b55cb3623db, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 
+  - Name: Berserk Life
+    SkillDisplay: {fileID: 8983561845769348576, guid: 6b8e6c9979962b24d826279b931bc4d1, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 1700000018000000
+  - Name: +DMG / -Life
+    SkillDisplay: {fileID: 8983561845769348576, guid: 97629c438e5e7b84ba0b3210391418c0, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 1a000000
+  - Name: Dash
+    SkillDisplay: {fileID: 8983561845769348576, guid: 6f7dcf4d663527c46adfe1a5a8ca5706, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 19000000
+  - Name: Dash x2
+    SkillDisplay: {fileID: 8983561845769348576, guid: 029812977e79cd74d94fb16f106a497f, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 1a000000
+  - Name: Vampire
+    SkillDisplay: {fileID: 8983561845769348576, guid: 39cdfcead3e2f434890fc28988e741b3, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 1
+    IsActive: 0
+    Children: 
+  - Name: One Hit Shield
+    SkillDisplay: {fileID: 8983561845769348576, guid: ea658bcf614c51f4f8596f5904545da9, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 1c0000001d0000001e000000
+  - Name: +MaxLife / -Speed
+    SkillDisplay: {fileID: 8983561845769348576, guid: 19a43fce613bdf442957be09a6595091, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 1f000000
+  - Name: Force Field
+    SkillDisplay: {fileID: 8983561845769348576, guid: b76ea2b84a8e6004b9c49a2e059612f6, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 1f000000
+  - Name: +hit / -cooldown
+    SkillDisplay: {fileID: 8983561845769348576, guid: 68b39710700cc1d46867e0441b9adde5, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 
+  - Name: Regen
+    SkillDisplay: {fileID: 8983561845769348576, guid: 72e7a16f3354d3c478ea3c2be19861d3, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 1
+    IsActive: 0
+    Children: 
+  - Name: Doubble ball
+    SkillDisplay: {fileID: 8983561845769348576, guid: 37b20b8727838e244a334a54547184ce, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 210000002200000023000000
+  - Name: Ice ball
+    SkillDisplay: {fileID: 8983561845769348576, guid: d666dcb240e75924e8abb04eedd92cff, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 
+  - Name: Ball size+
+    SkillDisplay: {fileID: 8983561845769348576, guid: 86ff47235053b404a95ff7c0bc1df8ee, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 24000000
+  - Name: Ball corruption
+    SkillDisplay: {fileID: 8983561845769348576, guid: ee76a7ae12c98424fa028731619a1542, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
+    IsActive: 0
+    Children: 
+  - Name: Lens size+
+    SkillDisplay: {fileID: 8983561845769348576, guid: 9e2f59a9317ea764693585a201c3f6be, type: 3}
+    IsSelected: 0
+    IsImplemented: 0
+    HasTwoParents: 0
     IsActive: 0
     Children: 
 --- !u!114 &1676044834
@@ -9540,7 +9904,7 @@ MonoBehaviour:
   showOverlay: 0
   nodeWidth: 12
   nodeHeight: 5
-  levelDistance: 15
+  levelDistance: 20
 --- !u!1 &1678010024
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,7 +39,7 @@ public class PlayerShoot : MonoBehaviour
         if (remainingSeconds <= 0)
         {
             remainingSeconds = countdownToShoot;
-            if (EnemyManager.Instance.activeEnemies.Count != 0)
+            if (targetingSystem.nearestEnemy != null)
             {
                 Shoot();
             }
@@ -49,7 +49,7 @@ public class PlayerShoot : MonoBehaviour
     private void Shoot()
     {
         GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-        newBullet.GetComponent<BulletMovement>().bulletVector = targetingSystem.nearestEnemy.position -  transform.position;
+        newBullet.GetComponent<BulletMovement>().bulletVector = (targetingSystem.nearestEnemy.position -  transform.position).normalized;
         BulletManager.Instance.bulletList.Add(newBullet);
     }
 }

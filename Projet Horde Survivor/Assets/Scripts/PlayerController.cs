@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed = 1f;
     
     public bool canMove = true;
+    
 
     private Vector2 movement;
     

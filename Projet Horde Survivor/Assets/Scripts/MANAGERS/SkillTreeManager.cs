@@ -23,9 +23,13 @@ public class SkillTreeManager : MonoBehaviour
     
     private void Start()
     {
-        for (int i = 1; i < 5; i++)
+        for (int i = 1; i < 7; i++)
         {
-            availableNode.Add(skillsTree.nodeList[i]);
+            int node = skillsTree.nodeList[i].Children[0];
+            if (skillsTree.nodeList[node].IsImplemented)
+            {
+                availableNode.Add(skillsTree.nodeList[node]);
+            }
         }
     }
 
@@ -33,9 +37,16 @@ public class SkillTreeManager : MonoBehaviour
     {
         foreach (int node in children)
         {
-            availableNode.Add(skillsTree.nodeList[node]);
+            if (skillsTree.nodeList[node].HasTwoParents)
+            {
+                skillsTree.nodeList[node].HasTwoParents = false;
+            }
+
+            if (skillsTree.nodeList[node].IsImplemented)
+            {
+                availableNode.Add(skillsTree.nodeList[node]);
+            }
         }
         availableNode.Remove(parent);
-        Debug.Log(availableNode.Count);
     }
 }

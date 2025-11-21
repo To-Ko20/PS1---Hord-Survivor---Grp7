@@ -16,10 +16,14 @@ public class EnemyMovement : MonoBehaviour
     
     [SerializeField] private Transform lifeDisplay;
 
-    [SerializeField] private GameObject dataPrefab;
+    [SerializeField] private GameObject dataPrefab; // click prefab
+
+    public bool hasToSlow;
+    
     
     private Transform target;
     
+    /// Gestion du knockback
     private float knockBackTimer = 0f;
 
     void Start()
@@ -32,7 +36,15 @@ public class EnemyMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 direction = (target.position - transform.position).normalized;
-        rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * speed, 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
+        if (hasToSlow)
+        {
+            Debug.Log("slow ennemi");
+            rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * (speed*PlayerSkillHolderManager.Instance.slowForce), 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * speed, 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
+        }
 
         if (direction != Vector2.zero)
         {
@@ -41,13 +53,43 @@ public class EnemyMovement : MonoBehaviour
             transform.rotation = rotation;
         }
     }
+    
+
+    /// Ralentissement du temps on hit ///
+    
+    // Coroutine lerpingTimeCoroutine = null;
+        
+    /*IEnumerator LerpingTime(float durationFirst,float secondDuration, float targetTimeFirst, float targetTimeSecond)
+    {
+        float time = 0;
+        while (time < durationFirst)
+        {
+            yield return new WaitForFixedUpdate();
+            time += Time.deltaTime;
+            float newTimeScale = Mathf.Lerp(Time.timeScale, targetTimeFirst, time);
+            Time.timeScale = newTimeScale;
+        }
+        Time.timeScale = targetTimeFirst;
+            
+        time = 0;
+            
+        while (time < secondDuration)
+        {
+            yield return new WaitForFixedUpdate();
+            time += Time.deltaTime;
+            float newTimeScale = Mathf.Lerp(Time.timeScale, targetTimeSecond, time);
+            Time.timeScale = newTimeScale;
+        }
+        Time.timeScale = targetTimeSecond;
+    }*/
 
     public void ApplyKnockBack(Vector2 direction, float force)
     {
         knockBackTimer = playerManager.knockBackDuration;
 
         rb.linearVelocity = Vector2.zero;
-        rb.AddForce(direction * force, ForceMode2D.Impulse);
+        rb.AddForce(direction * force, ForceMode2D.Impulse); 
+        //lerpingTimeCoroutine = StartCoroutine(LerpingTime(0.1f, 0.4f, playerManager.knockBackSlowTime, 1f));
     }
 
     //Enemy - Player Collision
@@ -66,7 +108,8 @@ public class EnemyMovement : MonoBehaviour
     public void EnemyTakeDamage(float ammount)
     {
         enemyHealth -= ammount;
-
+        Debug.Log("DMG taken");
+        
         if (enemyHealth <= 0)
         {
             EnemyDeath();

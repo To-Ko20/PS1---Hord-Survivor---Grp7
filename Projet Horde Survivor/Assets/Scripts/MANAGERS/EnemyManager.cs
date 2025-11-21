@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
 	public List<GameObject> activeEnemies = new List<GameObject>();
+	public List<int> enemyColliderInstanceIDs  = new List<int>();
 
 	public static EnemyManager Instance;
 	private void Awake()
@@ -21,10 +22,12 @@ public class EnemyManager : MonoBehaviour
 	public void RegisterEnemy(GameObject enemy)
 	{
 		activeEnemies.Add(enemy);
+		enemyColliderInstanceIDs.Add(enemy.GetComponent<Collider2D>().GetInstanceID());
 	}
 
 	public void UnregisterEnemy(GameObject enemy)
 	{
 		activeEnemies.Remove(enemy);
+		enemyColliderInstanceIDs.Remove(enemy.GetComponent<Collider2D>().GetInstanceID());
 	}
 }

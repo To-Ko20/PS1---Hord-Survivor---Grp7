@@ -168,4 +168,5 @@ MonoBehaviour:
   rb: {fileID: 2061158745950334345}
   speed: 1
   bulletDamage: 0
+  lifeTime: 3
   bulletVector: {x: 0, y: 0}
