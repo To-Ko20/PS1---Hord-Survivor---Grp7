@@ -11,7 +11,8 @@ public class BulletManager : MonoBehaviour
     public bool bulletDoubleDamage = false;
     
     public List<GameObject> bulletList;
-    
+    public float lifeTime;
+
     public static BulletManager Instance;
     
     private void Awake()

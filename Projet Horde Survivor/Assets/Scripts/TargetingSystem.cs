@@ -4,9 +4,11 @@ using static UnityEngine.Vector3;
 public class TargetingSystem : MonoBehaviour
 {
 	[SerializeField] private EnemySpawner enemySpawner;
+	[SerializeField] private float shootRadius;
+	[SerializeField] private bool drawShootRadius;
 	public Transform nearestEnemy;
 	
-	private Transform target;
+	[SerializeField] private Transform target;
 	
 	void Start()
 	{
@@ -17,11 +19,11 @@ public class TargetingSystem : MonoBehaviour
 	void Update()
 	{
 		nearestEnemy = null;
-		float nearestDistance = float.MaxValue;
+		float nearestDistance = shootRadius;
 
 		foreach (var enemy in EnemyManager.Instance.activeEnemies)
 		{
-			float distanceToTarget = Vector3.Distance(enemy.transform.position, target.position);
+			float distanceToTarget = Distance(enemy.transform.position, target.position);
 
 			if (distanceToTarget <= nearestDistance)
 			{
@@ -33,6 +35,15 @@ public class TargetingSystem : MonoBehaviour
 		if (nearestEnemy != null)
 		{
 			Debug.DrawLine(nearestEnemy.position, target.position, Color.red);
+		}
+	}
+
+	private void OnDrawGizmos()
+	{
+		if (drawShootRadius)
+		{
+			Gizmos.color = Color.red;
+			Gizmos.DrawWireSphere(target.position, shootRadius);
 		}
 	}
 }

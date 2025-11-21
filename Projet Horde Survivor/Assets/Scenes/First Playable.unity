@@ -1568,6 +1568,8 @@ MonoBehaviour:
   hasRotativeShield: 0
   rotativeShield: {fileID: 1339515521}
   poisonDamage: 0
+  hasSlowZone: 0
+  slowForce: 0
 --- !u!1 &284138851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,7 +1614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9fc8eecb333c2439f6d02904850743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updatesSizes: 0800000000000000080000000000000040000000000000008000000000000000
+  updatesSizes: 08000000000000000800000000000000400000000000000080000000000000008000000000000000800000000000000080000000000000008000000000000000
   downloadMaxSpeed: 2
   downloadSpeed: 0
   currentUpdate: 0
@@ -4615,7 +4617,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawner: {fileID: 950791703}
+  shootRadius: 5
+  drawShootRadius: 1
   nearestEnemy: {fileID: 952028724}
+  target: {fileID: 745429271}
 --- !u!114 &745429275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7956,13 +7961,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707141df28a32a54d874d6dd8735e2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 3
+  bulletSpeed: 8
   bulletDamage: 1
   bulletDamageBonus: 0
   bulletActualDamage: 0
   bulletSize: 0.25
   bulletDoubleDamage: 0
   bulletList: []
+  lifeTime: 3
 --- !u!1 &1433942428
 GameObject:
   m_ObjectHideFlags: 0
@@ -9731,14 +9737,14 @@ MonoBehaviour:
   - Name: DMG poison
     SkillDisplay: {fileID: 8983561845769348576, guid: 341f0a58653b39544ba9be18b5bc6ff3, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 0
     IsActive: 0
     Children: 
   - Name: Poison slow
     SkillDisplay: {fileID: 8983561845769348576, guid: 3efdf621b7bcd8948be8940cf7779d03, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 0
     IsActive: 0
     Children: 
