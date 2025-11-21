@@ -15,7 +15,11 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public float poisonDamage;
     public bool hasSlowZone;
     public float slowForce;
-
+    [Space(10f)]
+    
+    [Header("Shoot")]
+    public int nbShootBullet = 1;
+    
     public static PlayerSkillHolderManager Instance;
     
     private void Awake()

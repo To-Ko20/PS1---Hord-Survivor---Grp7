@@ -41,15 +41,22 @@ public class PlayerShoot : MonoBehaviour
             remainingSeconds = countdownToShoot;
             if (targetingSystem.nearestEnemy != null)
             {
-                Shoot();
+                Shoot(PlayerSkillHolderManager.Instance.nbShootBullet);
             }
         }
     }
 
-    private void Shoot()
+    private void Shoot(int nb)
     {
-        GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-        newBullet.GetComponent<BulletMovement>().bulletVector = (targetingSystem.nearestEnemy.position -  transform.position).normalized;
-        BulletManager.Instance.bulletList.Add(newBullet);
+        float rotation = 360f / nb;
+        for (int i = 0; i < nb; i++)
+        {
+            GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+            Vector3 dir = (targetingSystem.nearestEnemy.position -  transform.position).normalized;
+            dir = Quaternion.Euler(0, 0, rotation*i) * dir;
+            //Debug.Log(rotation*i);
+            newBullet.GetComponent<BulletMovement>().bulletVector = dir;
+            BulletManager.Instance.bulletList.Add(newBullet);
+        }
     }
 }

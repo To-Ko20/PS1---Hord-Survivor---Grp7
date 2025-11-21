@@ -13,6 +13,6 @@ public class SkillRotativeShield : MonoBehaviour
 
     private void Effect()
     {
-        PlayerSkillHolderManager.Instance.magnetRadius = 4f;
+        PlayerSkillHolderManager.Instance.ActivateRotativeShield();
     }
 }

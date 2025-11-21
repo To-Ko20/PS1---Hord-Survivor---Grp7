@@ -1570,6 +1570,7 @@ MonoBehaviour:
   poisonDamage: 0
   hasSlowZone: 0
   slowForce: 0
+  nbShootBullet: 1
 --- !u!1 &284138851
 GameObject:
   m_ObjectHideFlags: 0
@@ -9464,7 +9465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502db467fa631254585b772fce17f99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bits: 1000
+  bits: 100
   clickPrice: 1
   clicks: 0
   bitsText: {fileID: 140769671}
@@ -9901,7 +9902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTree: {fileID: 1676044833}
-  showOverlay: 0
+  showOverlay: 1
   nodeWidth: 12
   nodeHeight: 5
   levelDistance: 20
