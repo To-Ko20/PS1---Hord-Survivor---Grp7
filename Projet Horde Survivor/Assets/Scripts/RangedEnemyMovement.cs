@@ -13,10 +13,12 @@ public class RangedEnemyMovement : MonoBehaviour
     [SerializeField] private float       speed;
     [SerializeField] private float       damageToPlayer;
     [SerializeField] private float       enemyHealth;
+    [SerializeField] private Transform   firingPoint;
+    [SerializeField] private GameObject  bulletPrefab;
     [SerializeField] private float       distanceToShoot;
     [SerializeField] private float       distanceToStop;
     [SerializeField] private float       fireRate;
-    private float                        timeToFire;
+    private                  float       timeToFire;
     
     [SerializeField] private Transform lifeDisplay;
 
@@ -67,7 +69,7 @@ public class RangedEnemyMovement : MonoBehaviour
     {
         if (timeToFire <= 0f)
         {
-            Debug.Log("Shoot");
+            Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
             timeToFire = fireRate;
         }
         else
