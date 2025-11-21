@@ -42,7 +42,9 @@ public class EnemyMovement : MonoBehaviour
             transform.rotation = rotation;
         }
     }
-
+    
+    /// Ralentissement du temps on hit ///
+    
     // Coroutine lerpingTimeCoroutine = null;
         
     /*IEnumerator LerpingTime(float durationFirst,float secondDuration, float targetTimeFirst, float targetTimeSecond)
@@ -81,7 +83,11 @@ public class EnemyMovement : MonoBehaviour
     //Enemy - Player Collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform)
+        if (collision.transform.CompareTag("Shield"))
+        {
+            playerManager.Knockback();
+        }
+        else if (collision.transform == target.transform)
         {
             playerManager.TakeDamage(damageToPlayer);
         }

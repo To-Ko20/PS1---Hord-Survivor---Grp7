@@ -186,6 +186,4 @@ MonoBehaviour:
   damageToPlayer: 10
   enemyHealth: 5
   lifeDisplay: {fileID: 0}
-  clicksToGain: 32
   dataPrefab: {fileID: 185209308465788401, guid: cf564412c8dd9fa4db4e406f346298b0, type: 3}
-  knockBackDuration: 1
