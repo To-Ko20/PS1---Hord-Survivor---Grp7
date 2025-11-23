@@ -7,15 +7,20 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public bool hasPoisonZone = false;
     public float magnetRadius = 2f;
     public float magnetForce = 2f;
-    [Space(10f)]
-
-    [Header("Data Magnet")]
-    public GameObject rotativeShield;
-    public Animation rotativeShieldAnimation;
-    public float rsKnockbackForce;
     public float poisonDamage;
     public bool hasSlowZone;
     public float slowForce;
+    [Space(10f)]
+
+    [Header("Rotative Shield")]
+    public GameObject rotativeShield;
+    public GameObject smallRotativeShield;
+    public GameObject bigRotativeShield;
+    public Animation rotativeShieldAnimation;
+    public float rsKnockbackForce;
+    public bool rsHasDamages;
+    public int rsDamages;
+
     [Space(10f)]
     
     [Header("Shoot")]
@@ -50,5 +55,11 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public void SpeedUpRotativeShield()
     {
         rotativeShieldAnimation["RotativeShieldTurn"].speed = 2.0f;
+    }
+
+    public void SizeUpRotativeShield()
+    {
+        smallRotativeShield.SetActive(false);
+        bigRotativeShield.SetActive(true);
     }
 }

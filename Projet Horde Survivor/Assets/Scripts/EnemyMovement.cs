@@ -98,6 +98,10 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.transform.CompareTag("Shield"))
         {
+            if (PlayerSkillHolderManager.Instance.rsHasDamages)
+            {
+                EnemyTakeDamage(PlayerSkillHolderManager.Instance.rsDamages, "rotative shield");
+            }
             playerManager.Knockback(PlayerSkillHolderManager.Instance.rsKnockbackForce);
         }
         else if (collision.transform == target.transform)
@@ -106,9 +110,9 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    public void EnemyTakeDamage(float ammount, string tag)
+    public void EnemyTakeDamage(float amount, string tag)
     {
-        enemyHealth -= ammount;
+        enemyHealth -= amount;
         Debug.Log("DMG taken");
         
         if (enemyHealth <= 0)
