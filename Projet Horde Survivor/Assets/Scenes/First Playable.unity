@@ -1571,9 +1571,9 @@ MonoBehaviour:
   hasSlowZone: 0
   slowForce: 0
   nbShootBullet: 1
-  hasExplosiveShoot: 1
+  hasExplosiveShoot: 0
   explodeNb: 8
-  hasMine: 1
+  hasMine: 0
   mine: {fileID: 393963819148785011, guid: 0566d909189e0544ea346c487abde582, type: 3}
   mineRadius: 18
   mineDMG: 1
