@@ -1565,8 +1565,9 @@ MonoBehaviour:
   hasPoisonZone: 0
   magnetRadius: 2
   magnetForce: 2
-  hasRotativeShield: 0
   rotativeShield: {fileID: 1339515521}
+  rotativeShieldAnimation: {fileID: 1339515522}
+  rsKnockbackForce: 0.5
   poisonDamage: 0
   hasSlowZone: 0
   slowForce: 0
@@ -9472,7 +9473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502db467fa631254585b772fce17f99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bits: 100
+  bits: 0
   clickPrice: 1
   clicks: 0
   bitsText: {fileID: 140769671}
@@ -9696,7 +9697,7 @@ MonoBehaviour:
   - Name: RS speed+
     SkillDisplay: {fileID: 8983561845769348576, guid: 43af0a475b2096944a363a16aee10d4c, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 0
     IsActive: 0
     Children: 09000000
@@ -9710,7 +9711,7 @@ MonoBehaviour:
   - Name: RS knockback
     SkillDisplay: {fileID: 8983561845769348576, guid: a523090a0c8dcb94fb2bb7017c292c05, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 0
     IsActive: 0
     Children: 0b000000

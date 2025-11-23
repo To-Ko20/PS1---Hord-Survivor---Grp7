@@ -10,8 +10,9 @@ public class PlayerSkillHolderManager : MonoBehaviour
     [Space(10f)]
 
     [Header("Data Magnet")]
-    public bool hasRotativeShield;
     public GameObject rotativeShield;
+    public Animation rotativeShieldAnimation;
+    public float rsKnockbackForce;
     public float poisonDamage;
     public bool hasSlowZone;
     public float slowForce;
@@ -44,5 +45,10 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public void ActivateRotativeShield()
     {
         rotativeShield.SetActive(true);
+    }
+
+    public void SpeedUpRotativeShield()
+    {
+        rotativeShieldAnimation["RotativeShieldTurn"].speed = 2.0f;
     }
 }

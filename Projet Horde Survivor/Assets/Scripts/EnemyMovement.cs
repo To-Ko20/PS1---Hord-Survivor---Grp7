@@ -98,7 +98,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.transform.CompareTag("Shield"))
         {
-            playerManager.Knockback();
+            playerManager.Knockback(PlayerSkillHolderManager.Instance.rsKnockbackForce);
         }
         else if (collision.transform == target.transform)
         {
