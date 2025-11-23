@@ -19,7 +19,9 @@ public class PlayerSkillHolderManager : MonoBehaviour
     
     [Header("Shoot")]
     public int nbShootBullet = 1;
-    
+    public bool hasExplosiveShoot;
+    public int explodeNb;
+
     public static PlayerSkillHolderManager Instance;
     
     private void Awake()
