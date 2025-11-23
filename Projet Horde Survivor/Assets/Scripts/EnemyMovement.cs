@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -105,23 +106,36 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    public void EnemyTakeDamage(float ammount)
+    public void EnemyTakeDamage(float ammount, string tag)
     {
         enemyHealth -= ammount;
         Debug.Log("DMG taken");
         
         if (enemyHealth <= 0)
         {
-            EnemyDeath();
+            EnemyDeath(tag);
         }
     }
 
-    private void EnemyDeath()
+    private void EnemyDeath(string tag)
     {
         EnemyManager.Instance.UnregisterEnemy(gameObject);
+        if (PlayerSkillHolderManager.Instance.hasMine && tag != "mine")
+        {
+            if (Random.Range(0f, 1f) <= PlayerSkillHolderManager.Instance.mineRate)
+            {
+                PlantMine(); 
+            }  
+        }
         DropData();
         ClickerManager.Instance.DisplayUpdate();
         Destroy(gameObject);
+    }
+
+    private void PlantMine()
+    {
+        GameObject newMine = Instantiate(PlayerSkillHolderManager.Instance.mine, transform.position, Quaternion.identity);
+        newMine.transform.SetParent(PlayerSkillHolderManager.Instance.transform);
     }
 
     private void DropData()

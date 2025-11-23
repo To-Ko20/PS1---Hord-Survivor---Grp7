@@ -1573,6 +1573,11 @@ MonoBehaviour:
   nbShootBullet: 1
   hasExplosiveShoot: 1
   explodeNb: 8
+  hasMine: 1
+  mine: {fileID: 393963819148785011, guid: 0566d909189e0544ea346c487abde582, type: 3}
+  mineRadius: 18
+  mineDMG: 1
+  mineRate: 0.33
 --- !u!1 &284138851
 GameObject:
   m_ObjectHideFlags: 0
@@ -9782,7 +9787,7 @@ MonoBehaviour:
   - Name: Mine
     SkillDisplay: {fileID: 8983561845769348576, guid: a71f87e2fec34ce48b454b55cb3623db, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 0
     IsActive: 0
     Children: 

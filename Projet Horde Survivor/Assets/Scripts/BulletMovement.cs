@@ -39,7 +39,7 @@ public class BulletMovement : MonoBehaviour
                 {
                     Explode(collision.transform.position);
                 }
-                enemy.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage);
+                enemy.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage, "bullet");
                 DestroyBullet();
                 return;
             }  

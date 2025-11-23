@@ -21,6 +21,11 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public int nbShootBullet = 1;
     public bool hasExplosiveShoot;
     public int explodeNb;
+    public bool hasMine;
+    public GameObject mine;
+    public float mineRadius;
+    public int mineDMG;
+    public float mineRate;
 
     public static PlayerSkillHolderManager Instance;
     

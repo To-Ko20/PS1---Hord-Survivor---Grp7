@@ -53,7 +53,7 @@ public class PoisonZone : MonoBehaviour
             }
             else
             {
-                nmi.EnemyTakeDamage(PlayerSkillHolderManager.Instance.poisonDamage);
+                nmi.EnemyTakeDamage(PlayerSkillHolderManager.Instance.poisonDamage, "poison");
                 Debug.Log("Send Poison Damage");  
             }
         }
