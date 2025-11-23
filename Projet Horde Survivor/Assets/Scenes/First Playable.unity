@@ -9752,21 +9752,21 @@ MonoBehaviour:
   - Name: Triple Shoot
     SkillDisplay: {fileID: 8983561845769348576, guid: dd9a981665e6d8f41b962d30a5b371d2, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 0
     IsActive: 0
     Children: 12000000
   - Name: Star Shoot
     SkillDisplay: {fileID: 8983561845769348576, guid: 8f1fbe3404353b94b96d77fe10a8d9b3, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 0
     IsActive: 0
     Children: 13000000
   - Name: Circle Shoot
     SkillDisplay: {fileID: 8983561845769348576, guid: cf648e5ea99b2594f9c0b1f8d9d3f020, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 0
     IsActive: 0
     Children: 1400000015000000
