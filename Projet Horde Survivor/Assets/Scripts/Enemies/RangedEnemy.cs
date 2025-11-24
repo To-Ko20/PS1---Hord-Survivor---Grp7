@@ -12,17 +12,18 @@ public class RangedEnemy : MonoBehaviour
     [SerializeField] private float fireRate;
     private float timeToFire;
     
-    [SerializeField] private float distanceToStop;
-    [SerializeField] private float distanceToShoot;
+    [SerializeField] private float distanceToStop; //Distance à laquelle l'ennemi s'arrête
+    [SerializeField] private float distanceToShoot; //Distance de tir maximale de l'ennemi
 
     void Start()
     {
-        target        = GameObject.FindGameObjectWithTag("Player");
+        target = GameObject.FindGameObjectWithTag("Player");
         enemyMovement = GetComponent<EnemyMovement>();
-        timeToFire    = fireRate;
+        
+        timeToFire = fireRate;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Vector2.Distance(transform.position, target.transform.position) <= distanceToStop)
         {
