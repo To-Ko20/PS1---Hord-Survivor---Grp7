@@ -13,6 +13,7 @@ public class EnemyBulletMovement : MonoBehaviour
 
     void Start()
     {
+        player  = GameObject.FindGameObjectWithTag("Player");
         target = (player.transform.position -  transform.position).normalized;
         Debug.DrawRay(rb.position, target, Color.red);
     }
@@ -30,8 +31,7 @@ public class EnemyBulletMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Vector2 otherPos =  other.transform.position;
-        if (otherPos == target)
+        if (other.transform == player.transform)
         {
             PlayerManager.Instance.TakeDamage(bulletDamage);
             Destroy(this.gameObject);
