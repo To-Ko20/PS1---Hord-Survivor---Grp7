@@ -14,6 +14,7 @@ public class SkillRSDMG : MonoBehaviour
     private void Effect()
     {
         PlayerSkillHolderManager.Instance.rsHasDamages = true;
-        PlayerSkillHolderManager.Instance.rotativeShield.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        PlayerSkillHolderManager.Instance.spikeShield = true;
+        PlayerSkillHolderManager.Instance.ActivateSpikeShield();
     }
 }

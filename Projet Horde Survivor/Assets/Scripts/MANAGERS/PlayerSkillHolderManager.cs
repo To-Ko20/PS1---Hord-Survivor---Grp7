@@ -16,10 +16,13 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public GameObject rotativeShield;
     public GameObject smallRotativeShield;
     public GameObject bigRotativeShield;
+    public GameObject smallSpikeRotativeShield;
+    public GameObject bigSpikeRotativeShield;
     public Animation rotativeShieldAnimation;
     public float rsKnockbackForce;
     public bool rsHasDamages;
     public int rsDamages;
+    public bool spikeShield;
 
     [Space(10f)]
     
@@ -60,6 +63,24 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public void SizeUpRotativeShield()
     {
         smallRotativeShield.SetActive(false);
+        if (spikeShield)
+        {
+            bigSpikeRotativeShield.SetActive(true);
+        }
         bigRotativeShield.SetActive(true);
+    }
+
+    public void ActivateSpikeShield()
+    {
+        if (smallRotativeShield.activeSelf)
+        {
+            smallRotativeShield.SetActive(false);
+            smallSpikeRotativeShield.SetActive(true);
+        }
+        else
+        {
+            bigRotativeShield.SetActive(false);
+            bigSpikeRotativeShield.SetActive(true);
+        }
     }
 }
