@@ -214,9 +214,10 @@ MonoBehaviour:
   enemySpawner: {fileID: 0}
   playerManager: {fileID: 0}
   rb: {fileID: 2474233789122409842}
-  speed: 3
-  damageToPlayer: 5
-  enemyHealth: 10
+  speed: 1.5
+  damageToPlayer: 15
+  enemyHealth: 12
   lifeDisplay: {fileID: 0}
   dataPrefab: {fileID: 185209308465788401, guid: cf564412c8dd9fa4db4e406f346298b0, type: 3}
   hasToSlow: 0
+  canMove: 1

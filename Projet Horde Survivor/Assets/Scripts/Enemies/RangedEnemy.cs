@@ -6,6 +6,7 @@ public class RangedEnemy : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject firingPoint;
+    
     [SerializeField] private EnemyMovement enemyMovement;
     
     [SerializeField] private float fireRate;
@@ -38,9 +39,12 @@ public class RangedEnemy : MonoBehaviour
         enemyMovement.canMove = false;
         timeToFire -= Time.deltaTime;
 
-        if (timeToFire <= 0)
+        if (timeToFire <= 0f)
         {
+            GameObject newBall = Instantiate(bulletPrefab, firingPoint.transform.position, firingPoint.transform.rotation);
+            newBall.GetComponent<EnemyBulletMovement>().player = target;
             Debug.Log("Shoot");
+            
             timeToFire = fireRate;
         }
     }

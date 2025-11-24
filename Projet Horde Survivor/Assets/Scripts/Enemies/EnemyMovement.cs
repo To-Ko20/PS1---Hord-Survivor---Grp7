@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed;
-    [SerializeField] private float damageToPlayer;
+    public float damageToPlayer;
     [SerializeField] private float enemyHealth;
     
     [SerializeField] private Transform lifeDisplay;
