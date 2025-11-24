@@ -36,7 +36,7 @@ public class UpgradeMenuManager : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        if (SkillTreeManager.Instance.availableNode.Count >= 3)
+        if (SkillTreeManager.Instance.availableNode.Count >= 4)
         {
             ChooseSkill(3);
         }
@@ -61,7 +61,7 @@ public class UpgradeMenuManager : MonoBehaviour
             GameObject newSkill = Instantiate(choosenSkill.SkillDisplay, transform);
             newSkill.transform.SetParent(transform, false);
             newSkill.transform.SetParent(proposedUpgradeMenu.transform);
-            newSkill.transform.localScale = new Vector3(1,1,1);
+            newSkill.transform.localScale = new Vector3(0.75f,0.75f,0.75f);
             newSkill.GetComponent<ChooseUpdate>().index = rndSkill;
         }
     }

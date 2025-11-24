@@ -113,7 +113,6 @@ public class EnemyMovement : MonoBehaviour
     public void EnemyTakeDamage(float amount, string tag)
     {
         enemyHealth -= amount;
-        Debug.Log("DMG taken");
         
         if (enemyHealth <= 0)
         {
