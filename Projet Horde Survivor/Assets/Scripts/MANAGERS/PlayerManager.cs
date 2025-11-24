@@ -38,7 +38,7 @@ public class PlayerManager : MonoBehaviour
         radius = knockbackZone.GetComponent<CircleCollider2D>().radius * knockbackZone.transform.localScale.x;
         
         knockbackZone = GameObject.FindGameObjectWithTag("KnockbackZone");
-        RecalculateMaxHealth();
+        RecalculateMaxHealth(); 
     }
 
     public void RecalculateMaxHealth()

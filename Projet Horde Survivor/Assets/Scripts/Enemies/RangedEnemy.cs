@@ -1,0 +1,56 @@
+using System;
+using UnityEngine;
+
+public class RangedEnemy : MonoBehaviour
+{
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject target;
+    [SerializeField] private GameObject firingPoint;
+    
+    [SerializeField] private EnemyMovement enemyMovement;
+    
+    [SerializeField] private float fireRate;
+    private float timeToFire;
+    
+    [SerializeField] private float distanceToStop; //Distance à laquelle l'ennemi s'arrête
+    [SerializeField] private float distanceToShoot; //Distance de tir maximale de l'ennemi
+
+    void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player");
+        enemyMovement = GetComponent<EnemyMovement>();
+        
+        timeToFire = fireRate;
+    }
+
+    void FixedUpdate()
+    {
+        if (Vector2.Distance(transform.position, target.transform.position) <= distanceToStop)
+        {
+            enemyMovement.canMove = false;
+        }
+        else if (Vector2.Distance(transform.position, target.transform.position) >= distanceToShoot)
+        {
+            enemyMovement.canMove = true;
+        }
+
+        if (Vector2.Distance(transform.position, target.transform.position) <= distanceToShoot)
+        {
+            Shoot();
+        }
+    }
+
+    void Shoot()
+    {
+        timeToFire -= Time.deltaTime;
+
+        if (timeToFire <= 0f)
+        {
+            GameObject newBall = Instantiate(bulletPrefab, firingPoint.transform.position, firingPoint.transform.rotation);
+            newBall.GetComponent<EnemyBulletMovement>().player = target;
+            Debug.Log("Shoot");
+            
+            timeToFire = fireRate;
+        }
+    }
+}

@@ -12,15 +12,15 @@ public class EnemyMovement : MonoBehaviour
     
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed;
-    [SerializeField] private float damageToPlayer;
+    public float damageToPlayer;
     [SerializeField] private float enemyHealth;
     
     [SerializeField] private Transform lifeDisplay;
 
-    [SerializeField] private GameObject dataPrefab; // click prefab
+    [SerializeField] private GameObject dataPrefab;
 
     public bool hasToSlow;
-    
+    public bool canMove = true;
     
     private Transform target;
     
@@ -32,21 +32,30 @@ public class EnemyMovement : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform; //détecte le joueur
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
+        
+        canMove = true;
     }
 
     void FixedUpdate()
     {
         Vector2 direction = (target.position - transform.position).normalized;
-        if (hasToSlow)
+        
+        if (canMove == true)
         {
-            Debug.Log("slow ennemi");
-            rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * (speed*PlayerSkillHolderManager.Instance.slowForce), 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
+            if (hasToSlow)
+            {
+                rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * (speed*PlayerSkillHolderManager.Instance.slowForce), 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
+            }
+            else
+            {
+                rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * speed, 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
+            }
         }
         else
         {
-            rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * speed, 18f * Time.deltaTime); //déplace l'ennemi vers le joueur
+            rb.linearVelocity = Vector2.zero;
         }
-
+        
         if (direction != Vector2.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
@@ -54,35 +63,6 @@ public class EnemyMovement : MonoBehaviour
             transform.rotation = rotation;
         }
     }
-    
-
-    /// Ralentissement du temps on hit ///
-    
-    // Coroutine lerpingTimeCoroutine = null;
-        
-    /*IEnumerator LerpingTime(float durationFirst,float secondDuration, float targetTimeFirst, float targetTimeSecond)
-    {
-        float time = 0;
-        while (time < durationFirst)
-        {
-            yield return new WaitForFixedUpdate();
-            time += Time.deltaTime;
-            float newTimeScale = Mathf.Lerp(Time.timeScale, targetTimeFirst, time);
-            Time.timeScale = newTimeScale;
-        }
-        Time.timeScale = targetTimeFirst;
-            
-        time = 0;
-            
-        while (time < secondDuration)
-        {
-            yield return new WaitForFixedUpdate();
-            time += Time.deltaTime;
-            float newTimeScale = Mathf.Lerp(Time.timeScale, targetTimeSecond, time);
-            Time.timeScale = newTimeScale;
-        }
-        Time.timeScale = targetTimeSecond;
-    }*/
 
     public void ApplyKnockBack(Vector2 direction, float force)
     {
@@ -90,7 +70,6 @@ public class EnemyMovement : MonoBehaviour
 
         rb.linearVelocity = Vector2.zero;
         rb.AddForce(direction * force, ForceMode2D.Impulse); 
-        //lerpingTimeCoroutine = StartCoroutine(LerpingTime(0.1f, 0.4f, playerManager.knockBackSlowTime, 1f));
     }
 
     //Enemy - Player Collision

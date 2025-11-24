@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1376569024444778103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3713824928906356917}
+  m_Layer: 0
+  m_Name: FiringPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3713824928906356917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376569024444778103}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.536, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3436247505802739925}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6994324366664885536
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,9 +43,9 @@ GameObject:
   - component: {fileID: 6944853693561743594}
   - component: {fileID: 2474233789122409842}
   - component: {fileID: 3353534154452593365}
-  - component: {fileID: 2899417832952692280}
+  - component: {fileID: -996895619556218297}
   m_Layer: 6
-  m_Name: Sentinelle
+  m_Name: Enemy03
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +63,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3713824928906356917}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6944853693561743594
@@ -80,7 +112,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21226418, g: 0.7342745, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
@@ -163,11 +195,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.0002970174, y: -0.5807317}
-      - {x: -0.4958911, y: 0.2906909}
-      - {x: 0.49794558, y: 0.29069084}
+    - - {x: 0, y: -0.581439}
+      - {x: -0.50898296, y: 0.29222935}
+      - {x: 0.5, y: 0.29222935}
   m_UseDelaunayMesh: 0
---- !u!114 &2899417832952692280
+--- !u!114 &-996895619556218297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,8 +215,8 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   rb: {fileID: 2474233789122409842}
   speed: 1.5
-  damageToPlayer: 5
-  enemyHealth: 3
+  damageToPlayer: 15
+  enemyHealth: 12
   lifeDisplay: {fileID: 0}
   dataPrefab: {fileID: 185209308465788401, guid: cf564412c8dd9fa4db4e406f346298b0, type: 3}
   hasToSlow: 0
