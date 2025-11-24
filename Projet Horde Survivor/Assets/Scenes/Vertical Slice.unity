@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9fc8eecb333c2439f6d02904850743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updatesSizes: 08000000000000000800000000000000400000000000000080000000000000008000000000000000800000000000000080000000000000008000000000000000
+  updatesSizes: 080000000000000020000000000000002000000000000000400000000000000080000000000000000001000000000000000100000000000000020000000000000002000000000000000400000000000000040000000000000008000000000000000800000000000000080000000000000008000000000000000800000000000000080000000000000008000000000000
   downloadMaxSpeed: 2
   downloadSpeed: 0
   currentUpdate: 0
@@ -4894,7 +4894,7 @@ MonoBehaviour:
     - {fileID: 6994324366664885536, guid: eecbd4044fd9a994184ec1aeab201a1b, type: 3}
     - {fileID: 6994324366664885536, guid: eecbd4044fd9a994184ec1aeab201a1b, type: 3}
     - {fileID: 6994324366664885536, guid: eecbd4044fd9a994184ec1aeab201a1b, type: 3}
-    timeToNextEnemy: 3
+    timeToNextEnemy: 2
     timeToNextWave: 30
   - enemies:
     - {fileID: 6994324366664885536, guid: f7f5deb1d1221d34a8b95d3a4838043e, type: 3}
@@ -4945,7 +4945,7 @@ MonoBehaviour:
     - {fileID: 6994324366664885536, guid: eecbd4044fd9a994184ec1aeab201a1b, type: 3}
     - {fileID: 6994324366664885536, guid: eecbd4044fd9a994184ec1aeab201a1b, type: 3}
     - {fileID: 6994324366664885536, guid: eecbd4044fd9a994184ec1aeab201a1b, type: 3}
-    timeToNextEnemy: 1.5
+    timeToNextEnemy: 1
     timeToNextWave: 25
   - enemies:
     - {fileID: 6994324366664885536, guid: 74088371ee6d3d94080aab8cde2c207c, type: 3}
@@ -5044,7 +5044,7 @@ MonoBehaviour:
     - {fileID: 6994324366664885536, guid: eecbd4044fd9a994184ec1aeab201a1b, type: 3}
     - {fileID: 6994324366664885536, guid: eecbd4044fd9a994184ec1aeab201a1b, type: 3}
     - {fileID: 6994324366664885536, guid: eecbd4044fd9a994184ec1aeab201a1b, type: 3}
-    timeToNextEnemy: 0.5
+    timeToNextEnemy: 0.2
     timeToNextWave: 20
   minSpawnPoint: {fileID: 1853545814}
   maxSpawnPoint: {fileID: 338760828}
@@ -10499,7 +10499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTree: {fileID: 1676044833}
-  showOverlay: 0
+  showOverlay: 1
   nodeWidth: 12
   nodeHeight: 5
   levelDistance: 20

@@ -51,7 +51,7 @@ public class MainMenuManger : MonoBehaviour
     public void PlayGame()
     {
         DOTween.Clear(true);
-        SceneManager.LoadScene("First Playable");
+        SceneManager.LoadScene(1);
     }
     
     

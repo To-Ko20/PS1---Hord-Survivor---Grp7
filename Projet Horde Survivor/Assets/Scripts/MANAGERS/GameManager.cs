@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        SceneManager.LoadScene("First Playable");
+        SceneManager.LoadScene(1);
     }
 
     public void Quit()
