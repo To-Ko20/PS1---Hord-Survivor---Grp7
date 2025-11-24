@@ -26,17 +26,21 @@ public class RangedEnemy : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, target.transform.position) <= distanceToStop)
         {
-            Shoot();
+            enemyMovement.canMove = false;
         }
         else if (Vector2.Distance(transform.position, target.transform.position) >= distanceToShoot)
         {
             enemyMovement.canMove = true;
         }
+
+        if (Vector2.Distance(transform.position, target.transform.position) <= distanceToShoot)
+        {
+            Shoot();
+        }
     }
 
     void Shoot()
     {
-        enemyMovement.canMove = false;
         timeToFire -= Time.deltaTime;
 
         if (timeToFire <= 0f)
