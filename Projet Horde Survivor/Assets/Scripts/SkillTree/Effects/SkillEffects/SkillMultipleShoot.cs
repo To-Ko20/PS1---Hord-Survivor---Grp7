@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class SkillRotativeShield : MonoBehaviour
+public class SkillMultipleShoot : MonoBehaviour
 {
     [SerializeField] private SkillActivator sk;
+    [SerializeField] private int nbBullet;
     
     public void Activate()
     {
@@ -13,6 +14,6 @@ public class SkillRotativeShield : MonoBehaviour
 
     private void Effect()
     {
-        PlayerSkillHolderManager.Instance.ActivateRotativeShield();
+        PlayerSkillHolderManager.Instance.nbShootBullet = nbBullet;
     }
 }

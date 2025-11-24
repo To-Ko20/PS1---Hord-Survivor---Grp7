@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SkillRotativeShield : MonoBehaviour
+public class SkillExplosiveShoot : MonoBehaviour
 {
     [SerializeField] private SkillActivator sk;
     
@@ -13,6 +13,6 @@ public class SkillRotativeShield : MonoBehaviour
 
     private void Effect()
     {
-        PlayerSkillHolderManager.Instance.ActivateRotativeShield();
+        PlayerSkillHolderManager.Instance.hasExplosiveShoot = true;
     }
 }

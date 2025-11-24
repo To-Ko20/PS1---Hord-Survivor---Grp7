@@ -18,6 +18,8 @@ public class PlayerManager : MonoBehaviour
     public int knockbackStrenght; 
     public float knockBackDuration = 1f;
 
+    private float radius;
+
     private void Awake()
     {
         if (Instance == null)
@@ -33,6 +35,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        radius = knockbackZone.GetComponent<CircleCollider2D>().radius * knockbackZone.transform.localScale.x;
         
         knockbackZone = GameObject.FindGameObjectWithTag("KnockbackZone");
         RecalculateMaxHealth(); 
@@ -52,13 +55,11 @@ public class PlayerManager : MonoBehaviour
             GameManager.Instance.GameOver();
         }
         
-        Knockback();
+        Knockback(1);
     }
 
-    public void Knockback()
+    public void Knockback(float force)
     {
-        float radius = knockbackZone.GetComponent<CircleCollider2D>().radius * knockbackZone.transform.localScale.x;
-
         foreach (var enemy in EnemyManager.Instance.activeEnemies)
         {
             float distance = Vector2.Distance(knockbackZone.transform.position, enemy.transform.position);
@@ -69,7 +70,7 @@ public class PlayerManager : MonoBehaviour
                 if (rb != null)
                 {
                     Vector2 direction = (enemy.transform.position - knockbackZone.transform.position).normalized;
-                    enemy.GetComponent<EnemyMovement>()?.ApplyKnockBack(direction, knockbackStrenght);
+                    enemy.GetComponent<EnemyMovement>()?.ApplyKnockBack(direction, knockbackStrenght*force);
                 }
             }
         }

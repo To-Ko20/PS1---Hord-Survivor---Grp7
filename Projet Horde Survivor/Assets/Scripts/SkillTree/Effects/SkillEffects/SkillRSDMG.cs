@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SkillRotativeShield : MonoBehaviour
+public class SkillRSDMG : MonoBehaviour
 {
     [SerializeField] private SkillActivator sk;
     
@@ -13,6 +13,7 @@ public class SkillRotativeShield : MonoBehaviour
 
     private void Effect()
     {
-        PlayerSkillHolderManager.Instance.ActivateRotativeShield();
+        PlayerSkillHolderManager.Instance.rsHasDamages = true;
+        PlayerSkillHolderManager.Instance.rotativeShield.GetComponentInChildren<SpriteRenderer>().color = Color.red;
     }
 }
