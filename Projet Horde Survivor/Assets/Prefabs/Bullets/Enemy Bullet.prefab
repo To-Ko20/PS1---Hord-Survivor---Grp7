@@ -167,5 +167,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2061158745950334345}
   speed: 1
-  bulletDamage: 2
-  bulletVector: {x: 0, y: 0}
+  bulletDamage: 0
+  player: {fileID: 0}

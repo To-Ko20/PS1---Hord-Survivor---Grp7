@@ -44,9 +44,8 @@ GameObject:
   - component: {fileID: 2474233789122409842}
   - component: {fileID: 3353534154452593365}
   - component: {fileID: -996895619556218297}
-  - component: {fileID: -6336193152945960258}
   m_Layer: 6
-  m_Name: Enemy02
+  m_Name: Enemy03
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +112,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.95653963, g: 0, b: 1, a: 1}
+  m_Color: {r: 0.21226418, g: 0.7342745, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
@@ -215,29 +214,9 @@ MonoBehaviour:
   enemySpawner: {fileID: 0}
   playerManager: {fileID: 0}
   rb: {fileID: 2474233789122409842}
-  speed: 2.5
-  damageToPlayer: 2
-  enemyHealth: 5
+  speed: 3
+  damageToPlayer: 5
+  enemyHealth: 10
   lifeDisplay: {fileID: 0}
   dataPrefab: {fileID: 185209308465788401, guid: cf564412c8dd9fa4db4e406f346298b0, type: 3}
   hasToSlow: 0
-  canMove: 1
---- !u!114 &-6336193152945960258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6994324366664885536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0947dacf50df4458276464abf03175, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4851967122792192479, guid: c291154c630b18d478bce0b37bca62cf, type: 3}
-  target: {fileID: 0}
-  firingPoint: {fileID: 0}
-  enemyMovement: {fileID: 0}
-  fireRate: 2
-  distanceToStop: 5
-  distanceToShoot: 8
