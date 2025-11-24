@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         isPlaying = true;
+        Time.timeScale = 1;
     }
     
     private void Update()
@@ -71,7 +72,6 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene("First Playable");
     }
 
