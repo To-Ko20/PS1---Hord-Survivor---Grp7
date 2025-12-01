@@ -18,6 +18,7 @@ public class ClickerManager : MonoBehaviour
     [SerializeField] private GameObject animUI;
     [SerializeField] private GameObject clickUI;
     [SerializeField] private Animation clickGained;
+    [SerializeField] private Animation dataGained;
     
     //private ulong _gainedBits;
     //public int gainedData;
@@ -181,4 +182,8 @@ public class ClickerManager : MonoBehaviour
             dataRate.text = "";
         }
     }*/
+    public void PlayAnim()
+    {
+        dataGained.Play();
+    }
 }

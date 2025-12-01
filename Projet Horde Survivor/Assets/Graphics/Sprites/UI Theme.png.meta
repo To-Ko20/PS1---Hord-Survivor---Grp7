@@ -2493,6 +2493,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI Theme_96
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 745
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 587726c724b61ec48b92112fa27159be
+      internalID: 2074360889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Theme_97
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 724
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f770bce19c7f499489000538324b1cbd
+      internalID: -447421119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -2603,6 +2647,8 @@ TextureImporter:
       UI Theme_93: -523030666641614155
       UI Theme_94: 5083970557744122018
       UI Theme_95: -1184378032
+      UI Theme_96: 2074360889
+      UI Theme_97: -447421119
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

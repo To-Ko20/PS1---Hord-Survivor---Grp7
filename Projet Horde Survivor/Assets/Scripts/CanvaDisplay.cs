@@ -57,9 +57,16 @@ public class CanvaDisplay : MonoBehaviour
             moveIMG.sprite = moveLeftSprite;
         }
         
-        var vector3 = cam.transform.position;
-        vector3.x = -cam.transform.position.x;
-        cam.transform.position = vector3;
-        cam.GetComponent<CameraMovement>().offset.x = -cam.GetComponent<CameraMovement>().offset.x;
+        Vector3 _pos = cam.transform.position;
+        CameraMovement cm = cam.GetComponent<CameraMovement>();
+        cm.cameraSmoothTime = 0f;
+        Vector3 off = cm.offset;
+        
+        _pos.x -= off.x;
+        cam.transform.position = _pos;
+        
+        off.x = -off.x;
+        cm.offset = off;
+        cm.cameraSmoothTime = 0.25f;
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -92,6 +93,7 @@ public class DownloadUpdateManager : MonoBehaviour
             newAnimUI.transform.SetParent(clickUI.transform);
             Animation anim =  newAnimUI.GetComponent<Animation>();
             anim.Play("DownloadAnim");
+            StartCoroutine(WaitForAnimation(anim, "DownloadAnim", newAnimUI));
         }
         
         if (_downloaded + downloadSpeed > updatesSizes[currentUpdate])
@@ -112,7 +114,21 @@ public class DownloadUpdateManager : MonoBehaviour
             ClickerManager.Instance.bits -= downloadSpeed;
             _downloaded += downloadSpeed;
         }
-        
+    }
+    
+    IEnumerator WaitForAnimation(Animation animation, string animName, GameObject animObj)
+    {
+        // wait for animation to actually start playing
+        yield return null;
+
+        AnimationState state = animation[animName];
+
+        // Wait until the animation is done
+        while (animation.IsPlaying(animName))
+        {
+            yield return null;
+        }
+        Destroy(animObj);
     }
 
     private void DisplayDownloadInfo()
