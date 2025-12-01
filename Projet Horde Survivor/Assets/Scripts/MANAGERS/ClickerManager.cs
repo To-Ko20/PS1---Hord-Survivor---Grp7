@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,11 @@ public class ClickerManager : MonoBehaviour
     [SerializeField] private TMP_Text clicksText;
     [SerializeField] private TMP_Text dataRate;
     [SerializeField] private TMP_Text bitsRate;
+    
+    [SerializeField] private GameObject animUI;
+    [SerializeField] private GameObject clickUI;
+    [SerializeField] private Animation clickGained;
+    
     //private ulong _gainedBits;
     //public int gainedData;
     //private float _elapsed = 0f;
@@ -57,13 +63,35 @@ public class ClickerManager : MonoBehaviour
     {
         if (clicks > 0)
         {
-            bits += clickPrice;
-            //_gainedBits += clickPrice;
-            
             clicks--;
             DisplayUpdate();
+            GameObject newAnimUI = Instantiate(animUI, transform);
+            newAnimUI.transform.SetParent(clickUI.transform);
+            Animation anim =  newAnimUI.GetComponent<Animation>();
+            anim.Play("ClickAnim");
+            StartCoroutine(WaitForAnimation(anim, "ClickAnim", newAnimUI));
+            //_gainedBits += clickPrice;
         }
     }
+    IEnumerator WaitForAnimation(Animation animation, string animName, GameObject animObj)
+    {
+        // wait for animation to actually start playing
+        yield return null;
+
+        AnimationState state = animation[animName];
+
+        // Wait until the animation is done
+        while (animation.IsPlaying(animName))
+        {
+            yield return null;
+        }
+        
+        bits += clickPrice;
+        DisplayUpdate();
+        Destroy(animObj);
+        clickGained.Play();
+    }
+    
 
     public void DisplayUpdate()
     {

@@ -17,10 +17,12 @@ public class DownloadUpdateManager : MonoBehaviour
     [SerializeField] private TMP_Text dlProgression;
     [SerializeField] private TMP_Text dlRemainingTime;
 
-    [SerializeField] private GameObject upgradesBtnMenu;
     [SerializeField] private GameObject downloadDisplay;
     [SerializeField] private GameObject unlockDownloadGo;
     [SerializeField] private GameObject maxSpeedGo;
+    
+    [SerializeField] private GameObject animUI;
+    [SerializeField] private GameObject clickUI;
     
     private ulong _downloaded;
     private float _t = 1f;
@@ -82,6 +84,14 @@ public class DownloadUpdateManager : MonoBehaviour
         else
         {
             downloadSpeed = ClickerManager.Instance.bits;
+        }
+
+        if (downloadSpeed > 0)
+        {
+            GameObject newAnimUI = Instantiate(animUI, transform);
+            newAnimUI.transform.SetParent(clickUI.transform);
+            Animation anim =  newAnimUI.GetComponent<Animation>();
+            anim.Play("DownloadAnim");
         }
         
         if (_downloaded + downloadSpeed > updatesSizes[currentUpdate])
@@ -159,7 +169,6 @@ public class DownloadUpdateManager : MonoBehaviour
     {
         unlockDownloadGo.SetActive(false);
         maxSpeedGo.SetActive(true);
-        upgradesBtnMenu.SetActive(true);
         downloadDisplay.SetActive(true);
         ChooseUpdate();
     }
