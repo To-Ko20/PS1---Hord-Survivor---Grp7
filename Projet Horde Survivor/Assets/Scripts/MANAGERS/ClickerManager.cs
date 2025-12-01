@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,6 +11,11 @@ public class ClickerManager : MonoBehaviour
     public int clicks;
     [SerializeField] private TMP_Text bitsText;
     [SerializeField] private TMP_Text clicksText;
+    [SerializeField] private TMP_Text dataRate;
+    [SerializeField] private TMP_Text bitsRate;
+    //private ulong _gainedBits;
+    //public int gainedData;
+    //private float _elapsed = 0f;
     
     public string[]bitsMetric = new string[6]
     {
@@ -52,6 +58,8 @@ public class ClickerManager : MonoBehaviour
         if (clicks > 0)
         {
             bits += clickPrice;
+            //_gainedBits += clickPrice;
+            
             clicks--;
             DisplayUpdate();
         }
@@ -98,4 +106,51 @@ public class ClickerManager : MonoBehaviour
     {
         clicksText.text = clicks + " data";
     }
+
+    /*private void FixedUpdate()
+    {
+        Countdown();
+    }
+
+    private void Countdown()
+    {
+        _elapsed += Time.fixedDeltaTime;
+
+        if (_elapsed >= 5f)
+        {
+            _elapsed= 0f;
+            _gainedBits = 0;
+            gainedData = 0;
+        }
+
+        if (Mathf.Floor(_elapsed) % 1f == 0)
+        {
+            DataRateDisplayUpdate();
+            ClickRateDisplayUpdate();
+        }
+    }
+
+    private void ClickRateDisplayUpdate()
+    {
+        if (_gainedBits > 0)
+        {
+            bitsRate.text = (_gainedBits/_elapsed).ToString("F2");
+        }
+        else
+        {
+            bitsRate.text = "";
+        }
+    }
+
+    private void DataRateDisplayUpdate()
+    {
+        if (gainedData > 0)
+        {
+            dataRate.text = (gainedData/_elapsed).ToString("F2");
+        }
+        else
+        {
+            dataRate.text = "";
+        }
+    }*/
 }

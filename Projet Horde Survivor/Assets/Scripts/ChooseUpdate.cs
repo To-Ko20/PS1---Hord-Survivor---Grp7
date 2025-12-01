@@ -10,7 +10,7 @@ public class ChooseUpdate : MonoBehaviour
     public void UpdateSelected()
     {
         DownloadUpdateManager.Instance.SetChosenUpdate(chosenUpdateText);
-        UpgradeMenuManager.Instance.StoreSelectedSkill(effect, index);
+        UpgradeMenuManager.Instance.StoreSelectedSkill(effect, index, gameObject);
         UpgradeMenuManager.Instance.HideUpgradeMenu();
         
     }

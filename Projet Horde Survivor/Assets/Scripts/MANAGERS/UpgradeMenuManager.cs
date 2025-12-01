@@ -9,6 +9,7 @@ public class UpgradeMenuManager : MonoBehaviour
     [SerializeField] private GameObject proposedUpgradeMenu;
 
     [SerializeField] private GameObject storedSkill;
+    [SerializeField] private GameObject downloadingSkillDisplay;
     
     private int _storedIndex;
     
@@ -72,8 +73,17 @@ public class UpgradeMenuManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void StoreSelectedSkill(GameObject effect, int index)
+    public void StoreSelectedSkill(GameObject effect, int index, GameObject display)
     {
+        Destroy(downloadingSkillDisplay.transform.GetChild(0).gameObject);
+        GameObject newSkill = Instantiate(display, transform);
+        RectTransform rt = newSkill.GetComponent<RectTransform>();
+        rt.anchoredPosition = new Vector3(0,0,0);
+        rt.sizeDelta = new Vector2(200,200);
+        newSkill.transform.localScale = new Vector3(1f,1f,1f);
+        newSkill.transform.SetParent(downloadingSkillDisplay.transform, false);
+        
+        
         _storedIndex =  index;
         SkillTreeManager.Instance.availableNode[_storedIndex].IsSelected = true;
         storedSkill = effect;

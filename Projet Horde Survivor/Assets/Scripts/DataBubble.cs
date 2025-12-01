@@ -31,6 +31,7 @@ public class DataBubble : MonoBehaviour
         if (other.transform == PlayerController.Instance.transform)
         {
             ClickerManager.Instance.clicks += clicksToGain;
+            //ClickerManager.Instance.gainedData += clicksToGain;
             ClickerManager.Instance.DisplayUpdate();
             Destroy(gameObject);
         }

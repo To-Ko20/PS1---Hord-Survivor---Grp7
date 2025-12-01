@@ -47,18 +47,9 @@ public class DownloadUpdateManager : MonoBehaviour
         DisplayDownloadInfo();
     }
 
-    public void SwitchDownloading(Button btn)
+    public void SwitchDownloading()
     {
         isDownloading = !isDownloading;
-        if (isDownloading)
-        {
-            btn.image.color = new Color(0.25f, 1f, 0.25f);
-        }
-        else
-        {
-            btn.image.color = new Color(1f, 0.25f, 0.25f);
-        }
-
         DisplayDownloadInfo();
     }
     
