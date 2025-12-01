@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The bullets explode upon contact with an enemy.
+  m_text: Shoot 8 bullets at once
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 646cf12a7cf6fd84d97761c107b776fb, type: 2}
   m_sharedMaterial: {fileID: 175002130894840059, guid: 646cf12a7cf6fd84d97761c107b776fb, type: 2}
@@ -446,7 +446,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &8799600767081909330
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Explosive Shoot
+  m_text: Circle Shoot
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 646cf12a7cf6fd84d97761c107b776fb, type: 2}
   m_sharedMaterial: {fileID: 175002130894840059, guid: 646cf12a7cf6fd84d97761c107b776fb, type: 2}
@@ -646,7 +646,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4771027023410553619}
   - component: {fileID: 8214316010411648167}
-  - component: {fileID: 1725595070837465144}
+  - component: {fileID: 3123920640243238129}
   m_Layer: 5
   m_Name: Effect
   m_TagString: Untagged
@@ -694,7 +694,7 @@ MonoBehaviour:
     IsActive: 0
     Children: 
   children: 
---- !u!114 &1725595070837465144
+--- !u!114 &3123920640243238129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -703,7 +703,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8907672583194872377}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d95ceb602c848204d9a7f2cdfccd7cd9, type: 3}
+  m_Script: {fileID: 11500000, guid: cdad534f641e7694fb6f7962a7301d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sk: {fileID: 8214316010411648167}
+  nbBullet: 8
