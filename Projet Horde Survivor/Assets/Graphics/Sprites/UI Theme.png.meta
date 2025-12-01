@@ -2471,6 +2471,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI Theme_95
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 746
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b07158b3278682b42a136f7cfe1392bd
+      internalID: -1184378032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -2580,6 +2602,7 @@ TextureImporter:
       UI Theme_92: 5895566285165961060
       UI Theme_93: -523030666641614155
       UI Theme_94: 5083970557744122018
+      UI Theme_95: -1184378032
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class CanvaDisplay : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class CanvaDisplay : MonoBehaviour
     [SerializeField] VolumeProfile volPrefRight;
     [SerializeField] GameObject renderCanvas;
     [SerializeField] GameObject countdownCanvas;
+
+    [SerializeField] private Image moveIMG;
+    [SerializeField] private Sprite moveLeftSprite;
+    [SerializeField] private Sprite moveRightSprite;
     
     public void MoveDisplay()
     {
@@ -31,7 +36,8 @@ public class CanvaDisplay : MonoBehaviour
             var vector2 = countdownCanvas.GetComponent<RectTransform>().anchoredPosition;
             vector2.x = 12;
             countdownCanvas.GetComponent<RectTransform>().anchoredPosition = vector2;
-
+            
+            moveIMG.sprite = moveRightSprite;
         }
         else
         {
@@ -47,6 +53,8 @@ public class CanvaDisplay : MonoBehaviour
             var vector2 = countdownCanvas.GetComponent<RectTransform>().anchoredPosition;
             vector2.x = 19;
             countdownCanvas.GetComponent<RectTransform>().anchoredPosition = vector2;
+            
+            moveIMG.sprite = moveLeftSprite;
         }
         
         var vector3 = cam.transform.position;

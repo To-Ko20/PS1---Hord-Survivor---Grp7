@@ -5,44 +5,33 @@ public class UiPanelSelector : MonoBehaviour
 {
     [SerializeField] private GameObject shopPanel;
     [SerializeField] private CanvasGroup shopGroup;
-    [SerializeField] private GameObject statsPanel;
-    [SerializeField] private CanvasGroup statsGroup;
-    [SerializeField] private GameObject upgradePanel;
-    [SerializeField] private CanvasGroup upgradeGroup;
-
-    public void OpenShopPanel()
-    {
-        Display(shopGroup, shopPanel, new[] { statsPanel, upgradePanel }, new[] { statsGroup, upgradeGroup });
-    }
-
-    public void OpenStatsPanel()
-    {
-        Display(statsGroup, statsPanel, new[] { shopPanel, upgradePanel }, new[] { shopGroup, upgradeGroup });
-    }
     
-    public void OpenUpgradePanel()
-    {
-        Display(upgradeGroup, upgradePanel, new[] { statsPanel, shopPanel }, new[] { statsGroup, shopGroup });
-    }
+    [SerializeField] private GameObject clickPanel;
+    [SerializeField] private CanvasGroup clickGroup;
+    
+    [SerializeField] private bool isShopOpen = false;
 
-    private void Display(CanvasGroup fadeIn, GameObject panelOn, GameObject[] panelOff, CanvasGroup[] fadeOut)
+    public void SwapPannel()
     {
-        foreach (var group in fadeOut)
+        if (isShopOpen)
         {
-            if (group.alpha != 0)
+            shopGroup.DOFade(0, 0.5f).OnComplete(() =>
             {
-                group.DOFade(0, 0.5f).OnComplete(() =>
-                {
-                    foreach (var panel in panelOff)
-                    {
-                        panel.SetActive(false);  
-                    }
-            
-                    panelOn.SetActive(true);
-                    fadeIn.DOFade(1, 0.5f);
-                });
-                return;
-            }
+                shopPanel.SetActive(false); 
+                clickPanel.SetActive(true);
+                clickGroup.DOFade(1, 0.5f);
+            });
+            isShopOpen = false;
+        }
+        else
+        {
+            clickGroup.DOFade(0, 0.5f).OnComplete(() =>
+            {
+                clickPanel.SetActive(false); 
+                shopPanel.SetActive(true);
+                shopGroup.DOFade(1, 0.5f);
+            });
+            isShopOpen = true;
         }
     }
 }
