@@ -24,7 +24,6 @@ public class DataBubble : MonoBehaviour
                 rb.linearVelocity = Vector2.MoveTowards(rb.linearVelocity, direction * speed, 18f * Time.deltaTime);
             } 
         }
-        
     }
 
     private void OnCollisionEnter2D(Collision2D other)
