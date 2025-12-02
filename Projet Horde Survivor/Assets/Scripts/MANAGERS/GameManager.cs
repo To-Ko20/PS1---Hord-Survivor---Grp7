@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject winUI;
     [SerializeField] private KeyCode menuKey = KeyCode.Escape;
     [SerializeField] private bool isMenuOpen = false;
+    [SerializeField] private GameObject settingsMenu;
     public bool isPlaying = true;
 
 
@@ -55,10 +56,15 @@ public class GameManager : MonoBehaviour
         }
     }
 	
-	/*public void BackToMainMenu()
+	public void BackToMainMenu()
     {
         SceneManager.LoadScene(0);
-	}*/
+	}
+
+    public void DisplaySettingsMenu()
+    {
+        settingsMenu.SetActive(true);
+    }
 
     public void GameOver()
     {
