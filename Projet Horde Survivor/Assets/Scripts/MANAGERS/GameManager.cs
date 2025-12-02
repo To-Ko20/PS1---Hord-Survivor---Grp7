@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject menuUI;
@@ -53,6 +54,11 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+	
+	/*public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+	}*/
 
     public void GameOver()
     {

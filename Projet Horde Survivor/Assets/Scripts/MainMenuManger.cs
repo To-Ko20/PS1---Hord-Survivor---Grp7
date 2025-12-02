@@ -13,6 +13,7 @@ public class MainMenuManger : MonoBehaviour
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject gameSelectorMenu;
     [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private GameObject creditsMenu;
 
     private void Update()
     {
@@ -36,6 +37,7 @@ public class MainMenuManger : MonoBehaviour
         mainMenu.SetActive(true);
         gameSelectorMenu.SetActive(false);
         settingsMenu.SetActive(false);
+        creditsMenu.SetActive(false);
         if (hasToShowButtons)
         {
             mainMenuButton.SetActive(true);
@@ -59,6 +61,12 @@ public class MainMenuManger : MonoBehaviour
     {
         mainMenu.SetActive(false);
         settingsMenu.SetActive(true);
+    }
+    
+    public void DisplayCreditsMenu()
+    {
+        mainMenu.SetActive(false);
+        creditsMenu.SetActive(true);
     }
     
     public void Quit()
