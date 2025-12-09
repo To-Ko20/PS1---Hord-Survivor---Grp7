@@ -55,8 +55,10 @@ public class PlayerShoot : MonoBehaviour
             Vector3 dir = (targetingSystem.nearestEnemy.position -  transform.position).normalized;
             dir = Quaternion.Euler(0, 0, rotation*i) * dir;
             //Debug.Log(rotation*i);
-            newBullet.GetComponent<BulletMovement>().bulletVector = dir;
+            BulletMovement newBulletMovement = newBullet.GetComponent<BulletMovement>();
+            newBulletMovement.bulletVector = dir;
             BulletManager.Instance.bulletList.Add(newBullet);
+            newBulletMovement.collider2D.enabled = true;
         }
     }
 }

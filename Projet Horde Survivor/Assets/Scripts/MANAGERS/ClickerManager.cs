@@ -11,6 +11,7 @@ public class ClickerManager : MonoBehaviour
     
     public int clicks;
     [SerializeField] private TMP_Text bitsText;
+    [SerializeField] private TMP_Text bitsShopText;
     [SerializeField] private TMP_Text clicksText;
     [SerializeField] private TMP_Text dataRate;
     [SerializeField] private TMP_Text bitsRate;
@@ -129,6 +130,7 @@ public class ClickerManager : MonoBehaviour
     void BitsDisplayUpdate()
     {
         bitsText.text = ConvertBits(bits);
+        bitsShopText.text = ConvertBits(bits);
     }
     
     void ClicksDisplayUpdate()

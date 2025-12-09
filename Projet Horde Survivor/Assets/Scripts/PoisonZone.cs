@@ -7,11 +7,17 @@ public class PoisonZone : MonoBehaviour
     
     public List<EnemyMovement> inZoneEnemies = new List<EnemyMovement>();
     
-    [SerializeField] private CircleCollider2D circleCollider2D;
+    [SerializeField] private Transform radiusTransform;
+    [SerializeField] private SpriteRenderer radiusSpriteRenderer;
     
     void FixedUpdate()
     {
-        circleCollider2D.radius = PlayerSkillHolderManager.Instance.magnetRadius;
+        if (PlayerSkillHolderManager.Instance.hasMagnet)
+        {
+            radiusSpriteRenderer.enabled = true;
+        }
+        float radius = (23 * PlayerSkillHolderManager.Instance.magnetRadius) / 2;
+        radiusTransform.localScale = new Vector3(radius, radius, radius);
         if (PlayerSkillHolderManager.Instance.hasPoisonZone)
         {
             PoisonCountdown();

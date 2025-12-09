@@ -10,7 +10,7 @@ public class DataBubble : MonoBehaviour
 
     void Update()
     {
-        circleCollider2D.radius = PlayerSkillHolderManager.Instance.magnetRadius;
+        circleCollider2D.radius = (float)(PlayerSkillHolderManager.Instance.magnetRadius * 1.3);
         speed = PlayerSkillHolderManager.Instance.magnetForce;
     }
     

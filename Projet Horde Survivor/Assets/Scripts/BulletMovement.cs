@@ -9,6 +9,10 @@ public class BulletMovement : MonoBehaviour
     [SerializeField] private float bulletDamage;
     [SerializeField] private float lifeTime = 3;
     public Vector2 bulletVector;
+    [SerializeField] private bool isShard = false;
+    [SerializeField] private GameObject parentEnemy;
+    [SerializeField] private GameObject explodeShard;
+    public new CircleCollider2D collider2D;
 
     public void Start()
     {
@@ -35,31 +39,48 @@ public class BulletMovement : MonoBehaviour
         {
             if (collision.transform == enemy.transform)
             {
-                if (PlayerSkillHolderManager.Instance.hasExplosiveShoot)
+                if (parentEnemy != null)
                 {
-                    Explode(collision.transform.position);
+                    if (collision.gameObject != parentEnemy)
+                    {
+                        if (PlayerSkillHolderManager.Instance.hasExplosiveShoot && !isShard)
+                        {
+                            Explode(collision.transform.position, enemy);
+                        }
+                        enemy.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage, "bullet");
+                        DestroyBullet();
+                    }
                 }
-                enemy.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage, "bullet");
-                DestroyBullet();
-                return;
-            }  
+                else 
+                {
+                    if (PlayerSkillHolderManager.Instance.hasExplosiveShoot && !isShard)
+                    {
+                        Explode(collision.transform.position, enemy);
+                    }
+                    enemy.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage, "bullet");
+                    DestroyBullet();
+                }
+            }
         }
     }
 
-    private void Explode(Vector3 spawn)
+    private void Explode(Vector3 spawn, GameObject Enemy)
     {
         int explodeNb = PlayerSkillHolderManager.Instance.explodeNb;
         float rotation = 360f / explodeNb;
         for (int i = 0; i < explodeNb; i++)
         {
-            GameObject newBullet = Instantiate(gameObject, spawn, Quaternion.identity);
+            GameObject newBullet = Instantiate(explodeShard, spawn, Quaternion.identity);
+            BulletMovement newBulletMovement = newBullet.GetComponent<BulletMovement>();
+            newBulletMovement.parentEnemy = Enemy;
             Vector3 dir = Vector3.up.normalized;
             dir = Quaternion.Euler(0, 0, rotation*i) * dir;
-            newBullet.GetComponent<BulletMovement>().bulletVector = dir;
+            
+            newBulletMovement.bulletVector = dir;
             BulletManager.Instance.bulletList.Add(newBullet);
+            newBulletMovement.collider2D.enabled = true;
         }
     }
-
     private void DestroyBullet()
     {
         BulletManager.Instance.bulletList.Remove(gameObject);
