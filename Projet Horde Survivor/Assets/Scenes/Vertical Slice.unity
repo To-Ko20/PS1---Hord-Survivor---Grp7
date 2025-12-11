@@ -1709,6 +1709,7 @@ MonoBehaviour:
   shield: {fileID: 1321996067}
   shieldCooldown: 30
   shieldForce: 0.75
+  shieldNb: 0
 --- !u!1 &284138851
 GameObject:
   m_ObjectHideFlags: 0
@@ -7025,7 +7026,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d79a472f00dca3d4f876dbcc0c31bdcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
   force: 0
   spriteRenderer: {fileID: 1321996071}
 --- !u!114 &1321996069
@@ -9668,7 +9668,7 @@ MonoBehaviour:
   - Name: +hit / -cooldown
     SkillDisplay: {fileID: 7170104252676164133, guid: fba6c7b5ec5f9e84ea1620f5cc55b33b, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 0
     IsActive: 0
     Children: 

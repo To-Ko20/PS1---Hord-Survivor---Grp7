@@ -1,19 +1,20 @@
 using System;
 using UnityEngine;
+using static PlayerSkillHolderManager;
 
 public class ShieldBehaviours : MonoBehaviour
 {
-    [SerializeField] float cooldown;
     [SerializeField] float force;
     [SerializeField] SpriteRenderer spriteRenderer;
     private bool canDeflect = true;
     private float shieldTimer;
+    private int shieldNb;
 
     private void Start()
     {
-        cooldown = PlayerSkillHolderManager.Instance.shieldCooldown;
-        force = PlayerSkillHolderManager.Instance.shieldForce;
-        shieldTimer = cooldown;
+        force = Instance.shieldForce;
+        shieldTimer = Instance.shieldCooldown;
+        shieldNb = Instance.shieldNb;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,9 +31,18 @@ public class ShieldBehaviours : MonoBehaviour
     private void Deflect()
     {
         PlayerManager.Instance.Knockback(force);
-        shieldTimer = cooldown;
+        shieldTimer = Instance.shieldCooldown;
         canDeflect = false;
-        spriteRenderer.enabled = false;
+        if (shieldNb < 1)
+        {
+            shieldNb--;
+        }
+        else
+        {
+            spriteRenderer.enabled = false;
+            shieldNb = Instance.shieldNb;
+        }
+        
     }
     
     void FixedUpdate()

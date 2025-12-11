@@ -42,6 +42,7 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public GameObject shield;
     public float shieldCooldown;
     public float shieldForce;
+    public int shieldNb;
 
     public static PlayerSkillHolderManager Instance;
     
