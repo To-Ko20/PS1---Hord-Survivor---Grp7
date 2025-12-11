@@ -35,6 +35,13 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public float mineRadius;
     public int mineDMG;
     public float mineRate;
+    
+    [Space(10f)]
+    
+    [Header("Tank")]
+    public GameObject shield;
+    public float shieldCooldown;
+    public float shieldForce;
 
     public static PlayerSkillHolderManager Instance;
     
@@ -82,5 +89,10 @@ public class PlayerSkillHolderManager : MonoBehaviour
             bigRotativeShield.SetActive(false);
             bigSpikeRotativeShield.SetActive(true);
         }
+    }
+
+    public void ActivateShield()
+    {
+        shield.SetActive(true);
     }
 }

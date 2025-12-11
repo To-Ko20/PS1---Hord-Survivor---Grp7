@@ -509,6 +509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4771027023410553619}
   - component: {fileID: 8214316010411648167}
+  - component: {fileID: 7321500495477085898}
   m_Layer: 5
   m_Name: Effect
   m_TagString: Untagged
@@ -556,3 +557,16 @@ MonoBehaviour:
     IsActive: 0
     Children: 
   children: 
+--- !u!114 &7321500495477085898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8907672583194872377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc25295a3968c942b40e82585d7d3b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sk: {fileID: 8214316010411648167}
