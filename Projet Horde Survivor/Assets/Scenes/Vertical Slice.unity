@@ -9654,7 +9654,7 @@ MonoBehaviour:
   - Name: +MaxLife / -Speed
     SkillDisplay: {fileID: 7170104252676164133, guid: 30f2bd0969d1029499071f6f767a55a5, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 0
     IsActive: 0
     Children: 1f000000

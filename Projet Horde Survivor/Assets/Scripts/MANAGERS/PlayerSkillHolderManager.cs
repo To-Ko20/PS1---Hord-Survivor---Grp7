@@ -96,4 +96,10 @@ public class PlayerSkillHolderManager : MonoBehaviour
     {
         shield.SetActive(true);
     }
+
+    public void TankStats()
+    {
+        PlayerController.Instance.playerSpeed /= 2;
+        PlayerManager.Instance.maxHealth *= 2;
+    }
 }
