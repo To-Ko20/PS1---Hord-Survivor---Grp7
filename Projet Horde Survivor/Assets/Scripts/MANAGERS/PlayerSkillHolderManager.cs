@@ -44,6 +44,7 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public float shieldForce;
     public int shieldNb;
     public bool hasForceField;
+    public bool hasRegen;
 
     public static PlayerSkillHolderManager Instance;
     
@@ -101,6 +102,6 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public void TankStats()
     {
         PlayerController.Instance.playerSpeed /= 2;
-        PlayerManager.Instance.maxHealth *= 2;
+        PlayerManager.Instance.maxHealthBonus = 2;
     }
 }

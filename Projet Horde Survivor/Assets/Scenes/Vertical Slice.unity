@@ -1711,6 +1711,7 @@ MonoBehaviour:
   shieldForce: 0
   shieldNb: 0
   hasForceField: 0
+  hasRegen: 0
 --- !u!1 &284138851
 GameObject:
   m_ObjectHideFlags: 0
@@ -9676,7 +9677,7 @@ MonoBehaviour:
   - Name: Regen
     SkillDisplay: {fileID: 7170104252676164133, guid: 5dfd88d59b8e4d84ea25803625faad76, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 1
     IsActive: 0
     Children: 

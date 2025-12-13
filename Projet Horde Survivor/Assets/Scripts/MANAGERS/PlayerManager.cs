@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     private float radius;
     private bool canForceField = true;
     private float _t;
+    private float _tRegen;
 
     private void Awake()
     {
@@ -101,6 +102,16 @@ public class PlayerManager : MonoBehaviour
 
     private void Countdown()
     {
+        if (PlayerSkillHolderManager.Instance.hasRegen)
+        {
+            _tRegen += Time.fixedDeltaTime;
+            if (_tRegen <= 3)
+            {
+                _tRegen = 3;
+                currentHealth++;
+            }
+        }
+        
         if (canForceField) return;
         _t += Time.fixedDeltaTime;
         if (_t <= 30)
