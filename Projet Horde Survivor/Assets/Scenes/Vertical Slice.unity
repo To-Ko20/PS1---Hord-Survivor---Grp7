@@ -1712,6 +1712,7 @@ MonoBehaviour:
   shieldNb: 0
   hasForceField: 0
   hasRegen: 0
+  hasBerserkLife: 0
 --- !u!1 &284138851
 GameObject:
   m_ObjectHideFlags: 0

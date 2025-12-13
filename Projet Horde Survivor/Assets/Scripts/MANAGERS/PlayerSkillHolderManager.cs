@@ -45,7 +45,13 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public int shieldNb;
     public bool hasForceField;
     public bool hasRegen;
-
+    
+    [Space(10f)]
+    
+    [Header("Berserk")]
+    public bool hasBerserkLife;
+    
+    
     public static PlayerSkillHolderManager Instance;
     
     private void Awake()
