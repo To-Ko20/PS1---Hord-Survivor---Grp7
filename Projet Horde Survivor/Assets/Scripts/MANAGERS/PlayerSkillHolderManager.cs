@@ -43,6 +43,7 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public float shieldCooldown;
     public float shieldForce;
     public int shieldNb;
+    public bool hasForceField;
 
     public static PlayerSkillHolderManager Instance;
     

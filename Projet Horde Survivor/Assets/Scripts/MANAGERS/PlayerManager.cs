@@ -19,6 +19,8 @@ public class PlayerManager : MonoBehaviour
     public float knockBackDuration = 1f;
 
     private float radius;
+    private bool canForceField = true;
+    private float _t;
 
     private void Awake()
     {
@@ -64,15 +66,47 @@ public class PlayerManager : MonoBehaviour
         {
             float distance = Vector2.Distance(knockbackZone.transform.position, enemy.transform.position);
 
-            if (distance <= radius)
+            if (PlayerSkillHolderManager.Instance.hasForceField && canForceField)
             {
-                Rigidbody2D rb = enemy.gameObject.GetComponent<Rigidbody2D>();
-                if (rb != null)
+                if (distance <= radius*1.5f)
                 {
-                    Vector2 direction = (enemy.transform.position - knockbackZone.transform.position).normalized;
-                    enemy.GetComponent<EnemyMovement>()?.ApplyKnockBack(direction, knockbackStrenght*force);
+                    Rigidbody2D rb = enemy.gameObject.GetComponent<Rigidbody2D>();
+                    if (rb != null)
+                    {
+                        Vector2 direction = (enemy.transform.position - knockbackZone.transform.position).normalized;
+                        enemy.GetComponent<EnemyMovement>()?.ApplyKnockBack(direction, knockbackStrenght*force*1.5f);
+                        canForceField =  false;
+                    }
                 }
             }
+            else
+            {
+                if (distance <= radius)
+                {
+                    Rigidbody2D rb = enemy.gameObject.GetComponent<Rigidbody2D>();
+                    if (rb != null)
+                    {
+                        Vector2 direction = (enemy.transform.position - knockbackZone.transform.position).normalized;
+                        enemy.GetComponent<EnemyMovement>()?.ApplyKnockBack(direction, knockbackStrenght*force);  
+                    }
+                } 
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        Countdown();
+    }
+
+    private void Countdown()
+    {
+        if (canForceField) return;
+        _t += Time.fixedDeltaTime;
+        if (_t <= 30)
+        {
+            _t = 30;
+            canForceField = true;
         }
     }
 }

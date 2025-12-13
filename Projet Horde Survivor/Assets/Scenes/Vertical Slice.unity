@@ -1706,10 +1706,11 @@ MonoBehaviour:
   mineRadius: 18
   mineDMG: 1
   mineRate: 0.33
-  shield: {fileID: 1321996067}
-  shieldCooldown: 30
-  shieldForce: 0.75
+  shield: {fileID: 0}
+  shieldCooldown: 0
+  shieldForce: 0
   shieldNb: 0
+  hasForceField: 0
 --- !u!1 &284138851
 GameObject:
   m_ObjectHideFlags: 0
@@ -9661,7 +9662,7 @@ MonoBehaviour:
   - Name: Force Field
     SkillDisplay: {fileID: 7170104252676164133, guid: a76aac46a7f8b9543a8411b58da6c789, type: 3}
     IsSelected: 0
-    IsImplemented: 0
+    IsImplemented: 1
     HasTwoParents: 0
     IsActive: 0
     Children: 1f000000
