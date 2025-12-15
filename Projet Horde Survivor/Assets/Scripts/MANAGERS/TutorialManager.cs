@@ -3,10 +3,16 @@ using UnityEngine.InputSystem.HID;
 
 public class TutorialManager : MonoBehaviour
 {
-    public                   GameObject[] popUps;
-    public                   int          popUpIndex;
-    [SerializeField] private GameObject   button;
-    [SerializeField] private Transform   tutorialDataBubble;
+    [SerializeField] private GameObject tutorialFrame;
+    [SerializeField] private GameObject closeTutorial;
+    
+    public GameObject[] popUps;
+    public int popUpIndex;
+    [SerializeField] private GameObject button;
+    [SerializeField] private Transform tutorialDataBubble;
+    
+    [SerializeField] private GameObject button1;
+    [SerializeField] private GameObject button2;
     
     [SerializeField] private CameraMovement cameraMovement;
     [SerializeField] private ClickerManager clickerManager;
@@ -28,6 +34,9 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         button.SetActive(false);
+        button1.SetActive(false);
+        button2.SetActive(false);
+        closeTutorial.SetActive(false);
         popUpIndex = 0;
     }
 
@@ -69,6 +78,22 @@ public class TutorialManager : MonoBehaviour
         {
             PlayerController.Instance.canMove = false;
         }
+        else if (popUpIndex == 6)
+        {
+            PlayerController.Instance.canMove = false;
+        }
+        else if (popUpIndex == 7)
+        {
+            PlayerController.Instance.canMove = false;
+        }
+        else if (popUpIndex == 8)
+        {
+            PlayerController.Instance.canMove = false;
+        }
+        else if (popUpIndex == 9)
+        {
+            PlayerController.Instance.canMove = false;
+        }
         else
         {
             PlayerController.Instance.canMove = true;
@@ -87,8 +112,26 @@ public class TutorialManager : MonoBehaviour
         button.SetActive(true);
     }
 
+    public void ToggleTutorialOverButtons()
+    {
+        button1.SetActive(true);
+        button2.SetActive(true);
+    }
+
     public void EndTutorial()
     {
-        Debug.Log("EndTutorial");
+        tutorialFrame.SetActive(false);
+        closeTutorial.SetActive(true);
+    }
+
+    public void Return()
+    {
+        tutorialFrame.SetActive(true);
+        closeTutorial.SetActive(false);
+    }
+
+    public void Confirm()
+    {
+        Debug.Log("Confirm");
     }
 }

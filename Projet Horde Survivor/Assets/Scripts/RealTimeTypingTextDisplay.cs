@@ -15,6 +15,7 @@ public class RealTimeTypingTextDisplay : MonoBehaviour
     private bool hasToWrite = true;
     public bool isMainMenuEndAnimation;
     public bool isTutorial;
+    public bool isTutorialOver;
 
     private int i;
     private int j;
@@ -100,6 +101,11 @@ public class RealTimeTypingTextDisplay : MonoBehaviour
                 if (isTutorial)
                 {
                     TutorialManager.Instance.ToggleButton();
+                }
+
+                if (isTutorialOver)
+                {
+                    TutorialManager.Instance.ToggleTutorialOverButtons();
                 }
                 hasToWrite = false;
                 if (!isMainMenu)
