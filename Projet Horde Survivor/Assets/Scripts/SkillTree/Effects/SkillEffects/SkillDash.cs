@@ -15,5 +15,6 @@ public class SkillDash : MonoBehaviour
     {
         PlayerSkillHolderManager.Instance.hasDash = true;
         PlayerSkillHolderManager.Instance.dashNb++;
+        PlayerSkillHolderManager.Instance.CheckDoubleDash();
     }
 }

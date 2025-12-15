@@ -13,13 +13,13 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 movement;
     
-    [SerializeField] private const float MaxDashTime = 1f;
-    [SerializeField] private float dashDistance = 10;
-    [SerializeField] private float dashStoppingSpeed = 0.1f;
-    [SerializeField] private float currentDashTime = 1f;
-    [SerializeField] private float dashSpeed = 6;
+    [SerializeField] private float MaxDashTime = 0.5f;
+    [SerializeField] private float currentDashTime;
+    [SerializeField] private float dashSpeed;
     
     private bool canDash = true;
+    private bool isDashing;
+    private Vector2 dashDirection;
     
     public static PlayerController Instance;
 
@@ -38,24 +38,33 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+
         if (PlayerSkillHolderManager.Instance.hasDash && canDash)
         {
             if (Input.GetKeyDown("space"))
             {
-                currentDashTime = 0;
-                if (PlayerSkillHolderManager.Instance.dashNb == 2)
-                {
-                    PlayerSkillHolderManager.Instance.dashNb--;
-                    StartCoroutine(WaitForDoubleDashCooldown());
-                }
-                else
-                {
-                    canDash = false;
-                    PlayerSkillHolderManager.Instance.dashNb = 2;
-                    StartCoroutine(WaitForDashCooldown()); 
-                }
-                
+                Dash();
             }
+        }
+    }
+    
+    void Dash()
+    {
+        Debug.Log("Dash");
+        isDashing = true;
+        currentDashTime = 0f;
+
+        dashDirection = movement != Vector2.zero ? movement : Vector2.right;
+
+        if (PlayerSkillHolderManager.Instance.hasDoubleDash && PlayerSkillHolderManager.Instance.dashNb == 2)
+        {
+            PlayerSkillHolderManager.Instance.dashNb--;
+            StartCoroutine(WaitForDoubleDashCooldown());
+        }
+        else
+        {
+            canDash = false;
+            StartCoroutine(WaitForDashCooldown());
         }
     }
 
@@ -72,20 +81,26 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float speed;
-        speed = playerSpeed;
-        
-        if (canMove)
+        if (!canMove) return;
+
+        if (isDashing)
         {
-            if(currentDashTime < MaxDashTime)
+            rb.MovePosition(
+                rb.position + dashDirection * dashSpeed * Time.fixedDeltaTime
+            );
+
+            currentDashTime += Time.fixedDeltaTime;
+
+            if (currentDashTime >= MaxDashTime)
             {
-                Debug.Log("calculate dash");
-                movement *= dashDistance;
-                currentDashTime += dashStoppingSpeed;
-                speed = dashSpeed;
+                isDashing = false;
             }
-            
-            rb.MovePosition(rb.position + movement * (speed * Time.fixedDeltaTime));
+        }
+        else
+        {
+            rb.MovePosition(
+                rb.position + movement * playerSpeed * Time.fixedDeltaTime
+            );
         }
     }
 }
