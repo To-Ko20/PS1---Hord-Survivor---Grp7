@@ -5,6 +5,7 @@ using UnityEngine;
 public class SkillTreeManager : MonoBehaviour
 {
     [SerializeField] SkillTree skillsTree;
+    [SerializeField] bool initTree = true;
     public List<SkillNode> availableNode = new List<SkillNode>();
     
     public static SkillTreeManager Instance;
@@ -23,6 +24,7 @@ public class SkillTreeManager : MonoBehaviour
     
     private void Start()
     {
+        if (!initTree) return;
         for (int i = 1; i < 7; i++)
         {
             int node = skillsTree.nodeList[i].Children[0];

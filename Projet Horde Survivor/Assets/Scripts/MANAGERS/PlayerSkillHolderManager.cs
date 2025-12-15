@@ -52,6 +52,8 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public bool hasBerserkLife;
     public bool hasCursedShot;
     public bool hasVampire;
+    public bool hasDash;
+    public int dashNb;
 
 
     public static PlayerSkillHolderManager Instance;
