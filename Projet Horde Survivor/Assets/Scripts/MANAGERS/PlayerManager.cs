@@ -62,6 +62,7 @@ public class PlayerManager : MonoBehaviour
         {
             BulletManager.Instance.RecalculateDamage(1); 
         }
+        
         //TODO feedbacks
     }
 
@@ -80,6 +81,16 @@ public class PlayerManager : MonoBehaviour
         }
         
         Knockback(1);
+    }
+    
+    public void GainLife(float amount)
+    {
+        currentHealth += amount;
+        
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
     }
 
     public void Knockback(float force)

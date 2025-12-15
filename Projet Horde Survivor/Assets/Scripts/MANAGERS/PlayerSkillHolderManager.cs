@@ -50,8 +50,10 @@ public class PlayerSkillHolderManager : MonoBehaviour
     
     [Header("Berserk")]
     public bool hasBerserkLife;
-    
-    
+    public bool hasCursedShot;
+    public bool hasVampire;
+
+
     public static PlayerSkillHolderManager Instance;
     
     private void Awake()

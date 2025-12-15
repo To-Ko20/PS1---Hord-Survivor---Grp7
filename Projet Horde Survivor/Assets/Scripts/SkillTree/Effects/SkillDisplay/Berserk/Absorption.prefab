@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gain 1 hp for each elimination
+  m_text: Gain 5 hp for each elimination
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 646cf12a7cf6fd84d97761c107b776fb, type: 2}
   m_sharedMaterial: {fileID: 175002130894840059, guid: 646cf12a7cf6fd84d97761c107b776fb, type: 2}
@@ -511,6 +511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4771027023410553619}
   - component: {fileID: 8214316010411648167}
+  - component: {fileID: 5136507265528983449}
   m_Layer: 5
   m_Name: Effect
   m_TagString: Untagged
@@ -558,3 +559,16 @@ MonoBehaviour:
     IsActive: 0
     Children: 
   children: 
+--- !u!114 &5136507265528983449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8907672583194872377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93efa6a84d3ef84a909c118726b4c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sk: {fileID: 8214316010411648167}

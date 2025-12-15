@@ -47,7 +47,8 @@ public class BulletMovement : MonoBehaviour
                         {
                             Explode(collision.transform.position, enemy);
                         }
-                        enemy.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage, "bullet");
+
+                        DealDamages(enemy);
                         DestroyBullet();
                     }
                 }
@@ -57,10 +58,30 @@ public class BulletMovement : MonoBehaviour
                     {
                         Explode(collision.transform.position, enemy);
                     }
-                    enemy.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage, "bullet");
+                    DealDamages(enemy);
                     DestroyBullet();
                 }
             }
+        }
+    }
+
+    private void DealDamages(GameObject target)
+    {
+        if (PlayerSkillHolderManager.Instance.hasCursedShot)
+        {
+            if (PlayerManager.Instance.currentHealth > (PlayerManager.Instance.maxHealth * 0.15))
+            {
+                target.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage*2, "bullet");
+                PlayerManager.Instance.TakeDamage(2);
+            }
+            else
+            {
+                target.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage, "bullet");
+            }
+        }
+        else
+        {
+            target.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage, "bullet");
         }
     }
 
