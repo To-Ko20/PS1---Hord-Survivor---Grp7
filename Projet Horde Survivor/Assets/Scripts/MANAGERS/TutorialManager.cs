@@ -3,9 +3,13 @@ using UnityEngine.InputSystem.HID;
 
 public class TutorialManager : MonoBehaviour
 {
-    public           GameObject[] popUps;
-    public          int          popUpIndex;
-    [SerializeField] GameObject   button;
+    public                   GameObject[] popUps;
+    public                   int          popUpIndex;
+    [SerializeField] private GameObject   button;
+    [SerializeField] private Transform   tutorialDataBubble;
+    
+    [SerializeField] private CameraMovement cameraMovement;
+    [SerializeField] private ClickerManager clickerManager;
     
     public static TutorialManager Instance;
 
@@ -46,9 +50,29 @@ public class TutorialManager : MonoBehaviour
         {
             PlayerController.Instance.canMove = false;
         }
+        else if (popUpIndex == 3)
+        {
+            PlayerController.Instance.canMove = false;
+            cameraMovement.cameraTarget = tutorialDataBubble;
+        }
+        else if (popUpIndex == 4)
+        {
+            PlayerController.Instance.canMove = true;
+            cameraMovement.cameraTarget = GameObject.FindGameObjectWithTag("Player").transform;
+            
+            if (clickerManager.bits >= 8)
+            {
+                NextPopUp();
+            }
+        }
+        else if (popUpIndex == 5)
+        {
+            PlayerController.Instance.canMove = false;
+        }
         else
         {
             PlayerController.Instance.canMove = true;
+            cameraMovement.cameraTarget = GameObject.FindGameObjectWithTag("Player").transform;
         }
     }
     

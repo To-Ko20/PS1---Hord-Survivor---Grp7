@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 { 
-    [SerializeField] private Transform target;
+    public Transform cameraTarget;
     public Vector3 offset = new Vector3(0, 0, 0);
     public float cameraSmoothTime = 0.25f;
     
@@ -24,12 +24,12 @@ public class CameraMovement : MonoBehaviour
     
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        cameraTarget = GameObject.FindGameObjectWithTag("Player").transform;
     }
     
     void LateUpdate()
     {
-        Vector3 targetPosition = target.position + offset;
+        Vector3 targetPosition = cameraTarget.position + offset;
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _velocity, cameraSmoothTime); //déplace la caméra vers le joueur
     }
 }
