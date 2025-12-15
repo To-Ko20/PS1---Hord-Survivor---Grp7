@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-public class SkillDamageIncrease1 : MonoBehaviour
+public class SkillVampire : MonoBehaviour
 {
     [SerializeField] private SkillActivator sk;
     
@@ -14,6 +13,6 @@ public class SkillDamageIncrease1 : MonoBehaviour
 
     private void Effect()
     {
-        BulletManager.Instance.RecalculateDamage(2);
+        PlayerSkillHolderManager.Instance.hasVampire = true;
     }
 }

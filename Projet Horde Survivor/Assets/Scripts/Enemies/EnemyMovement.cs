@@ -99,6 +99,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     private void EnemyDeath(string tag)
     {
         EnemyManager.Instance.UnregisterEnemy(gameObject);
@@ -110,7 +111,10 @@ public class EnemyMovement : MonoBehaviour
             }  
         }
         DropData();
-        ClickerManager.Instance.DisplayUpdate();
+        if (PlayerSkillHolderManager.Instance.hasVampire)
+        {
+            PlayerManager.Instance.GainLife(5);
+        }
         Destroy(gameObject);
     }
 

@@ -27,15 +27,8 @@ public class BulletManager : MonoBehaviour
         }
     }
 
-    public void RecalculateDamage()
+    public void RecalculateDamage(float mult)
     {
-        if (bulletDoubleDamage == true)
-        {
-            bulletActualDamage = (bulletDamage * (1f + bulletDamageBonus)) * 2f;
-        }
-        else
-        {
-            bulletActualDamage = bulletDamage * (1f + bulletDamageBonus);
-        }
+        bulletActualDamage = bulletDamage * mult;
     }
 }

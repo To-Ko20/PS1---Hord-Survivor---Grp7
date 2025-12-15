@@ -10,8 +10,18 @@ public class UiPanelSelector : MonoBehaviour
     [SerializeField] private CanvasGroup clickGroup;
     
     [SerializeField] private bool isShopOpen = false;
+    
+    [SerializeField] private KeyCode menuKey = KeyCode.F;
 
-    public void SwapPannel()
+    void Update()
+    {
+        if (Input.GetKeyDown(menuKey))
+        {
+            SwapPanel();
+        }
+    }
+
+    public void SwapPanel()
     {
         if (isShopOpen)
         {

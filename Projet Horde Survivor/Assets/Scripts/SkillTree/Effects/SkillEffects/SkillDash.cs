@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-public class SkillDamageIncrease1 : MonoBehaviour
+public class SkillDash : MonoBehaviour
 {
     [SerializeField] private SkillActivator sk;
     
@@ -14,6 +13,8 @@ public class SkillDamageIncrease1 : MonoBehaviour
 
     private void Effect()
     {
-        BulletManager.Instance.RecalculateDamage(2);
+        PlayerSkillHolderManager.Instance.hasDash = true;
+        PlayerSkillHolderManager.Instance.dashNb++;
+        PlayerSkillHolderManager.Instance.CheckDoubleDash();
     }
 }

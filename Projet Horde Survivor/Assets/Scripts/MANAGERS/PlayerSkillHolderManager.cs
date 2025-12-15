@@ -50,8 +50,18 @@ public class PlayerSkillHolderManager : MonoBehaviour
     
     [Header("Berserk")]
     public bool hasBerserkLife;
+    public bool hasCursedShot;
+    public bool hasVampire;
+    public bool hasDash;
+    public bool hasDoubleDash;
+    public int dashNb;
     
+    [Space(10f)]
     
+    [Header("Lens")]
+    public GameObject lens;
+
+
     public static PlayerSkillHolderManager Instance;
     
     private void Awake()
@@ -109,5 +119,18 @@ public class PlayerSkillHolderManager : MonoBehaviour
     {
         PlayerController.Instance.playerSpeed /= 2;
         PlayerManager.Instance.maxHealthBonus = 2;
+    }
+
+    public void CheckDoubleDash()
+    {
+        if (dashNb == 2)
+        {
+            hasDoubleDash = true;
+        }
+    }
+
+    public void ActiveLens()
+    {
+        lens.SetActive(true);
     }
 }

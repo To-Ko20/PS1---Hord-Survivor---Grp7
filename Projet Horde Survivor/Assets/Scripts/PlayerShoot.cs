@@ -48,6 +48,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void Shoot(int nb)
     {
+        
         float rotation = 360f / nb;
         for (int i = 0; i < nb; i++)
         {

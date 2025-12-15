@@ -13,14 +13,17 @@ public class BulletMovement : MonoBehaviour
     [SerializeField] private GameObject parentEnemy;
     [SerializeField] private GameObject explodeShard;
     public new CircleCollider2D collider2D;
+    
+    [SerializeField] private GameObject lens;
 
     public void Start()
     {
         speed = BulletManager.Instance.bulletSpeed;
         transform.localScale = new Vector3(BulletManager.Instance.bulletSize, BulletManager.Instance.bulletSize, 1f);
         bulletDamage = BulletManager.Instance.bulletActualDamage;
-        BulletManager.Instance.RecalculateDamage();
+        BulletManager.Instance.RecalculateDamage(1);
         lifeTime = BulletManager.Instance.lifeTime;
+        lens = GameObject.FindWithTag("Lens");
     }
 
     void FixedUpdate()
@@ -46,9 +49,12 @@ public class BulletMovement : MonoBehaviour
                         if (PlayerSkillHolderManager.Instance.hasExplosiveShoot && !isShard)
                         {
                             Explode(collision.transform.position, enemy);
+                            break;
                         }
-                        enemy.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage, "bullet");
+
+                        DealDamages(enemy);
                         DestroyBullet();
+                        break;
                     }
                 }
                 else 
@@ -56,11 +62,63 @@ public class BulletMovement : MonoBehaviour
                     if (PlayerSkillHolderManager.Instance.hasExplosiveShoot && !isShard)
                     {
                         Explode(collision.transform.position, enemy);
+                        break;
                     }
-                    enemy.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage, "bullet");
+                    DealDamages(enemy);
                     DestroyBullet();
+                    break;
                 }
             }
+        }
+
+        if (collision.gameObject == lens)
+        {
+            Debug.Log("lens");
+            if (parentEnemy != null)
+            {
+                if (parentEnemy != collision.gameObject)
+                {
+                    InitLensBall(collision.gameObject);
+                }
+            }
+            else
+            {
+                InitLensBall(collision.gameObject);
+            }
+        }
+    }
+
+    private void InitLensBall(GameObject spawn)
+    {
+        Debug.Log("lens");
+        GameObject newBullet = Instantiate(explodeShard, transform.position, Quaternion.identity);
+        BulletMovement newBulletMovement = newBullet.GetComponent<BulletMovement>();
+        newBulletMovement.parentEnemy = spawn;
+        Vector3 dir = Vector3.up.normalized;
+        dir = Quaternion.Euler(0, 0, 30) * dir;
+            
+        newBulletMovement.bulletVector = dir;
+        BulletManager.Instance.bulletList.Add(newBullet);
+        newBulletMovement.collider2D.enabled = true;
+    }
+
+    private void DealDamages(GameObject target)
+    {
+        if (PlayerSkillHolderManager.Instance.hasCursedShot)
+        {
+            if (PlayerManager.Instance.currentHealth > (PlayerManager.Instance.maxHealth * 0.15))
+            {
+                target.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage*2, "bullet");
+                PlayerManager.Instance.TakeDamage(2);
+            }
+            else
+            {
+                target.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage, "bullet");
+            }
+        }
+        else
+        {
+            target.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage, "bullet");
         }
     }
 

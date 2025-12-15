@@ -17,7 +17,7 @@ public class SkillDamageIncrease2 : MonoBehaviour
     private void Effect()
     {
         BulletManager.Instance.bulletDamageBonus += damageIncrease;
-        BulletManager.Instance.RecalculateDamage();
+        BulletManager.Instance.RecalculateDamage(2);
         
         PlayerManager.Instance.maxHealthBonus += maxHealthIncrease;
         PlayerManager.Instance.RecalculateMaxHealth();
