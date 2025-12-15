@@ -53,10 +53,16 @@ public class GameManager : MonoBehaviour
         if (isMenuOpen)
         {
             Time.timeScale = 0;
+            SoundManager.Instance.MusicSource.volume = 0.2f;
+            SoundManager.Instance.MusicSource.reverbZoneMix = 1.1f;
+            SoundManager.Instance.MusicSource.pitch = 0.90f;
         }
         else
         {
             Time.timeScale = 1;
+            SoundManager.Instance.MusicSource.volume = 1f;
+            SoundManager.Instance.MusicSource.reverbZoneMix = 1f;
+            SoundManager.Instance.MusicSource.pitch = 1f;
         }
     }
 	
