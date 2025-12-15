@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.HID;
 public class TutorialManager : MonoBehaviour
 {
     public           GameObject[] popUps;
-    private          int          popUpIndex;
+    public          int          popUpIndex;
     [SerializeField] GameObject   button;
     
     public static TutorialManager Instance;
@@ -51,7 +51,7 @@ public class TutorialManager : MonoBehaviour
             PlayerController.Instance.canMove = true;
         }
     }
-
+    
     public void NextPopUp()
     {
         popUpIndex++;
