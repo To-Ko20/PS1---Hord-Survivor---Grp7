@@ -12,6 +12,7 @@ public class RealTimeTypingTextDisplay : MonoBehaviour
     private float t = 0f;
     private bool hasToWrite = true;
     public bool isMainMenuEndAnimation;
+    public bool isTutorial;
 
     private int i;
     private int j;
@@ -94,6 +95,10 @@ public class RealTimeTypingTextDisplay : MonoBehaviour
             i++;
             if (i == textToDisplay.Count)
             {
+                if (isTutorial)
+                {
+                    TutorialManager.Instance.ToggleButton();
+                }
                 hasToWrite = false;
                 if (!isMainMenu)
                 {
@@ -112,8 +117,6 @@ public class RealTimeTypingTextDisplay : MonoBehaviour
                 textDisplay.text = "█";
             }
         }
-
-        
     }
 
     private void SelectorAnimation()
