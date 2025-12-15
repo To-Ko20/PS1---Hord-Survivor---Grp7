@@ -7,10 +7,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject menuUI;
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject winUI;
-    [SerializeField] private KeyCode menuKey = KeyCode.Escape;
-    [SerializeField] private bool isMenuOpen = false;
+    [SerializeField] private KeyCode    menuKey    = KeyCode.Escape;
+    [SerializeField] private bool       isMenuOpen = false;
     [SerializeField] private GameObject settingsMenu;
-    public bool isPlaying = true;
+    [SerializeField] private bool       isInSettings = false;
+    public                   bool       isPlaying    = true;
 
 
     public static GameManager Instance;
@@ -35,6 +36,9 @@ public class GameManager : MonoBehaviour
     
     private void Update()
     {
+        if (isInSettings)
+            return;
+
         if (Input.GetKeyDown(menuKey))
         {
             ChangeMenuState();
@@ -63,7 +67,21 @@ public class GameManager : MonoBehaviour
 
     public void DisplaySettingsMenu()
     {
+        isMenuOpen = false;
+        menuUI.SetActive(false);
+        
         settingsMenu.SetActive(true);
+        isInSettings   = true;
+        Time.timeScale = 0;
+    }
+    
+    public void CloseSettingsMenu()
+    {
+        settingsMenu.SetActive(false);
+        isInSettings = false;
+        
+        isMenuOpen = true;
+        menuUI.SetActive(true);
     }
 
     public void GameOver()
