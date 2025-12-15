@@ -13,6 +13,8 @@ public class BulletMovement : MonoBehaviour
     [SerializeField] private GameObject parentEnemy;
     [SerializeField] private GameObject explodeShard;
     public new CircleCollider2D collider2D;
+    
+    [SerializeField] private GameObject lens;
 
     public void Start()
     {
@@ -21,6 +23,7 @@ public class BulletMovement : MonoBehaviour
         bulletDamage = BulletManager.Instance.bulletActualDamage;
         BulletManager.Instance.RecalculateDamage(1);
         lifeTime = BulletManager.Instance.lifeTime;
+        lens = GameObject.FindWithTag("Lens");
     }
 
     void FixedUpdate()
@@ -46,10 +49,12 @@ public class BulletMovement : MonoBehaviour
                         if (PlayerSkillHolderManager.Instance.hasExplosiveShoot && !isShard)
                         {
                             Explode(collision.transform.position, enemy);
+                            break;
                         }
 
                         DealDamages(enemy);
                         DestroyBullet();
+                        break;
                     }
                 }
                 else 
@@ -57,12 +62,44 @@ public class BulletMovement : MonoBehaviour
                     if (PlayerSkillHolderManager.Instance.hasExplosiveShoot && !isShard)
                     {
                         Explode(collision.transform.position, enemy);
+                        break;
                     }
                     DealDamages(enemy);
                     DestroyBullet();
+                    break;
                 }
             }
         }
+
+        if (collision.gameObject == lens)
+        {
+            Debug.Log("lens");
+            if (parentEnemy != null)
+            {
+                if (parentEnemy != collision.gameObject)
+                {
+                    InitLensBall(collision.gameObject);
+                }
+            }
+            else
+            {
+                InitLensBall(collision.gameObject);
+            }
+        }
+    }
+
+    private void InitLensBall(GameObject spawn)
+    {
+        Debug.Log("lens");
+        GameObject newBullet = Instantiate(explodeShard, transform.position, Quaternion.identity);
+        BulletMovement newBulletMovement = newBullet.GetComponent<BulletMovement>();
+        newBulletMovement.parentEnemy = spawn;
+        Vector3 dir = Vector3.up.normalized;
+        dir = Quaternion.Euler(0, 0, 30) * dir;
+            
+        newBulletMovement.bulletVector = dir;
+        BulletManager.Instance.bulletList.Add(newBullet);
+        newBulletMovement.collider2D.enabled = true;
     }
 
     private void DealDamages(GameObject target)

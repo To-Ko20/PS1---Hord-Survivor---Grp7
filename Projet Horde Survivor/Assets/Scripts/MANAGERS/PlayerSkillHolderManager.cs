@@ -55,6 +55,11 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public bool hasDash;
     public bool hasDoubleDash;
     public int dashNb;
+    
+    [Space(10f)]
+    
+    [Header("Lens")]
+    public GameObject lens;
 
 
     public static PlayerSkillHolderManager Instance;
@@ -122,5 +127,10 @@ public class PlayerSkillHolderManager : MonoBehaviour
         {
             hasDoubleDash = true;
         }
+    }
+
+    public void ActiveLens()
+    {
+        lens.SetActive(true);
     }
 }
