@@ -213,6 +213,7 @@ MonoBehaviour:
   clickPanel: {fileID: 426031945}
   clickGroup: {fileID: 426031947}
   isShopOpen: 0
+  menuKey: 102
 --- !u!114 &17716493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +260,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 17716492}
         m_TargetAssemblyTypeName: UiPanelSelector, Assembly-CSharp
-        m_MethodName: SwapPannel
+        m_MethodName: SwapPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1855,7 +1856,7 @@ MonoBehaviour:
   hasDash: 0
   hasDoubleDash: 0
   dashNb: 0
-  lens: {fileID: 0}
+  lens: {fileID: 1443290176}
 --- !u!1 &284138851
 GameObject:
   m_ObjectHideFlags: 0
@@ -8589,7 +8590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1443290177
 MonoBehaviour:
   m_ObjectHideFlags: 0
