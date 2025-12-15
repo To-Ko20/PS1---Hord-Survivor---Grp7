@@ -18,7 +18,7 @@ public class SkillDPS3 : MonoBehaviour
         if (PlayerManager.Instance.currentHealth / PlayerManager.Instance.maxHealth < healthRatio)
         {
             BulletManager.Instance.bulletDoubleDamage = true;
-            BulletManager.Instance.RecalculateDamage();
+            BulletManager.Instance.RecalculateDamage(2);
         }
     }
 }

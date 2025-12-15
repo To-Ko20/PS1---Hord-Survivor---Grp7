@@ -41,7 +41,28 @@ public class PlayerManager : MonoBehaviour
         radius = knockbackZone.GetComponent<CircleCollider2D>().radius * knockbackZone.transform.localScale.x;
         
         knockbackZone = GameObject.FindGameObjectWithTag("KnockbackZone");
-        RecalculateMaxHealth(); 
+    }
+
+    private void Update()
+    {
+        RecalculateMaxHealth();
+        if (PlayerSkillHolderManager.Instance.hasBerserkLife)
+        {
+            CalculateBerserkLife();
+        }
+    }
+
+    private void CalculateBerserkLife()
+    {
+        if (currentHealth < (maxHealth * 0.2))
+        {
+            BulletManager.Instance.RecalculateDamage(2);
+        }
+        else
+        {
+            BulletManager.Instance.RecalculateDamage(1); 
+        }
+        //TODO feedbacks
     }
 
     public void RecalculateMaxHealth()

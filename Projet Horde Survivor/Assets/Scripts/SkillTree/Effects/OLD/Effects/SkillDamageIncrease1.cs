@@ -4,7 +4,6 @@ using UnityEngine;
 public class SkillDamageIncrease1 : MonoBehaviour
 {
     [SerializeField] private SkillActivator sk;
-    [SerializeField] private float damageIncrease = 1f;
     
     public void Activate()
     {
@@ -15,7 +14,6 @@ public class SkillDamageIncrease1 : MonoBehaviour
 
     private void Effect()
     {
-        BulletManager.Instance.bulletDamageBonus += damageIncrease;
-        BulletManager.Instance.RecalculateDamage();
+        BulletManager.Instance.RecalculateDamage(2);
     }
 }

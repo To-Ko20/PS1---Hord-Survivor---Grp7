@@ -19,7 +19,7 @@ public class BulletMovement : MonoBehaviour
         speed = BulletManager.Instance.bulletSpeed;
         transform.localScale = new Vector3(BulletManager.Instance.bulletSize, BulletManager.Instance.bulletSize, 1f);
         bulletDamage = BulletManager.Instance.bulletActualDamage;
-        BulletManager.Instance.RecalculateDamage();
+        BulletManager.Instance.RecalculateDamage(1);
         lifeTime = BulletManager.Instance.lifeTime;
     }
 
