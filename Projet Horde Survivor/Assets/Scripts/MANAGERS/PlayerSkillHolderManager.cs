@@ -138,7 +138,7 @@ public class PlayerSkillHolderManager : MonoBehaviour
 
     public void UnlockAutoShoot()
     {
-        hasAutoShoot = true;
-        // TODO add smth here if you want to call your code
+        hasAutoShoot                        = true;
+        TutorialManager.Instance.popUpIndex = 10;
     }
 }

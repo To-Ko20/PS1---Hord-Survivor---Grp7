@@ -4992,6 +4992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6504f0ee10e734e40b3b1b4eb0c5f217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasAutoShoot: 0
   hasMagnet: 0
   hasPoisonZone: 0
   magnetRadius: 0
