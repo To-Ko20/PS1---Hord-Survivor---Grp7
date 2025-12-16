@@ -10,9 +10,25 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] int currentWave = 0;
     [SerializeField] private float countdown;
     
+    public bool canEnemiesSpawn = true;
+    
     public Wave[] waves;
     
     [SerializeField] private Transform minSpawnPoint, maxSpawnPoint;
+    
+    public static EnemySpawner Instance;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -21,25 +37,28 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (currentWave >= waves.Length)
+        if (canEnemiesSpawn == true)
         {
-            if (EnemyManager.Instance.activeEnemies.Count == 0)
+            if (currentWave >= waves.Length)
             {
-                GameManager.Instance.Win();
+                if (EnemyManager.Instance.activeEnemies.Count == 0)
+                {
+                    GameManager.Instance.Win();
+                }
+                return;
             }
-            return;
-        }
         
-        countdown -= Time.deltaTime;
+            countdown -= Time.deltaTime;
 
-        if (countdown <= 0)
-        {
-            countdown = waves[currentWave].timeToNextWave;
-            currentWave++;
-            StartCoroutine(SpawnWave());
+            if (countdown <= 0)
+            {
+                countdown = waves[currentWave].timeToNextWave;
+                currentWave++;
+                StartCoroutine(SpawnWave());
+            }
+
+            transform.position = target.position;
         }
-
-        transform.position = target.position;
     }
     
     private IEnumerator SpawnWave()

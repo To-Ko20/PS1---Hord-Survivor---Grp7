@@ -17,11 +17,13 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject tutorialEnemy;
     [SerializeField] private GameObject wallsToDeactivate;
     [SerializeField] private GameObject wallsToActivate;
+
+    [SerializeField] private GameObject tutorialPart;
+    [SerializeField] private GameObject objectsToDestroy;
     
     [SerializeField] private CameraMovement   cameraMovement;
     [SerializeField] private ClickerManager   clickerManager;
     [SerializeField] private CountdownManager countdownManager;
-    [SerializeField] private GameObject       enemySpawner;
     
     public static TutorialManager Instance;
 
@@ -46,10 +48,10 @@ public class TutorialManager : MonoBehaviour
         quitYesButton.SetActive(false);
         quitNoButton.SetActive(false);
         
-        enemySpawner.SetActive(false);
-        
         wallsToDeactivate.SetActive(true);
         wallsToActivate.SetActive(false);
+
+        EnemySpawner.Instance.canEnemiesSpawn = false;
     }
 
     void Update()
@@ -124,6 +126,13 @@ public class TutorialManager : MonoBehaviour
                 wallsToDeactivate.SetActive(false);
                 wallsToActivate.SetActive(true);
                 EnemyManager.Instance.RegisterEnemy(tutorialEnemy);
+
+                //if enemy is killed, popUpIndex = 12
+            }
+            
+            else if (popUpIndex == 13)
+            {
+                EndTutorialConfirm();
             }
         
             else
@@ -166,5 +175,16 @@ public class TutorialManager : MonoBehaviour
     public void EndTutorialConfirm()
     {
         Debug.Log("Confirm");
+        
+        isTutorialOn = false;
+        
+        objectsToDestroy.SetActive(false);
+        tutorialPart.SetActive(false);
+        
+        countdownManager.isCountdownActive             = true;
+        EnemySpawner.Instance.canEnemiesSpawn          = true;
+        PlayerSkillHolderManager.Instance.hasAutoShoot = true;
+
+        this.gameObject.SetActive(false);
     }
 }
