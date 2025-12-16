@@ -13,6 +13,10 @@ public class Upgrades : MonoBehaviour
         
         [SerializeField] private int level = 0;
         
+        [SerializeField] bool isAutoShoot;
+        [SerializeField] GameObject[] thingsToActivate;
+        [SerializeField] PlayerShoot playerShoot;
+        
         private readonly List<GameObject> _effectsGo =  new List<GameObject>();
         
         public void OnValidate()
@@ -55,8 +59,18 @@ public class Upgrades : MonoBehaviour
                         }
 
                         foreach (GameObject effect in _effectsGo)
-                        { 
-                                effect.SendMessage("OnUpgradeBought");  
+                        {
+                                effect.SendMessage("OnUpgradeBought");
+                        }
+                        if (isAutoShoot)
+                        {
+                                Debug.Log("auto shoot bought");
+                                foreach (GameObject thing in thingsToActivate)
+                                {
+                                        thing.SetActive(true);
+                                }
+                                playerShoot.enabled = true;
+                                Destroy(gameObject);
                         }
                 }       
         }
