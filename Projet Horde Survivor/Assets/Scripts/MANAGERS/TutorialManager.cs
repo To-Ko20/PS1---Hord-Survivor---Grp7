@@ -10,11 +10,13 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject quitNoButton;
     [SerializeField] private GameObject quitYesButton;
     
-    public                   int              popUpIndex = 0;
-    public                   GameObject[]     popUps;
+    public int          popUpIndex = 0;
+    public GameObject[] popUps;
     
-    [SerializeField] private Transform        tutorialDataBubble;
-    [SerializeField] private GameObject       wallToDestroy;
+    [SerializeField] private Transform  tutorialDataBubble;
+    [SerializeField] private GameObject tutorialEnemy;
+    [SerializeField] private GameObject wallsToDeactivate;
+    [SerializeField] private GameObject wallsToActivate;
     
     [SerializeField] private CameraMovement   cameraMovement;
     [SerializeField] private ClickerManager   clickerManager;
@@ -45,6 +47,9 @@ public class TutorialManager : MonoBehaviour
         quitNoButton.SetActive(false);
         
         enemySpawner.SetActive(false);
+        
+        wallsToDeactivate.SetActive(true);
+        wallsToActivate.SetActive(false);
     }
 
     void Update()
@@ -111,6 +116,14 @@ public class TutorialManager : MonoBehaviour
             else if (popUpIndex == 9)
             {
                 PlayerController.Instance.canMove = false;
+            }
+            
+            else if (popUpIndex == 11)
+            {
+                PlayerController.Instance.canMove = true;
+                wallsToDeactivate.SetActive(false);
+                wallsToActivate.SetActive(true);
+                EnemyManager.Instance.RegisterEnemy(tutorialEnemy);
             }
         
             else

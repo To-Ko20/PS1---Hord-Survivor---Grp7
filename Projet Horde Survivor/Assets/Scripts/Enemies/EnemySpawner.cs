@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
     
     private IEnumerator SpawnWave()
     {
-        Debug.Log("New Wave");
+        //Debug.Log("New Wave");
         
         if (currentWave < waves.Length)
         {
