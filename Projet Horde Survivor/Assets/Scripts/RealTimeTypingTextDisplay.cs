@@ -100,12 +100,12 @@ public class RealTimeTypingTextDisplay : MonoBehaviour
             {
                 if (isTutorial)
                 {
-                    TutorialManager.Instance.ToggleButton();
+                    TutorialManager.Instance.ToggleMainButton();
                 }
 
                 if (isTutorialOver)
                 {
-                    TutorialManager.Instance.ToggleTutorialOverButtons();
+                    TutorialManager.Instance.ToggleAuxiliaryButtons();
                 }
                 hasToWrite = false;
                 if (!isMainMenu)

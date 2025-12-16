@@ -3,19 +3,21 @@ using UnityEngine.InputSystem.HID;
 
 public class TutorialManager : MonoBehaviour
 {
-    [SerializeField] private GameObject tutorialFrame;
-    [SerializeField] private GameObject closeTutorial;
+    [SerializeField] private GameObject     tutorialFrame;
+    [SerializeField] private GameObject     closeTutorial;
+    [SerializeField] private GameObject     mainButton;
+    [SerializeField] private GameObject     quitNoButton;
+    [SerializeField] private GameObject     quitYesButton;
     
-    public GameObject[] popUps;
-    public int popUpIndex;
-    [SerializeField] private GameObject button;
-    [SerializeField] private Transform tutorialDataBubble;
+    public                   int            popUpIndex = 0;
+    public                   GameObject[]   popUps;
     
-    [SerializeField] private GameObject button1;
-    [SerializeField] private GameObject button2;
+    [SerializeField] private Transform      tutorialDataBubble;
+    [SerializeField] private GameObject     wallToDestroy;
     
     [SerializeField] private CameraMovement cameraMovement;
     [SerializeField] private ClickerManager clickerManager;
+    [SerializeField] private GameObject     enemySpawner;
     
     public static TutorialManager Instance;
 
@@ -33,11 +35,13 @@ public class TutorialManager : MonoBehaviour
 
     void Start()
     {
-        button.SetActive(false);
-        button1.SetActive(false);
-        button2.SetActive(false);
         closeTutorial.SetActive(false);
-        popUpIndex = 0;
+        
+        mainButton.SetActive(false);
+        quitYesButton.SetActive(false);
+        quitNoButton.SetActive(false);
+        
+        enemySpawner.SetActive(false);
     }
 
     void Update()
@@ -59,11 +63,13 @@ public class TutorialManager : MonoBehaviour
         {
             PlayerController.Instance.canMove = false;
         }
+        
         else if (popUpIndex == 3)
         {
             PlayerController.Instance.canMove = false;
             cameraMovement.cameraTarget = tutorialDataBubble;
         }
+        
         else if (popUpIndex == 4)
         {
             PlayerController.Instance.canMove = true;
@@ -74,26 +80,32 @@ public class TutorialManager : MonoBehaviour
                 NextPopUp();
             }
         }
+        
         else if (popUpIndex == 5)
         {
             PlayerController.Instance.canMove = false;
         }
+        
         else if (popUpIndex == 6)
         {
             PlayerController.Instance.canMove = false;
         }
+        
         else if (popUpIndex == 7)
         {
             PlayerController.Instance.canMove = false;
         }
+        
         else if (popUpIndex == 8)
         {
             PlayerController.Instance.canMove = false;
         }
+        
         else if (popUpIndex == 9)
         {
             PlayerController.Instance.canMove = false;
         }
+        
         else
         {
             PlayerController.Instance.canMove = true;
@@ -104,18 +116,18 @@ public class TutorialManager : MonoBehaviour
     public void NextPopUp()
     {
         popUpIndex++;
-        button.SetActive(false);
+        mainButton.SetActive(false);
     }
 
-    public void ToggleButton()
+    public void ToggleMainButton()
     {
-        button.SetActive(true);
+        mainButton.SetActive(true);
     }
 
-    public void ToggleTutorialOverButtons()
+    public void ToggleAuxiliaryButtons()
     {
-        button1.SetActive(true);
-        button2.SetActive(true);
+        quitYesButton.SetActive(true);
+        quitNoButton.SetActive(true);
     }
 
     public void EndTutorial()
@@ -124,13 +136,13 @@ public class TutorialManager : MonoBehaviour
         closeTutorial.SetActive(true);
     }
 
-    public void Return()
+    public void ReturnToTuturial()
     {
         tutorialFrame.SetActive(true);
         closeTutorial.SetActive(false);
     }
 
-    public void Confirm()
+    public void EndTutorialConfirm()
     {
         Debug.Log("Confirm");
     }
