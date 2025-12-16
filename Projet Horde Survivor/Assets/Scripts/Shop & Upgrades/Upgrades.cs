@@ -64,12 +64,12 @@ public class Upgrades : MonoBehaviour
                         }
                         if (isAutoShoot)
                         {
-                                Debug.Log("auto shoot bought");
                                 foreach (GameObject thing in thingsToActivate)
                                 {
                                         thing.SetActive(true);
                                 }
                                 playerShoot.enabled = true;
+                                PlayerSkillHolderManager.Instance.UnlockAutoShoot();
                                 Destroy(gameObject);
                         }
                 }       

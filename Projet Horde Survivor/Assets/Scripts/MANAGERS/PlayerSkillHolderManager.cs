@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerSkillHolderManager : MonoBehaviour
 {
+    public bool hasAutoShoot;
+    
     [Header("Data Magnet")]
     public bool hasMagnet = false;
     public bool hasPoisonZone = false;
@@ -132,5 +134,11 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public void ActiveLens()
     {
         lens.SetActive(true);
+    }
+
+    public void UnlockAutoShoot()
+    {
+        hasAutoShoot = true;
+        // TODO add smth here if you want to call your code
     }
 }
