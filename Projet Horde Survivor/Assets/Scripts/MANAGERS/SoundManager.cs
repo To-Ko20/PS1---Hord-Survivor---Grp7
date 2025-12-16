@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
@@ -26,9 +27,9 @@ public class SoundManager : MonoBehaviour
         PlayMusic(clips);
     }
     
-    public void SetVolume(float value)
+    public void SetVolume(Slider slider)
     {
-        MusicSource.volume = value;
+        MusicSource.volume = slider.value;
     }
     
     public void Play(AudioClip clip)
