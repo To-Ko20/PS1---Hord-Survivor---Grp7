@@ -10,6 +10,7 @@ public class UpgradeMenuManager : MonoBehaviour
 
     [SerializeField] private GameObject storedSkill;
     [SerializeField] private GameObject downloadingSkillDisplay;
+    [SerializeField] private Animation SelectedSkillAnimation;
     
     private int _storedIndex;
     
@@ -78,7 +79,7 @@ public class UpgradeMenuManager : MonoBehaviour
         Destroy(downloadingSkillDisplay.transform.GetChild(0).gameObject);
         GameObject newSkill = Instantiate(display, transform);
         RectTransform rt = newSkill.GetComponent<RectTransform>();
-        rt.anchoredPosition = new Vector3(12.5f,0,0);
+        rt.anchoredPosition = new Vector3(12.5f,-12.5f,0);
         rt.sizeDelta = new Vector2(175,175);
         newSkill.transform.localScale = new Vector3(1f,1f,1f);
         newSkill.transform.SetParent(downloadingSkillDisplay.transform, false);
@@ -89,6 +90,8 @@ public class UpgradeMenuManager : MonoBehaviour
         storedSkill = effect;
         storedSkill.transform.SetParent(transform);
         storedSkill.SetActive(true);
+        SelectedSkillAnimation.Play("SkillAnim");
+        Destroy(newSkill.transform.GetChild(2).gameObject);
     }
     
     public void ActivateSkill()
