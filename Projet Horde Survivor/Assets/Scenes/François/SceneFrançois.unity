@@ -7391,6 +7391,7 @@ MonoBehaviour:
   remainingSeconds: 0
   pressureTime: 1
   timerText: {fileID: 2075167323}
+  isCountdownActive: 0
 --- !u!1 &936591795
 GameObject:
   m_ObjectHideFlags: 0
@@ -16824,6 +16825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 128dee62c97019e4d9f1724ff57bc5b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTutorialOn: 0
   tutorialFrame: {fileID: 1239335164}
   closeTutorial: {fileID: 755050567}
   mainButton: {fileID: 737110975}
@@ -16845,6 +16847,7 @@ MonoBehaviour:
   wallToDestroy: {fileID: 0}
   cameraMovement: {fileID: 138561747}
   clickerManager: {fileID: 864541575}
+  countdownManager: {fileID: 916255326}
   enemySpawner: {fileID: 1577271055}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

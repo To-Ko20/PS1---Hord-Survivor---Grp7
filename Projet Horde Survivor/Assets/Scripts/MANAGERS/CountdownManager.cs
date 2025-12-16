@@ -7,10 +7,14 @@ public class CountdownManager : MonoBehaviour
     [SerializeField] private float remainingSeconds;
     [SerializeField] private int pressureTime; //in minutes
     [SerializeField] private TMP_Text timerText;
+    public bool isCountdownActive = true;
     
     void FixedUpdate()
     {
-        Countdown();
+        if (isCountdownActive == true)
+        {
+            Countdown();
+        }
     }
 
     private void Countdown()

@@ -3,21 +3,23 @@ using UnityEngine.InputSystem.HID;
 
 public class TutorialManager : MonoBehaviour
 {
-    [SerializeField] private GameObject     tutorialFrame;
-    [SerializeField] private GameObject     closeTutorial;
-    [SerializeField] private GameObject     mainButton;
-    [SerializeField] private GameObject     quitNoButton;
-    [SerializeField] private GameObject     quitYesButton;
+    public                   bool       isTutorialOn;
+    [SerializeField] private GameObject tutorialFrame;
+    [SerializeField] private GameObject closeTutorial;
+    [SerializeField] private GameObject mainButton;
+    [SerializeField] private GameObject quitNoButton;
+    [SerializeField] private GameObject quitYesButton;
     
-    public                   int            popUpIndex = 0;
-    public                   GameObject[]   popUps;
+    public                   int              popUpIndex = 0;
+    public                   GameObject[]     popUps;
     
-    [SerializeField] private Transform      tutorialDataBubble;
-    [SerializeField] private GameObject     wallToDestroy;
+    [SerializeField] private Transform        tutorialDataBubble;
+    [SerializeField] private GameObject       wallToDestroy;
     
-    [SerializeField] private CameraMovement cameraMovement;
-    [SerializeField] private ClickerManager clickerManager;
-    [SerializeField] private GameObject     enemySpawner;
+    [SerializeField] private CameraMovement   cameraMovement;
+    [SerializeField] private ClickerManager   clickerManager;
+    [SerializeField] private CountdownManager countdownManager;
+    [SerializeField] private GameObject       enemySpawner;
     
     public static TutorialManager Instance;
 
@@ -35,6 +37,7 @@ public class TutorialManager : MonoBehaviour
 
     void Start()
     {
+        isTutorialOn = true;
         closeTutorial.SetActive(false);
         
         mainButton.SetActive(false);
@@ -46,70 +49,75 @@ public class TutorialManager : MonoBehaviour
 
     void Update()
     {
-        for (int i = 0; i < popUps.Length; i++)
+        if (isTutorialOn == true)
         {
-            if (i == popUpIndex)
+            countdownManager.isCountdownActive = false;
+            
+            for (int i = 0; i < popUps.Length; i++)
             {
-                popUps[popUpIndex].SetActive(true);
+                if (i == popUpIndex)
+                {
+                    popUps[popUpIndex].SetActive(true);
                 
+                }
+                else
+                {
+                    popUps[i].SetActive(false);
+                }
             }
+            
+            if (popUpIndex == 0)
+            {
+                PlayerController.Instance.canMove = false;
+            }
+        
+            else if (popUpIndex == 3)
+            {
+                PlayerController.Instance.canMove = false;
+                cameraMovement.cameraTarget       = tutorialDataBubble;
+            }
+        
+            else if (popUpIndex == 4)
+            {
+                PlayerController.Instance.canMove = true;
+                cameraMovement.cameraTarget       = GameObject.FindGameObjectWithTag("Player").transform;
+            
+                if (clickerManager.bits >= 8)
+                {
+                    NextPopUp();
+                }
+            }
+        
+            else if (popUpIndex == 5)
+            {
+                PlayerController.Instance.canMove = false;
+            }
+        
+            else if (popUpIndex == 6)
+            {
+                PlayerController.Instance.canMove = false;
+            }
+        
+            else if (popUpIndex == 7)
+            {
+                PlayerController.Instance.canMove = false;
+            }
+        
+            else if (popUpIndex == 8)
+            {
+                PlayerController.Instance.canMove = false;
+            }
+        
+            else if (popUpIndex == 9)
+            {
+                PlayerController.Instance.canMove = false;
+            }
+        
             else
             {
-                popUps[i].SetActive(false);
+                PlayerController.Instance.canMove = true;
+                cameraMovement.cameraTarget       = GameObject.FindGameObjectWithTag("Player").transform;
             }
-        }
-        
-        if (popUpIndex == 0)
-        {
-            PlayerController.Instance.canMove = false;
-        }
-        
-        else if (popUpIndex == 3)
-        {
-            PlayerController.Instance.canMove = false;
-            cameraMovement.cameraTarget = tutorialDataBubble;
-        }
-        
-        else if (popUpIndex == 4)
-        {
-            PlayerController.Instance.canMove = true;
-            cameraMovement.cameraTarget = GameObject.FindGameObjectWithTag("Player").transform;
-            
-            if (clickerManager.bits >= 8)
-            {
-                NextPopUp();
-            }
-        }
-        
-        else if (popUpIndex == 5)
-        {
-            PlayerController.Instance.canMove = false;
-        }
-        
-        else if (popUpIndex == 6)
-        {
-            PlayerController.Instance.canMove = false;
-        }
-        
-        else if (popUpIndex == 7)
-        {
-            PlayerController.Instance.canMove = false;
-        }
-        
-        else if (popUpIndex == 8)
-        {
-            PlayerController.Instance.canMove = false;
-        }
-        
-        else if (popUpIndex == 9)
-        {
-            PlayerController.Instance.canMove = false;
-        }
-        
-        else
-        {
-            PlayerController.Instance.canMove = true;
-            cameraMovement.cameraTarget = GameObject.FindGameObjectWithTag("Player").transform;
         }
     }
     
