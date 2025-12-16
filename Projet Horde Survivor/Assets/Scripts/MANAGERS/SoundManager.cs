@@ -26,6 +26,11 @@ public class SoundManager : MonoBehaviour
         PlayMusic(clips);
     }
     
+    public void SetVolume(float value)
+    {
+        MusicSource.volume = value;
+    }
+    
     public void Play(AudioClip clip)
     {
         EffectsSource.clip = clip;
