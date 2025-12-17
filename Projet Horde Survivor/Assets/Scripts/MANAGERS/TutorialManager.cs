@@ -24,6 +24,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private CameraMovement   cameraMovement;
     [SerializeField] private ClickerManager   clickerManager;
     [SerializeField] private CountdownManager countdownManager;
+    [SerializeField] private EnemyMovement    enemyMovement;
     
     public static TutorialManager Instance;
 
@@ -48,10 +49,13 @@ public class TutorialManager : MonoBehaviour
         quitYesButton.SetActive(false);
         quitNoButton.SetActive(false);
         
+        EnemyManager.Instance.RegisterEnemy(tutorialEnemy);
         wallsToDeactivate.SetActive(true);
         wallsToActivate.SetActive(false);
 
         EnemySpawner.Instance.canEnemiesSpawn = false;
+
+        enemyMovement = tutorialEnemy.GetComponent<EnemyMovement>();
     }
 
     void Update()
@@ -91,7 +95,7 @@ public class TutorialManager : MonoBehaviour
             
                 if (clickerManager.bits >= 8)
                 {
-                    NextPopUp();
+                    popUpIndex = 5;
                 }
             }
         
@@ -125,9 +129,11 @@ public class TutorialManager : MonoBehaviour
                 PlayerController.Instance.canMove = true;
                 wallsToDeactivate.SetActive(false);
                 wallsToActivate.SetActive(true);
-                EnemyManager.Instance.RegisterEnemy(tutorialEnemy);
 
-                //if enemy is killed, popUpIndex = 12
+                if (enemyMovement.enemyHealth <= 0)
+                {
+                    popUpIndex = 12;
+                }
             }
             
             else if (popUpIndex == 13)
@@ -174,7 +180,7 @@ public class TutorialManager : MonoBehaviour
 
     public void EndTutorialConfirm()
     {
-        Debug.Log("Confirm");
+        //Debug.Log("End of Tutorial Confirm");
         
         isTutorialOn = false;
         

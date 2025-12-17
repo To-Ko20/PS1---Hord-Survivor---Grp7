@@ -19373,7 +19373,7 @@ MonoBehaviour:
   mainButton: {fileID: 737110975}
   quitNoButton: {fileID: 570879482}
   quitYesButton: {fileID: 483034403}
-  popUpIndex: 1
+  popUpIndex: 0
   popUps:
   - {fileID: 1185598623}
   - {fileID: 905661440}
@@ -19398,6 +19398,7 @@ MonoBehaviour:
   cameraMovement: {fileID: 138561747}
   clickerManager: {fileID: 864541575}
   countdownManager: {fileID: 916255326}
+  enemyMovement: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

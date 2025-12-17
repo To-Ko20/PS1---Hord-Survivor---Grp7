@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed;
     public float damageToPlayer;
-    [SerializeField] private float enemyHealth;
+    public float enemyHealth;
     
     [SerializeField] private Transform lifeDisplay;
 
@@ -103,6 +103,7 @@ public class EnemyMovement : MonoBehaviour
     private void EnemyDeath(string tag)
     {
         EnemyManager.Instance.UnregisterEnemy(gameObject);
+        
         if (PlayerSkillHolderManager.Instance.hasMine && tag != "mine")
         {
             if (Random.Range(0f, 1f) <= PlayerSkillHolderManager.Instance.mineRate)
@@ -110,11 +111,14 @@ public class EnemyMovement : MonoBehaviour
                 PlantMine(); 
             }  
         }
+        
         DropData();
+        
         if (PlayerSkillHolderManager.Instance.hasVampire)
         {
             PlayerManager.Instance.GainLife(5);
         }
+        
         Destroy(gameObject);
     }
 
