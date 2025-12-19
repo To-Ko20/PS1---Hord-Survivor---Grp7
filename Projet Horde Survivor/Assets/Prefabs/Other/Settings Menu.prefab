@@ -155,6 +155,8 @@ MonoBehaviour:
   typingSpeed: 0.1
   isMainMenu: 1
   isMainMenuEndAnimation: 1
+  isTutorial: 0
+  isTutorialOver: 0
 --- !u!1 &767393311534861622
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,20 +969,20 @@ MonoBehaviour:
   m_FillRect: {fileID: 8150291996612877665}
   m_HandleRect: {fileID: 4948572657454916071}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 20
+  m_MinValue: 0
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SettingManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: SetVolume
-        m_Mode: 0
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 5756153092014463720}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

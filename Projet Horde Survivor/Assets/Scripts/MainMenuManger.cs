@@ -24,6 +24,7 @@ public class MainMenuManger : MonoBehaviour
             mainMenuButton.GetComponent<CanvasGroup>().DOFade(0f, 0.75f).OnComplete(ShowButtons);
             
         }
+        else if (!titleTextDisplay.isMainMenuEndAnimation && buttonAnimationDone){}
     }
 
     private void ShowButtons()
