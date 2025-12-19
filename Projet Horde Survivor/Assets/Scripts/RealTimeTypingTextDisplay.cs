@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using NUnit.Framework.Constraints;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class RealTimeTypingTextDisplay : MonoBehaviour
@@ -12,6 +14,8 @@ public class RealTimeTypingTextDisplay : MonoBehaviour
     private float t = 0f;
     private bool hasToWrite = true;
     public bool isMainMenuEndAnimation;
+    public bool isTutorial;
+    public bool isTutorialOver;
 
     private int i;
     private int j;
@@ -94,6 +98,15 @@ public class RealTimeTypingTextDisplay : MonoBehaviour
             i++;
             if (i == textToDisplay.Count)
             {
+                if (isTutorial)
+                {
+                    TutorialManager.Instance.ToggleMainButton();
+                }
+
+                if (isTutorialOver)
+                {
+                    TutorialManager.Instance.ToggleAuxiliaryButtons();
+                }
                 hasToWrite = false;
                 if (!isMainMenu)
                 {
@@ -112,8 +125,6 @@ public class RealTimeTypingTextDisplay : MonoBehaviour
                 textDisplay.text = "█";
             }
         }
-
-        
     }
 
     private void SelectorAnimation()
