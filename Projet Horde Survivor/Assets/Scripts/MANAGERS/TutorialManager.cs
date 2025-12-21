@@ -210,7 +210,6 @@ public class TutorialManager : MonoBehaviour
         tutorialPart.SetActive(false);
         
         countdownManager.isCountdownActive             = true;
-        PlayerController.Instance.canMove              = true;
         EnemySpawner.Instance.canEnemiesSpawn          = true;
         ShopUpgrade.GetComponent<Upgrades>().UnlockShop();
         PlayerController.Instance.canMove = true;

@@ -184,7 +184,10 @@ public class DownloadUpdateManager : MonoBehaviour
         finishedDlSoundTrigger.SetActive(false);
         finishedDlSoundTrigger.SetActive(true);
         _downloaded = 0;
-        currentUpdate++;
+        if (currentUpdate < updatesSizes.Count - 1)
+        {
+            currentUpdate++;
+        }
         UpgradeMenuManager.Instance.ActivateSkill();
     }
 
