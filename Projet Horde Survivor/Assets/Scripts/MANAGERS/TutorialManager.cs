@@ -103,26 +103,46 @@ public class TutorialManager : MonoBehaviour
             else if (popUpIndex == 5)
             {
                 PlayerController.Instance.canMove = false;
+                if (PlayerSkillHolderManager.Instance.hasAutoShoot == true)
+                {
+                    popUpIndex = 10;
+                }
             }
         
             else if (popUpIndex == 6)
             {
                 PlayerController.Instance.canMove = false;
+                if (PlayerSkillHolderManager.Instance.hasAutoShoot == true)
+                {
+                    popUpIndex = 10;
+                }
             }
         
             else if (popUpIndex == 7)
             {
                 PlayerController.Instance.canMove = false;
+                if (PlayerSkillHolderManager.Instance.hasAutoShoot == true)
+                {
+                    popUpIndex = 10;
+                }
             }
         
             else if (popUpIndex == 8)
             {
                 PlayerController.Instance.canMove = false;
+                if (PlayerSkillHolderManager.Instance.hasAutoShoot == true)
+                {
+                    popUpIndex = 10;
+                }
             }
         
             else if (popUpIndex == 9)
             {
                 PlayerController.Instance.canMove = false;
+                if (PlayerSkillHolderManager.Instance.hasAutoShoot == true)
+                {
+                    popUpIndex = 10;
+                }
             }
             
             else if (popUpIndex == 11)
@@ -190,6 +210,7 @@ public class TutorialManager : MonoBehaviour
         tutorialPart.SetActive(false);
         
         countdownManager.isCountdownActive             = true;
+        PlayerController.Instance.canMove              = true;
         EnemySpawner.Instance.canEnemiesSpawn          = true;
         ShopUpgrade.GetComponent<Upgrades>().UnlockShop();
         PlayerController.Instance.canMove = true;
