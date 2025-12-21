@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +13,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private bool       isInSettings = false;
     public                   bool       isPlaying    = true;
-
 
     public static GameManager Instance;
 
@@ -36,6 +36,15 @@ public class GameManager : MonoBehaviour
     
     private void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            RuntimeManager.StudioSystem.setParameterByName("Game Status", 1);
+        }
+        else
+        {
+            RuntimeManager.StudioSystem.setParameterByName("Game Status", 0);
+        }
+        
         if (isInSettings)
             return;
 

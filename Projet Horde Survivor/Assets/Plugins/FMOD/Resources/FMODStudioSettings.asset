@@ -333,7 +333,7 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
-  - MusicLoop
+  - Music
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

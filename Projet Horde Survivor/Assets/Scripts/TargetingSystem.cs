@@ -18,18 +18,14 @@ public class TargetingSystem : MonoBehaviour
 
 	void Update()
 	{
-		Debug.Log("TargetingSystem Update");
 		nearestEnemy = null;
 		float nearestDistance = shootRadius;
 
 		foreach (var enemy in EnemyManager.Instance.activeEnemies)
 		{
-			Debug.Log("Find an enemy");
 			float distanceToTarget = Distance(enemy.transform.position, target.position);
-			Debug.Log(distanceToTarget);
 			if (distanceToTarget <= nearestDistance)
 			{
-				Debug.Log("enemy nearby target");
 				nearestDistance = distanceToTarget;
 				nearestEnemy = enemy.transform;
 			}

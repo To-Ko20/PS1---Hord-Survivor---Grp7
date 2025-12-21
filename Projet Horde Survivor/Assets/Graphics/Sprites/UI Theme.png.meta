@@ -677,7 +677,7 @@ TextureImporter:
         height: 66
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 10, y: 10, z: 10, w: 3}
+      border: {x: 10, y: 10, z: 10, w: 2}
       customData: 
       outline: []
       physicsShape: []
@@ -2147,7 +2147,7 @@ TextureImporter:
         serializedVersion: 2
         x: 13
         y: 208
-        width: 107
+        width: 39
         height: 296
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2164,16 +2164,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Theme_81
+      name: UI Frame
       rect:
         serializedVersion: 2
-        x: 33
-        y: 414
-        width: 17
-        height: 90
+        x: 168
+        y: 3
+        width: 90
+        height: 253
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 20, y: 41, z: 11, w: 37}
       customData: 
       outline: []
       physicsShape: []
@@ -2551,6 +2551,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      UI Frame: 5277092121009871812
       UI Theme_0: -4405452515489589434
       UI Theme_1: -8379231942592199581
       UI Theme_10: -2009808947919693810
@@ -2631,7 +2632,6 @@ TextureImporter:
       UI Theme_79: 7790283395495820298
       UI Theme_8: 3464152585885272104
       UI Theme_80: -5794735482869602044
-      UI Theme_81: 5277092121009871812
       UI Theme_82: 4432070424504667777
       UI Theme_83: 5856660142594135136
       UI Theme_84: -4244559429848633464
