@@ -8021,7 +8021,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1096777598}
         m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
         m_MethodName: EndTutorial
         m_Mode: 1
@@ -10011,7 +10011,7 @@ Transform:
   - {fileID: 757757053}
   - {fileID: 1532351972}
   - {fileID: 13352614}
-  - {fileID: 1855132503}
+  - {fileID: 3436247507437540227}
   m_Father: {fileID: 1814452233}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1092930072
@@ -10194,35 +10194,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTutorialOn: 0
   tutorialFrame: {fileID: 1916380976}
-  closeTutorial: {fileID: 799001333}
+  closeTutorial: {fileID: 442013066}
   mainButton: {fileID: 1547623139}
   quitNoButton: {fileID: 1614497506}
   quitYesButton: {fileID: 1775971978}
   popUpIndex: 0
   popUps:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  tutorialDataBubble: {fileID: 0}
-  tutorialEnemy: {fileID: 0}
-  wallsToDeactivate: {fileID: 0}
-  wallsToActivate: {fileID: 0}
-  tutorialPart: {fileID: 0}
-  objectsToDestroy: {fileID: 0}
-  cameraMovement: {fileID: 0}
-  clickerManager: {fileID: 0}
-  countdownManager: {fileID: 0}
+  - {fileID: 493546418}
+  - {fileID: 546888303}
+  - {fileID: 614328178}
+  - {fileID: 644771428}
+  - {fileID: 1268697636}
+  - {fileID: 79693878}
+  - {fileID: 550782119}
+  - {fileID: 618215571}
+  - {fileID: 323717961}
+  - {fileID: 532115683}
+  - {fileID: 478347614}
+  - {fileID: 918564007}
+  - {fileID: 968276164}
+  - {fileID: 1738315128}
+  tutorialDataBubble: {fileID: 1257383666}
+  tutorialEnemy: {fileID: 6994324367227778678}
+  wallsToDeactivate: {fileID: 1118374799}
+  wallsToActivate: {fileID: 1070841866}
+  tutorialPart: {fileID: 169294976}
+  objectsToDestroy: {fileID: 2096679656}
+  cameraMovement: {fileID: 2113313663}
+  clickerManager: {fileID: 1624398183}
+  countdownManager: {fileID: 1386913165}
   enemyMovement: {fileID: 0}
 --- !u!1 &1108717182
 GameObject:
@@ -14799,7 +14799,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1096777598}
         m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
         m_MethodName: NextPopUp
         m_Mode: 1
@@ -15287,7 +15287,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1096777598}
         m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
         m_MethodName: ReturnToTuturial
         m_Mode: 1
@@ -15376,9 +15376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502db467fa631254585b772fce17f99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bits: 10000
+  bits: 0
   clickPrice: 1
-  clicks: 1000
+  clicks: 0
   bitsText: {fileID: 140769671}
   bitsShopText: {fileID: 685177844}
   clicksText: {fileID: 1978262451}
@@ -16335,7 +16335,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1096777598}
         m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
         m_MethodName: EndTutorialConfirm
         m_Mode: 1
@@ -16631,11 +16631,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722dc98ef82d73045bc233f9ba45c61b, type: 3}
---- !u!4 &1855132503 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3436247505802739925, guid: 722dc98ef82d73045bc233f9ba45c61b, type: 3}
-  m_PrefabInstance: {fileID: 1855132502}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1870442573
 GameObject:
   m_ObjectHideFlags: 0
@@ -19374,6 +19369,7 @@ MonoBehaviour:
   - {fileID: 1497097251}
   - {fileID: 15816628}
   playerShoot: {fileID: 745429275}
+  musicTrigger: {fileID: 709479575}
 --- !u!224 &2698288739517008903
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19452,7 +19448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2 bits
+  m_text: 8 bits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19587,6 +19583,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!4 &3436247507437540227 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3436247505802739925, guid: 722dc98ef82d73045bc233f9ba45c61b, type: 3}
+  m_PrefabInstance: {fileID: 1855132502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3478338280002049129
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19946,6 +19947,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2254413456067689690}
   m_CullTransparentMesh: 1
+--- !u!1 &6994324367227778678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6994324366664885536, guid: 722dc98ef82d73045bc233f9ba45c61b, type: 3}
+  m_PrefabInstance: {fileID: 1855132502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7115923031477541186
 RectTransform:
   m_ObjectHideFlags: 0

@@ -63,7 +63,6 @@ public class PlayerSkillHolderManager : MonoBehaviour
     [Header("Lens")]
     public GameObject lens;
 
-
     public static PlayerSkillHolderManager Instance;
     
     private void Awake()
@@ -136,11 +135,12 @@ public class PlayerSkillHolderManager : MonoBehaviour
         lens.SetActive(true);
     }
 
-    public void UnlockAutoShoot()
+    public void UnlockAutoShoot(GameObject musicTrigger)
     {
         hasAutoShoot = true;
+        musicTrigger.SetActive(true);
         
-        if (TutorialManager.Instance.isTutorialOn == true)
+        if (TutorialManager.Instance.isTutorialOn)
         {
             TutorialManager.Instance.popUpIndex = 10;
         }
