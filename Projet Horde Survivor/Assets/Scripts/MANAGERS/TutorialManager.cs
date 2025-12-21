@@ -208,6 +208,7 @@ public class TutorialManager : MonoBehaviour
         tutorialPart.SetActive(false);
         
         countdownManager.isCountdownActive             = true;
+        PlayerController.Instance.canMove              = true;
         EnemySpawner.Instance.canEnemiesSpawn          = true;
         PlayerSkillHolderManager.Instance.hasAutoShoot = true;
 
