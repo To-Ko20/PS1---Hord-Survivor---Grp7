@@ -25,6 +25,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private ClickerManager   clickerManager;
     [SerializeField] private CountdownManager countdownManager;
     [SerializeField] private EnemyMovement    enemyMovement;
+    [SerializeField] private GameObject    ShopUpgrade;
     
     public static TutorialManager Instance;
 
@@ -178,6 +179,7 @@ public class TutorialManager : MonoBehaviour
         closeTutorial.SetActive(false);
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public void EndTutorialConfirm()
     {
         //Debug.Log("End of Tutorial Confirm");
@@ -189,7 +191,10 @@ public class TutorialManager : MonoBehaviour
         
         countdownManager.isCountdownActive             = true;
         EnemySpawner.Instance.canEnemiesSpawn          = true;
-        PlayerSkillHolderManager.Instance.hasAutoShoot = true;
+        ShopUpgrade.GetComponent<Upgrades>().UnlockShop();
+        PlayerController.Instance.canMove = true;
+        EnemyManager.Instance.UnregisterEnemy(tutorialEnemy);
+        Destroy(tutorialEnemy);
 
         this.gameObject.SetActive(false);
     }

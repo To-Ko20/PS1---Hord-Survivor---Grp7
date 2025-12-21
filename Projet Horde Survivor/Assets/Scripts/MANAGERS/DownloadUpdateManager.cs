@@ -25,6 +25,9 @@ public class DownloadUpdateManager : MonoBehaviour
     [SerializeField] private GameObject animUI;
     [SerializeField] private GameObject clickUI;
     
+    [SerializeField] private GameObject dlSoundTrigger;
+    [SerializeField] private GameObject finishedDlSoundTrigger;
+    
     private ulong _downloaded;
     private float _t = 1f;
 
@@ -53,6 +56,7 @@ public class DownloadUpdateManager : MonoBehaviour
     public void SwitchDownloading()
     {
         isDownloading = !isDownloading;
+        dlSoundTrigger.SetActive(isDownloading);
         DisplayDownloadInfo();
     }
     
@@ -176,6 +180,9 @@ public class DownloadUpdateManager : MonoBehaviour
 
     private void InstallUpdate()
     {
+        SwitchDownloading();
+        finishedDlSoundTrigger.SetActive(false);
+        finishedDlSoundTrigger.SetActive(true);
         _downloaded = 0;
         currentUpdate++;
         UpgradeMenuManager.Instance.ActivateSkill();

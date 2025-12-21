@@ -16,7 +16,7 @@ public class Upgrades : MonoBehaviour
         [SerializeField] bool isAutoShoot;
         [SerializeField] GameObject[] thingsToActivate;
         [SerializeField] PlayerShoot playerShoot;
-        [SerializeField] GameObject musicTrigger;
+
         
         private readonly List<GameObject> _effectsGo =  new List<GameObject>();
         
@@ -65,14 +65,19 @@ public class Upgrades : MonoBehaviour
                         }
                         if (isAutoShoot)
                         {
-                                foreach (GameObject thing in thingsToActivate)
-                                {
-                                        thing.SetActive(true);
-                                }
-                                playerShoot.enabled = true;
-                                PlayerSkillHolderManager.Instance.UnlockAutoShoot(musicTrigger);
-                                Destroy(gameObject);
+                                UnlockShop();
                         }
                 }       
+        }
+
+        public void UnlockShop()
+        {
+                foreach (GameObject thing in thingsToActivate)
+                {
+                        thing.SetActive(true);
+                }
+                playerShoot.enabled = true;
+                PlayerSkillHolderManager.Instance.UnlockAutoShoot();
+                Destroy(gameObject);
         }
 }

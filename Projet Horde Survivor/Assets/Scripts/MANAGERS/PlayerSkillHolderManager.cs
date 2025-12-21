@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerSkillHolderManager : MonoBehaviour
 {
     public bool hasAutoShoot;
+    public GameObject musicTrigger;
     
     [Header("Data Magnet")]
     public bool hasMagnet = false;
@@ -135,7 +136,7 @@ public class PlayerSkillHolderManager : MonoBehaviour
         lens.SetActive(true);
     }
 
-    public void UnlockAutoShoot(GameObject musicTrigger)
+    public void UnlockAutoShoot()
     {
         hasAutoShoot = true;
         musicTrigger.SetActive(true);
