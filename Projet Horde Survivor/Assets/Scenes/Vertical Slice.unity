@@ -2217,7 +2217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -97.5, y: 124.375}
+  m_AnchoredPosition: {x: -910, y: 175}
   m_SizeDelta: {x: 667.5, y: 248.75}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &169294978
@@ -2756,6 +2756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasAutoShoot: 0
+  musicTrigger: {fileID: 709479575}
   hasMagnet: 0
   hasPoisonZone: 0
   magnetRadius: 0
@@ -2823,7 +2824,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1497684528}
+  - {fileID: 1172737916}
   m_Father: {fileID: 2081458859}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &284138853
@@ -2853,6 +2856,8 @@ MonoBehaviour:
   maxSpeedGo: {fileID: 1622668928}
   animUI: {fileID: 6733367951448308422, guid: b672a3def6c579343abcd0bf1b261e33, type: 3}
   clickUI: {fileID: 1516430962}
+  dlSoundTrigger: {fileID: 1497684527}
+  finishedDlSoundTrigger: {fileID: 1172737915}
   isDownloading: 0
 --- !u!1 &294486743
 GameObject:
@@ -7242,7 +7247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4851967122792192479, guid: 3ceba16c7ce011e4c82e88629fe37db8, type: 3}
   targetingSystem: {fileID: 745429274}
-  countdownToShoot: 3
+  countdownToShoot: 1
 --- !u!58 &745429276
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9661,7 +9666,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1046172777
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1008869528
@@ -9901,7 +9906,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -10224,6 +10229,7 @@ MonoBehaviour:
   clickerManager: {fileID: 1624398183}
   countdownManager: {fileID: 1386913165}
   enemyMovement: {fileID: 0}
+  ShopUpgrade: {fileID: 4760563950437855969}
 --- !u!1 &1108717182
 GameObject:
   m_ObjectHideFlags: 0
@@ -10741,6 +10747,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166502558}
   m_CullTransparentMesh: 1
+--- !u!1 &1172737915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1172737916}
+  - component: {fileID: 1172737917}
+  m_Layer: 0
+  m_Name: FinishedDownloadSoundTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1172737916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172737915}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 284138852}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1172737917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172737915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 279824452
+      Data2: 1162310194
+      Data3: -1782991469
+      Data4: 475403285
+    Path: event:/Sounds/Finish Downloading
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1187313122 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4760563950446846147, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
@@ -14018,6 +14087,69 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4760563950446846147, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
   m_PrefabInstance: {fileID: 408349565}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1497684527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1497684528}
+  - component: {fileID: 1497684529}
+  m_Layer: 0
+  m_Name: DownloadSoundTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1497684528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497684527}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 284138852}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1497684529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497684527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 234017611
+      Data2: 1295093989
+      Data3: -1771791231
+      Data4: -1384560881
+    Path: event:/Sounds/Download
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1507929677
 GameObject:
   m_ObjectHideFlags: 0
@@ -15820,7 +15952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 193.76915, y: -28.9759}
+  m_AnchoredPosition: {x: 193.76915, y: -28.975891}
   m_SizeDelta: {x: 296.3051, y: 57.9518}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1678010026
@@ -17464,7 +17596,7 @@ MonoBehaviour:
     Path: event:/Musics/Game Music
   Event: 
   EventPlayTrigger: 1
-  EventStopTrigger: 0
+  EventStopTrigger: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
@@ -17552,6 +17684,7 @@ GameObject:
   - component: {fileID: 2011838931}
   - component: {fileID: 2011838930}
   - component: {fileID: 2011838929}
+  - component: {fileID: 2011838932}
   m_Layer: 5
   m_Name: Click Button
   m_TagString: Untagged
@@ -17672,6 +17805,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011838927}
   m_CullTransparentMesh: 1
+--- !u!114 &2011838932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011838927}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1998249924
+      Data2: 1307450842
+      Data3: 1857511352
+      Data4: -2020107226
+    Path: event:/Sounds/Click
+  Event: 
+  EventPlayTrigger: 19
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &2014342028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19569,7 +19733,6 @@ MonoBehaviour:
   - {fileID: 1497097251}
   - {fileID: 15816628}
   playerShoot: {fileID: 745429275}
-  musicTrigger: {fileID: 709479575}
 --- !u!224 &2698288739517008903
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20465,8 +20628,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 520872536}
   - {fileID: 2081458859}
-  - {fileID: 1008869528}
   - {fileID: 1026430343}
+  - {fileID: 1008869528}
   - {fileID: 1339515523}
   - {fileID: 1443290179}
   - {fileID: 1321996072}
