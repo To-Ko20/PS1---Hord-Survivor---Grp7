@@ -6293,6 +6293,7 @@ MonoBehaviour:
   nodeWidth: 12
   nodeHeight: 5
   levelDistance: 15
+  needsRecalc: 1
 --- !u!1 &685177843
 GameObject:
   m_ObjectHideFlags: 0
@@ -13571,7 +13572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c81fb65e437344baa763614f578457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remainingMinutes: 5
+  remainingMinutes: 10
   remainingSeconds: 0
   pressureTime: 1
   timerText: {fileID: 808632454}
