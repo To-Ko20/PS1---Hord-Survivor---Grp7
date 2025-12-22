@@ -112,6 +112,11 @@ public class SkillTreeDebugOverlay : MonoBehaviour
         }
     }
 
+    private static void test(SceneView sceneView)
+    {
+        
+    }
+
     private static void OnSceneGUI(SceneView sceneView)
     {
         foreach (var debugger in Object.FindObjectsByType<SkillTreeDebugOverlay>(
