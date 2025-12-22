@@ -6288,11 +6288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697dbe8472e87424883c976d641303d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTree: {fileID: 1676044833}
-  showOverlay: 0
-  nodeWidth: 12
-  nodeHeight: 5
-  levelDistance: 15
 --- !u!1 &685177843
 GameObject:
   m_ObjectHideFlags: 0
@@ -10158,7 +10153,7 @@ GameObject:
   - component: {fileID: 1041527662}
   - component: {fileID: 1041527663}
   m_Layer: 0
-  m_Name: UpgradeManuManager
+  m_Name: UpgradeMenuManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
