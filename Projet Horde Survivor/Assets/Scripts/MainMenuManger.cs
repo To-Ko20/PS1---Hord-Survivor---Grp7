@@ -11,7 +11,6 @@ public class MainMenuManger : MonoBehaviour
     private bool buttonAnimationDone = false;
     
     [SerializeField] private GameObject mainMenu;
-    [SerializeField] private GameObject gameSelectorMenu;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject creditsMenu;
 
@@ -36,19 +35,12 @@ public class MainMenuManger : MonoBehaviour
     public void DisplayMainMenu()
     {
         mainMenu.SetActive(true);
-        gameSelectorMenu.SetActive(false);
         settingsMenu.SetActive(false);
         creditsMenu.SetActive(false);
         if (hasToShowButtons)
         {
             mainMenuButton.SetActive(true);
         }
-    }
-    
-    public void DisplayGameSelectorMenu()
-    {
-        mainMenu.SetActive(false);
-        gameSelectorMenu.SetActive(true);
     }
 
     public void PlayGame()

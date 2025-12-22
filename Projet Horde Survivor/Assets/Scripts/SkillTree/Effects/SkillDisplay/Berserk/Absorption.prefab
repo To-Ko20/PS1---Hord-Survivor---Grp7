@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Gain 5 hp for each elimination
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 646cf12a7cf6fd84d97761c107b776fb, type: 2}
-  m_sharedMaterial: {fileID: 175002130894840059, guid: 646cf12a7cf6fd84d97761c107b776fb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cef6b58d73d03a441950a6b6584daacd, type: 2}
+  m_sharedMaterial: {fileID: 6634688243653499214, guid: cef6b58d73d03a441950a6b6584daacd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -432,8 +432,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 646cf12a7cf6fd84d97761c107b776fb, type: 2}
-  m_sharedMaterial: {fileID: 175002130894840059, guid: 646cf12a7cf6fd84d97761c107b776fb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cef6b58d73d03a441950a6b6584daacd, type: 2}
+  m_sharedMaterial: {fileID: 6634688243653499214, guid: cef6b58d73d03a441950a6b6584daacd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
