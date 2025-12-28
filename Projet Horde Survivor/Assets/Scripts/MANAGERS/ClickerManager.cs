@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClickerManager : MonoBehaviour
 {
@@ -69,6 +70,7 @@ public class ClickerManager : MonoBehaviour
             DisplayUpdate();
             GameObject newAnimUI = Instantiate(animUI, transform);
             newAnimUI.transform.SetParent(clickUI.transform);
+            newAnimUI.transform.SetSiblingIndex(0);
             Animation anim =  newAnimUI.GetComponent<Animation>();
             anim.Play("ClickAnim");
             StartCoroutine(WaitForAnimation(anim, "ClickAnim", newAnimUI));
@@ -91,7 +93,7 @@ public class ClickerManager : MonoBehaviour
         bits += clickPrice;
         DisplayUpdate();
         Destroy(animObj);
-        clickGained.Play();
+        PlayAnimBitGained();
     }
     
 
@@ -184,8 +186,12 @@ public class ClickerManager : MonoBehaviour
             dataRate.text = "";
         }
     }*/
-    public void PlayAnim()
+    public void PlayAnimDataGained()
     {
-        dataGained.Play();
+            dataGained.Play();  
+    }
+    private void PlayAnimBitGained()
+    {
+            clickGained.Play();
     }
 }

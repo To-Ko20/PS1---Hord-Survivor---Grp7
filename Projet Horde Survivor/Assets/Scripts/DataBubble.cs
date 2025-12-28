@@ -33,7 +33,7 @@ public class DataBubble : MonoBehaviour
             ClickerManager.Instance.clicks += clicksToGain;
             //ClickerManager.Instance.gainedData += clicksToGain;
             ClickerManager.Instance.DisplayUpdate();
-            ClickerManager.Instance.PlayAnim();
+            ClickerManager.Instance.PlayAnimDataGained();
             Destroy(gameObject);
         }
     }

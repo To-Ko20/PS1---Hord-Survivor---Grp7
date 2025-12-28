@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,6 +12,10 @@ public class UpgradeMenuManager : MonoBehaviour
     [SerializeField] private GameObject storedSkill;
     [SerializeField] private GameObject downloadingSkillDisplay;
     [SerializeField] private Animation SelectedSkillAnimation;
+    
+    [SerializeField] private GameObject downloadDisplay;
+    [SerializeField] private GameObject waitPanel;
+    [SerializeField] private Animation waitAnim;
     
     private int _storedIndex;
     
@@ -105,6 +110,31 @@ public class UpgradeMenuManager : MonoBehaviour
             children.Add(child);
         }
         storedSkill.GetComponent<SkillActivator>().ActivateSkill(node, children);
+
+        StartWaitScreen();
+    }
+
+    public void StartWaitScreen()
+    {
+        downloadDisplay.SetActive(false);
+        waitPanel.SetActive(true);
+        waitAnim.Play("Wait");
+        StartCoroutine(WaitForAnimation(waitAnim,"Wait"));
+    }
+    
+    IEnumerator WaitForAnimation(Animation animation, string animName)
+    {
+        // wait for animation to actually start playing
+        yield return null;
+
+        // Wait until the animation is done
+        while (animation.IsPlaying(animName))
+        {
+            yield return null;
+        }
+        
+        downloadDisplay.SetActive(true);
+        waitPanel.SetActive(false);
         DisplayUpgradeMenu();
     }
 }
