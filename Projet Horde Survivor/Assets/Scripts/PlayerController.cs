@@ -81,6 +81,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        Quaternion quat;
+        
         if (!canMove) return;
 
         if (isDashing)
@@ -88,6 +90,8 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(
                 rb.position + dashDirection * dashSpeed * Time.fixedDeltaTime
             );
+            
+            quat = Quaternion.LookRotation(Vector3.forward, dashDirection);
 
             currentDashTime += Time.fixedDeltaTime;
 
@@ -101,6 +105,12 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(
                 rb.position + movement * playerSpeed * Time.fixedDeltaTime
             );
+            quat = Quaternion.LookRotation(Vector3.forward, movement);
+        }
+
+        if (movement != Vector2.zero)
+        {
+            transform.rotation = quat;   
         }
     }
 }
