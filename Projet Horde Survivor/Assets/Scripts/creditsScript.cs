@@ -6,6 +6,8 @@ public class creditsScript : MonoBehaviour
     public float endPositionY = 1580f;
     public GameObject creditsMenu;
     public GameObject mainMenu;
+
+    [SerializeField] private GameObject skip;
     
     private RectTransform rectTransform;
 	private Vector2 startPosition = new Vector2(0, -1570f);
@@ -34,14 +36,19 @@ public class creditsScript : MonoBehaviour
         {
            CloseCredits();
         }
+
+        if (Input.anyKeyDown)
+        {
+            skip.SetActive(true);
+        }
     }
 	
-	void CloseCredits()
+	public void CloseCredits()
     {
         creditsMenu.SetActive(false);
+        skip.SetActive(false);
 		mainMenu.SetActive(true);
-
-	rectTransform.anchoredPosition = startPosition;
+        rectTransform.anchoredPosition = startPosition;
     }
 
 }
