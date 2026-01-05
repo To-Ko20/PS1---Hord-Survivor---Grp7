@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 83d10c24f6ebfb445830ea5b05e03f2d
+guid: 743b4f52d83ec4f4583bfcae53cffcc2
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - THINGS DIGITAL
+  - Franklin Gothic Medium
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

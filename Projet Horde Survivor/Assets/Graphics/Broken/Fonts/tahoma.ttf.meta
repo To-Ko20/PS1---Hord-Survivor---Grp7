@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 83d10c24f6ebfb445830ea5b05e03f2d
+guid: 41f12aa59fcb61f49b2ab3e6ea785205
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - THINGS DIGITAL
+  - Tahoma
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
