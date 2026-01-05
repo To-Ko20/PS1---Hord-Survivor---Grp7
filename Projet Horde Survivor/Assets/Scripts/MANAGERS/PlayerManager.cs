@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     public float maxHealthBonus = 1f;
     
     [SerializeField] private PlayerUI pUI;
+    [SerializeField] private GameObject glitchTrigger;
 
     public static PlayerManager Instance;
     
@@ -81,8 +82,9 @@ public class PlayerManager : MonoBehaviour
         }
         
         Knockback(1);
+        TriggerGlitch();
     }
-    
+
     public void GainLife(float amount)
     {
         currentHealth += amount;
@@ -125,6 +127,18 @@ public class PlayerManager : MonoBehaviour
                 } 
             }
         }
+    }
+    
+    private void TriggerGlitch()
+    {
+        glitchTrigger.SetActive(true);
+        StartCoroutine(WaitForSecondsBeforeEndSfx(0.5f));
+    }
+
+    IEnumerator WaitForSecondsBeforeEndSfx(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        glitchTrigger.SetActive(false);
     }
 
     private void FixedUpdate()

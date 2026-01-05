@@ -887,6 +887,8 @@ MonoBehaviour:
   titleTxt: {fileID: 7176929136833260340}
   priceTxt: {fileID: 3116644999547084198}
   levelTxt: {fileID: 2573652962215399845}
+  Btn1: {fileID: 3292200005116923963}
+  Btn2: {fileID: 1795026002149823694}
   level: 0
   isAutoShoot: 0
   thingsToActivate: []
