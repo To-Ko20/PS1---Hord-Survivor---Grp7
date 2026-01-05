@@ -9310,6 +9310,7 @@ MonoBehaviour:
   MaxDashTime: 0.15
   currentDashTime: 1
   dashSpeed: 15
+  walkAnim: {fileID: 393237737}
 --- !u!50 &745429269
 Rigidbody2D:
   serializedVersion: 5

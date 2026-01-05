@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float MaxDashTime = 0.5f;
     [SerializeField] private float currentDashTime;
     [SerializeField] private float dashSpeed;
+    [SerializeField] private Animation walkAnim;
     
     private bool canDash = true;
     private bool isDashing;
@@ -110,7 +111,12 @@ public class PlayerController : MonoBehaviour
 
         if (movement != Vector2.zero)
         {
-            transform.rotation = quat;   
+            transform.rotation = quat;
+            walkAnim["PlayerWalk"].speed = 1;
+        }
+        else
+        {
+            walkAnim["PlayerWalk"].speed = 0;
         }
     }
 }
