@@ -98,7 +98,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 250
+  Length: 95
 --- !u!114 &-6008723436186671149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Sounds.bank
   Name: Sounds
   StudioPath: bank:/Sounds
-  lastModified: 639032358724651699
+  lastModified: 639032472756264525
   FileSizes: []
   Exists: 1
 --- !u!114 &-4757619871076360970
@@ -266,7 +266,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -366291009907144731}
   cacheVersion: 131857
-  cacheTime: 639032360418868151
+  cacheTime: 639032472756264525
   SerializableEventsDict:
   - key: event:/Musics/Game Music
     index: 0
