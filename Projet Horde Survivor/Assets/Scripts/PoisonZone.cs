@@ -16,7 +16,7 @@ public class PoisonZone : MonoBehaviour
         {
             radiusSpriteRenderer.enabled = true;
         }
-        float radius = (23 * PlayerSkillHolderManager.Instance.magnetRadius) / 2;
+        float radius = (3.75f * PlayerSkillHolderManager.Instance.magnetRadius) / 2;
         radiusTransform.localScale = new Vector3(radius, radius, radius);
         if (PlayerSkillHolderManager.Instance.hasPoisonZone)
         {

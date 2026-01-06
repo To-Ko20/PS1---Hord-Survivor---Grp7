@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+
 
 public class Upgrades : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class Upgrades : MonoBehaviour
         [SerializeField] private TMP_Text titleTxt;
         [SerializeField] private TMP_Text priceTxt;
         [SerializeField] private TMP_Text levelTxt;
+        [SerializeField] private Button Btn1;
+        [SerializeField] private Button Btn2;
         
         [SerializeField] private int level = 0;
         
@@ -29,6 +33,20 @@ public class Upgrades : MonoBehaviour
                 levelTxt.text = "LV " + level;
         }
 
+        private void Update()
+        {
+                if (ClickerManager.Instance.bits >= upgradesSO.cost[level])
+                {
+                        Btn1.interactable = true; 
+                        Btn2.interactable = true;
+                }
+                else
+                {
+                        Btn1.interactable = false;
+                        Btn2.interactable = false;
+                }
+        }
+
         public void Start()
         {
                 foreach (GameObject effect in upgradesSO.effects)
@@ -46,6 +64,7 @@ public class Upgrades : MonoBehaviour
                         ClickerManager.Instance.bits -= upgradesSO.cost[level];
                         ClickerManager.Instance.DisplayUpdate();
                         level++;
+                        SoundManager.Instance.PlayBuy();
                         
                         if (level < upgradesSO.cost.Count)
                         {

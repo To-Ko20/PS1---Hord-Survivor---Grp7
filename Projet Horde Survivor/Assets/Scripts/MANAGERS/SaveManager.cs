@@ -1,13 +1,31 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
     public Inventory inventory =  new Inventory();
     
+    public static SaveManager Instance;
+    
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        LoadFromJson();
+    }
+    
     public void SaveToJson()
     {
-        SetInventory();
-        
         string inventoryData = JsonUtility.ToJson(inventory);
         string filePath = Application.persistentDataPath + "/save.json";
         Debug.Log(filePath);
@@ -22,27 +40,17 @@ public class SaveManager : MonoBehaviour
         string inventoryData = System.IO.File.ReadAllText(filePath);
         
         inventory = JsonUtility.FromJson<Inventory>(inventoryData);
-        FillInventory();
-        ClickerManager.Instance.DisplayUpdate();
         Debug.Log("Chargement terminé");
-    }
-    
-    private void FillInventory()
-    {
-        ClickerManager.Instance.bits = inventory.bits;
-        ClickerManager.Instance.clicks = inventory.clicks;
-    }
-    
-    private void SetInventory()
-    {
-        inventory.bits = ClickerManager.Instance.bits;
-        inventory.clicks = ClickerManager.Instance.clicks;
     }
 }
 
 [System.Serializable]
 public class Inventory
 {
-    public ulong bits;
-    public int clicks;
+    public Dictionary<string, float> volumes =  new Dictionary<string, float>
+    {
+        {"Master", 0f},
+        {"Music", 0f},
+        {"SFX", 0f}
+    };
 }

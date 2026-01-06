@@ -19,6 +19,7 @@ public class DownloadUpdateManager : MonoBehaviour
     [SerializeField] private TMP_Text dlRemainingTime;
 
     [SerializeField] private GameObject downloadDisplay;
+    [SerializeField] private Toggle dlBtn;
     [SerializeField] private GameObject unlockDownloadGo;
     [SerializeField] private GameObject maxSpeedGo;
     
@@ -56,7 +57,6 @@ public class DownloadUpdateManager : MonoBehaviour
     public void SwitchDownloading()
     {
         isDownloading = !isDownloading;
-        dlSoundTrigger.SetActive(isDownloading);
         DisplayDownloadInfo();
     }
     
@@ -98,6 +98,11 @@ public class DownloadUpdateManager : MonoBehaviour
             Animation anim =  newAnimUI.GetComponent<Animation>();
             anim.Play("DownloadAnim");
             StartCoroutine(WaitForAnimation(anim, "DownloadAnim", newAnimUI));
+            dlSoundTrigger.SetActive(true);
+        }
+        else
+        {
+            dlSoundTrigger.SetActive(false);
         }
         
         if (_downloaded + downloadSpeed > updatesSizes[currentUpdate])
@@ -144,6 +149,7 @@ public class DownloadUpdateManager : MonoBehaviour
             dlRatio.color = Color.green;
             dlRemainingTime.color = Color.green;
             dlText.color = Color.green;
+            dlBtn.isOn = true;
         }
         else
         {
@@ -152,6 +158,7 @@ public class DownloadUpdateManager : MonoBehaviour
             dlRatio.color = Color.red;
             dlRemainingTime.color = Color.red;
             dlText.color = Color.red;
+            dlBtn.isOn = false;
         }
         
         ClickerManager.Instance.DisplayUpdate();
