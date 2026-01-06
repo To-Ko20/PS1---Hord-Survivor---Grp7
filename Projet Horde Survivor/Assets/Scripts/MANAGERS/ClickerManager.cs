@@ -70,7 +70,7 @@ public class ClickerManager : MonoBehaviour
             DisplayUpdate();
             GameObject newAnimUI = Instantiate(animUI, transform);
             newAnimUI.transform.SetParent(clickUI.transform);
-            newAnimUI.transform.SetSiblingIndex(0);
+            newAnimUI.transform.SetSiblingIndex(3);
             Animation anim =  newAnimUI.GetComponent<Animation>();
             anim.Play("ClickAnim");
             StartCoroutine(WaitForAnimation(anim, "ClickAnim", newAnimUI));

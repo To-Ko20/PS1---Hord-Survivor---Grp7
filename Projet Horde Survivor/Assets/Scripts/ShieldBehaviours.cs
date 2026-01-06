@@ -6,8 +6,8 @@ public class ShieldBehaviours : MonoBehaviour
 {
     [SerializeField] float force;
     [SerializeField] SpriteRenderer spriteRenderer;
-    private bool canDeflect = true;
-    private float shieldTimer;
+    [SerializeField] private bool canDeflect = true;
+    [SerializeField] private float shieldTimer;
     private int shieldNb;
 
     private void Start()
@@ -17,11 +17,11 @@ public class ShieldBehaviours : MonoBehaviour
         shieldNb = Instance.shieldNb;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         foreach (GameObject enemy in EnemyManager.Instance.activeEnemies)
         {
-            if (collision.transform == enemy.transform && canDeflect)
+            if (other.transform == enemy.transform && canDeflect)
             {
                 Deflect();
             }
@@ -33,7 +33,7 @@ public class ShieldBehaviours : MonoBehaviour
         PlayerManager.Instance.Knockback(force);
         shieldTimer = Instance.shieldCooldown;
         canDeflect = false;
-        if (shieldNb < 1)
+        if (shieldNb > 1)
         {
             shieldNb--;
         }

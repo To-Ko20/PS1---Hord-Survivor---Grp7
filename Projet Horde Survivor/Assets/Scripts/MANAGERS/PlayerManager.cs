@@ -150,11 +150,11 @@ public class PlayerManager : MonoBehaviour
     {
         if (PlayerSkillHolderManager.Instance.hasRegen)
         {
-            _tRegen += Time.fixedDeltaTime;
-            if (_tRegen <= 3)
+            _tRegen -= Time.fixedDeltaTime;
+            if (_tRegen <= 0)
             {
                 _tRegen = 3;
-                currentHealth++;
+                GainLife(1);
             }
         }
         

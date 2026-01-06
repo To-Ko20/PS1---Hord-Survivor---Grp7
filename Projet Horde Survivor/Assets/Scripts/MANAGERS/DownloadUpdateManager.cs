@@ -94,7 +94,6 @@ public class DownloadUpdateManager : MonoBehaviour
         if (downloadSpeed > 0)
         {
             GameObject newAnimUI = Instantiate(animUI, transform);
-            newAnimUI.transform.SetParent(clickUI.transform);
             Animation anim =  newAnimUI.GetComponent<Animation>();
             anim.Play("DownloadAnim");
             StartCoroutine(WaitForAnimation(anim, "DownloadAnim", newAnimUI));
@@ -142,6 +141,7 @@ public class DownloadUpdateManager : MonoBehaviour
 
     private void DisplayDownloadInfo()
     {
+        dlBtn.SetIsOnWithoutNotify(isDownloading);
         if (isDownloading)
         {
             dlSliderColor.color = Color.green;
@@ -149,7 +149,6 @@ public class DownloadUpdateManager : MonoBehaviour
             dlRatio.color = Color.green;
             dlRemainingTime.color = Color.green;
             dlText.color = Color.green;
-            dlBtn.isOn = true;
         }
         else
         {
@@ -158,7 +157,6 @@ public class DownloadUpdateManager : MonoBehaviour
             dlRatio.color = Color.red;
             dlRemainingTime.color = Color.red;
             dlText.color = Color.red;
-            dlBtn.isOn = false;
         }
         
         ClickerManager.Instance.DisplayUpdate();

@@ -35,6 +35,12 @@ public class Upgrades : MonoBehaviour
 
         private void Update()
         {
+                if (level >= upgradesSO.cost.Count)
+                {
+                        Btn1.interactable = false;
+                        Btn2.interactable = false;
+                        return;
+                }
                 if (ClickerManager.Instance.bits >= upgradesSO.cost[level])
                 {
                         Btn1.interactable = true; 

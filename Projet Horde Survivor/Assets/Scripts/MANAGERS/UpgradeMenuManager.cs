@@ -45,7 +45,7 @@ public class UpgradeMenuManager : MonoBehaviour
 
         if (SkillTreeManager.Instance.availableNode.Count >= 4)
         {
-            ChooseSkill(3);
+            ChooseSkill(4);
         }
         else
         {
