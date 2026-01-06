@@ -5,6 +5,7 @@ using UnityEngine;
 public class DeadZone : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject deathBoxCollider;
     [SerializeField] private float damage;
     
     [SerializeField] private bool inZone = false;
@@ -12,7 +13,7 @@ public class DeadZone : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.transform.position == player.transform.position)
+        if (other.transform.position == deathBoxCollider.transform.position)
         {
             inZone = true;
         }
@@ -20,7 +21,7 @@ public class DeadZone : MonoBehaviour
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.transform.position == player.transform.position)
+        if (other.transform.position == deathBoxCollider.transform.position)
         {
             inZone = false;
         }
