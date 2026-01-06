@@ -1,17 +1,22 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
-    public Inventory inventory =  new Inventory();
-    
     public static SaveManager Instance;
-    
+
+    public Inventory inventory = new Inventory();
+
+    private string _filePath;
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
+
+            _filePath = Application.persistentDataPath + "/save.json";
         }
         else
         {
@@ -23,34 +28,48 @@ public class SaveManager : MonoBehaviour
     {
         LoadFromJson();
     }
-    
+
     public void SaveToJson()
     {
-        string inventoryData = JsonUtility.ToJson(inventory);
-        string filePath = Application.persistentDataPath + "/save.json";
-        Debug.Log(filePath);
-        
-        System.IO.File.WriteAllText(filePath, inventoryData);
-        Debug.Log("Sauvegarde effectuée");
+        ClampVolumes();
+
+        string json = JsonUtility.ToJson(inventory, true);
+        System.IO.File.WriteAllText(_filePath, json);
+    }
+
+    private void ClampVolumes()
+    {
+        var v = inventory.volumes;
+
+        v.Master = Mathf.Clamp01(v.Master);
+        v.Music  = Mathf.Clamp01(v.Music);
+        v.SFX    = Mathf.Clamp01(v.SFX);
     }
 
     public void LoadFromJson()
     {
-        string filePath = Application.persistentDataPath + "/save.json";
-        string inventoryData = System.IO.File.ReadAllText(filePath);
-        
-        inventory = JsonUtility.FromJson<Inventory>(inventoryData);
-        Debug.Log("Chargement terminé");
+        if (!File.Exists(_filePath))
+        {
+            Debug.Log("No save file found, using default values");
+            return;
+        }
+
+        string json = File.ReadAllText(_filePath);
+        inventory = JsonUtility.FromJson<Inventory>(json);
+        Debug.Log("Load complete");
     }
 }
 
 [System.Serializable]
 public class Inventory
 {
-    public Dictionary<string, float> volumes =  new Dictionary<string, float>
-    {
-        {"Master", 0f},
-        {"Music", 0f},
-        {"SFX", 0f}
-    };
+    public VolumeData volumes = new VolumeData();
+}
+
+[System.Serializable]
+public class VolumeData
+{
+    [Range(0f, 1f)] public float Master = 1f;
+    [Range(0f, 1f)] public float Music = 1f;
+    [Range(0f, 1f)] public float SFX   = 1f;
 }
