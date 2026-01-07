@@ -3881,11 +3881,12 @@ MonoBehaviour:
   mineDMG: 1
   mineRate: 0.33
   shield: {fileID: 1321996067}
-  shieldCooldown: 20
+  shieldCooldown: 30
   shieldForce: 1
   shieldNb: 0
   hasForceField: 0
   hasRegen: 0
+  resetShieldCooldown: 0
   hasBerserkLife: 0
   hasCursedShot: 0
   hasVampire: 0
@@ -20090,7 +20091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502db467fa631254585b772fce17f99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bits: 0
+  bits: 1000000
   clickPrice: 1
   clicks: 2147483647
   bitsText: {fileID: 140769671}

@@ -51,6 +51,12 @@ public class ShieldBehaviours : MonoBehaviour
         {
             Cooldown();
         }
+
+        if (Instance.resetShieldCooldown)
+        {
+            Instance.resetShieldCooldown = false;
+            shieldTimer = 0.2f;
+        }
     }
 
     private void Cooldown()

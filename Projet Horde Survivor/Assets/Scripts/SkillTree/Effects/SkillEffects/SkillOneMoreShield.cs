@@ -14,6 +14,8 @@ public class SkillOneMoreShield : MonoBehaviour
     private void Effect()
     {
         PlayerSkillHolderManager.Instance.shieldNb = 2;
-        PlayerSkillHolderManager.Instance.shieldCooldown = 15;
+        PlayerSkillHolderManager.Instance.shieldCooldown /= 2;
+        PlayerSkillHolderManager.Instance.resetShieldCooldown = true;
+        
     }
 }

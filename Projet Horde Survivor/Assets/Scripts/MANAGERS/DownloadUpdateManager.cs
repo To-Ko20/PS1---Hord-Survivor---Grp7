@@ -186,6 +186,7 @@ public class DownloadUpdateManager : MonoBehaviour
     private void InstallUpdate()
     {
         SwitchDownloading();
+        dlSoundTrigger.SetActive(false);
         finishedDlSoundTrigger.SetActive(false);
         finishedDlSoundTrigger.SetActive(true);
         _downloaded = 0;

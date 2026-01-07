@@ -48,6 +48,7 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public int shieldNb;
     public bool hasForceField;
     public bool hasRegen;
+    public bool resetShieldCooldown;
     
     [Space(10f)]
     

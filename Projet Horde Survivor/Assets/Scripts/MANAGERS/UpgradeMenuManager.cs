@@ -35,6 +35,7 @@ public class UpgradeMenuManager : MonoBehaviour
 
     public void DisplayUpgradeMenu()
     {
+        Destroy(downloadingSkillDisplay.transform.GetChild(0).gameObject);
         upgradeMenu.SetActive(true);
         Time.timeScale = 0;
 
@@ -81,7 +82,7 @@ public class UpgradeMenuManager : MonoBehaviour
 
     public void StoreSelectedSkill(GameObject effect, int index, GameObject display)
     {
-        Destroy(downloadingSkillDisplay.transform.GetChild(0).gameObject);
+        //Destroy(downloadingSkillDisplay.transform.GetChild(0).gameObject);
         GameObject newSkill = Instantiate(display, transform);
         RectTransform rt = newSkill.GetComponent<RectTransform>();
         rt.anchoredPosition = new Vector3(12.5f,-12.5f,0);
