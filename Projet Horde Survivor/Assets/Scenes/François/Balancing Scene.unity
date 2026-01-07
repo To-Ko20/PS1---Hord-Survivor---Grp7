@@ -17960,7 +17960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 8
-  bulletDamage: 1
+  bulletDamage: 10
   bulletDamageBonus: 0
   bulletActualDamage: 0
   bulletSize: 0.25
@@ -20041,7 +20041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bits: 0
   clickPrice: 1
-  clicks: 730
+  clicks: 0
   bitsText: {fileID: 140769671}
   bitsShopText: {fileID: 685177844}
   clicksText: {fileID: 1978262451}
