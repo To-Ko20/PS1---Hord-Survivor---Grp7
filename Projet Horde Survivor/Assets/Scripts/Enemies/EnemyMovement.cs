@@ -174,8 +174,11 @@ public class EnemyMovement : MonoBehaviour
                 PlantMine(); 
             }  
         }
-        
-        DropData();
+
+        if (!TutorialManager.Instance.isTutorialOn)
+        {
+            DropData();
+        }
         
         if (PlayerSkillHolderManager.Instance.hasVampire)
         {
