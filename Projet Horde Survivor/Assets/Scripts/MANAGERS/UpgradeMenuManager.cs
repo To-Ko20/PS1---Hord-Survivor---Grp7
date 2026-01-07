@@ -11,6 +11,7 @@ public class UpgradeMenuManager : MonoBehaviour
 
     [SerializeField] private GameObject storedSkill;
     [SerializeField] private GameObject downloadingSkillDisplay;
+    [SerializeField] private GameObject animParent;
     [SerializeField] private Animation SelectedSkillAnimation;
     
     [SerializeField] private GameObject downloadDisplay;
@@ -35,7 +36,7 @@ public class UpgradeMenuManager : MonoBehaviour
 
     public void DisplayUpgradeMenu()
     {
-        Destroy(downloadingSkillDisplay.transform.GetChild(0).gameObject);
+        Destroy(animParent.transform.GetChild(0).gameObject);
         upgradeMenu.SetActive(true);
         Time.timeScale = 0;
 
@@ -85,10 +86,10 @@ public class UpgradeMenuManager : MonoBehaviour
         //Destroy(downloadingSkillDisplay.transform.GetChild(0).gameObject);
         GameObject newSkill = Instantiate(display, transform);
         RectTransform rt = newSkill.GetComponent<RectTransform>();
-        rt.anchoredPosition = new Vector3(12.5f,-12.5f,0);
+        rt.anchoredPosition = new Vector3(0f,0f,0);
         rt.sizeDelta = new Vector2(175,175);
         newSkill.transform.localScale = new Vector3(1f,1f,1f);
-        newSkill.transform.SetParent(downloadingSkillDisplay.transform, false);
+        newSkill.transform.SetParent(animParent.transform, false);
         
         
         _storedIndex =  index;
