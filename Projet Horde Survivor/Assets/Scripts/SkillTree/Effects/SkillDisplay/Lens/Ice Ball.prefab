@@ -65,11 +65,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: When a bullet passes through the lens, it has a 25% chance of freezing
-    an enemy for 3s
+  m_text: Bullets passing through the lens have a small chance to freeze enemies
+    for 3 sec
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cef6b58d73d03a441950a6b6584daacd, type: 2}
-  m_sharedMaterial: {fileID: 6634688243653499214, guid: cef6b58d73d03a441950a6b6584daacd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c05d1511a9579924e8b3064bcead23c6, type: 2}
+  m_sharedMaterial: {fileID: 175002130894840059, guid: c05d1511a9579924e8b3064bcead23c6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -431,8 +431,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Snow Ball
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cef6b58d73d03a441950a6b6584daacd, type: 2}
-  m_sharedMaterial: {fileID: 6634688243653499214, guid: cef6b58d73d03a441950a6b6584daacd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c05d1511a9579924e8b3064bcead23c6, type: 2}
+  m_sharedMaterial: {fileID: 175002130894840059, guid: c05d1511a9579924e8b3064bcead23c6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

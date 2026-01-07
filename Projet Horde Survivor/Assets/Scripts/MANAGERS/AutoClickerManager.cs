@@ -39,6 +39,6 @@ public class AutoClickerManager : MonoBehaviour
 
     public void DecrementSpeed(int level)
     {
-        speed = _baseSpeed/(Mathf.Pow(2, level));
+        speed = _baseSpeed/(Mathf.Pow(1.5f, level));
     }
 }
