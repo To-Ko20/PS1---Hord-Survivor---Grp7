@@ -5,6 +5,7 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public bool hasAutoShoot;
     
     [Header("Data Magnet")]
+    public bool hasRealMagnet;
     public bool hasMagnet = false;
     public bool hasPoisonZone = false;
     public float magnetRadius = 2f;
@@ -64,6 +65,8 @@ public class PlayerSkillHolderManager : MonoBehaviour
     
     [Header("Lens")]
     public GameObject lens;
+
+    
 
     public static PlayerSkillHolderManager Instance;
     

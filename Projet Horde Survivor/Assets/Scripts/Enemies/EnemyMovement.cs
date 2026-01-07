@@ -27,6 +27,8 @@ public class EnemyMovement : MonoBehaviour
 
     public bool hasToSlow;
     public bool canMove = true;
+
+    private bool canTakeDamages = true;
     
     private Transform target;
     
@@ -110,19 +112,23 @@ public class EnemyMovement : MonoBehaviour
 
     public void EnemyTakeDamage(float amount, string tag)
     {
-        if (musicTrigger.activeSelf == false)
+        if (canTakeDamages)
         {
-            if (!TutorialManager.Instance.isTutorialOn)
+            canTakeDamages = false;
+            if (musicTrigger.activeSelf == false)
             {
-                musicTrigger.SetActive(true); 
+                if (!TutorialManager.Instance.isTutorialOn)
+                {
+                    musicTrigger.SetActive(true); 
+                }
             }
-        }
-        StartCoroutine(DmgAnimation());
-        enemyHealth -= amount;
+            StartCoroutine(DmgAnimation());
+            enemyHealth -= amount;
         
-        if (enemyHealth <= 0)
-        {
-            EnemyDeath(tag);
+            if (enemyHealth <= 0)
+            {
+                EnemyDeath(tag);
+            } 
         }
     }
 
@@ -137,6 +143,8 @@ public class EnemyMovement : MonoBehaviour
         renderer.material = glitchMaterial;
         yield return new WaitForSeconds(0.0625f);
         renderer.material = normalMaterial;
+        canTakeDamages = true;
+
     }
     
     IEnumerator DeathAnimation()

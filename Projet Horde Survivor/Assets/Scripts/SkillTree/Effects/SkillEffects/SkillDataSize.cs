@@ -13,7 +13,7 @@ public class SkillDataSize : MonoBehaviour
 
     private void Effect()
     {
-        PlayerSkillHolderManager.Instance.magnetRadius = 4f;
+        PlayerSkillHolderManager.Instance.magnetRadius = 4.5f;
         PlayerSkillHolderManager.Instance.magnetForce = 4f;
     }
 }

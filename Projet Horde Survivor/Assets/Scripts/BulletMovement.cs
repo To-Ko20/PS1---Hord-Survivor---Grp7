@@ -19,7 +19,7 @@ public class BulletMovement : MonoBehaviour
     public void Start()
     {
         speed = BulletManager.Instance.bulletSpeed;
-        transform.localScale = new Vector3(BulletManager.Instance.bulletSize, BulletManager.Instance.bulletSize, 1f);
+        //transform.localScale = new Vector3(BulletManager.Instance.bulletSize, BulletManager.Instance.bulletSize, 1f);
         bulletDamage = BulletManager.Instance.bulletActualDamage;
         BulletManager.Instance.RecalculateDamage(1);
         lifeTime = BulletManager.Instance.lifeTime;
@@ -49,7 +49,6 @@ public class BulletMovement : MonoBehaviour
                         if (PlayerSkillHolderManager.Instance.hasExplosiveShoot && !isShard)
                         {
                             Explode(collision.transform.position, enemy);
-                            break;
                         }
 
                         DealDamages(enemy);
@@ -62,7 +61,6 @@ public class BulletMovement : MonoBehaviour
                     if (PlayerSkillHolderManager.Instance.hasExplosiveShoot && !isShard)
                     {
                         Explode(collision.transform.position, enemy);
-                        break;
                     }
                     DealDamages(enemy);
                     DestroyBullet();
@@ -70,36 +68,6 @@ public class BulletMovement : MonoBehaviour
                 }
             }
         }
-
-        if (collision.gameObject == lens)
-        {
-            Debug.Log("lens");
-            if (parentEnemy != null)
-            {
-                if (parentEnemy != collision.gameObject)
-                {
-                    InitLensBall(collision.gameObject);
-                }
-            }
-            else
-            {
-                InitLensBall(collision.gameObject);
-            }
-        }
-    }
-
-    private void InitLensBall(GameObject spawn)
-    {
-        Debug.Log("lens");
-        GameObject newBullet = Instantiate(explodeShard, transform.position, Quaternion.identity);
-        BulletMovement newBulletMovement = newBullet.GetComponent<BulletMovement>();
-        newBulletMovement.parentEnemy = spawn;
-        Vector3 dir = Vector3.up.normalized;
-        dir = Quaternion.Euler(0, 0, 30) * dir;
-            
-        newBulletMovement.bulletVector = dir;
-        BulletManager.Instance.bulletList.Add(newBullet);
-        newBulletMovement.collider2D.enabled = true;
     }
 
     private void DealDamages(GameObject target)

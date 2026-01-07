@@ -4253,9 +4253,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasAutoShoot: 0
-  hasMagnet: 0
+  hasRealMagnet: 0
+  hasMagnet: 1
   hasPoisonZone: 0
-  magnetRadius: 0
+  magnetRadius: 1.25
   magnetForce: 2
   poisonDamage: 0
   hasSlowZone: 0
@@ -4268,15 +4269,15 @@ MonoBehaviour:
   rotativeShieldAnimation: {fileID: 1339515522}
   rsKnockbackForce: 0.5
   rsHasDamages: 0
-  rsDamages: 1
+  rsDamages: 10
   spikeShield: 0
   nbShootBullet: 1
   hasExplosiveShoot: 0
-  explodeNb: 8
+  explodeNb: 6
   hasMine: 0
   mine: {fileID: 393963819148785011, guid: 0566d909189e0544ea346c487abde582, type: 3}
-  mineRadius: 18
-  mineDMG: 1
+  mineRadius: 20
+  mineDMG: 30
   mineRate: 0.33
   shield: {fileID: 1321996067}
   shieldCooldown: 30
@@ -7077,7 +7078,7 @@ GameObject:
   m_Component:
   - component: {fileID: 503522865}
   - component: {fileID: 503522867}
-  - component: {fileID: 503522866}
+  - component: {fileID: 503522868}
   m_Layer: 3
   m_Name: Collider
   m_TagString: Axe
@@ -7094,63 +7095,12 @@ Transform:
   m_GameObject: {fileID: 503522864}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1506573345}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!60 &503522866
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503522864}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.011999998}
-    newSize: {x: 1.48, y: 0.15}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.080250174, y: 0.0062516453}
-      - {x: -0.08, y: -0.005999999}
-      - {x: 0.08, y: -0.005999999}
-      - {x: 0.08, y: 0.006501846}
-  m_UseDelaunayMesh: 0
 --- !u!212 &503522867
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7195,7 +7145,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3286163911610860551, guid: 3d48279328ac8c14ab5bbd51147f5c4e, type: 3}
+  m_Sprite: {fileID: 3286163911610860551, guid: a6baac5989ad1e24da383de56288e7b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7206,6 +7156,70 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &503522868
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503522864}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.027900005}
+    newSize: {x: 1.48, y: 0.15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.060228672, y: -0.0008995114}
+      - {x: 0.043896567, y: -0.00036502257}
+      - {x: 0.035054836, y: 0.01348106}
+      - {x: 0.025046341, y: -0.0011908436}
+      - {x: 0.010271862, y: -0.0005950229}
+      - {x: -0.00018418045, y: 0.014396819}
+      - {x: -0.009788993, y: -0.000583553}
+      - {x: -0.024168333, y: -0.000037952792}
+      - {x: -0.03427517, y: 0.014834646}
+      - {x: -0.043713093, y: -0.0010787528}
+      - {x: -0.060778495, y: -0.0007825326}
+      - {x: -0.071867466, y: 0.014922629}
+      - {x: -0.08077454, y: -0.0012047375}
+      - {x: -0.08090877, y: -0.015541409}
+      - {x: 0.081453204, y: -0.014013399}
+      - {x: 0.08116179, y: -0.00043020956}
+      - {x: 0.07109294, y: 0.014535365}
+  m_UseDelaunayMesh: 0
 --- !u!1 &520872535
 GameObject:
   m_ObjectHideFlags: 0
@@ -17105,9 +17119,9 @@ Animation:
   m_GameObject: {fileID: 1350139226}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: a7b360691efcdd046b849519a569774d, type: 2}
+  m_Animation: {fileID: 7400000, guid: fe72e910c567e394f9e576cf263d6c5b, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: a7b360691efcdd046b849519a569774d, type: 2}
+  - {fileID: 7400000, guid: fe72e910c567e394f9e576cf263d6c5b, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -17469,7 +17483,7 @@ Transform:
   - {fileID: 1507929680}
   - {fileID: 1265931309}
   m_Father: {fileID: 1339515523}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 328.5}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1380739519
 GameObject:
   m_ObjectHideFlags: 0
@@ -17710,7 +17724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c81fb65e437344baa763614f578457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remainingMinutes: 10
+  remainingMinutes: 15
   remainingSeconds: 0
   pressureTime: 1
   timerText: {fileID: 808632454}

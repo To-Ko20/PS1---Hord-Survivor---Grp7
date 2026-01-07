@@ -137,7 +137,7 @@ public class ClickerManager : MonoBehaviour
     
     void ClicksDisplayUpdate()
     {
-        clicksText.text = clicks + " data";
+        clicksText.text = clicks + " Data";
     }
 
     /*private void FixedUpdate()
