@@ -4,6 +4,7 @@ using UnityEngine.InputSystem.HID;
 public class TutorialManager : MonoBehaviour
 {
     public                   bool       isTutorialOn;
+    
     [SerializeField] private GameObject tutorialFrame;
     [SerializeField] private GameObject closeTutorial;
     [SerializeField] private GameObject mainButton;
@@ -161,6 +162,11 @@ public class TutorialManager : MonoBehaviour
             {
                 EndTutorialConfirm();
             }
+            
+            /*else if (popUpIndex == 12)
+            {
+                tutorialFrame.SetActive(false);
+            }*/
         
             else
             {
@@ -220,6 +226,6 @@ public class TutorialManager : MonoBehaviour
         
         cameraMovement.cameraTarget = GameObject.FindGameObjectWithTag("Player").transform;
 
-        //this.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 }
