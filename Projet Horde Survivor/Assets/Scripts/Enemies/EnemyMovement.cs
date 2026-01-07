@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class EnemyMovement : MonoBehaviour
 {
+    private GameObject musicTrigger;
+    
     [SerializeField] private EnemySpawner enemySpawner;
     [SerializeField] private PlayerManager playerManager;
     
@@ -32,6 +34,7 @@ public class EnemyMovement : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform; //détecte le joueur
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
+        musicTrigger = SoundManager.Instance.musicTrigger;
         
         canMove = true;
     }
@@ -91,6 +94,13 @@ public class EnemyMovement : MonoBehaviour
 
     public void EnemyTakeDamage(float amount, string tag)
     {
+        if (musicTrigger.activeSelf == false)
+        {
+            if (!TutorialManager.Instance.isTutorialOn)
+            {
+                musicTrigger.SetActive(true); 
+            }
+        }
         enemyHealth -= amount;
         
         if (enemyHealth <= 0)

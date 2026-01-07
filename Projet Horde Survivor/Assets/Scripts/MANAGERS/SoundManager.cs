@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] private GameObject clickTrigger;
     [SerializeField] private GameObject buyTrigger;
+    public GameObject musicTrigger;
     
     public static SoundManager Instance;
 

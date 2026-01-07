@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerSkillHolderManager : MonoBehaviour
 {
     public bool hasAutoShoot;
-    public GameObject musicTrigger;
     
     [Header("Data Magnet")]
     public bool hasMagnet = false;
@@ -140,7 +139,6 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public void UnlockAutoShoot()
     {
         hasAutoShoot = true;
-        musicTrigger.SetActive(true);
         
         if (TutorialManager.Instance.isTutorialOn)
         {

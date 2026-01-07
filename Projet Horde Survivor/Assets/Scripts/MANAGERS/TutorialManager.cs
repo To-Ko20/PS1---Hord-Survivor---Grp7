@@ -220,6 +220,6 @@ public class TutorialManager : MonoBehaviour
         
         cameraMovement.cameraTarget = GameObject.FindGameObjectWithTag("Player").transform;
 
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
 }
