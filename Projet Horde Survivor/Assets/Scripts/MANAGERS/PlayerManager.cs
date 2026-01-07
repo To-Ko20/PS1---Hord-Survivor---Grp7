@@ -29,6 +29,8 @@ public class PlayerManager : MonoBehaviour
     private float _t;
     private float _tRegen;
 
+    private bool canTakeDamages;
+
     private void Awake()
     {
         if (Instance == null)
@@ -80,16 +82,20 @@ public class PlayerManager : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     public void TakeDamage(float amount)
     {
-        currentHealth -= amount;
-        
-        if (currentHealth <= 0)
+        if (canTakeDamages)
         {
-            GameManager.Instance.GameOver();
-        }
+            canTakeDamages = false;
+            currentHealth -= amount;
         
-        StartCoroutine(DmgAnimation());
-        Knockback(1);
-        TriggerGlitch();
+            if (currentHealth <= 0)
+            {
+                GameManager.Instance.GameOver();
+            }
+        
+            StartCoroutine(DmgAnimation());
+            Knockback(1);
+            TriggerGlitch();  
+        }
     }
     
     IEnumerator DmgAnimation()
@@ -137,6 +143,8 @@ public class PlayerManager : MonoBehaviour
         rendererList[6].material = normalMaterial;
         rendererList[7].material = normalMaterial;
         rendererList[8].material = normalMaterial;
+        
+        canTakeDamages = true;
     }
 
     public void GainLife(float amount)
