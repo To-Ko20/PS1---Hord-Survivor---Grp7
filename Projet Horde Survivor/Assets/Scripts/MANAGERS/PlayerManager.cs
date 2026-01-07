@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,6 +12,10 @@ public class PlayerManager : MonoBehaviour
     
     [SerializeField] private PlayerUI pUI;
     [SerializeField] private GameObject glitchTrigger;
+    
+    [SerializeField] private Material normalMaterial;
+    [SerializeField] private Material glitchMaterial;
+    [SerializeField] private List<Renderer> rendererList = new List<Renderer>();
 
     public static PlayerManager Instance;
     
@@ -72,6 +77,7 @@ public class PlayerManager : MonoBehaviour
         maxHealth *= maxHealthBonus;
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
@@ -81,8 +87,56 @@ public class PlayerManager : MonoBehaviour
             GameManager.Instance.GameOver();
         }
         
+        StartCoroutine(DmgAnimation());
         Knockback(1);
         TriggerGlitch();
+    }
+    
+    IEnumerator DmgAnimation()
+    {
+        yield return new WaitForSeconds(0.0625f);
+        rendererList[0].material = glitchMaterial;
+        rendererList[1].material = glitchMaterial;
+        rendererList[2].material = glitchMaterial;
+        rendererList[3].material = glitchMaterial;
+        rendererList[4].material = glitchMaterial;
+        rendererList[5].material = glitchMaterial;
+        rendererList[6].material = glitchMaterial;
+        rendererList[7].material = glitchMaterial;
+        rendererList[8].material = glitchMaterial;
+        
+        yield return new WaitForSeconds(0.0625f);
+        rendererList[0].material = normalMaterial;
+        rendererList[1].material = normalMaterial;
+        rendererList[2].material = normalMaterial;
+        rendererList[3].material = normalMaterial;
+        rendererList[4].material = normalMaterial;
+        rendererList[5].material = normalMaterial;
+        rendererList[6].material = normalMaterial;
+        rendererList[7].material = normalMaterial;
+        rendererList[8].material = normalMaterial;
+        
+        yield return new WaitForSeconds(0.0625f);
+        rendererList[0].material = glitchMaterial;
+        rendererList[1].material = glitchMaterial;
+        rendererList[2].material = glitchMaterial;
+        rendererList[3].material = glitchMaterial;
+        rendererList[4].material = glitchMaterial;
+        rendererList[5].material = glitchMaterial;
+        rendererList[6].material = glitchMaterial;
+        rendererList[7].material = glitchMaterial;
+        rendererList[8].material = glitchMaterial;
+        
+        yield return new WaitForSeconds(0.0625f);
+        rendererList[0].material = normalMaterial;
+        rendererList[1].material = normalMaterial;
+        rendererList[2].material = normalMaterial;
+        rendererList[3].material = normalMaterial;
+        rendererList[4].material = normalMaterial;
+        rendererList[5].material = normalMaterial;
+        rendererList[6].material = normalMaterial;
+        rendererList[7].material = normalMaterial;
+        rendererList[8].material = normalMaterial;
     }
 
     public void GainLife(float amount)

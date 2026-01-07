@@ -162,7 +162,7 @@ public class DownloadUpdateManager : MonoBehaviour
         ClickerManager.Instance.DisplayUpdate();
         dlSlider.value = _downloaded * 100 /  updatesSizes[currentUpdate];
         dlProgression.text = (_downloaded * 100 / updatesSizes[currentUpdate]).ToString("000.00") + "%";
-        dlRatio.text = ClickerManager.Instance.ConvertBits(_downloaded) + " /\n" + ClickerManager.Instance.ConvertBits(updatesSizes[currentUpdate]);
+        dlRatio.text = ClickerManager.Instance.ConvertBits(_downloaded) + " / " + ClickerManager.Instance.ConvertBits(updatesSizes[currentUpdate]);
         if (downloadSpeed != 0 && isDownloading)
         {
             dlRemainingTime.text = ((updatesSizes[currentUpdate] - _downloaded) / downloadSpeed).ToString("00:00") + "s";

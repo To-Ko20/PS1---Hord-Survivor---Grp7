@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -210,3 +211,4 @@ public class SkillTreeDebugOverlay : MonoBehaviour
         return Color.red;
     }
 }
+#endif

@@ -12,7 +12,6 @@ public class Upgrades : MonoBehaviour
         [SerializeField] private TMP_Text titleTxt;
         [SerializeField] private TMP_Text priceTxt;
         [SerializeField] private TMP_Text levelTxt;
-        [SerializeField] private Button Btn1;
         [SerializeField] private Button Btn2;
         
         [SerializeField] private int level = 0;
@@ -37,18 +36,15 @@ public class Upgrades : MonoBehaviour
         {
                 if (level >= upgradesSO.cost.Count)
                 {
-                        Btn1.interactable = false;
                         Btn2.interactable = false;
                         return;
                 }
                 if (ClickerManager.Instance.bits >= upgradesSO.cost[level])
                 {
-                        Btn1.interactable = true; 
                         Btn2.interactable = true;
                 }
                 else
                 {
-                        Btn1.interactable = false;
                         Btn2.interactable = false;
                 }
         }
@@ -77,13 +73,13 @@ public class Upgrades : MonoBehaviour
                         if (level < upgradesSO.cost.Count)
                         {
                                 priceTxt.text = ClickerManager.Instance.ConvertBits(upgradesSO.cost[level]);
-                                levelTxt.text = "LV " + level;
+                                levelTxt.text = "LVL " + level;
                                 
                         }
                         else
                         {
                                 priceTxt.text = "SOLD OUT";
-                                levelTxt.text = "LV " + "MAX";     
+                                levelTxt.text = "LVL " + "MAX";     
                         }
 
                         foreach (GameObject effect in _effectsGo)
