@@ -184,7 +184,7 @@ MonoBehaviour:
   rb: {fileID: 2474233789122409842}
   speed: 1
   damageToPlayer: 3
-  enemyHealth: 2
+  enemyHealth: 20
   lifeDisplay: {fileID: 0}
   dataPrefab: {fileID: 185209308465788401, guid: cf564412c8dd9fa4db4e406f346298b0, type: 3}
   hasToSlow: 0

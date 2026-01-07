@@ -4,6 +4,6 @@ public class IncreaseClickPrice : MonoBehaviour
 {
     public void OnUpgradeBought()
     {
-        ClickerManager.Instance.clickPrice *= 2;
+        ClickerManager.Instance.clickPrice *= 3;
     }
 }

@@ -59,6 +59,8 @@ public class EnemySpawner : MonoBehaviour
 
             transform.position = target.position;
         }
+        
+        Debug.Log(currentWave);
     }
     
     private IEnumerator SpawnWave()
