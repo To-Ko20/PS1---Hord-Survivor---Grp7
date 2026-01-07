@@ -57,7 +57,9 @@ public class Upgrades : MonoBehaviour
         {
                 foreach (GameObject effect in upgradesSO.effects)
                 {
-                        _effectsGo.Add(Instantiate(effect, transform));
+                        GameObject go = Instantiate(effect, transform);
+                        _effectsGo.Add(go);
+                        go.transform.SetSiblingIndex(5);
                         priceTxt.text = ClickerManager.Instance.ConvertBits(upgradesSO.cost[level]);
                 }
         }
