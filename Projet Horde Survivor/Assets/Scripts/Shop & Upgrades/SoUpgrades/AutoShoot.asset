@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AutoShoot
   m_EditorClassIdentifier: 
   upgradeName: Auto Shoot
-  upgradeDescription: 
+  upgradeDescription: Unlock the ability to autoshoot at ennemies
   cost: 0200000000000000
   effects:
   - {fileID: 625779636405134264, guid: 3ea3372a30bd9874ca9e649359f217b0, type: 3}
