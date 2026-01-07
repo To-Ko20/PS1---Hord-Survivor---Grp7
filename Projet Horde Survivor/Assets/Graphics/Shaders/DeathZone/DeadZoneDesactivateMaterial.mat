@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DeadZoneDesactivateMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 3b949e2ec3a41a442bf9cf32cf4b50da, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_2ede2704d101445bb8578e6bf3b8c9c3_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 19f8b8faabaa9ad4aad6282159df8671, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Alpha: 0.208
+    - _AlphaBoost: 0.494
+    - _ChromaticStrength: 0.01
+    - _GlitchGridSize: 5
+    - _GlitchProbability: 0.983
+    - _GlitchRate: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _RandomSize: 0
+    - _Size: 97.7
+    - _Step: 0
+    - _StipesAngle: 45
+    - _StripesDensity: 2.5
+    - _StripesSpeed: 1
+    - _StripesWidth: 0.393
+    m_Colors:
+    - _Color: {r: 0.98823535, g: 0.61960787, b: 0.75294125, a: 1}
+    - _GridDensity: {r: 3, g: 20, b: 0, a: 0}
+    - _StripesColor: {r: 1, g: 0.8443396, b: 0.9000497, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &2483146338527412910
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 10
