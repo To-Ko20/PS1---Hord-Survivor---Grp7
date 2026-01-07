@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,9 @@ public class MineBehaviours : MonoBehaviour
     [SerializeField] private CircleCollider2D radius;
     [SerializeField] private Transform radiusDisplay;
     [SerializeField] private List<GameObject> inRadius;
+
+    private bool _isWaitingToExplode;
+    private bool _isAboutToExplode;
 
     void Start()
     {
@@ -19,15 +23,27 @@ public class MineBehaviours : MonoBehaviour
     {
         if (EnemyManager.Instance.activeEnemies.Contains(other.gameObject))
         {
-            inRadius.Add(other.gameObject);
+            if (!_isAboutToExplode)
+            {
+                inRadius.Add(other.gameObject);
+                if (!_isWaitingToExplode)
+                {
+                    _isWaitingToExplode = true;
+                    StartCoroutine(WaitForExplode());
+                }
+            }
+            
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (inRadius.Contains(other.gameObject))
+        if (!_isAboutToExplode)
         {
-            inRadius.Remove(other.gameObject);
+            if (inRadius.Contains(other.gameObject))
+            {
+                inRadius.Remove(other.gameObject);
+            }
         }
     }
 
@@ -39,9 +55,52 @@ public class MineBehaviours : MonoBehaviour
         }
     }
 
+    IEnumerator WaitForExplode()
+    {
+        var spr = GetComponent<SpriteRenderer>();
+        
+        spr.enabled = false;
+        yield return new WaitForSeconds(0.5f);
+        spr.enabled = true;
+        yield return new WaitForSeconds(0.5f);
+        spr.enabled = false;
+        
+        yield return new WaitForSeconds(0.25f);
+        spr.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        spr.enabled = false;
+        yield return new WaitForSeconds(0.25f);
+        spr.enabled = true;
+        yield return new WaitForSeconds(0.25f);
+        spr.enabled = false;
+        
+        yield return new WaitForSeconds(0.125f);
+        spr.enabled = true;
+        yield return new WaitForSeconds(0.125f);
+        spr.enabled = false;
+        yield return new WaitForSeconds(0.125f);
+        spr.enabled = true;
+        yield return new WaitForSeconds(0.125f);
+        spr.enabled = false;
+        yield return new WaitForSeconds(0.125f);
+        spr.enabled = true;
+        yield return new WaitForSeconds(0.125f);
+        spr.enabled = false;
+        yield return new WaitForSeconds(0.125f);
+        spr.enabled = true;
+        yield return new WaitForSeconds(0.125f);
+        spr.enabled = false;
+        _isWaitingToExplode = true;
+        yield return new WaitForSeconds(0.06f);
+        spr.enabled = true;
+        Explode();
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
+    }
+
     private void Explode()
     {
-        foreach (GameObject nmi in inRadius)
+        foreach (var nmi in inRadius)
         {
             if (nmi != null)
             {
