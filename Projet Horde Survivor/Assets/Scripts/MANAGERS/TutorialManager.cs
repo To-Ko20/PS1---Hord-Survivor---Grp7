@@ -209,12 +209,16 @@ public class TutorialManager : MonoBehaviour
         objectsToDestroy.SetActive(false);
         tutorialPart.SetActive(false);
         
-        countdownManager.isCountdownActive             = true;
-        EnemySpawner.Instance.canEnemiesSpawn          = true;
+        countdownManager.isCountdownActive    = true;
+        EnemySpawner.Instance.canEnemiesSpawn = true;
+        PlayerController.Instance.canMove     = true;
+        
         ShopUpgrade.GetComponent<Upgrades>().UnlockShop();
-        PlayerController.Instance.canMove = true;
+        
         EnemyManager.Instance.UnregisterEnemy(tutorialEnemy);
         Destroy(tutorialEnemy);
+        
+        cameraMovement.cameraTarget = GameObject.FindGameObjectWithTag("Player").transform;
 
         this.gameObject.SetActive(false);
     }

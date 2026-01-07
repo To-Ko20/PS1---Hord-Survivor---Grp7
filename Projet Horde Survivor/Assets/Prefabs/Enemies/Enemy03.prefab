@@ -218,6 +218,6 @@ MonoBehaviour:
   damageToPlayer: 15
   enemyHealth: 12
   lifeDisplay: {fileID: 0}
-  dataPrefab: {fileID: 185209308465788401, guid: cf564412c8dd9fa4db4e406f346298b0, type: 3}
+  dataPrefab: {fileID: 185209308465788401, guid: bd0bbe0a02f0ad94e9c669f1621aed7b, type: 3}
   hasToSlow: 0
   canMove: 1

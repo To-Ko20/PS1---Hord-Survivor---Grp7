@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Unlock Download
   m_EditorClassIdentifier: 
   upgradeName: Unlock Download
-  upgradeDescription: Decrease the cooldown between the shoot
+  upgradeDescription: ???
   cost: 0800000000000000
   effects:
   - {fileID: 625779636405134264, guid: 016fba1eaf2a84b46b38c729732fbad1, type: 3}
