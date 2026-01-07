@@ -4268,15 +4268,15 @@ MonoBehaviour:
   rotativeShieldAnimation: {fileID: 1339515522}
   rsKnockbackForce: 0.5
   rsHasDamages: 0
-  rsDamages: 1
+  rsDamages: 10
   spikeShield: 0
   nbShootBullet: 1
   hasExplosiveShoot: 0
-  explodeNb: 8
+  explodeNb: 4
   hasMine: 0
   mine: {fileID: 393963819148785011, guid: 0566d909189e0544ea346c487abde582, type: 3}
-  mineRadius: 18
-  mineDMG: 1
+  mineRadius: 20
+  mineDMG: 30
   mineRate: 0.33
   shield: {fileID: 1321996067}
   shieldCooldown: 30
@@ -8505,7 +8505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTree: {fileID: 1676044833}
-  showOverlay: 0
+  showOverlay: 1
   nodeWidth: 12
   nodeHeight: 5
   levelDistance: 15

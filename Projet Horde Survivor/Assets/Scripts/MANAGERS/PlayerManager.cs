@@ -222,9 +222,9 @@ public class PlayerManager : MonoBehaviour
         
         if (canForceField) return;
         _t += Time.fixedDeltaTime;
-        if (_t <= 30)
+        if (_t <= 60)
         {
-            _t = 30;
+            _t = 60;
             canForceField = true;
         }
     }
