@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviour
     private float _t;
     private float _tRegen;
 
-    private bool canTakeDamages;
+    private bool canTakeDamages = true;
 
     private void Awake()
     {

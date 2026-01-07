@@ -25,7 +25,7 @@ public class SkillTreeManager : MonoBehaviour
     private void Start()
     {
         if (!initTree) return;
-        for (int i = 1; i < 7; i++)
+        for (int i = 1; i < 6; i++)
         {
             int node = skillsTree.nodeList[i].Children[0];
             if (skillsTree.nodeList[node].IsImplemented)

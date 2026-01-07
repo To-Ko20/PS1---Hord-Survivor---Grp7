@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Sounds.bank
   Name: Sounds
   StudioPath: bank:/Sounds
-  lastModified: 639032930113911005
+  lastModified: 639032472756264525
   FileSizes: []
   Exists: 1
 --- !u!114 &-5891667316704315649
@@ -168,7 +168,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639032930113625993
+  lastModified: 639032358723391808
   FileSizes:
   - Name: 
     Value: 1576
@@ -312,7 +312,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -4044382011526945608}
   cacheVersion: 131857
-  cacheTime: 639034151781107271
+  cacheTime: 639033956865804902
   SerializableEventsDict:
   - key: snapshot:/Pitch_Glitch_SFX
     index: 0
@@ -422,7 +422,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639034151781107271
+  lastModified: 639033956865804902
   FileSizes: []
   Exists: 1
 --- !u!114 &5289022194531946499
@@ -466,7 +466,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639032930113605935
+  lastModified: 639032358723371790
   FileSizes: []
   Exists: 1
 --- !u!114 &6748786015022956881

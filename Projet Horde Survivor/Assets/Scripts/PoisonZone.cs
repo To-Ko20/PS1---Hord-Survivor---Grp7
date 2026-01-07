@@ -12,7 +12,7 @@ public class PoisonZone : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (PlayerSkillHolderManager.Instance.hasMagnet)
+        if (PlayerSkillHolderManager.Instance.hasMagnet && PlayerSkillHolderManager.Instance.hasRealMagnet)
         {
             radiusSpriteRenderer.enabled = true;
         }
