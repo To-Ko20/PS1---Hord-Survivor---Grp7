@@ -13,6 +13,6 @@ public class SkillAxe : MonoBehaviour
 
     private void Effect()
     {
-        PlayerSkillHolderManager.Instance.ActivateShield();
+        PlayerSkillHolderManager.Instance.ActivateAxe();
     }
 }

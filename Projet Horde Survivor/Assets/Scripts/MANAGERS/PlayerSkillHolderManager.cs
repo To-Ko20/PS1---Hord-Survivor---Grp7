@@ -58,6 +58,7 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public bool hasDash;
     public bool hasDoubleDash;
     public int dashNb;
+    public GameObject axe;
     
     [Space(10f)]
     
@@ -144,5 +145,10 @@ public class PlayerSkillHolderManager : MonoBehaviour
         {
             TutorialManager.Instance.popUpIndex = 10;
         }
+    }
+
+    public void ActivateAxe()
+    {
+        axe.SetActive(true);
     }
 }
