@@ -4,6 +4,6 @@ public class IncreaseDlSpeed : MonoBehaviour
 {
     public void OnUpgradeBought()
     {
-        DownloadUpdateManager.Instance.downloadMaxSpeed *= 2;
+        DownloadUpdateManager.Instance.downloadMaxSpeed *= 4;
     }
 }
