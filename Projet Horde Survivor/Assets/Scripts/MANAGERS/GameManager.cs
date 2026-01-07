@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
 	public void BackToMainMenu()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
 	}
 
     public void DisplaySettingsMenu()
