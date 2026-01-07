@@ -9,6 +9,7 @@ TagManager:
   - KnockbackZone
   - Shield
   - Lens
+  - Axe
   layers:
   - Default
   - TransparentFX

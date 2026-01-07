@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -20,6 +21,9 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Transform lifeDisplay;
 
     [SerializeField] private GameObject dataPrefab;
+    
+    [SerializeField] private Material normalMaterial;
+    [SerializeField] private Material glitchMaterial;
 
     public bool hasToSlow;
     public bool canMove = true;
@@ -35,6 +39,9 @@ public class EnemyMovement : MonoBehaviour
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
         musicTrigger = SoundManager.Instance.musicTrigger;
+
+        normalMaterial = EnemyManager.Instance.normalMaterial;
+        glitchMaterial = EnemyManager.Instance.glitchMaterial;
         
         canMove = true;
     }
@@ -92,6 +99,15 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.transform.CompareTag("Axe"))
+        {
+            EnemyTakeDamage(BulletManager.Instance.bulletActualDamage, "axe");
+
+        }
+    }
+
     public void EnemyTakeDamage(float amount, string tag)
     {
         if (musicTrigger.activeSelf == false)
@@ -101,12 +117,30 @@ public class EnemyMovement : MonoBehaviour
                 musicTrigger.SetActive(true); 
             }
         }
+        StartCoroutine(DmgAnimation());
         enemyHealth -= amount;
         
         if (enemyHealth <= 0)
         {
             EnemyDeath(tag);
         }
+    }
+
+    IEnumerator DmgAnimation()
+    {
+        var renderer = GetComponent<Renderer>();
+        yield return new WaitForSeconds(0.0625f);
+        renderer.material = glitchMaterial;
+        yield return new WaitForSeconds(0.0625f);
+        renderer.material = normalMaterial;
+        yield return new WaitForSeconds(0.0625f);
+        renderer.material = glitchMaterial;
+        yield return new WaitForSeconds(0.0625f);
+        renderer.material = normalMaterial;
+        yield return new WaitForSeconds(0.0625f);
+        renderer.material = glitchMaterial;
+        yield return new WaitForSeconds(0.0625f);
+        renderer.material = normalMaterial;
     }
 
     // ReSharper disable Unity.PerformanceAnalysis

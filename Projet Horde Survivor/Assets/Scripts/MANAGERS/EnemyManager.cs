@@ -5,6 +5,8 @@ public class EnemyManager : MonoBehaviour
 {
 	public List<GameObject> activeEnemies = new List<GameObject>();
 	public List<int> enemyColliderInstanceIDs  = new List<int>();
+	public Material normalMaterial;
+	public Material glitchMaterial;
 
 	public static EnemyManager Instance;
 	private void Awake()

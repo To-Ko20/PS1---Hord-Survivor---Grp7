@@ -9,8 +9,6 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Slider _slider;
     [SerializeField] private TMP_Text _levelTxt;
 
-    private float t = 0f;
-
     void Start()
     {
         _slider.maxValue = PlayerManager.Instance.maxHealth;
@@ -18,20 +16,18 @@ public class PlayerUI : MonoBehaviour
         slowHealth = health;
     }
 
-    void Update()
+    private void Update()
     {
         health = PlayerManager.Instance.currentHealth;
+
+        slowHealth = Mathf.MoveTowards
+        (
+            slowHealth,
+            health,
+            5f * Time.fixedDeltaTime
+        );
         
-        if (slowHealth != health)
-        {
-            slowHealth = Mathf.Lerp(slowHealth, health, t);
-            t += 0.01f * Time.deltaTime;
-            UpdateHealthDisplay();
-        }
-        else
-        {
-            t = 0;
-        }
+        UpdateHealthDisplay();
     }
     
     public void UpdateHealthDisplay()
