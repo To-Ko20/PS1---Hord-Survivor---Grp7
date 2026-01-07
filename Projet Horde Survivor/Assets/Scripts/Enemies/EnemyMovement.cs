@@ -137,10 +137,21 @@ public class EnemyMovement : MonoBehaviour
         renderer.material = glitchMaterial;
         yield return new WaitForSeconds(0.0625f);
         renderer.material = normalMaterial;
+    }
+    
+    IEnumerator DeathAnimation()
+    {
+        var renderer = GetComponent<Renderer>();
         yield return new WaitForSeconds(0.0625f);
         renderer.material = glitchMaterial;
-        yield return new WaitForSeconds(0.0625f);
+        transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+        yield return new WaitForSeconds(0.03125f);
         renderer.material = normalMaterial;
+        transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+        yield return new WaitForSeconds(0.0625f);
+        renderer.material = glitchMaterial;
+        transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+        Destroy(gameObject);
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
@@ -163,7 +174,7 @@ public class EnemyMovement : MonoBehaviour
             PlayerManager.Instance.GainLife(5);
         }
         
-        Destroy(gameObject);
+        StartCoroutine(DeathAnimation());
     }
 
     private void PlantMine()

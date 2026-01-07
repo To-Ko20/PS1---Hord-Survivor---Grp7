@@ -19464,7 +19464,7 @@ MonoBehaviour:
   activeEnemies: []
   enemyColliderInstanceIDs: 
   normalMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  glitchMaterial: {fileID: 2100000, guid: 81ccc00cc18789343ad50507a422cea1, type: 2}
+  glitchMaterial: {fileID: 2100000, guid: 28e3db9246eb1e44f868d1c080ab7160, type: 2}
 --- !u!1 &1531578046
 GameObject:
   m_ObjectHideFlags: 0
