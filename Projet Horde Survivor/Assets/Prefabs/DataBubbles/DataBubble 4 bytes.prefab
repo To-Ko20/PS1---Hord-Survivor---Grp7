@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 450150680305771482}
   - component: {fileID: 8161943254436702435}
   m_Layer: 7
-  m_Name: DataBubble megabyte
+  m_Name: DataBubble 4 bytes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b57611bd7191545b165d9d618559a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clicksToGain: 8
+  clicksToGain: 32
   circleCollider2D: {fileID: 469054274299221257}
   rb: {fileID: 450150680305771482}
   speed: 0
