@@ -113,7 +113,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.95653963, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.866642, a: 1}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
@@ -215,11 +215,13 @@ MonoBehaviour:
   enemySpawner: {fileID: 0}
   playerManager: {fileID: 0}
   rb: {fileID: 2474233789122409842}
-  speed: 1.5
+  speed: 1.75
   damageToPlayer: 0
-  enemyHealth: 50
+  enemyHealth: 60
   lifeDisplay: {fileID: 0}
   dataPrefab: {fileID: 185209308465788401, guid: 7d42bf1dee1df3e4d86d653e61f7620f, type: 3}
+  normalMaterial: {fileID: 0}
+  glitchMaterial: {fileID: 0}
   hasToSlow: 0
   canMove: 1
 --- !u!114 &-6336193152945960258
