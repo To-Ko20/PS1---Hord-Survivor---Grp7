@@ -65,7 +65,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The shield can now take 2 hits before having to regenerate
+  m_text: The shell regenerates twice as fast, and can take 2 hits before having
+    to
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c05d1511a9579924e8b3064bcead23c6, type: 2}
   m_sharedMaterial: {fileID: 175002130894840059, guid: c05d1511a9579924e8b3064bcead23c6, type: 2}
@@ -428,7 +429,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Shell MK2
+  m_text: 'Hardened Shell
 
 '
   m_isRightToLeft: 0
@@ -495,7 +496,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.078804016, y: 0.004033077, z: 0.30373377, w: -0.024020199}
+  m_margin: {x: -4.8727875, y: 0.004033077, z: -3.752663, w: -0.024020199}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
