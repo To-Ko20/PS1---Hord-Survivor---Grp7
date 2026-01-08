@@ -102,7 +102,6 @@ public class PlayerManager : MonoBehaviour
     {
         if (canTakeDamages)
         {
-            canTakeDamages = false;
             currentHealth -= amount;
         
             if (currentHealth <= 0)
@@ -110,7 +109,7 @@ public class PlayerManager : MonoBehaviour
                 GameManager.Instance.GameOver();
             }
         
-            StartCoroutine(DmgAnimation());
+            StartCoroutine(CursedAnimation());
         }
     }
     
@@ -138,6 +137,33 @@ public class PlayerManager : MonoBehaviour
         rendererList[7].material = normalMaterial;
         rendererList[8].material = normalMaterial;
         
+        yield return new WaitForSeconds(0.0625f);
+        rendererList[0].material = glitchMaterial;
+        rendererList[1].material = glitchMaterial;
+        rendererList[2].material = glitchMaterial;
+        rendererList[3].material = glitchMaterial;
+        rendererList[4].material = glitchMaterial;
+        rendererList[5].material = glitchMaterial;
+        rendererList[6].material = glitchMaterial;
+        rendererList[7].material = glitchMaterial;
+        rendererList[8].material = glitchMaterial;
+        
+        yield return new WaitForSeconds(0.0625f);
+        rendererList[0].material = normalMaterial;
+        rendererList[1].material = normalMaterial;
+        rendererList[2].material = normalMaterial;
+        rendererList[3].material = normalMaterial;
+        rendererList[4].material = normalMaterial;
+        rendererList[5].material = normalMaterial;
+        rendererList[6].material = normalMaterial;
+        rendererList[7].material = normalMaterial;
+        rendererList[8].material = normalMaterial;
+        
+        canTakeDamages = true;
+    }
+    
+    IEnumerator CursedAnimation()
+    {
         yield return new WaitForSeconds(0.0625f);
         rendererList[0].material = glitchMaterial;
         rendererList[1].material = glitchMaterial;
