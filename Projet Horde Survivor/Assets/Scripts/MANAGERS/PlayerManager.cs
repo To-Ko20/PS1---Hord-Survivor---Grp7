@@ -100,17 +100,11 @@ public class PlayerManager : MonoBehaviour
     
     public void CursedDamages(float amount)
     {
-        if (canTakeDamages)
+        currentHealth -= amount;
+        
+        if (currentHealth <= 0)
         {
-            canTakeDamages = false;
-            currentHealth -= amount;
-        
-            if (currentHealth <= 0)
-            {
-                GameManager.Instance.GameOver();
-            }
-        
-            StartCoroutine(DmgAnimation());
+            GameManager.Instance.GameOver();
         }
     }
     
