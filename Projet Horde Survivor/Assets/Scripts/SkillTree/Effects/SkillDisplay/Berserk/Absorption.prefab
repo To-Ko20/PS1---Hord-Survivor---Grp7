@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Regenerates 5 health point for each enemy killed
+  m_text: Regenerates 5hp for each enemy killed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c05d1511a9579924e8b3064bcead23c6, type: 2}
   m_sharedMaterial: {fileID: 175002130894840059, guid: c05d1511a9579924e8b3064bcead23c6, type: 2}
