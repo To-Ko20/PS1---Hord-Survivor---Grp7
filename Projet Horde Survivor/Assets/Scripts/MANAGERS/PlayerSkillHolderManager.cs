@@ -123,7 +123,7 @@ public class PlayerSkillHolderManager : MonoBehaviour
 
     public void TankStats()
     {
-        PlayerController.Instance.playerSpeed /= 2;
+        PlayerController.Instance.playerSpeed *= 0.2f;
         PlayerManager.Instance.maxHealthBonus = 2;
     }
 
