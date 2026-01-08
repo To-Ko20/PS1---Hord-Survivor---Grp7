@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class AutoClickerManager : MonoBehaviour
 {
@@ -12,12 +14,20 @@ public class AutoClickerManager : MonoBehaviour
     [SerializeField] private Animation anim;
     [SerializeField] private float radius;
     [SerializeField] private int maxNb;
+    [SerializeField] private Vector2 anchor;
     private float _baseSpeed;
     private float _timer;
+    private GameObject _parent;
+    private Image _image;
+    [SerializeField]private Sprite btn;
+    [SerializeField]private Sprite pressedBtn;
 
     private void Start()
     {
+        transform.SetParent(ClickerManager.Instance.autoClickersAnchor.transform);
+        _parent = ClickerManager.Instance.autoClickersAnchor.transform.gameObject;
         _baseSpeed = speed;
+        _image = ClickerManager.Instance.clickBTN.GetComponent<Image>();
         if (ClickerManager.Instance.autoClickers.Count > 1)
         {
             speed = ClickerManager.Instance.autoClickers[0].GetComponent<AutoClickerManager>().speed;
@@ -26,7 +36,7 @@ public class AutoClickerManager : MonoBehaviour
 
     private void Update()
     {
-        maxNb = ClickerManager.Instance.clickBTN.transform.childCount;
+        maxNb = _parent.transform.childCount;
         SetPosition();
     }
 
@@ -39,7 +49,7 @@ public class AutoClickerManager : MonoBehaviour
 
         float angle = index * Mathf.PI * 2f / maxNb;
 
-        Vector3 position = new Vector3(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius, 0f);
+        Vector3 position = new Vector3(Mathf.Cos(angle) * radius + anchor.x, Mathf.Sin(angle) * radius + anchor.y, 0f);
 
         transform.localPosition = position;
     }
@@ -57,14 +67,22 @@ public class AutoClickerManager : MonoBehaviour
         }
         else
         {
+            _image.sprite = pressedBtn;
+            StartCoroutine(WaitForSeconds(0.1f));
             _timer = 0f;
             ClickerManager.Instance.Click();
             anim.Play();
         }
     }
 
+    IEnumerator WaitForSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        _image.sprite = btn;
+    }
+
     public void DecrementSpeed(int level)
     {
-        speed -= (_baseSpeed-(_baseSpeed/level))/level;
+        speed -= (_baseSpeed-(_baseSpeed/nbLevel))/nbLevel;
     }
 }

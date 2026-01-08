@@ -21,8 +21,11 @@ public class ClickerManager : MonoBehaviour
     [SerializeField] private GameObject clickUI;
     [SerializeField] private Animation clickGained;
     [SerializeField] private Animation dataGained;
+    
+    public bool unlockClickerSpeed = false;
 
     public GameObject clickBTN;
+    public GameObject autoClickersAnchor;
     
     //private ulong _gainedBits;
     //public int gainedData;
@@ -79,6 +82,8 @@ public class ClickerManager : MonoBehaviour
             //_gainedBits += clickPrice;
         }
     }
+    
+    
     IEnumerator WaitForAnimation(Animation animation, string animName, GameObject animObj)
     {
         // wait for animation to actually start playing

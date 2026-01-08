@@ -8,5 +8,6 @@ public class MakeAutoclicker : MonoBehaviour
     {
         GameObject newAutoClicker = Instantiate(autoClicker, ClickerManager.Instance.clickBTN.transform, true);
         ClickerManager.Instance.autoClickers.Add(newAutoClicker);
+        ClickerManager.Instance.unlockClickerSpeed = true;
     }
 }

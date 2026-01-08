@@ -9,16 +9,19 @@ public class Upgrades : MonoBehaviour
 {
         public UpgradesSO upgradesSO;
         
+
         [SerializeField] private TMP_Text titleTxt;
         [SerializeField] private TMP_Text priceTxt;
         [SerializeField] private TMP_Text levelTxt;
         [SerializeField] private Button Btn2;
         
-        [SerializeField] private int level = 0;
+        public int level = 0;
         
         [SerializeField] bool isAutoShoot;
+        [SerializeField] bool isClickerSpeed;
         [SerializeField] GameObject[] thingsToActivate;
         [SerializeField] PlayerShoot playerShoot;
+        [SerializeField] private Upgrades autoclicker;
 
         
         private readonly List<GameObject> _effectsGo =  new List<GameObject>();
@@ -39,13 +42,24 @@ public class Upgrades : MonoBehaviour
                         Btn2.interactable = false;
                         return;
                 }
-                if (ClickerManager.Instance.bits >= upgradesSO.cost[level])
+                
+                if (isClickerSpeed && !ClickerManager.Instance.unlockClickerSpeed)
                 {
-                        Btn2.interactable = true;
+                        if (ClickerManager.Instance.unlockClickerSpeed)
+                        {
+                                Btn2.interactable = true;     
+                        }
                 }
                 else
                 {
-                        Btn2.interactable = false;
+                        if (ClickerManager.Instance.bits >= upgradesSO.cost[level])
+                        {
+                                Btn2.interactable = true;
+                        }
+                        else
+                        {
+                                Btn2.interactable = false;
+                        }    
                 }
         }
 
