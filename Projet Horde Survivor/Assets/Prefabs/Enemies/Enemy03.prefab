@@ -112,7 +112,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.21226418, g: 0.7342745, b: 1, a: 1}
+  m_Color: {r: 0.2117647, g: 0.5204714, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   rb: {fileID: 2474233789122409842}
   speed: 1.5
   damageToPlayer: 10
-  enemyHealth: 120
+  enemyHealth: 180
   lifeDisplay: {fileID: 0}
   dataPrefab: {fileID: 185209308465788401, guid: b06c7cbf0ce5de94ba3a34c9b5149c42, type: 3}
   normalMaterial: {fileID: 0}
