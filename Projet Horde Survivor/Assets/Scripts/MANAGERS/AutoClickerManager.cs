@@ -8,10 +8,10 @@ using UnityEngine.Events;
 public class AutoClickerManager : MonoBehaviour
 {
     public float speed = 2f;
-    [SerializeField] private float maxSpeed = 0.01f;
     [SerializeField] private int nbLevel = 51;
     [SerializeField] private Animation anim;
     [SerializeField] private float radius;
+    [SerializeField] private int maxNb;
     private float _baseSpeed;
     private float _timer;
 
