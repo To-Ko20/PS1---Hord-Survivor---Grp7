@@ -105,7 +105,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.transform.CompareTag("Axe"))
         {
-            EnemyTakeDamage(BulletManager.Instance.bulletActualDamage, "axe");
+            EnemyTakeDamage(BulletManager.Instance.bulletActualDamage/2, "axe");
 
         }
     }
@@ -180,7 +180,7 @@ public class EnemyMovement : MonoBehaviour
             DropData();
         }
         
-        if (PlayerSkillHolderManager.Instance.hasVampire)
+        if (PlayerSkillHolderManager.Instance.hasVampire && tag != "bullet")
         {
             if (Random.Range(0,1) <= PlayerSkillHolderManager.Instance.vampireRate)
             PlayerManager.Instance.GainLife(10);
