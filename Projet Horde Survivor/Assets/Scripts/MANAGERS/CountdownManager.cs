@@ -7,11 +7,14 @@ public class CountdownManager : MonoBehaviour
     [SerializeField] private float remainingSeconds;
     [SerializeField] private int pressureTime; //in minutes
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private QuarantineBehaviors quarantine;
+    [SerializeField] private float quarantineTime;
+    private float _t;
     public bool isCountdownActive = true;
     
     void FixedUpdate()
     {
-        if (isCountdownActive == true)
+        if (isCountdownActive)
         {
             Countdown();
         }
@@ -20,6 +23,14 @@ public class CountdownManager : MonoBehaviour
     private void Countdown()
     {
         remainingSeconds -= Time.fixedDeltaTime;
+        _t += Time.fixedDeltaTime;
+
+
+        if (_t >= quarantineTime)
+        {
+            _t = 0;
+            quarantine.Activate();
+        }
         
         if (remainingSeconds <= 0)
         {

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DeadZone : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    [SerializeField] private GameObject deathBoxCollider;
+    public GameObject player;
+    public GameObject deathBoxCollider;
     [SerializeField] private float damage;
     
     [SerializeField] private bool inZone = false;
