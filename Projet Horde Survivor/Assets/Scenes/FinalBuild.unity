@@ -20599,9 +20599,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502db467fa631254585b772fce17f99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bits: 0
+  bits: 100000000
   clickPrice: 1
-  clicks: 0
+  clicks: 100
   bitsText: {fileID: 140769671}
   bitsShopText: {fileID: 685177844}
   clicksText: {fileID: 1978262451}
