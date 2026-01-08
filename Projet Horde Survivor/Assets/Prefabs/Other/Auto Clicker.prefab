@@ -317,7 +317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4186253982793251123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -478,8 +478,8 @@ RectTransform:
   m_GameObject: {fileID: 7240015251913323403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4186253982793251123}
   - {fileID: 8418131372053578100}
@@ -517,8 +517,11 @@ MonoBehaviour:
   speed: 1.2
   nbLevel: 55
   anim: {fileID: 3902509295231382400}
-  radius: 0
+  radius: 150
   maxNb: 0
+  anchor: {x: -6, y: 30}
+  btn: {fileID: -6531487798872964191, guid: 34c4196fe586231478c579945ddaeec3, type: 3}
+  pressedBtn: {fileID: 3610812080149229704, guid: a0146dca7cd239a49abb22a6db3df308, type: 3}
 --- !u!111 &3902509295231382400
 Animation:
   m_ObjectHideFlags: 0
@@ -532,7 +535,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 2bf9122aeb5d76945947a498a466904c, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
