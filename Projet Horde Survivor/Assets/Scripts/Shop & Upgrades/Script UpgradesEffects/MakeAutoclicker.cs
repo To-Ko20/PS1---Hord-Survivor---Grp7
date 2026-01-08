@@ -6,7 +6,7 @@ public class MakeAutoclicker : MonoBehaviour
     
     public void OnUpgradeBought()
     {
-        GameObject newAutoClicker = Instantiate(autoClicker);
+        GameObject newAutoClicker = Instantiate(autoClicker, ClickerManager.Instance.clickBTN.transform, true);
         ClickerManager.Instance.autoClickers.Add(newAutoClicker);
     }
 }

@@ -21,6 +21,8 @@ public class ClickerManager : MonoBehaviour
     [SerializeField] private GameObject clickUI;
     [SerializeField] private Animation clickGained;
     [SerializeField] private Animation dataGained;
+
+    public GameObject clickBTN;
     
     //private ulong _gainedBits;
     //public int gainedData;
