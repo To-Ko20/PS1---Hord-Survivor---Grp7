@@ -82,6 +82,6 @@ public class AutoClickerManager : MonoBehaviour
 
     public void DecrementSpeed(int level)
     {
-        speed -= (_baseSpeed-(_baseSpeed/level))/level;
+        speed -= (_baseSpeed-(_baseSpeed/nbLevel))/nbLevel;
     }
 }
