@@ -24,9 +24,10 @@ public class AutoClickerManager : MonoBehaviour
 
     private void Start()
     {
-        _parent = ClickerManager.Instance.clickBTN.transform.gameObject;
+        transform.SetParent(ClickerManager.Instance.autoClickersAnchor.transform);
+        _parent = ClickerManager.Instance.autoClickersAnchor.transform.gameObject;
         _baseSpeed = speed;
-        _image = _parent.GetComponent<Image>();
+        _image = ClickerManager.Instance.clickBTN.GetComponent<Image>();
         if (ClickerManager.Instance.autoClickers.Count > 1)
         {
             speed = ClickerManager.Instance.autoClickers[0].GetComponent<AutoClickerManager>().speed;

@@ -25,6 +25,7 @@ public class ClickerManager : MonoBehaviour
     public bool unlockClickerSpeed = false;
 
     public GameObject clickBTN;
+    public GameObject autoClickersAnchor;
     
     //private ulong _gainedBits;
     //public int gainedData;
