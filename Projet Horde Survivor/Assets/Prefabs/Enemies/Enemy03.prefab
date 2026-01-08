@@ -215,7 +215,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   rb: {fileID: 2474233789122409842}
   speed: 1.5
-  damageToPlayer: 5
+  damageToPlayer: 10
   enemyHealth: 120
   lifeDisplay: {fileID: 0}
   dataPrefab: {fileID: 185209308465788401, guid: b06c7cbf0ce5de94ba3a34c9b5149c42, type: 3}
