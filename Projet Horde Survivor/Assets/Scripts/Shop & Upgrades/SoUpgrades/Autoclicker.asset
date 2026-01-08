@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5d1c1ac1ae0b34f8abbafaf09d266f, type: 3}
   m_Name: Autoclicker
   m_EditorClassIdentifier: 
-  upgradeName: Autoclicker
+  upgradeName: Autoclicker   Amount
   upgradeDescription: Increases the amount of active autoclickers
   cost: 0010000000000000803e00000000000000fa00000000000000e803000000000000a00f000000000000803e00000000000024f400000000000090d00300000000
   effects:
