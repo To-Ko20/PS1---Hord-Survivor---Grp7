@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae601b50b9ad9f84f841ff985a28aa40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.2
+  speed: 1
   nbLevel: 55
   anim: {fileID: 3902509295231382400}
   radius: 150
