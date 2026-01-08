@@ -4293,7 +4293,7 @@ MonoBehaviour:
   shield: {fileID: 1321996067}
   shieldCooldown: 30
   shieldForce: 1
-  shieldNb: 0
+  shieldNb: 1
   hasForceField: 0
   hasRegen: 0
   resetShieldCooldown: 0
@@ -17238,7 +17238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1321996068
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -165,15 +165,18 @@ public class PlayerManager : MonoBehaviour
 
             if (PlayerSkillHolderManager.Instance.hasForceField && canForceField)
             {
-                if (distance <= radius*1.5f)
+                if (maxHealth - currentHealth <= maxHealth * 0.15f)
                 {
-                    Rigidbody2D rb = enemy.gameObject.GetComponent<Rigidbody2D>();
-                    if (rb != null)
+                    if (distance <= radius*1.5f)
                     {
-                        Vector2 direction = (enemy.transform.position - knockbackZone.transform.position).normalized;
-                        enemy.GetComponent<EnemyMovement>()?.ApplyKnockBack(direction, knockbackStrenght*force*1.5f);
-                        canForceField =  false;
-                    }
+                        Rigidbody2D rb = enemy.gameObject.GetComponent<Rigidbody2D>();
+                        if (rb != null)
+                        {
+                            Vector2 direction = (enemy.transform.position - knockbackZone.transform.position).normalized;
+                            enemy.GetComponent<EnemyMovement>()?.ApplyKnockBack(direction, knockbackStrenght*force*1.5f);
+                            canForceField =  false;
+                        }
+                    } 
                 }
             }
             else

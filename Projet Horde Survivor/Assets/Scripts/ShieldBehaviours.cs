@@ -32,13 +32,13 @@ public class ShieldBehaviours : MonoBehaviour
     {
         PlayerManager.Instance.Knockback(force);
         shieldTimer = Instance.shieldCooldown;
-        canDeflect = false;
         if (shieldNb > 1)
         {
             shieldNb--;
         }
         else
         {
+            canDeflect = false;
             spriteRenderer.enabled = false;
             shieldNb = Instance.shieldNb;
         }
