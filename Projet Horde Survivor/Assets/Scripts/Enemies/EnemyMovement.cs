@@ -183,7 +183,7 @@ public class EnemyMovement : MonoBehaviour
         if (PlayerSkillHolderManager.Instance.hasVampire)
         {
             if (Random.Range(0,1) <= PlayerSkillHolderManager.Instance.vampireRate)
-            PlayerManager.Instance.GainLife(20);
+            PlayerManager.Instance.GainLife(10);
         }
         
         StartCoroutine(DeathAnimation());

@@ -77,7 +77,7 @@ public class BulletMovement : MonoBehaviour
             if (PlayerManager.Instance.currentHealth > (PlayerManager.Instance.maxHealth * 0.15))
             {
                 target.GetComponent<EnemyMovement>().EnemyTakeDamage(bulletDamage*2, "bullet");
-                PlayerManager.Instance.TakeDamage(1);
+                PlayerManager.Instance.CursedDamages(1);
             }
             else
             {

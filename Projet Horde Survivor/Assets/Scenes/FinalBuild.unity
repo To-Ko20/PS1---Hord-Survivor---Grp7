@@ -4300,7 +4300,7 @@ MonoBehaviour:
   hasBerserkLife: 0
   hasCursedShot: 0
   hasVampire: 0
-  vampireRate: 0.5
+  vampireRate: 0.1
   hasDash: 0
   hasDoubleDash: 0
   dashNb: 0

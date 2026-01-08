@@ -98,6 +98,22 @@ public class PlayerManager : MonoBehaviour
         }
     }
     
+    public void CursedDamages(float amount)
+    {
+        if (canTakeDamages)
+        {
+            canTakeDamages = false;
+            currentHealth -= amount;
+        
+            if (currentHealth <= 0)
+            {
+                GameManager.Instance.GameOver();
+            }
+        
+            StartCoroutine(DmgAnimation());
+        }
+    }
+    
     IEnumerator DmgAnimation()
     {
         yield return new WaitForSeconds(0.0625f);
