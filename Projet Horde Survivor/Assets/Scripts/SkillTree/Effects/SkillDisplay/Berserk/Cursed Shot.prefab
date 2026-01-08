@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bullets deal double damage, but your health decreases each time you shoot
+  m_text: You lose 1hp for each shot you fire, but deal double damage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c05d1511a9579924e8b3064bcead23c6, type: 2}
   m_sharedMaterial: {fileID: 175002130894840059, guid: c05d1511a9579924e8b3064bcead23c6, type: 2}

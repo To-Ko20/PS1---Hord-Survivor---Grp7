@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A rotating blade that deals damage to enemies
+  m_text: A rotating force field that damages nearby enemies
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c05d1511a9579924e8b3064bcead23c6, type: 2}
   m_sharedMaterial: {fileID: 175002130894840059, guid: c05d1511a9579924e8b3064bcead23c6, type: 2}
@@ -397,8 +397,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 16}
-  m_SizeDelta: {x: 150, y: 31}
+  m_AnchoredPosition: {x: 2.3970032, y: 16}
+  m_SizeDelta: {x: 154.794, y: 31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4410770312936313432
 CanvasRenderer:
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rotating blade
+  m_text: Rotating Blade
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c05d1511a9579924e8b3064bcead23c6, type: 2}
   m_sharedMaterial: {fileID: 175002130894840059, guid: c05d1511a9579924e8b3064bcead23c6, type: 2}
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.078804016, y: 0.004033077, z: 0.30373377, w: -0.024020199}
+  m_margin: {x: -5.2415314, y: 0.004033077, z: 2.1475904, w: -0.024020199}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
