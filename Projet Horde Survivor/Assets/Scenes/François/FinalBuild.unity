@@ -2355,7 +2355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 bits
+  m_text: 0 bit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 582dd61b679a2d047867654a65184812, type: 2}
   m_sharedMaterial: {fileID: 8119412701931783793, guid: 582dd61b679a2d047867654a65184812, type: 2}
@@ -3700,7 +3700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 234310447}
   textToDisplay:
-  - "For now, \xB5\xA4\xA4\xB5\xA4\xA4\xB5\xA4\xA4 you only have one upgrade availible.
+  - "For now, \xB5\xA4\xA4\xB5\xA4\xA4\xB5\xA4\xA4 you only have one upgrade available.
     \xB5\xA4\xA4\xB5\xA4\xA4\xB5\xA4\xA4 You can buy it any time as long as you have
     enough bits. \xB5\xA4\xA4\xB5\xA4\xA4\xB5\xA4\xA4"
   typingSpeed: 0.025
@@ -3996,7 +3996,7 @@ MonoBehaviour:
   textDisplay: {fileID: 258605523}
   textToDisplay:
   - "Talking about enemies made one head towards you. \xB5\xA4\xA4\xB5\xA4\xA4\xB5\xA4\xA4
-    Stay away from him and watch him die ! \xB5\xA4\xA4\xB5\xA4\xA4\xB5\xA4\xA4"
+    Keep your distances ! \xB5\xA4\xA4\xB5\xA4\xA4\xB5\xA4\xA4"
   typingSpeed: 0.025
   isMainMenu: 0
   isMainMenuEndAnimation: 0
@@ -4873,7 +4873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4760563950446846147, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6759198473344292061, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_IsActive
@@ -4881,11 +4881,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7176929136833260340, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_text
-      value: Auto Shoot
+      value: Autoshoot
       objectReference: {fileID: 0}
     - target: {fileID: 8386814094676816025, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_text
       value: 2 bits
+      objectReference: {fileID: 0}
+    - target: {fileID: 9191694205429950384, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
+      propertyPath: m_text
+      value: Click here to buy
       objectReference: {fileID: 0}
     - target: {fileID: 9191694205429950384, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_fontStyle
@@ -6425,7 +6429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7176929136833260340, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_text
-      value: Shoot speed
+      value: Shooting Speed
       objectReference: {fileID: 0}
     - target: {fileID: 8386814094676816025, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_text
@@ -7966,7 +7970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8386814094676816025, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_text
-      value: 2 bits
+      value: 128 bits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9165,7 +9169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7176929136833260340, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_text
-      value: Damages
+      value: Damage
       objectReference: {fileID: 0}
     - target: {fileID: 8386814094676816025, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_text
@@ -13930,7 +13934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9191694205429950384, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_text
-      value: 0 bit/s
+      value: Statistic
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15164,7 +15168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7176929136833260340, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_text
-      value: Click Price
+      value: Click Strengh
       objectReference: {fileID: 0}
     - target: {fileID: 8386814094676816025, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_text
@@ -20146,7 +20150,9 @@ MonoBehaviour:
   clickUI: {fileID: 1516430962}
   clickGained: {fileID: 770585742}
   dataGained: {fileID: 1335224317}
+  unlockClickerSpeed: 0
   clickBTN: {fileID: 2011838927}
+  autoClickersAnchor: {fileID: 0}
   bitsMetric:
   - Bits
   - Byte
@@ -20645,7 +20651,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 2
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -22112,7 +22118,7 @@ MonoBehaviour:
   textDisplay: {fileID: 1899005401}
   textToDisplay:
   - "Nice job. \xB5\xA4\xA4\xB5\xA4\xA4\xB5\xA4\xA4 You have learned everything you
-    needed to take the hordes of sentinels the computer is able to throw at you.
+    needed to take the hordes of sentinels the anti-virus is able to throw at you.
     \xB5\xA4\xA4\xB5\xA4\xA4\xB5\xA4\xA4 Good luck ! \xB5\xA4\xA4\xB5\xA4\xA4\xB5\xA4\xA4"
   typingSpeed: 0.025
   isMainMenu: 0
@@ -24358,7 +24364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 2015129972}
   textToDisplay:
-  - "Here, \xB5\xA4\xA4\xB5\xA4\xA4\xB5\xA4\xA4 you can find both clicker upgradess
+  - "Here, \xB5\xA4\xA4\xB5\xA4\xA4\xB5\xA4\xA4 you can find both clicker upgrades
     and player upgrades. \xB5\xA4\xA4\xB5\xA4\xA4\xB5\xA4\xA4"
   typingSpeed: 0.025
   isMainMenu: 0
@@ -25060,7 +25066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2736907354128090909, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -485.9992
+      value: -125.9992
       objectReference: {fileID: 0}
     - target: {fileID: 2736907354128090909, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -25078,21 +25084,25 @@ PrefabInstance:
       propertyPath: m_text
       value: 8 bits
       objectReference: {fileID: 0}
+    - target: {fileID: 4029745907815427074, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4760563950446846147, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_Name
       value: Item (6)
       objectReference: {fileID: 0}
     - target: {fileID: 4760563950446846147, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7176929136833260340, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_text
-      value: Download Speed
+      value: Max Download Speed
       objectReference: {fileID: 0}
     - target: {fileID: 8386814094676816025, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_text
-      value: 8 bits
+      value: 64 bits
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26277,6 +26287,10 @@ PrefabInstance:
     - target: {fileID: 4760563950446846147, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176929136833260340, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
+      propertyPath: m_text
+      value: Autoclicker Amount
       objectReference: {fileID: 0}
     - target: {fileID: 9191694205429950384, guid: 45b058f1aee024249978b0586252a3fe, type: 3}
       propertyPath: m_fontStyle
