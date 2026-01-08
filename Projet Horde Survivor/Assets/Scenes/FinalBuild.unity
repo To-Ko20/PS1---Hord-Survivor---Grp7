@@ -4278,7 +4278,7 @@ MonoBehaviour:
   mine: {fileID: 393963819148785011, guid: 0566d909189e0544ea346c487abde582, type: 3}
   mineRadius: 20
   mineDMG: 30
-  mineRate: 0.33
+  mineRate: 0.15
   shield: {fileID: 1321996067}
   shieldCooldown: 30
   shieldForce: 1
@@ -4289,6 +4289,7 @@ MonoBehaviour:
   hasBerserkLife: 0
   hasCursedShot: 0
   hasVampire: 0
+  vampireRate: 0.5
   hasDash: 0
   hasDoubleDash: 0
   dashNb: 0

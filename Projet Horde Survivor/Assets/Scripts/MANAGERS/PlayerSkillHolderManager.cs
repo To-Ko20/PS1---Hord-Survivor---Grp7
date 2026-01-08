@@ -56,6 +56,7 @@ public class PlayerSkillHolderManager : MonoBehaviour
     public bool hasBerserkLife;
     public bool hasCursedShot;
     public bool hasVampire;
+    public float vampireRate;
     public bool hasDash;
     public bool hasDoubleDash;
     public int dashNb;
@@ -66,7 +67,6 @@ public class PlayerSkillHolderManager : MonoBehaviour
     [Header("Lens")]
     public GameObject lens;
 
-    
 
     public static PlayerSkillHolderManager Instance;
     

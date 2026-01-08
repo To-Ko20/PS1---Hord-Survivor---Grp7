@@ -182,7 +182,7 @@ public class EnemyMovement : MonoBehaviour
         
         if (PlayerSkillHolderManager.Instance.hasVampire)
         {
-            if (Random.Range(0,100) <= 5)
+            if (Random.Range(0,1) <= PlayerSkillHolderManager.Instance.vampireRate)
             PlayerManager.Instance.GainLife(20);
         }
         
