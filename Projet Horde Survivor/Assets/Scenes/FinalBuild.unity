@@ -18737,7 +18737,7 @@ MonoBehaviour:
   pressureTime: 1
   timerText: {fileID: 808632454}
   quarantine: {fileID: 220929895}
-  quarantineTime: 150
+  quarantineTime: 120
   isCountdownActive: 1
 --- !u!4 &1386913166
 Transform:
